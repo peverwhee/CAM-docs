@@ -19,3 +19,7 @@ CAM User's Guide
    sample-interactive-session.rst
    input-datasets.rst
    model-output.rst
+   physics-modifications-via-the-namelist.rst
+   appendices.rst
+   references.rst
+   list-of-examples.rst
