@@ -1276,7 +1276,7 @@ and the *in-cloud* ice water mixing ratio is assumed to be
 
 .. math:: \hat q_i = (f_i)q_c / {{\cal C}}.
 
- The grid volume mean quantities have been converted to in-cloud
+The grid volume mean quantities have been converted to in-cloud
 quantities by dividing the mean mixing ratios by the cloud fraction.
 
 The evaporation of precipitation is computed for each source of
@@ -2844,7 +2844,7 @@ in each band are replaced by effective transmissions
 
 .. math:: {{\bar T}^{i}_{H_2SO_4}} = \exp(-D\,\kappa_{i,volc}\,W_{volc})
 
- where :math:`D = 1.66` is the diffusivity factor,
+where :math:`D = 1.66` is the diffusivity factor,
 :math:`\kappa_{i,volc}` is an effective specific extinction for the
 band, and :math:`W_{volc}` is the mass path of the volcanic aerosols.
 For computing overlap with minor absorbers, methane, and carbon dioxide,
@@ -3127,7 +3127,7 @@ using:
       U' = {\epsilon \over {\widetilde {q}}} \> {{C_s({{\bar\nu}},{T_{ref}})} \over
            {C_s({{\bar\nu}},{\widetilde {T_p}})}} \> U_c
 
- where :math:`{T_{ref}}= 296K` is a reference temperature,
+where :math:`{T_{ref}}= 296K` is a reference temperature,
 :math:`{{\bar\nu}}` is a suitably chosen wavenumber inside the window,
 :math:`U_c` is the self-continuum path length, and
 :math:`{{{C_s(\nu,T)}}}` is the self continuum absorption coefficient.
@@ -3161,7 +3161,7 @@ We approximate the window absorptivity by:
 
 .. math:: {A_{w}(p_1,p_2)}\simeq {A_{w,\infty}}[1 - L(l_w) C(c_w)]
 
- This approximation for :math:`{A_{w}(p_1,p_2)}` can be cast entirely in
+This approximation for :math:`{A_{w}(p_1,p_2)}` can be cast entirely in
 terms of the absorptivities defined in equation [eq:awdef]. From
 equations [eq:awline] and [eq:awcont], the line and continuum
 transmission are:
@@ -3188,7 +3188,7 @@ The volcanic transmission factor is
    {{\cal T}^{b}_{H_2SO_4}} = {{\bar T}^{b}_{H_2SO_4}} = \exp(-D\,\kappa_{b,volc}\,W_{volc})
        
 
- where :math:`D = 1.66` is the diffusivity factor,
+where :math:`D = 1.66` is the diffusivity factor,
 :math:`\kappa_{b,volc}` is an effective specific extinction for the
 band, and :math:`W_{volc}` is the mass path of the volcanic aerosols.
 The extinction :math:`\kappa_{b,volc}` has been adjusted iteratively to
@@ -3312,7 +3312,7 @@ While the “hot” band parameters are defined as
    \frac{1}{\sqrt {T}}( \frac{P}{P_{0}} ) du^3_1}}{\int {du^3_1}}
    
 
- The overlap factors in ([4.b.61]) due to water vapor is the same factor
+The overlap factors in ([4.b.61]) due to water vapor is the same factor
 defined by ([4.b.59]), while the overlap due to methane is obtained by
 using the definition of the transmission factor in terms of the
 equivalent width .
@@ -3621,7 +3621,7 @@ the RHS of ([4.b.97]),
    A_{CFC11}^2\bar T_{H_2O}{{\bar T}^{3}_{H_2SO_4}}F(B_{\bar\nu})
    
 
- where the H\ :math:`_2`\ O overlap factor is given by index 2 in
+where the H\ :math:`_2`\ O overlap factor is given by index 2 in
 Tables [table:coeftdf] and [table:coefwv]. The 933 cm\ :math:`^{-1}`
 CFC11 band is given by the third term on the RHS of ([4.b.99]),
 
@@ -3760,7 +3760,7 @@ represented by the third term on the RHS of ([4.b.100]),
    T_{H_2O}{{\bar T}^{4}_{H_2SO_4}} \bar T_{CFC11}^4\bar T_{CFC12}^3F(B_{\bar \nu})
    
 
- where the transmission factors due to ozone, water vapor, CFC11 and
+where the transmission factors due to ozone, water vapor, CFC11 and
 CFC12 are defined in the previous section. The absorptance due to the
 1064 cm\ :math:`^{-1}` CO\ :math:`_2` band is given by
 
@@ -4091,16 +4091,13 @@ algorithm that is employed in is to use a trapezoid method for all
 layers the nearest layer. For the nearest layer a subdivision, as
 illustrated in Figure [figure:3], is employed.
 
-.. figure:: figures/figure4-2
-   :alt: [figure:3]Subdivision of model layers for radiation flux
-   calculation
-
-[figure:3]Subdivision of model layers for radiation flux calculation
+.. todo:: [figure:3]Subdivision of model layers for radiation flux calculation
 
 For the upward flux, the nearest layer contribution to the integral is
 evaluated from
 
 .. math::
+   :label:
 
    \int^{p^{k+1}_H}_{p^k_H} \alpha dB(p') = \alpha_{22}
    [B(p^{k+1}_H) - B(p^k) ] + \alpha_{21} [B(p^k) -
@@ -4109,11 +4106,11 @@ evaluated from
 while for the downward flux, the integral is evaluated according to
 
 .. math::
+   :label:
 
    \int^{p^k_H}_{p^{k+1}_H} \alpha dB(p') = \alpha_{11} [B (p^k) -
    B(p^k_H) ] + \alpha_{12} [B(p^{k+1}_H) - B(p^k) ] .
    
-
 The :math:`\alpha_{ij},\; i = 1, 2;\; j = 1, 2,` are absorptivities
 evaluated for the subdivided paths shown in Figure [figure:3]. The
 path–length dependence for the absorptivities arises from the dependence
@@ -4127,6 +4124,7 @@ Figure [figure:3]. In general, the absorptance of a layer can require
 the evaluation of the following path lengths:
 
 .. math::
+   :label:
 
    \xi (p_k, p_{k+1}) & = f(\overline {T}) \overline {p} \Delta p ,
     \\[-1.0em] \intertext{and}\nonumber\\[-2.0em] u(p_k,
@@ -4146,6 +4144,7 @@ lengths dependent on both :math:`p^2` (:math:`\xi`) and :math:`p`
 fractional layer amount must be multiplied by :math:`\xi` and :math:`u`,
 
 .. math::
+   :label:
 
    \overline {\xi}_{11} & = \xi (p^k_H p^{k+1}_H) \times UINPL (1,k) ,
     \\ \overline {u}_{11} & = u(p^k_H, p^{k+1}_H) \times
@@ -4167,14 +4166,15 @@ length from :math:`p^k_H` to :math:`p^{k+1}_H` for the :math:`p^2` path
 length will be
 
 .. math::
+   :label:
 
-   \xi (p^k_H, p^{k+1}_H) \approx \overline{p}_H [p^k_H - p^{k+1}_H
-   ] , 
+   \xi (p^k_H, p^{k+1}_H) \approx \overline{p}_H [p^k_H - p^{k+1}_H] , 
 
 where :math:`\overline {p}_H \equiv \frac{p^k_H + p^{k+1}_H}{2}`. The
 layer path length is, therefore, proportional to
 
 .. math::
+   :label:
 
    \xi (p^k_H, p^{k+1}_H) \approx \frac{1}{2} ((p^{k}_{H})^{2}
    - ( p^{k+1}_{H})^{2}).  
@@ -4183,6 +4183,7 @@ The path length :math:`\xi` for :math:`\alpha_{22}` requires the mean
 pressure
 
 .. math::
+   :label:
 
    \overline {p}_{22} &\approx \frac{1}{2}  \{ \frac{p^k +
    p^{k+1}_H}{2} + p^{k+1}_H  \} ,  \\
@@ -4193,16 +4194,17 @@ pressure
  Therefore, the path :math:`\xi_{22}` is
 
 .. math::
+   :label:
 
    \xi_{22} \approx \overline {p}_{22}\; \Delta p_{22} = \frac{1}{2}
     \{ ( \frac{p^k + p^{k+1}_H}{2} )^2 - ( p^{k+1}_H
    )^2  \} .  
 
 The fractional path length is obtained by normalizing this by
-:math:`\xi
-(p^k_H, p^{k+1}_H)`,
+:math:`\xi(p^k_H, p^{k+1}_H)`,
 
 .. math::
+   :label:
 
    UINPL (2,k) & = DAF3(k)  \{ ( \frac{p^k + p^{k+1}_H}{2}
     )^2 - ( p^{k+1}_H )^2  \} ,
@@ -4214,6 +4216,7 @@ Similar reasoning leads to the following expressions for the remaining
 fractional path lengths, for :math:`\alpha_{21}`,
 
 .. math::
+   :label:
 
    UINPL (3,k) & = DAF3(k)  \{ ( \frac{p^k + p^k_H}{2} )^2
    - ( p^{k+1}_{H} )^2  \} , \\
@@ -4232,6 +4235,7 @@ For variables that scale linearly in :math:`p`,
 used:
 
 .. math::
+   :label:
 
    WINPL (1,k) & = DAF4 (k) \{ \frac{p^k_H - p^k}{2}  \},
     \\ WINPL (2,k) & = DAF4 (k)  \{ \frac{p^k -
@@ -4250,6 +4254,7 @@ The variable :math:`\overline {\beta}_{ij}` requires a mean pressure for
 the subdivided layer. These are
 
 .. math::
+   :label:
 
    PINPL (1,k) & = \frac{1}{2}  \{ \frac{p^k + p^k_H}{2} + p^k_H
     \} ,  \\ PINPL (2,k) & = \frac{1}{2}  \{
