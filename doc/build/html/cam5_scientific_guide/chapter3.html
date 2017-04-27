@@ -562,14 +562,12 @@ computational efficiency, we shall take advantage of the stability of
 the FFSL transport algorithm by using a much larger time step
 (<img class="math" src="../_images/math/d3094c2de30ceb0ea77bee88dd44c982e88d5ac6.png" alt="\Delta t)"/> for the transport of all tracer species (including
 water vapor). As in the shallow water system, the Lagrangian dynamics
-uses a relatively small time step, <img class="math" src="../_images/math/ba486e167b56512a31e47635924dbde87cdc28ea.png" alt="\Delta \tau
-=\Delta t/m"/>, where <img class="math" src="../_images/math/edba97b4c0d864d26e92ea7ea73767fa38eef3f7.png" alt="m"/> is the number of the sub-cycling needed
+uses a relatively small time step, <img class="math" src="../_images/math/2bccc6dc12d683d542c5299b37bd7ac196e797bc.png" alt="\Delta \tau =\Delta t/m"/>, where <img class="math" src="../_images/math/edba97b4c0d864d26e92ea7ea73767fa38eef3f7.png" alt="m"/> is the number of the sub-cycling needed
 to stabilize the fastest wave in the system. We shall describe here this
-time-split procedure for the <em>prognostic variables</em> :math:`
-left[ delta p,Theta ,u,v;qright]` on the D-grid. Discretization on
+time-split procedure for the <em>prognostic variables</em>
+<img class="math" src="../_images/math/dc3dc5119979667ad2fbaf83343ff01b41570af1.png" alt="\left[ \delta p,\Theta ,u,v;q\right]"/> on the D-grid. Discretization on
 the C-grid for obtaining the <em>diagnostic variables</em>, the time-averaged
-winds <img class="math" src="../_images/math/2a6e8f225802940c196c0dc39f8d7486b6ae8c3d.png" alt="(u^{*},v^{*})"/>, is analogous to that of the D-grid (see
-also LR97).</p>
+winds <img class="math" src="../_images/math/2a6e8f225802940c196c0dc39f8d7486b6ae8c3d.png" alt="(u^{*},v^{*})"/>, is analogous to that of the D-grid (see also LR97).</p>
 <p>Introducing the following short hand notations (<em>cf</em>, (<a class="reference internal" href="#equation-def-1">(17)</a>) and
 (<a class="reference internal" href="#equation-def-2">(18)</a>)):</p>
 <div class="math">

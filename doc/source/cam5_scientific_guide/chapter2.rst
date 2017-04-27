@@ -64,13 +64,13 @@ state, :math:`\psi^{n-1}`, while in the *Time Split* approximations
 state produced by the other.
 
 As mentioned above, the Eulerian core employs the three-time-level
-notation in (:eq:`3`)-(:eq:`6`). Eqns. (:eq:`3`)-(:eq:`6`) also apply to two-time-level
+notation in :eq:`3`-:eq:`6`. Eqns. :eq:`3`-:eq:`6` also apply to two-time-level
 finite volume, semi-Lagrangian and spectral element (HOMME) cores by
 dropping centered :math:`n` term dependencies, and replacing :math:`n`-1
 by :math:`n` and :math:`2 \Delta t` by :math:`\Delta t`.
 
 The parameterization package can be applied to produce an updated field
-as indicated in (:eq:`4`) and (:eq:`6`). Thus (:eq:`6`) can be written with an
+as indicated in :eq:`4` and :eq:`6`. Thus :eq:`6` can be written with an
 operator notation
 
 .. math::
@@ -81,7 +81,7 @@ operator notation
 
 where only the past state is included in the operator dependency for
 notational convenience. The implicit predicted state dependency is
-understood. The *Process Split* equation (:eq:`3`) can also be written in
+understood. The *Process Split* equation :eq:`3` can also be written in
 operator notation as
 
 .. math::
@@ -97,7 +97,7 @@ the forcing rate from the parameterization package, e.g. the heating
 rate in the thermodynamic equation. Again only the past state is
 included in the operator dependency, with the implicit predicted state
 dependency left understood. With this notation the *Time Split* system
-(:eq:`5`) and (:eq:`6`) can be written
+:eq:`5` and :eq:`6` can be written
 
 .. math::
    :label: 9
@@ -129,7 +129,7 @@ provide lower flux boundary conditions for the turbulent mixing
 :math:`T` which is comprised of the planetary boundary layer
 parameterization, vertical diffusion, and gravity wave drag.
 
-Defining operators following (:eq:`7`) for each of the parameterization
+Defining operators following :eq:`7` for each of the parameterization
 components, the couplings in are summarized as:
 
 TIME SPLIT
@@ -137,16 +137,19 @@ TIME SPLIT
 .. math::
    :label: 11
 
-   \begin{aligned}
-   \psi^{n+1} &= {\boldsymbol{T}}\left({\boldsymbol{S}}\left({\boldsymbol{R}}\left({\boldsymbol{M}}\left(
-                          {\boldsymbol{D}}\left(\psi^{n-1},0\right)\right)\right)\right)\right)
-    \\
-   \intertext{PROCESS SPLIT} \psi^{n+1} &=
-   {\boldsymbol{D}}\left(\psi^{n-1},\frac {
+   \psi^{n+1} = {\boldsymbol{T}}\left({\boldsymbol{S}}\left({\boldsymbol{R}}\left({\boldsymbol{M}}\left(
+                {\boldsymbol{D}}\left(\psi^{n-1},0\right)\right)\right)\right)\right)
+
+
+PROCESS SPLIT
+
+.. math:: 
+   :label: 12
+
+   \psi^{n+1} = {\boldsymbol{D}}\left(\psi^{n-1},\frac { 
    {\boldsymbol{T}}\left({\boldsymbol{S}}\left({\boldsymbol{R}}\left(
    {\boldsymbol{M}}\left(\psi^{n-1}\right)\right)\right)\right) - \psi^{n-1}}
    {2\Delta t}\right)
-   \end{aligned}
 
 The labels *Time Split* and *Process Split* refer to the coupling of the
 dynamical core with the complete parameterization suite. The components
@@ -168,6 +171,6 @@ coordinate every sub-step of the dynamical core. Besides the expense
 involved, it is not completely obvious how to interpolate the
 parameterized forcing, which can have a vertical grid scale component
 arising from vertical grid scale clouds, to a different vertical grid.
-(Williamson 2002) compares simulations with the Eulerian spectral
+:ref:`Williamson 2002 <Williamson-2002>` compares simulations with the Eulerian spectral
 transform dynamical core coupled to the CCM3 parameterization suite via
 *Process Split* and *Time Split* approximations.

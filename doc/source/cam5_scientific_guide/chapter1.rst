@@ -447,7 +447,7 @@ double counting seen in previous CAM parameterizations. The deep
 convection parameterization is retained from CAM4.0 (Section
 [ssec:deep-convection]).
 
-Stratiform microphysical processes (Section `sec-microphysics`_) are
+Stratiform microphysical processes (Section sec-microphysics) are
 represented by a prognostic, two-moment formulation for cloud droplet
 and cloud ice with mass and number concentrations following the original
 parameterization of Morrison and Gettelman (2008). The implimentation in

@@ -299,7 +299,7 @@ Clouds.” *J. Atmos. Oceanic Technol.* 23: 1357–71.
 
 .. _Field-2006:
 
-Field, P. R., O. Möhler, P. Connolly, M. KrÃ¤mer, R. Cotton, A. J.
+Field, P. R., O. Möhler, P. Connolly, M. Krmer, R. Cotton, A. J.
 Heymsfield, H. Saathoff, and M. Schnaiter. 2006. “Some Ice Nucleation
 Characteristics of Asian and Saharan Desert Dust.” *Atmospheric
 Chemistry and Physics* 6 (10): 2991–3006.

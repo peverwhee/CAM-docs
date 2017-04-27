@@ -958,8 +958,8 @@ C^k &amp;=&amp; \frac{1}{\delta^{k} p}
 </div><p>Comparing <a class="reference internal" href="#equation-eq:tridiag2">(22)</a>  and <a class="reference internal" href="#equation-eq:tridiag4">(24)</a> , we find</p>
 <div class="math" id="equation-eq:tridiag5">
 <p><span class="eqno">(25)<a class="headerlink" href="#equation-eq:tridiag5" title="Permalink to this equation">¶</a></span><img src="../_images/math/2b6eed94627a52657011f5ab441170fea30545bd.png" alt="E^k = \frac{C^k} {B^k - A^k E^{k+1}}, \quad L&gt;k&gt;1,"/></p>
-</div><div class="math">
-<p><img src="../_images/math/72e77eca217dd7396c3168f05763c64c80756298.png" alt="F^k = \frac{\psi^k_{n\prime} + A^k F^{k+1}}{B^k - A^k E^{k+1}}, \quad L&gt;k&gt;1"/></p>
+</div><div class="math" id="equation-eq:tridiag6">
+<p><span class="eqno">(26)<a class="headerlink" href="#equation-eq:tridiag6" title="Permalink to this equation">¶</a></span><img src="../_images/math/72e77eca217dd7396c3168f05763c64c80756298.png" alt="F^k = \frac{\psi^k_{n\prime} + A^k F^{k+1}}{B^k - A^k E^{k+1}}, \quad L&gt;k&gt;1"/></p>
 </div><p>The terms <img class="math" src="../_images/math/29242a8e13ed87a6456b3b62df2203326a97e6de.png" alt="E^k"/> and <img class="math" src="../_images/math/528dd56eb4607d96b43738a34aee085523a1c6ad.png" alt="F^k"/> can be determined upward from
 <img class="math" src="../_images/math/ae9c198bcc2412e3a949e1158dae9dea21a9be53.png" alt="k=L"/>, using the boundary conditions</p>
 <div class="math">
@@ -973,7 +973,7 @@ reversed, which merely requires writing <a class="reference internal" href="#equ
 <img class="math" src="../_images/math/3fd81da183edbe205a497d780ef3fd383383e8a4.png" alt="\psi^{k-1}_{n+1}"/> instead of <img class="math" src="../_images/math/bb6083a50bec539befda9a98361de69408584027.png" alt="\psi^{k+1}_{n+1}"/>. The order
 used here is particularly convenient because the turbulent diffusivities
 for heat and all constituents are the same but their molecular
-diffusivities are not. Since the terms in <a class="reference internal" href="#equation-eq:tridiag5">(25)</a> [eq:tridiag6])
+diffusivities are not. Since the terms in <a class="reference internal" href="#equation-eq:tridiag5">(25)</a> and <code class="xref eq docutils literal"><span class="pre">:eq:tridiag6</span></code>
 are determined from the bottom upward, it is only necessary to
 recalculate <img class="math" src="../_images/math/f39de020351b42ffc48ebca084da313b1182de54.png" alt="A^k"/>, <img class="math" src="../_images/math/b7d7f20a45ea539d42fb3d0c2ed27a4cf7642db3.png" alt="C^k"/>, <img class="math" src="../_images/math/29242a8e13ed87a6456b3b62df2203326a97e6de.png" alt="E^k"/> and <img class="math" src="../_images/math/d0af86fb0a61e0f23de46b22cb1459738402387b.png" alt="1/({B^k -
 A^k E^{k+1}})"/> for each constituent within the region where molecular
@@ -1004,59 +1004,59 @@ parameterization used in .</p>
 parameterization are obtained from the two-dimensional hydrostatic
 momentum, continuity and thermodynamic equations in a vertical plane:</p>
 <div class="math" id="equation-eq:gw_mom">
-<p><span class="eqno">(26)<a class="headerlink" href="#equation-eq:gw_mom" title="Permalink to this equation">¶</a></span><img src="../_images/math/43ca2e74e28808eae3413fd1333ac596b21f5f93.png" alt="\left( \frac{\partial}{\partial t} + u\frac{\partial}{\partial x}\right)u
+<p><span class="eqno">(27)<a class="headerlink" href="#equation-eq:gw_mom" title="Permalink to this equation">¶</a></span><img src="../_images/math/43ca2e74e28808eae3413fd1333ac596b21f5f93.png" alt="\left( \frac{\partial}{\partial t} + u\frac{\partial}{\partial x}\right)u
   = -\frac{\partial\Phi}{\partial x}\, ,"/></p>
 </div><div class="math" id="equation-eq:gw_cont">
-<p><span class="eqno">(27)<a class="headerlink" href="#equation-eq:gw_cont" title="Permalink to this equation">¶</a></span><img src="../_images/math/aa162612782e94d96b57b31c115ad73f81f7bf29.png" alt="\frac{\partial u}{\partial x} + \frac{\partial W}{\partial Z} = 0\, ,"/></p>
+<p><span class="eqno">(28)<a class="headerlink" href="#equation-eq:gw_cont" title="Permalink to this equation">¶</a></span><img src="../_images/math/aa162612782e94d96b57b31c115ad73f81f7bf29.png" alt="\frac{\partial u}{\partial x} + \frac{\partial W}{\partial Z} = 0\, ,"/></p>
 </div><div class="math" id="equation-eq:gw_therm">
-<p><span class="eqno">(28)<a class="headerlink" href="#equation-eq:gw_therm" title="Permalink to this equation">¶</a></span><img src="../_images/math/cd867a237b3c1bf6747c74ba332f24f35c9c5aee.png" alt="\left( \frac{\partial}{\partial t} + u\frac{\partial}{\partial x}\right)
+<p><span class="eqno">(29)<a class="headerlink" href="#equation-eq:gw_therm" title="Permalink to this equation">¶</a></span><img src="../_images/math/cd867a237b3c1bf6747c74ba332f24f35c9c5aee.png" alt="\left( \frac{\partial}{\partial t} + u\frac{\partial}{\partial x}\right)
 \ \frac{\partial\Phi}{\partial Z} + N^2 w = 0\, ."/></p>
 </div><p>Where <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/> is the local Brunt-Väisällä frequency, and <img class="math" src="../_images/math/953bde2ab2fca30897f66185e5b37b73747b8b46.png" alt="W"/> is
 the vertical velocity in log pressure height (<img class="math" src="../_images/math/bcb2457ac9d8995a4f34d57cadac7ecbbe58f3bd.png" alt="Z"/>) coordinates.
-Eqs. <a class="reference internal" href="#equation-eq:gw_mom">(26)</a> –<a class="reference internal" href="#equation-eq:gw_therm">(28)</a>  are linearized
+Eqs. <a class="reference internal" href="#equation-eq:gw_mom">(27)</a> –<a class="reference internal" href="#equation-eq:gw_therm">(29)</a>  are linearized
 about a large scale background wind <img class="math" src="../_images/math/e26e04e5fa7b7a02348a45f4e4ba2915b4a2e146.png" alt="\overline u"/>, with
 perturbations <img class="math" src="../_images/math/249c88d8edc2e3a42206bad7495c0b7bdc34545b.png" alt="u^\prime,w^\prime"/>, and combined to obtain:</p>
 <div class="math" id="equation-eq:gw_lin">
-<p><span class="eqno">(29)<a class="headerlink" href="#equation-eq:gw_lin" title="Permalink to this equation">¶</a></span><img src="../_images/math/d82c410652636de6ee9cb4b8cf58e94465bcc542.png" alt="\left( \frac{\partial}{\partial t} +
+<p><span class="eqno">(30)<a class="headerlink" href="#equation-eq:gw_lin" title="Permalink to this equation">¶</a></span><img src="../_images/math/d82c410652636de6ee9cb4b8cf58e94465bcc542.png" alt="\left( \frac{\partial}{\partial t} +
   {\overline u}\frac{\partial}{\partial x}\right)^2
      \frac{\partial^2 w^\prime}{\partial Z^2}
    + N^2 \frac{\partial^2 w^\prime}{\partial x^2} = 0\, ."/></p>
-</div><p>Solutions to <a class="reference internal" href="#equation-eq:gw_lin">(29)</a>  are assumed to be of the form:</p>
+</div><p>Solutions to <a class="reference internal" href="#equation-eq:gw_lin">(30)</a>  are assumed to be of the form:</p>
 <div class="math" id="equation-eq:gw_sol">
-<p><span class="eqno">(30)<a class="headerlink" href="#equation-eq:gw_sol" title="Permalink to this equation">¶</a></span><img src="../_images/math/b642ef7cb31b92ea1279ac59820141caf51b9445.png" alt="w^\prime = {\hat w} \, e^{ik(x-ct)} \, e^{Z/2H} \, ,"/></p>
+<p><span class="eqno">(31)<a class="headerlink" href="#equation-eq:gw_sol" title="Permalink to this equation">¶</a></span><img src="../_images/math/b642ef7cb31b92ea1279ac59820141caf51b9445.png" alt="w^\prime = {\hat w} \, e^{ik(x-ct)} \, e^{Z/2H} \, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/44d4c3f22452acebfb3ac644e23508b67500be90.png" alt="H"/> is the scale height, <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> is the horizontal
 wavenumber and <img class="math" src="../_images/math/ae12a24f88803b5895632e4848d87d46483c492c.png" alt="c"/> is the phase speed of the wave. Substituting
-<a class="reference internal" href="#equation-eq:gw_sol">(30)</a> into <a class="reference internal" href="#equation-eq:gw_lin">(29)</a> , one obtains:</p>
+<a class="reference internal" href="#equation-eq:gw_sol">(31)</a> into <a class="reference internal" href="#equation-eq:gw_lin">(30)</a> , one obtains:</p>
 <div class="math" id="equation-eq:gw_what">
-<p><span class="eqno">(31)<a class="headerlink" href="#equation-eq:gw_what" title="Permalink to this equation">¶</a></span><img src="../_images/math/87aba607b635e5cfb2a818532906d8f8fd8e1f63.png" alt="-k^2 (\overline u -c)^2
+<p><span class="eqno">(32)<a class="headerlink" href="#equation-eq:gw_what" title="Permalink to this equation">¶</a></span><img src="../_images/math/87aba607b635e5cfb2a818532906d8f8fd8e1f63.png" alt="-k^2 (\overline u -c)^2
  \left( \frac{\partial}{\partial Z} + \frac{1}{2H} \right)^2{\hat w}
  - k^2 N^2 {\hat w} = 0\, ."/></p>
 </div><p>Neglecting <img class="math" src="../_images/math/92b767bea83ae358c4c6573329c526e9c88094f0.png" alt="\frac{1}{2H}"/> compared to
 <img class="math" src="../_images/math/9b20131cc561633d10d8350894ebc8eab754e985.png" alt="\frac{\partial}{\partial Z}"/> in eq:<cite>gw_what</cite>, one
 obtains the final form of the two dimensional wave equation:</p>
 <div class="math" id="equation-eq:gw_2d">
-<p><span class="eqno">(32)<a class="headerlink" href="#equation-eq:gw_2d" title="Permalink to this equation">¶</a></span><img src="../_images/math/21b4f996481f8befd85fd6f574641cb139034e21.png" alt="\frac{d^2 {\hat w}}{d Z^2} + \lambda^2 {\hat w} = 0\, ,"/></p>
+<p><span class="eqno">(33)<a class="headerlink" href="#equation-eq:gw_2d" title="Permalink to this equation">¶</a></span><img src="../_images/math/21b4f996481f8befd85fd6f574641cb139034e21.png" alt="\frac{d^2 {\hat w}}{d Z^2} + \lambda^2 {\hat w} = 0\, ,"/></p>
 </div><p>with the coefficient defined as:</p>
 <div class="math" id="equation-eq:gw_lam">
-<p><span class="eqno">(33)<a class="headerlink" href="#equation-eq:gw_lam" title="Permalink to this equation">¶</a></span><img src="../_images/math/ffea216323f5eeb9722e1f471542041262336524.png" alt="\lambda= \frac{N}{(\overline u -c)}\, ."/></p>
-</div><p>The WKB solution of <a class="reference internal" href="#equation-eq:gw_2d">(32)</a>  is:</p>
+<p><span class="eqno">(34)<a class="headerlink" href="#equation-eq:gw_lam" title="Permalink to this equation">¶</a></span><img src="../_images/math/ffea216323f5eeb9722e1f471542041262336524.png" alt="\lambda= \frac{N}{(\overline u -c)}\, ."/></p>
+</div><p>The WKB solution of <a class="reference internal" href="#equation-eq:gw_2d">(33)</a>  is:</p>
 <div class="math" id="equation-eq:gw_wkbsol">
-<p><span class="eqno">(34)<a class="headerlink" href="#equation-eq:gw_wkbsol" title="Permalink to this equation">¶</a></span><img src="../_images/math/a8a5246deedec22978aa79a4c7081892e1d67db8.png" alt="{\hat w} = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
+<p><span class="eqno">(35)<a class="headerlink" href="#equation-eq:gw_wkbsol" title="Permalink to this equation">¶</a></span><img src="../_images/math/a8a5246deedec22978aa79a4c7081892e1d67db8.png" alt="{\hat w} = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
 dz^\prime\right)\, ,"/></p>
-</div><p>and the full solution, from <a class="reference internal" href="#equation-eq:gw_sol">(30)</a> , is:</p>
+</div><p>and the full solution, from <a class="reference internal" href="#equation-eq:gw_sol">(31)</a> , is:</p>
 <div class="math" id="equation-eq:gw_final">
-<p><span class="eqno">(35)<a class="headerlink" href="#equation-eq:gw_final" title="Permalink to this equation">¶</a></span><img src="../_images/math/d07614b625e93082d2cb9dd9ba5d57ff2a7ed9ba.png" alt="w^\prime(Z,t) = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
+<p><span class="eqno">(36)<a class="headerlink" href="#equation-eq:gw_final" title="Permalink to this equation">¶</a></span><img src="../_images/math/d07614b625e93082d2cb9dd9ba5d57ff2a7ed9ba.png" alt="w^\prime(Z,t) = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
 dz^\prime\right) \ e^{ik(x-ct)}\  e^{Z/2H} \, ."/></p>
 </div><p>The constant <img class="math" src="../_images/math/0043fe6507e9b1d112e07a2801e24927e267dd50.png" alt="A"/> is determined from the wave amplitude at the
 source (<img class="math" src="../_images/math/b4a88b332e9885e000f4ad02238b759cf4b179b3.png" alt="z=0"/>), The Reynolds stress associated with
 eq:<cite>eq:gw_final</cite> is:</p>
 <div class="math" id="equation-eq:gw_reyn">
-<p><span class="eqno">(36)<a class="headerlink" href="#equation-eq:gw_reyn" title="Permalink to this equation">¶</a></span><img src="../_images/math/e7f63439ad79019aacd9c4afce2ff218aca7fa8f.png" alt="\tau(Z) = \tau(0) = \rho\overline{ u^\prime  w^\prime} = -\frac{2}{k}
+<p><span class="eqno">(37)<a class="headerlink" href="#equation-eq:gw_reyn" title="Permalink to this equation">¶</a></span><img src="../_images/math/e7f63439ad79019aacd9c4afce2ff218aca7fa8f.png" alt="\tau(Z) = \tau(0) = \rho\overline{ u^\prime  w^\prime} = -\frac{2}{k}
 |A|^2\rho_0{\rm sgn}(\lambda)\, ,"/></p>
 </div><p>and is conserved, while the momentum flux
 <img class="math" src="../_images/math/4c06a17fe10d1be8699744f96cb4448e890f1908.png" alt="\overline{ u^\prime  w^\prime} = -(m/k)\ \overline{w^\prime w^\prime}"/>
 grows exponentially with altitude as <img class="math" src="../_images/math/c50478bed79e0042d9c546310e11e8ab944d65ed.png" alt="\exp(Z/H)"/>, per
-<a class="reference internal" href="#equation-eq:gw_final">(35)</a>. We note that the vertical flux of wave energy
+<a class="reference internal" href="#equation-eq:gw_final">(36)</a>. We note that the vertical flux of wave energy
 is <img class="math" src="../_images/math/1d9010cdefdad04a3019d718602d20a81e3ff07e.png" alt="c_{gz}\ E' = (U-c)\ \tau"/> ((<strong>???</strong>)), where <img class="math" src="../_images/math/dec7eea860f9426fdd7b97e566213bb0179dca00.png" alt="c_{gz}"/> is
 the vertical group velocity, so that deposition of wave momentum into
 the mean flow will be accompanied by a transfer of energy to the
@@ -1064,7 +1064,7 @@ background state.</p>
 </div>
 <div class="section" id="saturation-condition">
 <h4>6.6.3.2. Saturation condition<a class="headerlink" href="#saturation-condition" title="Permalink to this headline">¶</a></h4>
-<p>The wave amplitude in <a class="reference internal" href="#equation-eq:gw_final">(35)</a>  grows as <img class="math" src="../_images/math/5eb976a66e416bc49627931588b8534ce2a92c51.png" alt="e^{Z/2H}"/>
+<p>The wave amplitude in <a class="reference internal" href="#equation-eq:gw_final">(36)</a>  grows as <img class="math" src="../_images/math/5eb976a66e416bc49627931588b8534ce2a92c51.png" alt="e^{Z/2H}"/>
 until the wave becomes unstable to convective overturning,
 Kelvin-Helmholtz instability, or other nonlinear processes. At that
 point, the wave amplitude is assumed to be limited to the amplitude that
@@ -1072,7 +1072,7 @@ would trigger the instability and the wave is “saturated”. The
 saturation condition used in CAM4 is from (<strong>???</strong>), based on a maximum
 Froude number (<img class="math" src="../_images/math/5169a3d155a81a651e664d3ed7c2ec2e1e39f160.png" alt="F_c"/>), or streamline slope.</p>
 <div class="math" id="equation-eq:gw_satcond">
-<p><span class="eqno">(37)<a class="headerlink" href="#equation-eq:gw_satcond" title="Permalink to this equation">¶</a></span><img src="../_images/math/224d57ee468d34ba19226d63da993648e40c034d.png" alt="|\rho\overline{ u^\prime  w^\prime}|
+<p><span class="eqno">(38)<a class="headerlink" href="#equation-eq:gw_satcond" title="Permalink to this equation">¶</a></span><img src="../_images/math/224d57ee468d34ba19226d63da993648e40c034d.png" alt="|\rho\overline{ u^\prime  w^\prime}|
     \leq \tau^{*} = F_c^2\frac{k}{2}\rho \frac{|\overline{u}-c|^3}{N}
   \, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/f0855d9044452cca883d8440f3ce5264590a7450.png" alt="\tau^*"/> is the saturation stress and <img class="math" src="../_images/math/a764ea58f88e54898a8017874bc2a4459e7249cb.png" alt="F_c^2=0.5"/>. In
@@ -1080,7 +1080,7 @@ Froude number (<img class="math" src="../_images/math/5169a3d155a81a651e664d3ed7
 a saturated region the momentum tendency can be determined analytically
 from the divergence of <img class="math" src="../_images/math/f0855d9044452cca883d8440f3ce5264590a7450.png" alt="\tau^*"/>:</p>
 <div class="math" id="equation-eq:gw_utend">
-<p><span class="eqno">(38)<a class="headerlink" href="#equation-eq:gw_utend" title="Permalink to this equation">¶</a></span><img src="../_images/math/87c54eed4150abc4021803c43ef86699cf45a40e.png" alt="\begin{aligned}
+<p><span class="eqno">(39)<a class="headerlink" href="#equation-eq:gw_utend" title="Permalink to this equation">¶</a></span><img src="../_images/math/87c54eed4150abc4021803c43ef86699cf45a40e.png" alt="\begin{aligned}
 \frac{\partial \overline u}{\partial t} &amp;= -\frac{e}{\rho}\frac{\partial}{\partial Z}
  \rho\overline{ u^\prime  w^\prime}\, , \nonumber \\
 &amp; \simeq -e \frac{k}{2} \frac{(\overline u-c)^3}{N}
@@ -1088,7 +1088,7 @@ from the divergence of <img class="math" src="../_images/math/f0855d9044452cca88
 &amp; \simeq -e \frac{k}{2} \frac{(\overline u-c)^3}{N H}, \end{aligned}"/></p>
 </div><p>where <img class="math" src="../_images/math/78a06cf7a34f39fde71fbba0d5539baae7c72d4e.png" alt="e"/> is an “efficiency” factor. For a background wave
 spectrum, <img class="math" src="../_images/math/78a06cf7a34f39fde71fbba0d5539baae7c72d4e.png" alt="e"/> represents the temporal and spatial intermittency in
-the wave sources. The analytic solution <a class="reference internal" href="#equation-eq:gw_utend">(38)</a>  is not
+the wave sources. The analytic solution <a class="reference internal" href="#equation-eq:gw_utend">(39)</a>  is not
 used in ; it is shown here to illustrate how the acceleration due to
 breaking gravity waves depends on the intrinsic phase speed. In the
 model, the stress profile is computed at interfaces and differenced to
@@ -1104,13 +1104,13 @@ time scales throughout the atmosphere, we ignore radiative damping. We
 take into account the molecular viscosity, <img class="math" src="../_images/math/0b73083b06bd542907e4d52067d1541be311d168.png" alt="K_m^m"/>, such that the
 stress profile is given by:</p>
 <div class="math" id="equation-eq:gw_taudamp">
-<p><span class="eqno">(39)<a class="headerlink" href="#equation-eq:gw_taudamp" title="Permalink to this equation">¶</a></span><img src="../_images/math/fae894247ed2c5381e84b89e860a2d29c8f43cf1.png" alt="\tau(Z) =  \tau(Z_t) \exp\left(-\frac{2}{H}\int_0^Z\lambda_i
+<p><span class="eqno">(40)<a class="headerlink" href="#equation-eq:gw_taudamp" title="Permalink to this equation">¶</a></span><img src="../_images/math/fae894247ed2c5381e84b89e860a2d29c8f43cf1.png" alt="\tau(Z) =  \tau(Z_t) \exp\left(-\frac{2}{H}\int_0^Z\lambda_i
 dz^\prime\right) \, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/6e13f5ae4f75f274ed94ad5c809c3d7bb96f7232.png" alt="Z_t"/> denotes the top of the region, below <img class="math" src="../_images/math/bcb2457ac9d8995a4f34d57cadac7ecbbe58f3bd.png" alt="Z"/>, not
 affected by thermal dissipation or molecular diffusion. The imaginary
 part of the local vertical wavenumber, <img class="math" src="../_images/math/159e1bfcbbeedf7e28983ee80db2b2d37c3b3ebc.png" alt="\lambda_i"/> is then:</p>
 <div class="math" id="equation-eq:gw_lambdai">
-<p><span class="eqno">(40)<a class="headerlink" href="#equation-eq:gw_lambdai" title="Permalink to this equation">¶</a></span><img src="../_images/math/658b1b1fa5ad36d3262dde3e72c60fdbe6eae2a0.png" alt="\lambda_i = \frac{N^3 \ K_m^m}{2 k (\overline u -c)^4 } \, ."/></p>
+<p><span class="eqno">(41)<a class="headerlink" href="#equation-eq:gw_lambdai" title="Permalink to this equation">¶</a></span><img src="../_images/math/658b1b1fa5ad36d3262dde3e72c60fdbe6eae2a0.png" alt="\lambda_i = \frac{N^3 \ K_m^m}{2 k (\overline u -c)^4 } \, ."/></p>
 </div><p>In , ([eq:gw:sub:<cite>t</cite>audamp]–[eq:gw<sub>l</sub>ambdai]) are only used
 within the domain where molecular diffusion is important (above
 <img class="math" src="../_images/math/261ade2451615c3837418a8b2450a60d1e9b4b35.png" alt="\sim 75"/> km). At lower altitudes, molecular diffusion is
@@ -1130,19 +1130,19 @@ dissipation can be represented by a linear damping on the potential
 temperature and constituent perturbations. For potential temperature,
 <img class="math" src="../_images/math/3be04d4207434584251f6921820c24ac9fa8c6f1.png" alt="\theta"/>, this leads to:</p>
 <div class="math" id="equation-eq:gw_thetaprime">
-<p><span class="eqno">(41)<a class="headerlink" href="#equation-eq:gw_thetaprime" title="Permalink to this equation">¶</a></span><img src="../_images/math/432b46cff010237669d0e05afd0632e208394f36.png" alt="\left( {\partial \over \partial t} + \overline u {\partial \over \partial x}
+<p><span class="eqno">(42)<a class="headerlink" href="#equation-eq:gw_thetaprime" title="Permalink to this equation">¶</a></span><img src="../_images/math/432b46cff010237669d0e05afd0632e208394f36.png" alt="\left( {\partial \over \partial t} + \overline u {\partial \over \partial x}
 \right) \theta^\prime + w' {\partial \overline\theta \over \partial z}
 = -\delta \theta^\prime \, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/> is the dissipation rate implied by wave breaking,
 which depends on the wave’s group velocity, <img class="math" src="../_images/math/dec7eea860f9426fdd7b97e566213bb0179dca00.png" alt="c_{gz}"/> (see
 (<strong>???</strong>)):</p>
 <div class="math" id="equation-eq:gw_dissip">
-<p><span class="eqno">(42)<a class="headerlink" href="#equation-eq:gw_dissip" title="Permalink to this equation">¶</a></span><img src="../_images/math/2244ada9b7221395f2438ad5fbddfdd3282114ef.png" alt="\delta = {c_{gz} \over 2H} = k \ {(\overline u - c)^2 \over 2H N}
+<p><span class="eqno">(43)<a class="headerlink" href="#equation-eq:gw_dissip" title="Permalink to this equation">¶</a></span><img src="../_images/math/2244ada9b7221395f2438ad5fbddfdd3282114ef.png" alt="\delta = {c_{gz} \over 2H} = k \ {(\overline u - c)^2 \over 2H N}
 \, ."/></p>
-</div><p>Substitution of <a class="reference internal" href="#equation-eq:gw_dissip">(42)</a>  into
-<a class="reference internal" href="#equation-eq:gw_thetaprime">(41)</a>  then yields the eddy heat flux:</p>
+</div><p>Substitution of <a class="reference internal" href="#equation-eq:gw_dissip">(43)</a>  into
+<a class="reference internal" href="#equation-eq:gw_thetaprime">(42)</a>  then yields the eddy heat flux:</p>
 <div class="math" id="equation-eq:gw_kzz">
-<p><span class="eqno">(43)<a class="headerlink" href="#equation-eq:gw_kzz" title="Permalink to this equation">¶</a></span><img src="../_images/math/babad9ab387e3f548c060ba07f8048075eb1a02d.png" alt="\overline{w^\prime \theta^\prime}
+<p><span class="eqno">(44)<a class="headerlink" href="#equation-eq:gw_kzz" title="Permalink to this equation">¶</a></span><img src="../_images/math/babad9ab387e3f548c060ba07f8048075eb1a02d.png" alt="\overline{w^\prime \theta^\prime}
 = -\left[ {\delta \ \overline{w^\prime w^\prime}
 \over k^2(\overline u - c)^2 + \delta^2} \right]
 {\partial \overline\theta \over \partial z} \, ."/></p>
@@ -1151,11 +1151,11 @@ constituents, with mixing ratio substituted in place of potential
 temperature in ([eq:gw:sub:<cite>k</cite>zz]). We note that these wave fluxes are
 always downgradient and that, for convenience of solution, they may be
 represented as vertical diffusion, with coefficient <img class="math" src="../_images/math/296f8d1a64a47c4d50017fd1ae3e1abece6d1106.png" alt="K_{zz}"/> equal
-to the term in brackets in <a class="reference internal" href="#equation-eq:gw_kzz">(43)</a> , but they do not
+to the term in brackets in <a class="reference internal" href="#equation-eq:gw_kzz">(44)</a> , but they do not
 represent turbulent diffusive fluxes but rather eddy fluxes. Any
 additional turbulent fluxes due to wave breaking are ignored. To take
 into account the effect of localization of turbulence (e.g., (<strong>???</strong>;**???**)),
-<a class="reference internal" href="#equation-eq:gw_kzz">(43)</a>  is multiplied times an inverse Prandtl
+<a class="reference internal" href="#equation-eq:gw_kzz">(44)</a>  is multiplied times an inverse Prandtl
 number, <img class="math" src="../_images/math/6304f91a99b602f7e115bbb2272b4470ed404f8d.png" alt="{Pr}^{-1}"/>; in &nbsp;we use <img class="math" src="../_images/math/e2378553b18d643bdf14e4d1bb1a9f3b0f902492.png" alt="{Pr}^{-1}=0.25"/>.</p>
 </div>
 <div class="section" id="heating-due-to-wave-dissipation">
@@ -1174,20 +1174,20 @@ density is:</p>
 \simeq (\overline u-c) {1 \over c_{gz}}{\partial \tau \over \partial t}
 = (\overline u-c) {\partial \tau \over \partial Z} \ ."/></p>
 </div><p>For a saturated wave, the stress divergence is given by
-<a class="reference internal" href="#equation-eq:gw_utend">(38)</a> , so that:</p>
+<a class="reference internal" href="#equation-eq:gw_utend">(39)</a> , so that:</p>
 <div class="math" id="equation-eq:gw_eprime">
-<p><span class="eqno">(44)<a class="headerlink" href="#equation-eq:gw_eprime" title="Permalink to this equation">¶</a></span><img src="../_images/math/5529006c3474aefc26d13f1be28f20b331b999dc.png" alt="{\partial E' \over \partial t} =
+<p><span class="eqno">(45)<a class="headerlink" href="#equation-eq:gw_eprime" title="Permalink to this equation">¶</a></span><img src="../_images/math/5529006c3474aefc26d13f1be28f20b331b999dc.png" alt="{\partial E' \over \partial t} =
 (\overline u - c) \ {\partial \, \tau^* \over \partial Z}
 = - e \cdot \rho \ {k \, (U-c)^4 \over 2 N H} \ ."/></p>
 </div><p>This energy loss by the wave represents a heat source for the
 background state, as does the change in the background kinetic energy
 density implied by wave drag on the background flow:</p>
 <div class="math" id="equation-eq:gw_kbar">
-<p><span class="eqno">(45)<a class="headerlink" href="#equation-eq:gw_kbar" title="Permalink to this equation">¶</a></span><img src="../_images/math/bec9a914ab6e4ed8f7526af15ca8d816671fe57e.png" alt="{\partial \overline K \over \partial t} \equiv
+<p><span class="eqno">(46)<a class="headerlink" href="#equation-eq:gw_kbar" title="Permalink to this equation">¶</a></span><img src="../_images/math/bec9a914ab6e4ed8f7526af15ca8d816671fe57e.png" alt="{\partial \overline K \over \partial t} \equiv
 {\rho \over 2} {\partial \overline u^2 \over \partial t} =
 \overline u \ {\partial \, \tau^* \over \partial Z} =
 -e \cdot \rho \ {k \, \overline u \, (\overline u-c)^3 \over 2 NH} \ ,"/></p>
-</div><p>which follows directly from <a class="reference internal" href="#equation-eq:gw_utend">(38)</a> . The background
+</div><p>which follows directly from <a class="reference internal" href="#equation-eq:gw_utend">(39)</a> . The background
 heating rate, in K sec<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>, is then:</p>
 <div class="math">
 <p><img src="../_images/math/ca04b13d4d267abce5d9935a3b9a10c62f7b1e5e.png" alt="Q_{gw} = -{1 \over \rho\, c_p}
@@ -1196,19 +1196,19 @@ heating rate, in K sec<img class="math" src="../_images/math/32c47f7597d53ce7f2d
 </div><p>Using <img class="math" src="../_images/math/5836c6f47c0e16b837015c3ebedc567d58061509.png" alt="(\ref{eq:gw_eprime})-(\ref{eq:gw_kbar})"/>, this heating
 rate may be expressed as:</p>
 <div class="math" id="equation-eq:gw_qgw">
-<p><span class="eqno">(46)<a class="headerlink" href="#equation-eq:gw_qgw" title="Permalink to this equation">¶</a></span><img src="../_images/math/e3c09d8e964390b2f7d050879ce3a8484e21ea6b.png" alt="Q_{gw} =
+<p><span class="eqno">(47)<a class="headerlink" href="#equation-eq:gw_qgw" title="Permalink to this equation">¶</a></span><img src="../_images/math/e3c09d8e964390b2f7d050879ce3a8484e21ea6b.png" alt="Q_{gw} =
   {1 \over \rho\, c_p} \ c \ {\partial \, \tau^* \over \partial Z} =
   {1 \over c_p} \left[ \ e  \cdot  {k \, c\,(c-\overline u)^3 \over 2 N H} \right] ,"/></p>
 </div><p>where <img class="math" src="../_images/math/bdf930cd3af636fb27411ce02123dd469624494d.png" alt="c_p"/> is the specific heat at constant pressure. In ,
 <img class="math" src="../_images/math/6e0e2b51233c22b3b98a1dbfe0fde4ea32bab6df.png" alt="Q_{gw}"/> is calculated for each component of the gravity wave
-spectrum using the first equality in <a class="reference internal" href="#equation-eq:gw_qgw">(46)</a> , i.e., the
+spectrum using the first equality in <a class="reference internal" href="#equation-eq:gw_qgw">(47)</a> , i.e., the
 product of the phase velocity times the stress divergence.</p>
 </div>
 <div class="section" id="orographic-source-function">
 <h4>6.6.3.6. Orographic source function<a class="headerlink" href="#orographic-source-function" title="Permalink to this headline">¶</a></h4>
 <p>For orographically generated waves, the source is taken from (<strong>???</strong>):</p>
 <div class="math" id="equation-eq:oro_tau">
-<p><span class="eqno">(47)<a class="headerlink" href="#equation-eq:oro_tau" title="Permalink to this equation">¶</a></span><img src="../_images/math/5e378a568fb37d51bb14c2b8707841c2748c0b2b.png" alt="\tau_g = |\rho\overline{ u^\prime  w^\prime}|_0
+<p><span class="eqno">(48)<a class="headerlink" href="#equation-eq:oro_tau" title="Permalink to this equation">¶</a></span><img src="../_images/math/5e378a568fb37d51bb14c2b8707841c2748c0b2b.png" alt="\tau_g = |\rho\overline{ u^\prime  w^\prime}|_0
    = \frac{k}{2} h_0^2 \rho_0 N_0 \overline u_0\, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/3df1e86855d69900fea6bdf36470d71906f09a2f.png" alt="h_0"/> is the streamline displacement at the source level,
 and <img class="math" src="../_images/math/d5b4a098286d906ca2e61aac7332930bf6898618.png" alt="\rho_0"/>, <img class="math" src="../_images/math/5d2483db4defbda77d5edb54e62c7eb768c7c25a.png" alt="N_0"/>, and <img class="math" src="../_images/math/1da0db0005bda262a85d3c87761273f9b3a0b980.png" alt="\overline u_0"/> are also
@@ -1219,17 +1219,17 @@ displacement. An upper bound is used on the displacement (equivalent to
 defining a “separation streamline”) which corresponds to requiring that
 the wave not be supersaturated at the source level:</p>
 <div class="math" id="equation-eq:oro_h0">
-<p><span class="eqno">(48)<a class="headerlink" href="#equation-eq:oro_h0" title="Permalink to this equation">¶</a></span><img src="../_images/math/5cfd8d3169b38271dd9677d5d6b018a951f13fa7.png" alt="h_0=\min(2\sigma,  \frac{\overline u_0}{N_0})\, ."/></p>
+<p><span class="eqno">(49)<a class="headerlink" href="#equation-eq:oro_h0" title="Permalink to this equation">¶</a></span><img src="../_images/math/5cfd8d3169b38271dd9677d5d6b018a951f13fa7.png" alt="h_0=\min(2\sigma,  \frac{\overline u_0}{N_0})\, ."/></p>
 </div><p>The source level quantities <img class="math" src="../_images/math/d5b4a098286d906ca2e61aac7332930bf6898618.png" alt="\rho_0"/>, <img class="math" src="../_images/math/5d2483db4defbda77d5edb54e62c7eb768c7c25a.png" alt="N_0"/>, and
 <img class="math" src="../_images/math/1da0db0005bda262a85d3c87761273f9b3a0b980.png" alt="\overline u_0"/> are defined by vertical averages over the source
 region, taken to be <img class="math" src="../_images/math/f3fa0d87f5af50a42fa360a6f4be305081c181fc.png" alt="2\sigma"/>, the depth to which the average
 mountain penetrates into the domain:</p>
 <div class="math" id="equation-4.e.18">
-<p><span class="eqno">(49)<a class="headerlink" href="#equation-4.e.18" title="Permalink to this equation">¶</a></span><img src="../_images/math/a126bd9055449c1f970046a418454b54b727daad.png" alt="\psi_0 = \int_0^{2\sigma} \psi\rho dz, \qquad \psi \in \{\rho,N,
+<p><span class="eqno">(50)<a class="headerlink" href="#equation-4.e.18" title="Permalink to this equation">¶</a></span><img src="../_images/math/a126bd9055449c1f970046a418454b54b727daad.png" alt="\psi_0 = \int_0^{2\sigma} \psi\rho dz, \qquad \psi \in \{\rho,N,
 u, v\} \, ."/></p>
 </div><p>The source level wind vector <img class="math" src="../_images/math/49d065e3855fbe8ef020c61678650dc6ce62dd9f.png" alt="(u_0,v_0)"/> determines the
 orientation of the coordinate system in
-<a class="reference internal" href="#equation-eq:gw_mom">(26)</a> –<a class="reference internal" href="#equation-eq:gw_therm">(28)</a>  and the magnitude of the
+<a class="reference internal" href="#equation-eq:gw_mom">(27)</a> –<a class="reference internal" href="#equation-eq:gw_therm">(29)</a>  and the magnitude of the
 source wind <img class="math" src="../_images/math/1da0db0005bda262a85d3c87761273f9b3a0b980.png" alt="\overline u_0"/>.</p>
 </div>
 <div class="section" id="non-orographic-source-functions">
@@ -1260,13 +1260,13 @@ launched from a constant source level, which is specified to be 600 mb.
 The momentum flux phase speed spectrum is given by a Gaussian function
 in phase speed:</p>
 <div class="math" id="equation-eq:tau_s">
-<p><span class="eqno">(50)<a class="headerlink" href="#equation-eq:tau_s" title="Permalink to this equation">¶</a></span><img src="../_images/math/9323fad971e3e3af29b7d57f8c7440496bf3e347.png" alt="\tau_s (c)  = \tau_b
+<p><span class="eqno">(51)<a class="headerlink" href="#equation-eq:tau_s" title="Permalink to this equation">¶</a></span><img src="../_images/math/9323fad971e3e3af29b7d57f8c7440496bf3e347.png" alt="\tau_s (c)  = \tau_b
    \exp\left[-\left( \frac{c - V_s}{c_w} \right)^2\right],"/></p>
 </div><p>centered on the source wind, <img class="math" src="../_images/math/42e54cd859a96cef14fc3fc7629cae557a0b6e57.png" alt="V_s = |{\bf V}_s|"/>, with width
 <img class="math" src="../_images/math/c6e89d3be0fa3c7b3594fe7b91a6d672f0738ae7.png" alt="c_w=30"/> m/s. A range of phase speeds with specified width and
 resolution is used:</p>
 <div class="math" id="equation-eq:phase_s">
-<p><span class="eqno">(51)<a class="headerlink" href="#equation-eq:phase_s" title="Permalink to this equation">¶</a></span><img src="../_images/math/027a0eda26a9c3d79c101eae532e256404f7ca5e.png" alt="c \in V_s + [\pm d_c, \pm 2d_c, ... \pm c_{max}]\, ,"/></p>
+<p><span class="eqno">(52)<a class="headerlink" href="#equation-eq:phase_s" title="Permalink to this equation">¶</a></span><img src="../_images/math/027a0eda26a9c3d79c101eae532e256404f7ca5e.png" alt="c \in V_s + [\pm d_c, \pm 2d_c, ... \pm c_{max}]\, ,"/></p>
 </div><p>with <img class="math" src="../_images/math/5a5b1f34ba1eefc0caa27ea3b9075a8f9bb221c3.png" alt="d_c = 2.5"/> m s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/> and <img class="math" src="../_images/math/dcc639736e441285960cb8cb1c43763a741fb969.png" alt="c_{max} = 80"/> m
 s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>, giving 64 phase speeds. Note that <img class="math" src="../_images/math/c1e770a8df280a470ea720c4f820049640f4ac51.png" alt="c=V_s"/> is
 retained in the code for simplicity, but has a critical level at the
@@ -1278,7 +1278,7 @@ wave driving, is consistent with observations. In WACCM4, <img class="math" src=
 <p>Above the source region, the saturation condition is enforced separately
 for each phase speed, <img class="math" src="../_images/math/ff90a5f025d9fd305aac19c8dd64fa15f0c789a1.png" alt="c_i"/>, in the momentum flux spectrum:</p>
 <div class="math" id="equation-eq:tau_i">
-<p><span class="eqno">(52)<a class="headerlink" href="#equation-eq:tau_i" title="Permalink to this equation">¶</a></span><img src="../_images/math/16a89553586c2f3713366b5f6513f6f2f45bc2c0.png" alt="\tau(c_i) \leq \tau_i^{*}
+<p><span class="eqno">(53)<a class="headerlink" href="#equation-eq:tau_i" title="Permalink to this equation">¶</a></span><img src="../_images/math/16a89553586c2f3713366b5f6513f6f2f45bc2c0.png" alt="\tau(c_i) \leq \tau_i^{*}
      =F_c^2 \frac{k}{2}\rho \frac{|\overline u-c_i|^3}{N} ."/></p>
 </div></div>
 <div class="section" id="numerical-approximations">
@@ -1286,7 +1286,7 @@ for each phase speed, <img class="math" src="../_images/math/ff90a5f025d9fd305aa
 <p>The gravity wave drag parameterization is applied immediately after the
 nonlinear vertical diffusion. The interface Brunt-Väisällä frequency is</p>
 <div class="math" id="equation-4.e.25">
-<p><span class="eqno">(53)<a class="headerlink" href="#equation-4.e.25" title="Permalink to this equation">¶</a></span><img src="../_images/math/e6f33cadb081ad0fbaf439353aacc756db676a14.png" alt="\left(N^{k+}\right)^2 = \frac{g^2}{T^{k+}} \left( \frac{1}{c_p}
+<p><span class="eqno">(54)<a class="headerlink" href="#equation-4.e.25" title="Permalink to this equation">¶</a></span><img src="../_images/math/e6f33cadb081ad0fbaf439353aacc756db676a14.png" alt="\left(N^{k+}\right)^2 = \frac{g^2}{T^{k+}} \left( \frac{1}{c_p}
    - \rho^{k+} \frac{\delta^{k+} T}{\delta^{k+} p} \right) \, ,"/></p>
 </div><p>Where the interface density is:</p>
 <div class="math">
@@ -1306,48 +1306,48 @@ heights by <img class="math" src="../_images/math/039429efa3ed776858630587b4d64a
 determined by vertical integration over the region from the surface to
 interface <img class="math" src="../_images/math/3944b464277d30af9c8296dae3e923d370146682.png" alt="k_s+1/2"/>:</p>
 <div class="math" id="equation-4.e.27">
-<p><span class="eqno">(54)<a class="headerlink" href="#equation-4.e.27" title="Permalink to this equation">¶</a></span><img src="../_images/math/5d0987107dfe7a0de37d6407438cfd2086bd316c.png" alt="\psi_0 = \sum_{k=k_s}^K \psi^k \delta^k p\, , \qquad \psi \in
+<p><span class="eqno">(55)<a class="headerlink" href="#equation-4.e.27" title="Permalink to this equation">¶</a></span><img src="../_images/math/5d0987107dfe7a0de37d6407438cfd2086bd316c.png" alt="\psi_0 = \sum_{k=k_s}^K \psi^k \delta^k p\, , \qquad \psi \in
 \{\rho,N, u, v\} \, ."/></p>
 </div><p>The source level background wind is <img class="math" src="../_images/math/992c7b4c20980266d97d1bbddc1a47e90d94bafe.png" alt="\overline u_0 =\sqrt(u_0^2 +
 v_0^2)"/>, the unit vector for the source wind is</p>
 <div class="math" id="equation-4.e.28">
-<p><span class="eqno">(55)<a class="headerlink" href="#equation-4.e.28" title="Permalink to this equation">¶</a></span><img src="../_images/math/e5aea9c05f1098cbff251a35603482678056f6d7.png" alt="(x_0, y_0) = (u_0, v_0) /\overline u_0 \, ,"/></p>
+<p><span class="eqno">(56)<a class="headerlink" href="#equation-4.e.28" title="Permalink to this equation">¶</a></span><img src="../_images/math/e5aea9c05f1098cbff251a35603482678056f6d7.png" alt="(x_0, y_0) = (u_0, v_0) /\overline u_0 \, ,"/></p>
 </div><p>and the projection of the midpoint winds onto the source wind is</p>
 <div class="math" id="equation-4.e.29">
-<p><span class="eqno">(56)<a class="headerlink" href="#equation-4.e.29" title="Permalink to this equation">¶</a></span><img src="../_images/math/1bc2c202d5a8211eed1daa26b26b2e26fd506ce6.png" alt="\overline u^k = u^k x_0 + v^k y_0 \, ."/></p>
+<p><span class="eqno">(57)<a class="headerlink" href="#equation-4.e.29" title="Permalink to this equation">¶</a></span><img src="../_images/math/1bc2c202d5a8211eed1daa26b26b2e26fd506ce6.png" alt="\overline u^k = u^k x_0 + v^k y_0 \, ."/></p>
 </div><p>Assuming that <img class="math" src="../_images/math/20d63153295146d2ae16de929579169b985d8997.png" alt="\overline u_0 &gt; 2"/> m s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/> and
 <img class="math" src="../_images/math/ce73c80ef9d5869bbf71d178208dbec4504da61a.png" alt="2\sigma^h &gt; 10"/> m, then the orographic source term,
-<img class="math" src="../_images/math/a55d12e4357de03135ffe29451668221e87fd6ad.png" alt="\tau_g"/> is given by <a class="reference internal" href="#equation-eq:oro_tau">(47)</a>  and
-<a class="reference internal" href="#equation-eq:oro_h0">(48)</a> , with <img class="math" src="../_images/math/c339b7d677607ab458aec6290fb9f7574ce23a0f.png" alt="F_c^2"/> =1 and <img class="math" src="../_images/math/819a9d3bbcfabad886af9d500816f0a62987f954.png" alt="k = 2\pi/10^5"/>
+<img class="math" src="../_images/math/a55d12e4357de03135ffe29451668221e87fd6ad.png" alt="\tau_g"/> is given by <a class="reference internal" href="#equation-eq:oro_tau">(48)</a>  and
+<a class="reference internal" href="#equation-eq:oro_h0">(49)</a> , with <img class="math" src="../_images/math/c339b7d677607ab458aec6290fb9f7574ce23a0f.png" alt="F_c^2"/> =1 and <img class="math" src="../_images/math/819a9d3bbcfabad886af9d500816f0a62987f954.png" alt="k = 2\pi/10^5"/>
 m<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>. Although the code contains a provision for a linear
 stress profile within a “low level deposition region”, this part of the
 code is not used in the standard model.</p>
 <p>The stress profiles are determined by scanning up from the bottom of the
 model to the top. The stress at the source level is determined by
-<a class="reference internal" href="#equation-eq:oro_tau">(47)</a> . The saturation stress, <img class="math" src="../_images/math/4fe387d5a2729c6dadeb2e3756fa1900a00766e2.png" alt="\tau^*_\ell"/> at
-each interface is determined by <a class="reference internal" href="#equation-eq:tau_i">(52)</a> , and
+<a class="reference internal" href="#equation-eq:oro_tau">(48)</a> . The saturation stress, <img class="math" src="../_images/math/4fe387d5a2729c6dadeb2e3756fa1900a00766e2.png" alt="\tau^*_\ell"/> at
+each interface is determined by <a class="reference internal" href="#equation-eq:tau_i">(53)</a> , and
 <img class="math" src="../_images/math/80df7635fc3c5ecf2e072a84bb05f84e7ae545fa.png" alt="\tau^*_\ell=0"/> if a critical level is passed. A critical level is
 contained within a layer if
 <img class="math" src="../_images/math/e9de2753321a3faa3d2b6ee1c8557eb828ac0d2c.png" alt="(\overline u^{k+} -c_\ell) / (\overline u^{k-} -c_\ell) &lt; 0"/>.</p>
 <p>Within the molecular diffusion domain, the imaginary part of the
-vertical wavenumber is given by <a class="reference internal" href="#equation-eq:gw_lambdai">(40)</a> . The interface
+vertical wavenumber is given by <a class="reference internal" href="#equation-eq:gw_lambdai">(41)</a> . The interface
 stress is then determined from the stress on the interface below by:</p>
 <div class="math" id="equation-eq:tau_km">
-<p><span class="eqno">(57)<a class="headerlink" href="#equation-eq:tau_km" title="Permalink to this equation">¶</a></span><img src="../_images/math/f245fe344412d8c59b7c638f88aca477aec2c52e.png" alt="\tau^{k-} = \min \left[ \left(\tau^*\right)^{k-},
+<p><span class="eqno">(58)<a class="headerlink" href="#equation-eq:tau_km" title="Permalink to this equation">¶</a></span><img src="../_images/math/f245fe344412d8c59b7c638f88aca477aec2c52e.png" alt="\tau^{k-} = \min \left[ \left(\tau^*\right)^{k-},
    \tau^{k+}\exp\left( -2 \lambda_i \frac{R}{g} T^k \delta^k\ln p
         \right) \right] \, ."/></p>
 </div><p>Below the molecular diffusion domain, the exponential term in
-<a class="reference internal" href="#equation-eq:tau_km">(57)</a>  is omitted.</p>
+<a class="reference internal" href="#equation-eq:tau_km">(58)</a>  is omitted.</p>
 <p>Once the complete stress profile has been obtained, the forcing of the
 background wind is determined by differentiating the profile during a
 downward scan:</p>
 <div class="math" id="equation-4.e.35">
-<p><span class="eqno">(58)<a class="headerlink" href="#equation-4.e.35" title="Permalink to this equation">¶</a></span><img src="../_images/math/018fe40fd8031995f43b7726155892f330915e08.png" alt="\frac{\partial \overline u^k_\ell}{\partial t} =
+<p><span class="eqno">(59)<a class="headerlink" href="#equation-4.e.35" title="Permalink to this equation">¶</a></span><img src="../_images/math/018fe40fd8031995f43b7726155892f330915e08.png" alt="\frac{\partial \overline u^k_\ell}{\partial t} =
     g \frac{\delta^k\tau_\ell}{\delta^k p}
     &lt; \left( \frac{\partial \overline u^k_\ell}{\partial t}\right)^{\rm max}
     \, ."/></p>
 </div><div class="math" id="equation-4.e.36">
-<p><span class="eqno">(59)<a class="headerlink" href="#equation-4.e.36" title="Permalink to this equation">¶</a></span><img src="../_images/math/c402e8c6d224a8f6e69a84d346dc1353c639037f.png" alt="\left( \frac{\partial \overline u^k_\ell}{\partial t}\right)^{\rm max}
+<p><span class="eqno">(60)<a class="headerlink" href="#equation-4.e.36" title="Permalink to this equation">¶</a></span><img src="../_images/math/c402e8c6d224a8f6e69a84d346dc1353c639037f.png" alt="\left( \frac{\partial \overline u^k_\ell}{\partial t}\right)^{\rm max}
   = \min\left[
     \frac{|c_\ell - \overline u^k_\ell|}{2 \delta t}\, ,
     500 {\rm ~m ~s^{-1}~ day^{-1}}
@@ -1362,12 +1362,12 @@ to change the time step, or to write an implicit solver, so an <em>a
 priori</em> bound is used instead. The second bound is used to constrain the
 forcing to lie within a physically plausible range (although the value
 used is extremely large) and is rarely invoked.</p>
-<p>When any of the bounds in <a class="reference internal" href="#equation-4.e.35">(58)</a>  are invoked, conservation of stress
+<p>When any of the bounds in <a class="reference internal" href="#equation-4.e.35">(59)</a>  are invoked, conservation of stress
 is violated. In this case, stress conservation is ensured by decreasing
 the stress on the lower interface to match the actual stress divergence
 in the layer:</p>
 <div class="math" id="equation-4.e.37">
-<p><span class="eqno">(60)<a class="headerlink" href="#equation-4.e.37" title="Permalink to this equation">¶</a></span><img src="../_images/math/e12331bd3c7965a8d1d9c5b11f694f2258f560c3.png" alt="\tau^{k+}_\ell = \tau^{k-}_\ell +
+<p><span class="eqno">(61)<a class="headerlink" href="#equation-4.e.37" title="Permalink to this equation">¶</a></span><img src="../_images/math/e12331bd3c7965a8d1d9c5b11f694f2258f560c3.png" alt="\tau^{k+}_\ell = \tau^{k-}_\ell +
    \frac{\partial \overline u^k}{\partial t}
    \frac{\delta^k p}{g} \, ."/></p>
 </div><p>This has the effect of pushing some of the stress divergence into the
@@ -1377,7 +1377,7 @@ below.</p>
 by projecting the background wind forcing with the unit vectors of the
 source wind:</p>
 <div class="math" id="equation-4.e.38">
-<p><span class="eqno">(61)<a class="headerlink" href="#equation-4.e.38" title="Permalink to this equation">¶</a></span><img src="../_images/math/c5b812067c3a8f05ec2c16ddb853b45f4bb4c4a2.png" alt="\frac{\partial {\bf V}^k}{\partial t} =  (x_0, y_0) \times E \sum_\ell
+<p><span class="eqno">(62)<a class="headerlink" href="#equation-4.e.38" title="Permalink to this equation">¶</a></span><img src="../_images/math/c5b812067c3a8f05ec2c16ddb853b45f4bb4c4a2.png" alt="\frac{\partial {\bf V}^k}{\partial t} =  (x_0, y_0) \times E \sum_\ell
       \frac{\partial \overline u^k_\ell}{\partial t}
 \, ."/></p>
 </div><p>In addition, the frictional heating implied by the momentum tendencies,
@@ -1406,7 +1406,7 @@ effective roughness has been used in several Numerical Weather
 Prediction models (e.g., (<strong>???</strong>); (<strong>???</strong>)).</p>
 <p>In WACCM4 the effective roughness stress is expressed as:</p>
 <div class="math" id="equation-tms">
-<p><span class="eqno">(62)<a class="headerlink" href="#equation-tms" title="Permalink to this equation">¶</a></span><img src="../_images/math/1909f07c76f753df4b19fba72bf98e76695ac5cd.png" alt="\tau = \rho \, C_d \, |{\bf V}| {\bf V} \, ,"/></p>
+<p><span class="eqno">(63)<a class="headerlink" href="#equation-tms" title="Permalink to this equation">¶</a></span><img src="../_images/math/1909f07c76f753df4b19fba72bf98e76695ac5cd.png" alt="\tau = \rho \, C_d \, |{\bf V}| {\bf V} \, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> is the density and <img class="math" src="../_images/math/15746e47c01eb1c4d15e0409dfd2ae36896638ab.png" alt="C_d"/> is a turbulent drag
 coefficient,</p>
 <div class="math">
@@ -1415,7 +1415,7 @@ coefficient,</p>
 surface; <img class="math" src="../_images/math/021544f44170a0f49c908e326ff0f1e031e7089c.png" alt="z_0"/> is an effective roughness length, defined in terms
 of the standard deviation of unresolved orography; and <img class="math" src="../_images/math/68df65e92b88ad419f3fc9e648dae7b9bbbf877a.png" alt="f(R_i)"/> is
 a function of the Richardson number (see (<strong>???</strong>) for details).</p>
-<p>The stress calculated by <a class="reference internal" href="#equation-tms">(62)</a>  is used the model’s nonlocal PBL scheme
+<p>The stress calculated by <a class="reference internal" href="#equation-tms">(63)</a>  is used the model’s nonlocal PBL scheme
 to evaluate the PBL height and nonlocal transport, per Eqs.
 (3.10)Ð(3.12) of (<strong>???</strong>). This calculation is carried out only over
 land, and only in grid cells where the height of topography above sea
@@ -1470,7 +1470,7 @@ Therefore, we retain the CAM4 parameterizations below <img class="math" src="../
 and use new parameterizations above.</p>
 <p>The merged shortwave and longwave radiative heatings are determined from</p>
 <div class="math" id="equation-eq:rad_heat">
-<p><span class="eqno">(63)<a class="headerlink" href="#equation-eq:rad_heat" title="Permalink to this equation">¶</a></span><img src="../_images/math/e9055752dac439750402e9f822b5d812a9d5f641.png" alt="Q = w_1 \, Q_{CAM3} + w_2 \, Q_{MLT},"/></p>
+<p><span class="eqno">(64)<a class="headerlink" href="#equation-eq:rad_heat" title="Permalink to this equation">¶</a></span><img src="../_images/math/e9055752dac439750402e9f822b5d812a9d5f641.png" alt="Q = w_1 \, Q_{CAM3} + w_2 \, Q_{MLT},"/></p>
 </div><p>where <img class="math" src="../_images/math/db7ac6fcabaec700e97c4d577828403a7e98a5da.png" alt="w_1(z^*&lt;z_b^*) = 1"/>, <img class="math" src="../_images/math/e609f9089b3bf02229c2ba1c1a977326be550928.png" alt="w_2(z^*&gt;z_t^*) = 1"/> and
 <img class="math" src="../_images/math/cfb5137b467fa94175ec2e6cff3b5df14e066e19.png" alt="z^* =
 \log(10^5/p)"/> is the pressure scale height. The CAM4 radiation
@@ -1478,7 +1478,7 @@ parameterizations are used below <img class="math" src="../_images/math/335dd868
 parameterizations are used above <img class="math" src="../_images/math/889704139987bcbcf0e99055913b826f00377481.png" alt="z_t^*"/>. For <img class="math" src="../_images/math/0127f687afdfeac863a451789d2af67241ad1827.png" alt="z_b^* &lt; z &lt;
 z_t^*"/>, <img class="math" src="../_images/math/4f5ebbf470d2b192baebb7eab5529460b1ddd89f.png" alt="w_2 = 1 - w_1"/> and</p>
 <div class="math" id="equation-eq:rad_wght">
-<p><span class="eqno">(64)<a class="headerlink" href="#equation-eq:rad_wght" title="Permalink to this equation">¶</a></span><img src="../_images/math/09a748f2142f9f27de4135288cfc8cd09089f9de.png" alt="w_1 = 1 - \tanh\left( \frac{z^* - z_b^*}{z_w*}\right),"/></p>
+<p><span class="eqno">(65)<a class="headerlink" href="#equation-eq:rad_wght" title="Permalink to this equation">¶</a></span><img src="../_images/math/09a748f2142f9f27de4135288cfc8cd09089f9de.png" alt="w_1 = 1 - \tanh\left( \frac{z^* - z_b^*}{z_w*}\right),"/></p>
 </div><p>where <img class="math" src="../_images/math/760c48134cbc1d80dc2affdad28bd2bb2898a5fd.png" alt="z_w*"/> is the transition width.</p>
 <p>The merging was developed and tested separately for shortwave and
 longwave radiation and the constants are slightly different. For
@@ -1691,7 +1691,7 @@ stratospheric clouds (Type 1a, 1b, and 2) are included following the
 approach of (<strong>???</strong>). This approach assumes that the condensed phase
 mass follows a lognormal size distribution taken from (<strong>???</strong>),</p>
 <div class="math" id="equation-sizeqn">
-<p><span class="eqno">(65)<a class="headerlink" href="#equation-sizeqn" title="Permalink to this equation">¶</a></span><img src="../_images/math/f712ddcdb2b19e48fbf5a0d50e91d66af941b9d8.png" alt="N(r) = \frac{N_0}{r \sigma \sqrt{2\pi}}\exp\left[\frac{-\ln (r / r_0)^2}
+<p><span class="eqno">(66)<a class="headerlink" href="#equation-sizeqn" title="Permalink to this equation">¶</a></span><img src="../_images/math/f712ddcdb2b19e48fbf5a0d50e91d66af941b9d8.png" alt="N(r) = \frac{N_0}{r \sigma \sqrt{2\pi}}\exp\left[\frac{-\ln (r / r_0)^2}
 {2 \sigma ^2}\right]"/></p>
 </div><p>where <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/> is the aerosol number density (particles
 cm<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/>); <img class="math" src="../_images/math/eaa6ad49a7f78fe5a13b486690163bf2dc7e3e60.png" alt="r"/> and <img class="math" src="../_images/math/969e5c9bf57d6c8368dae87af82e3251f1648425.png" alt="r_0"/> are the particle radius
@@ -1807,6 +1807,22 @@ index. For <img class="math" src="../_images/math/a86b92f9170d667c69eb33eac2378e
 </div><p><img class="math" src="../_images/math/b79bb860a3ba241a59d8c26978f61585f7ec620b.png" alt="K_p"/> is also available from NOAA’s Space Environment Center and
 covers the period from 1933 to the present, making it ideal for
 long-term retrospective simulations.</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/ions.jpg" src="../_images/ions.jpg" />
+<p class="caption"><span class="caption-text">Global mean distribution of charged constituents during July
+solar minimum conditions.</span></p>
+<div class="legend">
+Global mean distribution of charged constituents during July solar
+minimum conditions.</div>
+</div>
+<div class="figure align-center" id="id4">
+<img alt="../_images/ionprod.jpg" src="../_images/ionprod.jpg" />
+<p class="caption"><span class="caption-text">a) Global distribution of ionization rates at
+7.3<img class="math" src="../_images/math/152a54e96ac8792e80cac0775a12d0cccfdfc5da.png" alt="\times 10^{-5}"/> hPa, July 1, UT0100 HRS. Contour interval
+is 2<img class="math" src="../_images/math/1923458f84c4261c8f3c9fe600c42aa2a9f04d25.png" alt="\times 10^{3}"/> cm<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>. b)
+Simultaneous global mean ionization rates (cm:math:<cite>^{-3}</cite>
+s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>) versus pressure.</span></p>
+</div>
 <p>Total ionization rates at 110km during July for solar maximum conditions
 are shown in Figure [qsumfig]a. The broad region of ionization centered
 in the tropics is a result of EUV ionization, and has a peak value of
@@ -4222,7 +4238,7 @@ Hansen et al. (1984), although we have modified it to allow for a
 fractional sea ice coverage. The governing equation for ocean mixed
 layer temperature <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/> is:</p>
 <div class="math" id="equation-6.a.1">
-<p><span class="eqno">(66)<a class="headerlink" href="#equation-6.a.1" title="Permalink to this equation">¶</a></span><img src="../_images/math/f13dda303d23442de929514cdbe78477ea7b7bf2.png" alt="\rho_o C_o h_o \frac{\partial T_{o}}{\partial t} = (1-A) F + Q
+<p><span class="eqno">(67)<a class="headerlink" href="#equation-6.a.1" title="Permalink to this equation">¶</a></span><img src="../_images/math/f13dda303d23442de929514cdbe78477ea7b7bf2.png" alt="\rho_o C_o h_o \frac{\partial T_{o}}{\partial t} = (1-A) F + Q
 + A F_{oi} + (1-A) F_{frz}"/></p>
 </div><p>where <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/> is the ocean mixed layer temperature, <img class="math" src="../_images/math/50fedd8767d3b8684d837c2b69e367e1a2355a6a.png" alt="\rho_o"/>
 is the density of ocean water, <img class="math" src="../_images/math/b2a4cd67fac2c5ab024d491ee5d42046358f43c8.png" alt="C_o"/> is the heat capacity of ocean
@@ -4289,7 +4305,7 @@ respectively) are explicitly predicted.</p>
 <p>The net atmosphere-to-ocean heat flux in the absence of sea ice,
 <img class="math" src="../_images/math/a3965ac90c9513644606210339d525386626dcb2.png" alt="F"/>, is defined as:</p>
 <div class="math" id="equation-6.a.2">
-<p><span class="eqno">(67)<a class="headerlink" href="#equation-6.a.2" title="Permalink to this equation">¶</a></span><img src="../_images/math/4caf9278ab8ca55f04d3ae378027111642795039.png" alt="F = FS - FL - SH - LH"/></p>
+<p><span class="eqno">(68)<a class="headerlink" href="#equation-6.a.2" title="Permalink to this equation">¶</a></span><img src="../_images/math/4caf9278ab8ca55f04d3ae378027111642795039.png" alt="F = FS - FL - SH - LH"/></p>
 </div><p>where <img class="math" src="../_images/math/c0250456c2e64100dc37db49b56a4aa8a1f36f36.png" alt="FS"/> is the net solar flux absorbed by the ocean mixed
 layer, <img class="math" src="../_images/math/122897f3ad30b46fd3c7d6afc3d0d6dbc0d1f5ea.png" alt="FL"/> is the net longwave energy flux of the ocean surface
 to the atmosphere, <img class="math" src="../_images/math/2c307cbae83854bffd16725e0072db386a2c1cd6.png" alt="SH"/> is the sensible heat flux from the ocean
@@ -4305,14 +4321,14 @@ mid-monthly values. It is assumed that the exchange between the ocean
 mixed layer and the atmosphere occurs faster than deep adjustments.
 Hence, the first adjustment to <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/> is evaluated as:</p>
 <div class="math" id="equation-6.a.3">
-<p><span class="eqno">(68)<a class="headerlink" href="#equation-6.a.3" title="Permalink to this equation">¶</a></span><img src="../_images/math/c315b6880e55e20204bd3554350902661f0c5c17.png" alt="T_o^{(n+1)'} = T_o^n + \frac{(1-A^{n}) F^{n}}
+<p><span class="eqno">(69)<a class="headerlink" href="#equation-6.a.3" title="Permalink to this equation">¶</a></span><img src="../_images/math/c315b6880e55e20204bd3554350902661f0c5c17.png" alt="T_o^{(n+1)'} = T_o^n + \frac{(1-A^{n}) F^{n}}
 {\rho_{o} C_o h_{o}} \Delta t"/></p>
 </div><p>where <img class="math" src="../_images/math/ec002955bdf95ee9869878fbad4f80fc98539359.png" alt="\Delta t"/> is the model time step. We note that <img class="math" src="../_images/math/db77dcef8ab699ce41c0e6471a7a8e2359e4a9f1.png" alt="A^n"/>
 is computed from the fraction of the total grid box that is not covered
 by land, since only ocean and sea ice covered portion of the grid cell
 are considered for the SOM configuration:</p>
 <div class="math" id="equation-6.a.4">
-<p><span class="eqno">(69)<a class="headerlink" href="#equation-6.a.4" title="Permalink to this equation">¶</a></span><img src="../_images/math/85836228f16bab2d8f6f588c9e16e0d8fbf1b786.png" alt="A^n = \frac{{icefrac}^n} {(1 - landfrac)}"/></p>
+<p><span class="eqno">(70)<a class="headerlink" href="#equation-6.a.4" title="Permalink to this equation">¶</a></span><img src="../_images/math/85836228f16bab2d8f6f588c9e16e0d8fbf1b786.png" alt="A^n = \frac{{icefrac}^n} {(1 - landfrac)}"/></p>
 </div><p>where <img class="math" src="../_images/math/bc25ab05d0032dde2e54d7f10884ba8e08b9c3a5.png" alt="icefrac"/> is the fraction of ice in the grid cell and
 <img class="math" src="../_images/math/ec1378f98103144bbf8a513e9b59a7626cdabcbd.png" alt="landfrac"/> is the fraction of land in the grid box.</p>
 <p>The <img class="math" src="../_images/math/10d3de678911964ce12d5130014bd18e13e23f17.png" alt="Q^n"/> flux is then adjusted since it is possible (using
@@ -4321,7 +4337,7 @@ cooling of the mixed layer when its temperature is at the freezing
 point. Therefore, if <img class="math" src="../_images/math/83e63838efbc01327188a06b89d897f19efb4de0.png" alt="Q^n &gt; 0"/> and
 <img class="math" src="../_images/math/a3ec787e5e7a9ad2e07deb61e9a366a0b7e805c3.png" alt="T_o^{(n+1)'} &lt; 0^\circ C"/>, then</p>
 <div class="math" id="equation-6.a.5">
-<p><span class="eqno">(70)<a class="headerlink" href="#equation-6.a.5" title="Permalink to this equation">¶</a></span><img src="../_images/math/b136346824c9d4f854b336c0cb656b15c66156ba.png" alt="Q^{n'} = Q^{n} f_T"/></p>
+<p><span class="eqno">(71)<a class="headerlink" href="#equation-6.a.5" title="Permalink to this equation">¶</a></span><img src="../_images/math/b136346824c9d4f854b336c0cb656b15c66156ba.png" alt="Q^{n'} = Q^{n} f_T"/></p>
 </div><p>where <img class="math" src="../_images/math/862b8afcc2a16dae00f1b5ae974ee8f167ad19c9.png" alt="f_T = {(T_f - T_o^{(n+1)'})}/{T_f}"/>, and <img class="math" src="../_images/math/ff70731f72e23ae7bc4d5301a56bdd033a5d13a4.png" alt="T_f"/> is the
 ocean freezing temperature of -1.8:math:<cite>^circ</cite>C (where <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/>
 is expressed in units of <img class="math" src="../_images/math/416949279b3505b72d9f643b9c648a648ba2e17c.png" alt="^\circ"/>C). This adjustment smoothly

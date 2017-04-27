@@ -122,18 +122,18 @@ state, <img class="math" src="../_images/math/18663a1c8a6db578e2bda783e55063a6d4
 <img class="math" src="../_images/math/3cf5aa5abe312e6fd4996975341a43aa566e8d8d.png" alt="D"/> and <img class="math" src="../_images/math/9dcbbef8e0f76051d388013b90a95bec3069e484.png" alt="P"/> are calculated sequentially, each based on the
 state produced by the other.</p>
 <p>As mentioned above, the Eulerian core employs the three-time-level
-notation in (<a class="reference internal" href="#equation-3">(2)</a>)-(<a class="reference internal" href="#equation-6">(5)</a>). Eqns. (<a class="reference internal" href="#equation-3">(2)</a>)-(<a class="reference internal" href="#equation-6">(5)</a>) also apply to two-time-level
+notation in <a class="reference internal" href="#equation-3">(2)</a>-<a class="reference internal" href="#equation-6">(5)</a>. Eqns. <a class="reference internal" href="#equation-3">(2)</a>-<a class="reference internal" href="#equation-6">(5)</a> also apply to two-time-level
 finite volume, semi-Lagrangian and spectral element (HOMME) cores by
 dropping centered <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/> term dependencies, and replacing <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/>-1
 by <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/> and <img class="math" src="../_images/math/75cad577b9a83ac2aa819074a8e8b1b1b24a593c.png" alt="2 \Delta t"/> by <img class="math" src="../_images/math/ec002955bdf95ee9869878fbad4f80fc98539359.png" alt="\Delta t"/>.</p>
 <p>The parameterization package can be applied to produce an updated field
-as indicated in (<a class="reference internal" href="#equation-4">(3)</a>) and (<a class="reference internal" href="#equation-6">(5)</a>). Thus (<a class="reference internal" href="#equation-6">(5)</a>) can be written with an
+as indicated in <a class="reference internal" href="#equation-4">(3)</a> and <a class="reference internal" href="#equation-6">(5)</a>. Thus <a class="reference internal" href="#equation-6">(5)</a> can be written with an
 operator notation</p>
 <div class="math" id="equation-7">
 <p><span class="eqno">(6)<a class="headerlink" href="#equation-7" title="Permalink to this equation">¶</a></span><img src="../_images/math/50de54147c295104418ae4a1c2c4bd8fff60e971.png" alt="\psi^{n+1} = {\boldsymbol{P}}\left(\psi^*\right) \;,"/></p>
 </div><p>where only the past state is included in the operator dependency for
 notational convenience. The implicit predicted state dependency is
-understood. The <em>Process Split</em> equation (<a class="reference internal" href="#equation-3">(2)</a>) can also be written in
+understood. The <em>Process Split</em> equation <a class="reference internal" href="#equation-3">(2)</a> can also be written in
 operator notation as</p>
 <div class="math" id="equation-8">
 <p><span class="eqno">(7)<a class="headerlink" href="#equation-8" title="Permalink to this equation">¶</a></span><img src="../_images/math/0036b959a4d1f7da4c9fe9f3d3015ec55ac5011e.png" alt="\psi^{n+1} = {\boldsymbol{D}}\left(\psi^{n-1},
@@ -144,7 +144,7 @@ the forcing rate from the parameterization package, e.g. the heating
 rate in the thermodynamic equation. Again only the past state is
 included in the operator dependency, with the implicit predicted state
 dependency left understood. With this notation the <em>Time Split</em> system
-(<a class="reference internal" href="#equation-5">(4)</a>) and (<a class="reference internal" href="#equation-6">(5)</a>) can be written</p>
+<a class="reference internal" href="#equation-5">(4)</a> and <a class="reference internal" href="#equation-6">(5)</a> can be written</p>
 <div class="math" id="equation-9">
 <p><span class="eqno">(8)<a class="headerlink" href="#equation-9" title="Permalink to this equation">¶</a></span><img src="../_images/math/66d73bbcdf1cf67741e88b859c52163175cec38b.png" alt="\psi^{n+1} = {\boldsymbol{P}}\left({\boldsymbol{D}}\left(\psi^{n-1},0\right)\right) \;."/></p>
 </div><p>The total parameterization package in consists of a sequence of
@@ -165,20 +165,18 @@ surface temperatures and sea ice distribution. These surface fluxes
 provide lower flux boundary conditions for the turbulent mixing
 <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> which is comprised of the planetary boundary layer
 parameterization, vertical diffusion, and gravity wave drag.</p>
-<p>Defining operators following (<a class="reference internal" href="#equation-7">(6)</a>) for each of the parameterization
+<p>Defining operators following <a class="reference internal" href="#equation-7">(6)</a> for each of the parameterization
 components, the couplings in are summarized as:</p>
 <p>TIME SPLIT</p>
 <div class="math" id="equation-11">
-<p><span class="eqno">(10)<a class="headerlink" href="#equation-11" title="Permalink to this equation">¶</a></span><img src="../_images/math/98cfa26912cd149d5f9626f8e773e8437ca3f9cd.png" alt="\begin{aligned}
-\psi^{n+1} &amp;= {\boldsymbol{T}}\left({\boldsymbol{S}}\left({\boldsymbol{R}}\left({\boldsymbol{M}}\left(
-                       {\boldsymbol{D}}\left(\psi^{n-1},0\right)\right)\right)\right)\right)
- \\
-\intertext{PROCESS SPLIT} \psi^{n+1} &amp;=
-{\boldsymbol{D}}\left(\psi^{n-1},\frac {
+<p><span class="eqno">(10)<a class="headerlink" href="#equation-11" title="Permalink to this equation">¶</a></span><img src="../_images/math/7d68e796d27c2c5872327e9ca1c727d3adcac174.png" alt="\psi^{n+1} = {\boldsymbol{T}}\left({\boldsymbol{S}}\left({\boldsymbol{R}}\left({\boldsymbol{M}}\left(
+             {\boldsymbol{D}}\left(\psi^{n-1},0\right)\right)\right)\right)\right)"/></p>
+</div><p>PROCESS SPLIT</p>
+<div class="math" id="equation-12">
+<p><span class="eqno">(11)<a class="headerlink" href="#equation-12" title="Permalink to this equation">¶</a></span><img src="../_images/math/4fba7f5fea59fa821f04c0c0e0797c43e6f031d4.png" alt="\psi^{n+1} = {\boldsymbol{D}}\left(\psi^{n-1},\frac {
 {\boldsymbol{T}}\left({\boldsymbol{S}}\left({\boldsymbol{R}}\left(
 {\boldsymbol{M}}\left(\psi^{n-1}\right)\right)\right)\right) - \psi^{n-1}}
-{2\Delta t}\right)
-\end{aligned}"/></p>
+{2\Delta t}\right)"/></p>
 </div><p>The labels <em>Time Split</em> and <em>Process Split</em> refer to the coupling of the
 dynamical core with the complete parameterization suite. The components
 within the parameterization suite are coupled via time splitting in both
@@ -198,7 +196,7 @@ coordinate every sub-step of the dynamical core. Besides the expense
 involved, it is not completely obvious how to interpolate the
 parameterized forcing, which can have a vertical grid scale component
 arising from vertical grid scale clouds, to a different vertical grid.
-(Williamson 2002) compares simulations with the Eulerian spectral
+<a class="reference internal" href="references.html#williamson-2002"><span class="std std-ref">Williamson 2002</span></a> compares simulations with the Eulerian spectral
 transform dynamical core coupled to the CCM3 parameterization suite via
 <em>Process Split</em> and <em>Time Split</em> approximations.</p>
 </div>

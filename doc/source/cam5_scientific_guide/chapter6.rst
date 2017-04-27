@@ -781,7 +781,8 @@ converges to the same solution one gets when evaluating :math:`k` at
 :math:`m+1`.
 
 The discrete heat equation for the surface layers is modified slightly
-from Eq. [num:1] to maintain second-order accuracy for :math:`\partialT/\partial z`. The equation for the bottom layer (:math:`l=L`) is
+from :eq:`num:1` to maintain second-order accuracy for :math:`\partial{T} \over \partial{z}`. 
+The equation for the bottom layer (:math:`l=L`) is
 
 .. math::
    :label: num:1b

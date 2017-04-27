@@ -558,14 +558,12 @@ computational efficiency, we shall take advantage of the stability of
 the FFSL transport algorithm by using a much larger time step
 (:math:`\Delta t)` for the transport of all tracer species (including
 water vapor). As in the shallow water system, the Lagrangian dynamics
-uses a relatively small time step, :math:`\Delta \tau
-=\Delta t/m`, where :math:`m` is the number of the sub-cycling needed
+uses a relatively small time step, :math:`\Delta \tau =\Delta t/m`, where :math:`m` is the number of the sub-cycling needed
 to stabilize the fastest wave in the system. We shall describe here this
-time-split procedure for the *prognostic variables* :math:`
-\left[ \delta p,\Theta ,u,v;q\right]` on the D-grid. Discretization on
+time-split procedure for the *prognostic variables* 
+:math:`\left[ \delta p,\Theta ,u,v;q\right]` on the D-grid. Discretization on
 the C-grid for obtaining the *diagnostic variables*, the time-averaged
-winds :math:`(u^{*},v^{*})`, is analogous to that of the D-grid (see
-also LR97).
+winds :math:`(u^{*},v^{*})`, is analogous to that of the D-grid (see also LR97).
 
 Introducing the following short hand notations (*cf*, (:eq:`def-1`) and
 (:eq:`def-2`)):
@@ -5745,8 +5743,10 @@ Vertical coordinate and hydrostatic equation
 The semi-Lagrangian dynamical core adopts the same hybrid vertical
 coordinate (:math:`\eta`) as the Eulerian core defined by
 
-.. math:: p(\eta, p_s) = A (\eta)p_o + B(\eta) p_s \; , 
-	  :label: sld.1
+.. math:: 
+   :label: sld.1
+
+   p(\eta, p_s) = A (\eta)p_o + B(\eta) p_s \; , 
 
 where :math:`p` is pressure, :math:`p_s` is surface pressure, and
 :math:`p_o` is a specified constant reference pressure. The coefficients
@@ -5759,8 +5759,10 @@ implications in the continuity equation development which follows.
 In the :math:`\eta` system the hydrostatic equation is approximated in a
 general way by
 
-.. math:: \Phi_k = \Phi_s + R \sum^K_{l=k} H_{kl}\, (p)\, T_{vl} 
-	  :label: sld.2
+.. math:: 
+   :label: sld.2
+
+   \Phi_k = \Phi_s + R \sum^K_{l=k} H_{kl}\, (p)\, T_{vl} 
 
 where k is the vertical grid index running from 1 at the top of the
 model to :math:`K` at the first model level above the surface,

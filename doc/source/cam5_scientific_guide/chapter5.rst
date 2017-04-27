@@ -929,7 +929,7 @@ Comparing :eq:`eq:tridiag2`  and :eq:`eq:tridiag4` , we find
    E^k = \frac{C^k} {B^k - A^k E^{k+1}}, \quad L>k>1,  
 
 .. math::
-   :label: eq:tridiag5
+   :label: eq:tridiag6
 
    F^k = \frac{\psi^k_{n\prime} + A^k F^{k+1}}{B^k - A^k E^{k+1}}, \quad L>k>1 
 
@@ -948,7 +948,7 @@ reversed, which merely requires writing :eq:`eq:tridiag3`  for
 :math:`\psi^{k-1}_{n+1}` instead of :math:`\psi^{k+1}_{n+1}`. The order
 used here is particularly convenient because the turbulent diffusivities
 for heat and all constituents are the same but their molecular
-diffusivities are not. Since the terms in :eq:`eq:tridiag5` [eq:tridiag6])
+diffusivities are not. Since the terms in :eq:`eq:tridiag5` and :eq:`:eq:tridiag6`
 are determined from the bottom upward, it is only necessary to
 recalculate :math:`A^k`, :math:`C^k`, :math:`E^k` and :math:`1/({B^k -
 A^k E^{k+1}})` for each constituent within the region where molecular
@@ -2015,19 +2015,17 @@ For :math:`K_p > 7`,  linearly interpolates HP, assuming HP equals to
 covers the period from 1933 to the present, making it ideal for
 long-term retrospective simulations.
 
-.. figure:: figures/ions.ps
-   :alt: Global mean distribution of charged constituents during July
+.. figure:: figures/ions.jpg
+   :align: center
+
+   Global mean distribution of charged constituents during July
    solar minimum conditions.
 
    Global mean distribution of charged constituents during July solar
    minimum conditions.
 
-.. figure:: figures/ionprod.eps
-   :alt: a) Global distribution of ionization rates at
-   7.3\ :math:`\times 10^{-5}` hPa, July 1, UT0100 HRS. Contour interval
-   is 2\ :math:`\times 10^{3}` cm\ :math:`^{-3}` s\ :math:`^{-1}`. b)
-   Simultaneous global mean ionization rates (cm:math:`^{-3}`
-   s\ :math:`^{-1}`) versus pressure.
+.. figure:: figures/ionprod.jpg
+   :align: center
 
    a) Global distribution of ionization rates at
    7.3\ :math:`\times 10^{-5}` hPa, July 1, UT0100 HRS. Contour interval

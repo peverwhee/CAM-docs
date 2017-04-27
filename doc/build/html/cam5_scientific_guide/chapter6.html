@@ -690,49 +690,8 @@ level <img class="math" src="../_images/math/edba97b4c0d864d26e92ea7ea73767fa38e
 converges to the same solution one gets when evaluating <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> at
 <img class="math" src="../_images/math/edec40cd12b3d08dac5b9da86d7f4f0170e2da1e.png" alt="m+1"/>.</p>
 <p>The discrete heat equation for the surface layers is modified slightly
-from Eq. [num:1] to maintain second-order accuracy for <div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\partialT/\partial z</tt>)</p>
-latex exited with error
-[stdout]
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex)
- restricted \write18 enabled.
-entering extended mode
-(./math.tex
-LaTeX2e &lt;2015/01/01&gt;
-Babel &lt;3.9l&gt; and hyphenation patterns for 79 languages loaded.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size12.clo))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
-(/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/utf8x.def))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/ucs.sty
-(/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-global.def))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
-For additional information on amsmath, use the `?&#8217; option.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/bm.sty)
-No file math.aux.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/ucsencs.def)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd)
-! Undefined control sequence.
-&lt;recently read&gt; \partialT 
-                          
-l.13 \fontsize{12}{14}\selectfont $\partialT
-                                            /\partial z$
-[1] (./math.aux) )
-(see the transcript file for additional information)
-Output written on math.dvi (1 page, 212 bytes).
-Transcript written on math.log.
-</div>
-. The equation for the bottom layer (<img class="math" src="../_images/math/9fa309e25808c72ef272c8d99dddeb855b0d6637.png" alt="l=L"/>) is</p>
+from <a class="reference internal" href="#equation-num:1">(19)</a> to maintain second-order accuracy for <img class="math" src="../_images/math/06646fc8236057c00abac2179c07966fe91268ed.png" alt="\partial{T} \over \partial{z}"/>.
+The equation for the bottom layer (<img class="math" src="../_images/math/9fa309e25808c72ef272c8d99dddeb855b0d6637.png" alt="l=L"/>) is</p>
 <div class="math" id="equation-num:1b">
 <p><span class="eqno">(20)<a class="headerlink" href="#equation-num:1b" title="Permalink to this equation">¶</a></span><img src="../_images/math/5f7a1a997186e11c17f8557991b50793729789ee.png" alt="\rho_i c_o&amp;(T_L^{m+1}- T_L^m)
   \left(1 + {L_i\mu S_L \over  c_o T_L^{m+1} T_L^m} \right) =\\
