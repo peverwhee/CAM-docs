@@ -1,3 +1,7 @@
+.. |cam| replace:: CAM6.0
+
+.. |waccm| replace:: WACCM4.0
+
 .. _chap-sea_ice:
 
 Sea Ice Thermodynamics
@@ -7,28 +11,28 @@ This chapter describes the physics of the sea ice thermodynamics
 beginning with basic assumptions and followed by a description of the
 fundamental equations, various parameterization, and numerical
 approximations. The philosophy behind the design of the sea ice
-formulation of is to use the same physics, where possible, as in the sea
+formulation of |cam| is to use the same physics, where possible, as in the sea
 ice model within CCSM, which is known as CSIM for community sea ice
-model. The sea ice formulation in uses parameterizations from CSIM for
+model. The sea ice formulation in |cam| uses parameterizations from CSIM for
 predicting snow depth, brine pockets, internal shortwave radiative
 transfer, surface albedo, ice-atmosphere drag, and surface exchange
 fluxes. The full CSIM is described in detail in an NCAR technical note
-by Briegleb et al. (2002). The pieces of CSIM that are also used in
+by :cite:`briegleb02`. The pieces of CSIM that are also used in |cam|
 (without the flux coupler) are described here.
 
 The features of the sea ice model that are used in depend on the
 boundary conditions over ice-free ocean. If sea surface temperatures
 (SSTs) are prescribed, then sea ice concentration and thickness are also
-prescribed. In this case, the primary function of the sea ice model in
+prescribed. In this case, the primary function of the sea ice model in |cam|
 is to compute surface fluxes. However, if the slab ocean model is
-employed, sea ice thickness and concentration are computed within .
-These two types of surface boundary conditions within will be referred
+employed, sea ice thickness and concentration are computed within |cam|.
+These two types of surface boundary conditions within |cam| will be referred
 to as uncoupled and coupled in this chapter.
 
 Basic assumptions
 -----------------
 
-When is run uncoupled (i.e., without an ocean model), sea ice thickness
+When |cam| is run uncoupled (i.e., without an ocean model), sea ice thickness
 and concentration must be specified. Sea ice concentrations are known
 with reasonable accuracy owing to satellite microwave instruments and
 ship observations. However, no adequate measurements of thickness exist
@@ -102,7 +106,7 @@ where :math:`h_s` is the snow depth, :math:`\rho_s` is the snow density,
 :math:`L_i` and :math:`L_v` are the latent heats of fusion and
 vaporization, and :math:`F_{SNW}` is the snowfall rate (see Table [table:siphysconst] for values of constants).
 
-When is coupled to the mixed layer ocean and the sea ice is snow-free,
+When |cam| is coupled to the mixed layer ocean and the sea ice is snow-free,
 sea ice surface melt is computed from
 
 .. math::
@@ -182,8 +186,7 @@ not described here.
 | :math:`\kappa_{ni}`\ & Ice SW near-ir extinction coefficient & 17.6
   m\ :math:`^{-1}`
 
-NOTE: CSIM in uses the shared constants defined in
-Appendix [physical\ :sub:`c`\ onstants].
+NOTE: CSIM in |cam| uses the shared constants defined in Appendix [physical\ :sub:`c`\ onstants].
 
 Snow and Ice Albedo
 -------------------
@@ -225,7 +228,7 @@ conditions. This is approximated by a temperature dependence out to
    \alpha_{nidf}^s(melt) = & {\alpha_{nidf}^s(dry) - 0.15 \Delta T_s}  
 
 For bare non-melting sea ice thicker than 0.5 m, as is the case for all
-sea ice prescribed in , the albedos are
+sea ice prescribed in |cam|, the albedos are
 
 .. math::
 
@@ -450,7 +453,7 @@ temperature is:
 Ice to Ocean Flux Exchange
 --------------------------
 
-This section is only relevant when is coupled to a slab ocean. When sea
+This section is only relevant when \cam is coupled to a slab ocean. When sea
 ice is present, only a fraction of the melting potential from heat
 stored in the ocean actually reaches the ice at the base and side. The
 melting potential is
@@ -701,7 +704,7 @@ Snow-Ice Conversion
 
 Snow to ice conversion occurs if the snow layer overlying the sea ice
 becomes thick enough to depress the snow-ice interface below freeboard
-(the ocean surface). This process is only accounted for when is coupled
+(the ocean surface). This process is only accounted for when |cam| is coupled
 to a mixed layer ocean, otherwise the snow depth is merely capped at 0.5
 m. The interface height is:
 
@@ -1174,7 +1177,7 @@ Temperature Adjustment Due to Melt/Growth
 The energy of melting of the ice and snow layers needs to be adjusted
 when the layer spacing changes after growth/melt,
 evaporation/sublimation, and flooding (see Figure [fig:adjust]). This
-calculation is only made when is coupled to a mixed layer ocean. The
+calculation is only made when |cam| is coupled to a mixed layer ocean. The
 adjusted energy of melting is
 
 .. math::

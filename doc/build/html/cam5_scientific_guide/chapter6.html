@@ -114,25 +114,25 @@
 beginning with basic assumptions and followed by a description of the
 fundamental equations, various parameterization, and numerical
 approximations. The philosophy behind the design of the sea ice
-formulation of is to use the same physics, where possible, as in the sea
+formulation of CAM6.0 is to use the same physics, where possible, as in the sea
 ice model within CCSM, which is known as CSIM for community sea ice
-model. The sea ice formulation in uses parameterizations from CSIM for
+model. The sea ice formulation in CAM6.0 uses parameterizations from CSIM for
 predicting snow depth, brine pockets, internal shortwave radiative
 transfer, surface albedo, ice-atmosphere drag, and surface exchange
 fluxes. The full CSIM is described in detail in an NCAR technical note
-by Briegleb et al. (2002). The pieces of CSIM that are also used in
+by <a class="reference internal" href="chapter8.html#briegleb02" id="id1">[BBH+02]</a>. The pieces of CSIM that are also used in CAM6.0
 (without the flux coupler) are described here.</p>
 <p>The features of the sea ice model that are used in depend on the
 boundary conditions over ice-free ocean. If sea surface temperatures
 (SSTs) are prescribed, then sea ice concentration and thickness are also
-prescribed. In this case, the primary function of the sea ice model in
+prescribed. In this case, the primary function of the sea ice model in CAM6.0
 is to compute surface fluxes. However, if the slab ocean model is
-employed, sea ice thickness and concentration are computed within .
-These two types of surface boundary conditions within will be referred
+employed, sea ice thickness and concentration are computed within CAM6.0.
+These two types of surface boundary conditions within CAM6.0 will be referred
 to as uncoupled and coupled in this chapter.</p>
 <div class="section" id="basic-assumptions">
 <h2>8.1. Basic assumptions<a class="headerlink" href="#basic-assumptions" title="Permalink to this headline">¶</a></h2>
-<p>When is run uncoupled (i.e., without an ocean model), sea ice thickness
+<p>When CAM6.0 is run uncoupled (i.e., without an ocean model), sea ice thickness
 and concentration must be specified. Sea ice concentrations are known
 with reasonable accuracy owing to satellite microwave instruments and
 ship observations. However, no adequate measurements of thickness exist
@@ -140,7 +140,7 @@ to produce a comprehensive dataset. Therefore, when ice thickness must
 be specified, the thickness of the ice covered portion of the grid cell
 is fixed in space and time at 2 m in the Northern Hemisphere and 0.5 m
 in the Southern Hemisphere. Ice concentrations are interpolated from
-monthly input data, which may vary in space and time. <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+monthly input data, which may vary in space and time. <a class="footnote-reference" href="#id3" id="id2">[1]</a></p>
 <p>For either coupled or uncoupled integrations, snow depth on sea ice is
 prognostic as snow accumulates when precipitation falls as snow, and it
 melts when allowed by the surface energy balance. For uncoupled
@@ -187,7 +187,7 @@ with <img class="math" src="../_images/math/ca473e0924f422562cbeb617b452f9f74e33
 </div><p>where <img class="math" src="../_images/math/37cccd8abc6ddcf615ff2f27baa2af6fb48cf904.png" alt="h_s"/> is the snow depth, <img class="math" src="../_images/math/cd35bd8c1ad2f45b60559441a7058ba7f2ac9901.png" alt="\rho_s"/> is the snow density,
 <img class="math" src="../_images/math/a3af17b7dbd4e75d965f8393b7e812a0f1435418.png" alt="L_i"/> and <img class="math" src="../_images/math/9a776fd3a2b33e91214d370fedbb44f9a1cd34f4.png" alt="L_v"/> are the latent heats of fusion and
 vaporization, and <img class="math" src="../_images/math/716b7e144c7b74216b0d6b13d0ddfd009dcf2b45.png" alt="F_{SNW}"/> is the snowfall rate (see Table [table:siphysconst] for values of constants).</p>
-<p>When is coupled to the mixed layer ocean and the sea ice is snow-free,
+<p>When CAM6.0 is coupled to the mixed layer ocean and the sea ice is snow-free,
 sea ice surface melt is computed from</p>
 <div class="math" id="equation-eq:hicetop">
 <p><span class="eqno">(4)<a class="headerlink" href="#equation-eq:hicetop" title="Permalink to this equation">¶</a></span><img src="../_images/math/5f9e07c82841dfecee93adbd3cdf7b08c3e08eed.png" alt="{dh_i \over dt} = {F_{TOP} \over q} +
@@ -253,8 +253,7 @@ m<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c
 <div class="line"><img class="math" src="../_images/math/898b1839b9208dfa2e22ba1257ab6025c18395fe.png" alt="\kappa_{ni}"/>&amp; Ice SW near-ir extinction coefficient &amp; 17.6
 m<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/></div>
 </div>
-<p>NOTE: CSIM in uses the shared constants defined in
-Appendix&nbsp;[physical<sub>c</sub>onstants].</p>
+<p>NOTE: CSIM in CAM6.0 uses the shared constants defined in Appendix&nbsp;[physical<sub>c</sub>onstants].</p>
 </div>
 <div class="section" id="snow-and-ice-albedo">
 <h2>8.3. Snow and Ice Albedo<a class="headerlink" href="#snow-and-ice-albedo" title="Permalink to this headline">¶</a></h2>
@@ -288,7 +287,7 @@ conditions. This is approximated by a temperature dependence out to
 \alpha_{vsdf}^s(melt) = &amp; {\alpha_{vsdf}^s(dry) - 0.10 \Delta T_s}  \\
 \alpha_{nidf}^s(melt) = &amp; {\alpha_{nidf}^s(dry) - 0.15 \Delta T_s}"/></p>
 </div><p>For bare non-melting sea ice thicker than 0.5 m, as is the case for all
-sea ice prescribed in , the albedos are</p>
+sea ice prescribed in CAM6.0, the albedos are</p>
 <div class="math">
 <p><img src="../_images/math/1aad229c677e604e040a0b8949dc9e3206e84967.png" alt="\alpha_{vsdf}(dry) = &amp; {0.73}  \\
 \alpha_{nidf}(dry) = &amp; {0.33}  ."/></p>
@@ -452,7 +451,7 @@ temperature is:</p>
 </div></div>
 <div class="section" id="ice-to-ocean-flux-exchange">
 <h2>8.5. Ice to Ocean Flux Exchange<a class="headerlink" href="#ice-to-ocean-flux-exchange" title="Permalink to this headline">¶</a></h2>
-<p>This section is only relevant when is coupled to a slab ocean. When sea
+<p>This section is only relevant when cam is coupled to a slab ocean. When sea
 ice is present, only a fraction of the melting potential from heat
 stored in the ocean actually reaches the ice at the base and side. The
 melting potential is</p>
@@ -629,7 +628,7 @@ model using time splitting to solve the three equations independently.</p>
 <h2>8.8. Snow-Ice Conversion<a class="headerlink" href="#snow-ice-conversion" title="Permalink to this headline">¶</a></h2>
 <p>Snow to ice conversion occurs if the snow layer overlying the sea ice
 becomes thick enough to depress the snow-ice interface below freeboard
-(the ocean surface). This process is only accounted for when is coupled
+(the ocean surface). This process is only accounted for when CAM6.0 is coupled
 to a mixed layer ocean, otherwise the snow depth is merely capped at 0.5
 m. The interface height is:</p>
 <div class="math">
@@ -675,7 +674,7 @@ interfaces, for interior layers we have</p>
                   e^{-\kappa_{vs} (l+1) \Delta h^m}) +
          I_{0ni} (e^{-\kappa_{ni} l \Delta h^m} -
                   e^{-\kappa_{ni} (l+1) \Delta h^m})."/></p>
-</div><div class="figure align-center" id="id3">
+</div><div class="figure align-center" id="id4">
 <img alt="../_images/figure6-1.jpg" src="../_images/figure6-1.jpg" />
 <p class="caption"><span class="caption-text">Vertical grid of the sea ice (a) when snow is present and (b)
 when the ice is snow free; <img class="math" src="../_images/math/4ecc37a6c1a4909f03d7564db6a1f9b8818ccd33.png" alt="\Delta h"/> is the thickness of an
@@ -992,7 +991,7 @@ tridiagonal form and solved iteratively.</p>
 </div>
 <div class="section" id="temperature-adjustment-due-to-melt-growth">
 <h3>8.9.5. Temperature Adjustment Due to Melt/Growth<a class="headerlink" href="#temperature-adjustment-due-to-melt-growth" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id5">
 <img alt="../_images/figure6-2.jpg" src="../_images/figure6-2.jpg" />
 <p class="caption"><span class="caption-text">Diagram showing energy content before (a) and after (b)
 changing the layer spacing for an ice model with four vertical layers
@@ -1002,7 +1001,7 @@ surface. From Bitz (2000)</span></p>
 <p>The energy of melting of the ice and snow layers needs to be adjusted
 when the layer spacing changes after growth/melt,
 evaporation/sublimation, and flooding (see Figure [fig:adjust]). This
-calculation is only made when is coupled to a mixed layer ocean. The
+calculation is only made when CAM6.0 is coupled to a mixed layer ocean. The
 adjusted energy of melting is</p>
 <div class="math" id="equation-eq:adjust">
 <p><span class="eqno">(33)<a class="headerlink" href="#equation-eq:adjust" title="Permalink to this equation">¶</a></span><img src="../_images/math/690b58fc7f5a497641d9388a021f0f45984bc0de.png" alt="q_l'= \begin{cases}
@@ -1014,10 +1013,10 @@ adjusted energy of melting is</p>
 </div><p>where <img class="math" src="../_images/math/8af41bf33201eaccbd9a53313e93a21f6841ffee.png" alt="w_{k,l}"/> are weights computed from the relative overlap of
 layer <img class="math" src="../_images/math/b359488b993294ebbc2c7b30ab8f749dcbc6826d.png" alt="l"/> with each layer <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> from the old layer spacing and
 <img class="math" src="../_images/math/11cdeea15dad5c7ec4c7e4e01b028a36db464bec.png" alt="\Delta h'"/> is the new layer spacing.</p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
+<table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Mid-month concentrations are input and then interpolated to daily
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Mid-month concentrations are input and then interpolated to daily
 values. The input data are constructed to correctly recover the
 observed monthly means value using the method of Taylor, Williamson,
 and Zwiers (2001)</td></tr>

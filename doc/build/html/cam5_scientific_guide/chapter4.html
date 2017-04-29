@@ -185,10 +185,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="model-physics">
-<span id="id1"></span><h1>5. Model Physics<a class="headerlink" href="#model-physics" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="model-physics"></span><div class="section" id="id1">
+<h1>5. Model Physics<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>As stated in chapter&nbsp;[chap:coupling], the total parameterization package
-in consists of a sequence of components, indicated by</p>
+in CAM6.0 consists of a sequence of components, indicated by</p>
 <div class="math">
 <p><img src="../_images/math/f612601a9f63554aa0d6d3c46ab47f2a9c92e967.png" alt="P = \{ M,R,S,T \} ~,"/></p>
 </div><p>where <img class="math" src="../_images/math/450a8e2c2320d77181e0d4fc68c947e9a5de8ecb.png" alt="M"/> denotes (Moist) precipitation processes, <img class="math" src="../_images/math/a00254b18ffa992f0ef19f6e6e095b83c8f85e94.png" alt="R"/>
@@ -208,7 +208,7 @@ gravity wave drag.</p>
 <p>The updating described in the preceding paragraph of all variable except
 temperature is straightforward. Temperature, however, is a little more
 complicated and follows the general procedure described by Boville and
-Bretherton (2003) involving dry static energy. The state variable
+<a class="reference internal" href="chapter8.html#boville03" id="id2">[BB03]</a> involving dry static energy. The state variable
 updated after each time-split parameterization component is the dry
 static energy <img class="math" src="../_images/math/3707286326c05ad688e6ebcc3ce93269b7f2e099.png" alt="s_i"/>. Let <img class="math" src="../_images/math/df0deb143e5ac127f00bd248ee8001ecae572adc.png" alt="i"/> be the index in a sequence of
 <img class="math" src="../_images/math/d2ed2630e579be280a30b6646f4d706103c337ce.png" alt="I"/> time-split processes. The dry static energy at the end of the
@@ -350,26 +350,25 @@ using equations of such a form still satisfy a conservation relationship</p>
 </div>
 <div class="section" id="deep-convection">
 <span id="ssec-deep-convection"></span><h2>5.2. Deep Convection<a class="headerlink" href="#deep-convection" title="Permalink to this headline">¶</a></h2>
-<p>The process of deep convection is treated with a parameterization scheme
-developed by Zhang and McFarlane (1995) and modified with the addition
-of convective momentum transports by Richter and Rasch (2008) and a
-modified dilute plume calculation following Raymond and Blyth (1986;
-Raymond and Blyth 1992). The scheme is based on a plume ensemble
-approach where it is assumed that an ensemble of convective scale
-updrafts (and the associated saturated downdrafts) may exist whenever
-the atmosphere is conditionally unstable in the lower troposphere. The
-updraft ensemble is comprised of plumes sufficiently buoyant so as to
-penetrate the unstable layer, where all plumes have the same upward mass
-flux at the bottom of the convective layer. Moist convection occurs only
-when there is convective available potential energy (CAPE) for which
-parcel ascent from the sub-cloud layer acts to destroy the CAPE at an
-exponential rate using a specified adjustment time scale. For the
-convenience of the reader we will review some aspects of the
-formulation, but refer the interested reader to Zhang and McFarlane
-(1995) for additional detail, including behavioral characteristics of
-the parameterization scheme. Evaporation of convective precipitation is
-computed following the procedure described in section
-[conv:sub:<cite>e</cite>vap].</p>
+<p>The process of deep convection is treated with a parameterization
+scheme developed by <a class="reference internal" href="chapter8.html#zhang95" id="id3">[ZM95]</a> and modified with the addition of
+convective momentum transports by <a class="reference internal" href="chapter8.html#richter08" id="id4">[RR08]</a> and a modified
+dilute plume calculation following  <a class="reference internal" href="chapter8.html#raymond86" id="id5">[RB86]</a><a class="reference internal" href="chapter8.html#raymond92" id="id6">[RB92]</a>. The
+scheme is based on a plume ensemble approach where it is assumed that
+an ensemble of convective scale updrafts (and the associated saturated
+downdrafts) may exist whenever the atmosphere is conditionally
+unstable in the lower troposphere.  The updraft ensemble is comprised
+of plumes sufficiently buoyant so as to penetrate the unstable layer,
+where all plumes have the same upward mass flux at the bottom of the
+convective layer.  Moist convection occurs only when there is
+convective available potential energy (CAPE) for which parcel ascent
+from the sub-cloud layer acts to destroy the CAPE at an exponential
+rate using a specified adjustment time scale.  For the convenience of
+the reader we will review some aspects of the formulation, but refer
+the interested reader to <a class="reference internal" href="chapter8.html#zhang95" id="id7">[ZM95]</a> for additional detail,
+including behavioral characteristics of the parameterization scheme.
+Evaporation of convective precipitation is computed following the
+procedure described in section <a class="reference internal" href="#conv-evap"><span class="std std-ref">Evaporation of convective precipitation</span></a>.</p>
 <p>The large-scale budget equations distinguish between a cloud and
 sub-cloud layer where temperature and moisture response to convection in
 the cloud layer is written in terms of bulk convective fluxes as</p>
@@ -794,7 +793,7 @@ Gregory, Kershaw, and Inness (1997) as</p>
 <p><span class="eqno">(36)<a class="headerlink" href="#equation-4.cmt.4" title="Permalink to this equation">¶</a></span><img src="../_images/math/8bdbc0d5a03719aa9e13d77161ea44c3f6f26b0d.png" alt="\boldsymbol{P}^u_G   = -C_u M_u\frac{\partial \boldsymbol{V}}{\partial z}"/></p>
 </div><div class="math" id="equation-4.cmt.5">
 <p><span class="eqno">(37)<a class="headerlink" href="#equation-4.cmt.5" title="Permalink to this equation">¶</a></span><img src="../_images/math/67edb835d1780d59297fb367f0b60edeb96a9c47.png" alt="\boldsymbol{P}^d_G   = -C_d M_d\frac{\partial \boldsymbol{V}}{\partial z}."/></p>
-</div><p><img class="math" src="../_images/math/a092b467f6826fae203fc858e878a8854e4cb250.png" alt="C_u"/> and <img class="math" src="../_images/math/15746e47c01eb1c4d15e0409dfd2ae36896638ab.png" alt="C_d"/> are tunable parameters. In the
+</div><p><img class="math" src="../_images/math/a092b467f6826fae203fc858e878a8854e4cb250.png" alt="C_u"/> and <img class="math" src="../_images/math/15746e47c01eb1c4d15e0409dfd2ae36896638ab.png" alt="C_d"/> are tunable parameters. In the CAM6.0
 implementation we use <img class="math" src="../_images/math/ae88770127ed48da4fbf9d5ea551a5972607c1b1.png" alt="C_u = C_d = 0.4"/>. The value of <img class="math" src="../_images/math/a092b467f6826fae203fc858e878a8854e4cb250.png" alt="C_u"/>
 and <img class="math" src="../_images/math/15746e47c01eb1c4d15e0409dfd2ae36896638ab.png" alt="C_d"/> control the strength of convective momentum transport.
 As these coefiicients increase so do the pressure gradient terms, and
@@ -802,7 +801,7 @@ convective momentum transport decreases.</p>
 </div>
 <div class="section" id="deep-convective-tracer-transport">
 <h3>5.2.6. Deep Convective Tracer Transport<a class="headerlink" href="#deep-convective-tracer-transport" title="Permalink to this headline">¶</a></h3>
-<p>The provides the ability to transport constituents via convection. The
+<p>The CAM6.0 provides the ability to transport constituents via convection. The
 method used for constituent transport by deep convection is a
 modification of the formulation described in Zhang and McFarlane (1995).</p>
 <p>We assume the updrafts and downdrafts are described by a steady state
@@ -856,7 +855,7 @@ quantities</em>.</li>
 </div>
 <div class="section" id="evaporation-of-convective-precipitation">
 <span id="conv-evap"></span><h2>5.3. Evaporation of convective precipitation<a class="headerlink" href="#evaporation-of-convective-precipitation" title="Permalink to this headline">¶</a></h2>
-<p>The employs a Sundqvist (1988) style evaporation of the convective
+<p>The CAM6.0 employs a <a class="reference internal" href="chapter8.html#sundqvist88" id="id8">[Sun88]</a> style evaporation of the convective
 precipitation as it makes its way to the surface. This scheme relates
 the rate at which raindrops evaporate to the local large-scale
 subsaturation, and the rate at which convective rainwater is made
@@ -883,8 +882,7 @@ for which <img class="math" src="../_images/math/e044ea9bb64b535d8c6dfe022f2043f
 an evaporative reduction in <img class="math" src="../_images/math/3e5c4b8668c204019376a50d0abd6e886a122a23.png" alt="R_{r_k}"/> which is then accumulated
 with the previously diagnosed rainwater flux in the layer below,</p>
 <div class="math" id="equation-4.g.16">
-<p><span class="eqno">(41)<a class="headerlink" href="#equation-4.g.16" title="Permalink to this equation">¶</a></span><img src="../_images/math/cb10745b476bd7a530a4ce79c046f08ee6adce68.png" alt="\hat{R}_{r_{k+1}} = \hat{R}_{r_k} - \left({{\Delta p_k} \over
-g}\right) \; E_{r_k} + R_{r_{k+1}}
+<p><span class="eqno">(41)<a class="headerlink" href="#equation-4.g.16" title="Permalink to this equation">¶</a></span><img src="../_images/math/6e7da9b84956445543823341f82827e71e42c9e9.png" alt="\hat{R}_{r_{k+1}} = \hat{R}_{r_k} - \left({{\Delta p_k} \over g}\right) \; E_{r_k} + R_{r_{k+1}}
 
 ~."/></p>
 </div><p>A local increase in the specific humidity <img class="math" src="../_images/math/b12fbae3485649d7a81eefdd5a7e3745647d60a5.png" alt="q_k"/> and a local
@@ -904,8 +902,7 @@ each model level in a downward direction where the final convective
 precipitation rate is that portion of the condensed rainwater in the
 column to survive the evaporation process</p>
 <div class="math" id="equation-4.g.19">
-<p><span class="eqno">(44)<a class="headerlink" href="#equation-4.g.19" title="Permalink to this equation">¶</a></span><img src="../_images/math/1715c7f955ee7309e06f37e4c44fe8f466c5e1b9.png" alt="P_s = \left( \hat{R}_{r_{K}} - \left({{\Delta p_K} \over g}\right) \;
-E_{r_K} \right) /\rho_{H_{2}0}
+<p><span class="eqno">(44)<a class="headerlink" href="#equation-4.g.19" title="Permalink to this equation">¶</a></span><img src="../_images/math/3643ae4d18038b8409d7c95fe831389c636663f7.png" alt="P_s = \left( \hat{R}_{r_{K}} - \left({{\Delta p_K} \over g}\right) \;  E_{r_K} \right) /\rho_{H_{2}0}
 
 ~."/></p>
 </div><p>In global annually averaged terms, this evaporation procedure produces
@@ -916,8 +913,8 @@ evaporated condensate acts to moisten the middle and lower troposphere.</p>
 <span id="ssec-prognostic-water"></span><h2>5.4. Prognostic Condensate and Precipitation Parameterization<a class="headerlink" href="#prognostic-condensate-and-precipitation-parameterization" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="introductory-comments">
 <h3>5.4.1. Introductory comments<a class="headerlink" href="#introductory-comments" title="Permalink to this headline">¶</a></h3>
-<p>The parameterization of non-convective cloud processes in &nbsp;is described
-in Rasch and Kristjánsson (1998) and Zhang et al. (2003). The original
+<p>The parameterization of non-convective cloud processes in CAM6.0 is described
+in <a class="reference internal" href="chapter8.html#rasch98" id="id9">[RK98]</a> and <a class="reference internal" href="chapter8.html#zhang03" id="id10">[ZLB+03]</a>. The original
 formulation is introduced in Rasch and Kristjánsson (1998). Revisions to
 the parameterization to deal more realistically with the treatment of
 the condensation and evaporation under forcing by large scale processes
@@ -932,7 +929,7 @@ replaces the diagnosed liquid water path of CCM3 with evolution
 equations for two additional predicted variables: liquid and ice phase
 condensate. At one point during each time step, these are combined into
 a total condensate and partitioned according to temperature (as
-described in section [microscale]), but elsewhere function as
+described in section <span class="xref std std-ref">microscale</span>), but elsewhere function as
 independent quantities. They are affected by both resolved (advective)
 and unresolved (convective, turbulent) processes. Condensate can
 evaporate back into the environment or be converted to a precipitating
@@ -1074,7 +1071,7 @@ homogeneous freezing of cloud droplets (subscript hom), melting
 (subscript mlt), ice multiplication (subsrcipt mult), sedimentation
 (subscript sed), and convective detrainment (subscript det). The
 formulations for these processes are detailed in section 3. Numerical
-aspects in solving [eq:MG6] and [eq:MG7] are detailed in section 4.</p>
+aspects in solving <a class="reference internal" href="#equation-eq:MG6">(51)</a> and <a href="#id11"><span class="problematic" id="id12">:ea:`eq:MG7`</span></a> are detailed in section 4.</p>
 <div class="section" id="sub-grid-cloud-variability">
 <h4>5.5.1.1. Sub-grid cloud variability<a class="headerlink" href="#sub-grid-cloud-variability" title="Permalink to this headline">¶</a></h4>
 <p>Sub-grid variability is considered for cloud water but neglected for
@@ -1104,12 +1101,11 @@ variability of cloud water is that the grid-average microphysical
 process rates can be derived in a straightforward manner as follows. For
 any generic local microphysical process rate <img class="math" src="../_images/math/d6e74ec228c60de7da918f440ba763129b1f31db.png" alt="M_p =
 xq_c^{\prime\prime y}"/>, replacing <img class="math" src="../_images/math/6d5ed95b569eea5bec94c1d507211d321d62e5e7.png" alt="q_c^{\prime\prime}"/> with
-<img class="math" src="../_images/math/734fda5dae35fe1c87ea514a0d7ec881e6d231df.png" alt="P(q_c^{\prime\prime})"/> from [eq:MG8] and integrating over the PDF
+<img class="math" src="../_images/math/734fda5dae35fe1c87ea514a0d7ec881e6d231df.png" alt="P(q_c^{\prime\prime})"/> from <a class="reference internal" href="#equation-eq:MG8">(53)</a> and integrating over the PDF
 yields a mean in-cloud process rate</p>
 <div class="math" id="equation-eq:MG9">
 <p><span class="eqno">(54)<a class="headerlink" href="#equation-eq:MG9" title="Permalink to this equation">¶</a></span><img src="../_images/math/65b725fc690e173dffa2e9400a9ece71471aab13.png" alt="M_p^{\prime} = x \frac{\Gamma(\nu + y)}{\Gamma(\nu)\nu^y}q_c^{\prime y}"/></p>
-</div><p>Thus, each cloud water microphysical process rate in [eq:MG6] and
-[eq:MG7] is multiplied by a factor</p>
+</div><p>Thus, each cloud water microphysical process rate in <a class="reference internal" href="#equation-eq:MG6">(51)</a> and <a class="reference internal" href="#equation-eq:MG7">(52)</a> is multiplied by a factor</p>
 <div class="math" id="equation-eq:MG10">
 <p><span class="eqno">(55)<a class="headerlink" href="#equation-eq:MG10" title="Permalink to this equation">¶</a></span><img src="../_images/math/7f83ed275327bcfb6e1f28f0873479dd65302313.png" alt="E = \frac{\Gamma(\nu + y)}{\Gamma(\nu)\nu^y}"/></p>
 </div></div>
@@ -1137,7 +1133,7 @@ number-weighted terminal fallspeeds, respectively, and <img class="math" src="..
 <p><span class="eqno">(58)<a class="headerlink" href="#equation-eq:MG13" title="Permalink to this equation">¶</a></span><img src="../_images/math/064c96ff9602052a89e79a25378c4a53d60e0e18.png" alt="S_q=  \left(\frac{\partial q_p}{\partial t}\right)_{auto} + \left(\frac{\partial q_p}{\partial t}\right)_{accw} + \left(\frac{\partial q_p}{\partial t}\right)_{acci} + \left(\frac{\partial q_p}{\partial t}\right)_{het} + \left(\frac{\partial q_p}{\partial t}\right)_{hom} + \left(\frac{\partial q_p}{\partial t}\right)_{mlt} + \left(\frac{\partial q_p}{\partial t}\right)_{mult} +\left(\frac{\partial q_p}{\partial t}\right)_{evap} + \left(\frac{\partial q_p}{\partial t}\right)_{coll}"/></p>
 </div><div class="math" id="equation-eq:MG14">
 <p><span class="eqno">(59)<a class="headerlink" href="#equation-eq:MG14" title="Permalink to this equation">¶</a></span><img src="../_images/math/890e27e0de9fbb304c651a49946724349deea7e1.png" alt="S_N=  \left(\frac{\partial N_p}{\partial t}\right)_{auto} + \left(\frac{\partial N_p}{\partial t}\right)_{het} + \left(\frac{\partial N_p}{\partial t}\right)_{hom} + \left(\frac{\partial N_p}{\partial t}\right)_{mlt} + \left(\frac{\partial N_p}{\partial t}\right)_{evap} + \left(\frac{\partial N_p}{\partial t}\right)_{self} +\left(\frac{\partial N_p}{\partial t}\right)_{coll}"/></p>
-</div><p>The symbolic terms on the right-hand sides of [eq:MG13] and [eq:MG14]
+</div><p>The symbolic terms on the right-hand sides of <a class="reference internal" href="#equation-eq:MG13">(58)</a> and <a class="reference internal" href="#equation-eq:MG14">(59)</a>
 are autoconversion (subscript auto), accretion of cloud water (subscript
 accw), accretion of cloud ice (subscript acci), heterogeneous freezing
 (subscript het), homogeneous freezing (subscript hom), melting
@@ -1148,10 +1144,10 @@ crystals by other snow crystals; Np only), and collection of rain by
 snow (subscript coll). Formulations for these processes are described in
 section 3.</p>
 <p>In the diagnostic treatment , <img class="math" src="../_images/math/6ea626f3a0acccea3ee909cdc6cfa86373345c6f.png" alt="(\partial q_p / \partial t )"/> =0
-and <img class="math" src="../_images/math/49135d44a05e623c03072d1cfbd63f09593c48ed.png" alt="(\partial N_p / \partial t )"/> =0 . This allows [eq:MG11] and
-[eq:MG12] to be expressed as a function of z only. The <img class="math" src="../_images/math/40d6de46fb7fe8520f6f6d4cc1f6520e11a6703d.png" alt="q_p"/> and
+and <img class="math" src="../_images/math/49135d44a05e623c03072d1cfbd63f09593c48ed.png" alt="(\partial N_p / \partial t )"/> =0 . This allows <a class="reference internal" href="#equation-eq:MG11">(56)</a> and
+<a class="reference internal" href="#equation-eq:MG12">(57)</a> to be expressed as a function of z only. The <img class="math" src="../_images/math/40d6de46fb7fe8520f6f6d4cc1f6520e11a6703d.png" alt="q_p"/> and
 <img class="math" src="../_images/math/3d42a5d5f823880d474c11788815401c226299b7.png" alt="N_p"/> are therefore determined by discretizing and numerically
-integrating [eq:MG11] and [eq:MG12] downward from the top of the model
+integrating <a class="reference internal" href="#equation-eq:MG11">(56)</a> and <a class="reference internal" href="#equation-eq:MG12">(57)</a> downward from the top of the model
 atmosphere following Ghan and Easter (1992):</p>
 <div class="math" id="equation-eq:MG15">
 <p><span class="eqno">(60)<a class="headerlink" href="#equation-eq:MG15" title="Permalink to this equation">¶</a></span><img src="../_images/math/594371ca4a731008baaa04d6079182041b45a4aa.png" alt="\rho_{a,k} V_{q,k} q_{p,k} = \rho_{a,k+1} V_{q,k+1} q_{p,k+1} + \frac{1}{2} [ \rho_{a,k} S_{q,k} \delta Z_{k} +  \rho_{a,k+1} S_{q,k+1} \delta Z_{k+1}]"/></p>
@@ -1160,16 +1156,16 @@ atmosphere following Ghan and Easter (1992):</p>
 </div><p>where <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> is the vertical level (increasing with height, i.e.,
 <img class="math" src="../_images/math/f8dcb9a4a77e36cd21ed14f3d85f52fabc7b124f.png" alt="k+1"/> is the next vertical level above <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/>). Since
 <img class="math" src="../_images/math/0633a19e5e04ff4c377654552cf271ead3af93c2.png" alt="V_{q,k}"/>, <img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/>, <img class="math" src="../_images/math/af3981099dda3f28fe9f4f5106babca1359cc2df.png" alt="V_{N,k}"/>, and <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/>
-depend on <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>, [eq:MG15] and [eq:MG16]
+depend on <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>, <a class="reference internal" href="#equation-eq:MG15">(60)</a> and <a class="reference internal" href="#equation-eq:MG16">(61)</a>
 must be solved by iteration or some other method. The approach of Ghan
 and Easter (1992) uses values of <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>
 from the previous time step as provisional estimates in order to
 calculate <img class="math" src="../_images/math/0633a19e5e04ff4c377654552cf271ead3af93c2.png" alt="V_{q,k}"/>, <img class="math" src="../_images/math/af3981099dda3f28fe9f4f5106babca1359cc2df.png" alt="V_{N,k}"/>, <img class="math" src="../_images/math/34fdc3aa564f864df47f58c69e21118d154b04fd.png" alt="S_{p,k}"/>, and
 <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/>. “Final” values of <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>
 are calculated from these values of <img class="math" src="../_images/math/0633a19e5e04ff4c377654552cf271ead3af93c2.png" alt="V_{q,k}"/>, <img class="math" src="../_images/math/af3981099dda3f28fe9f4f5106babca1359cc2df.png" alt="V_{N,k}"/>,
-<img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/> and <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/> using [eq:MG15] and [eq:MG16]. Here
+<img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/> and <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/> using <a class="reference internal" href="#equation-eq:MG15">(60)</a> and <a class="reference internal" href="#equation-eq:MG16">(61)</a>. Here
 we employ another method that obtains provisional values of
-<img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/> from [eq:MG15] and [eq:MG16]
+<img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/> from <a class="reference internal" href="#equation-eq:MG15">(60)</a> and <a class="reference internal" href="#equation-eq:MG16">(61)</a>
 assuming <img class="math" src="../_images/math/743ae81405fa4f857db75d5c9358584285a5f1be.png" alt="V_{q,k} \sim V_{q,k+1}"/> and
 <img class="math" src="../_images/math/bdf071546e663a267c26155e9c72c90519e80261.png" alt="V_{N,k} \sim V_{N,k+1}"/>. It is also assumed that all source/sink
 terms in <img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/> and <img class="math" src="../_images/math/55024542277100946ade8c0a4a278e8728e8c6d8.png" alt="S_{N,q}"/> can be approximated by the
@@ -1184,11 +1180,11 @@ fallspeeds of 0.45 m/s for rain and 0.36 m/s for snow.</p>
 <p>Rain and snow are considered separately, and both may occur
 simultaneously in supercooled conditions (hereafter subscript p for
 precipitation is replaced by subscripts r for rain and s for snow). The
-rain/snow particle size distributions are given by [eq:MG1], with the
+rain/snow particle size distributions are given by <a class="reference internal" href="#equation-eq:MG1">(45)</a>, with the
 shape parameter <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> = 0, resulting in Marshall-Palmer
 (exponential) size distributions. The size distribution parameters
-<img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> and <img class="math" src="../_images/math/5d2483db4defbda77d5edb54e62c7eb768c7c25a.png" alt="N_0"/> are similarly given by [eq:MG3] and
-[eq:MG4] with <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> = 0. The bulk particle density (parameter
+<img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> and <img class="math" src="../_images/math/5d2483db4defbda77d5edb54e62c7eb768c7c25a.png" alt="N_0"/> are similarly given by <a class="reference internal" href="#equation-eq:MG3">(47)</a> and
+<a class="reference internal" href="#equation-eq:MG4">(48)</a> with <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> = 0. The bulk particle density (parameter
 <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> in [eq:MG3]) is <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> = 1000 kg m<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> for
 rain and <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> = 100 kg m<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> for snow following
 Reisner, Rasmussen, and Bruintjes (1998).</p>
@@ -1696,7 +1692,7 @@ the temperature above homogeneous freezing threshold.</p>
 <div class="section" id="parameterization-of-cloud-fraction">
 <h2>5.6. Parameterization of Cloud Fraction<a class="headerlink" href="#parameterization-of-cloud-fraction" title="Permalink to this headline">¶</a></h2>
 <p>Cloud amount (or cloud fraction), and the associated optical properties,
-are evaluated via a diagnostic method in . The basic approach is similar
+are evaluated via a diagnostic method in CAM6.0. The basic approach is similar
 to that employed in CAM3. The diagnosis of cloud fraction is a
 generalization of the scheme introduced by Slingo (1987), with
 variations described in Hack et al. (1993; Kiehl et al. 1998), and Rasch
@@ -1762,7 +1758,7 @@ Appendix [adjustableparameters]. Also, the parameter
 <img class="math" src="../_images/math/3e138bad21bca273aba3fa2e8b4b65f75052f517.png" alt="RH_{\min}^{low}"/> is adjusted over land by <img class="math" src="../_images/math/bb4743ff0fd484da43810b6a48f490d256f3715a.png" alt="-0.10"/>. This
 distinction is made to account for the increased sub-grid-scale
 variability of the water vapor field due to inhomogeneities in the land
-surface properties and subgrid orographic effects. In a modification is
+surface properties and subgrid orographic effects. In CAM6.0 a modification is
 made to the layered cloud fraction to prevent extensive cloud decks that
 have zero or near-zero condensate in cold climates. The adjustment is
 based on Vavrus and Waliser (2008) and reduces the diagnosed low cloud
@@ -1780,7 +1776,7 @@ diagnosed as</p>
 each gridbox. The condensate value is assumed uniform within any and all
 types of cloud within each grid box. In order to prevent inconsistent
 values of total cloud fraction and condensate being passed to the
-radiation parameterization in the a second updated cloud fraction
+radiation parameterization in the CAM6.0 a second updated cloud fraction
 calculation is performed. Cloud fraction and therefore relative humidity
 are now consitent with condensate values on entry to the radiation
 parameterization. This vastly reduces the frequency of ’empty clouds’
@@ -2395,13 +2391,13 @@ cloud-borne aerosols are calculated based on droplet sizes. Aerosol
 mixing ratio changes and fluxes from dry deposition and sedimentation
 throughout a vertical column are then calculated using the CAM5 dust
 deposition/sedimentation routine.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id13">
 <span id="aero-species-mam7"></span><img alt="../_images/cam5_aero_fig1.jpg" src="../_images/cam5_aero_fig1.jpg" />
 <p class="caption"><span class="caption-text">Predicted species for interstitial and cloud-borne component of each aerosol mode in MAM-7.
 Standard deviation for each mode is 1.6 (Aitken), 1.8 (accumulation), 1.6 (primary carbon), 1.8 (fine and coarse soil dust),
 and 2.0 (fine and coarse sea salt)</span></p>
 </div>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id14">
 <span id="aero-species-mam3"></span><img alt="../_images/cam5_aero_fig2.jpg" src="../_images/cam5_aero_fig2.jpg" />
 <p class="caption"><span class="caption-text">Predicted species for interstitial and cloud-borne component of each aerosol mode in MAM-3.
 Standard deviation for each mode is 1.6 (Aitken), 1.8 (accumulation) and 1.8 (coarse mode)</span></p>
@@ -3187,7 +3183,7 @@ constant between time steps.</p>
 </div>
 <div class="section" id="diurnal-cycle-and-earth-orbit">
 <h3>5.9.6. Diurnal Cycle and Earth Orbit<a class="headerlink" href="#diurnal-cycle-and-earth-orbit" title="Permalink to this headline">¶</a></h3>
-<p>In , the diurnal cycle and earth orbit is computed using the method of
+<p>In CAM6.0, the diurnal cycle and earth orbit is computed using the method of
 (Berger 1978). Using this formulation, the insolation can be determined
 for any time within <img class="math" src="../_images/math/4e3e30fcf8f5b44fd4e61386ba457022ddf17304.png" alt="10^6"/> years of 1950&nbsp;AD. The insolation at the
 top of the model atmosphere is given by</p>
@@ -3532,16 +3528,16 @@ in figure&nbsp;[fig:rel_sol].</p>
 </table>
 <p>Table: Band-level ratio of Solar Irradiances, based on average of one
 solar cycle</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id15">
 <img alt="../_images/kurucz.jpg" src="../_images/kurucz.jpg" />
 <p class="caption"><span class="caption-text">Kurucz spectrum. ssf in W/m<img class="math" src="../_images/math/81d4e21093a294aaab4f441ff172923d688c9b7e.png" alt="^2"/>/nm. Source Data: AER. Range from [20, 20000] nm.</span></p>
 </div>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id16">
 <img alt="../_images/lean.jpg" src="../_images/lean.jpg" />
 <p class="caption"><span class="caption-text">Lean spectrum. Average over 1 solar cycle, May 1, 1996 to Dec 31, 2006.
 Source Data: Marsh. ssf in W/m<img class="math" src="../_images/math/81d4e21093a294aaab4f441ff172923d688c9b7e.png" alt="^2"/>/nm. Range from [120, 99975] nm.</span></p>
 </div>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id17">
 <img alt="../_images/relative_ssf.jpg" src="../_images/relative_ssf.jpg" />
 <p class="caption"><span class="caption-text">Relative difference, <img class="math" src="../_images/math/0153fca3602dbeb98a8b7c305067e8686859e507.png" alt="\frac{\tt{Lean} - \tt{Kurucz}}{.5(\tt{Lean} + \tt{Kurucz}) }"/>
 between spectra. RRTMG band boundaries are marked with vertical lines.</span></p>

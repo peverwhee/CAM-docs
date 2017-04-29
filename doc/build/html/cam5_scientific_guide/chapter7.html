@@ -100,7 +100,7 @@
 <h2>9.1. Initial Data<a class="headerlink" href="#initial-data" title="Permalink to this headline">¶</a></h2>
 <p>In this section, we describe how the time integration is started from
 data consistent with the spectral truncation. The land surface model
-requires its own initial data, as described by Bonan (1996). The basic
+requires its own initial data, as described by <a class="reference internal" href="chapter8.html#bonan96a" id="id1">[Bon96]</a>. The basic
 initial data for the model consist of values of <img class="math" src="../_images/math/eaffedb7eaee2ba7294a0e4eae31cef55178fcd8.png" alt="u, v, T, q, \Pi,"/>
 and <img class="math" src="../_images/math/387527ef6fd5f95a4eb4fd1eff3f8f2d3ba4f545.png" alt="\Phi_s"/> on the Gaussian grid at time <img class="math" src="../_images/math/75c6f8d29e1c89c69cf9f075ab7667e2adaec095.png" alt="t=0."/> From these,
 <img class="math" src="../_images/math/55352f34aaa6bf4be43af0a565ecf4867b0c389a.png" alt="U, V, T'"/>, and <img class="math" src="../_images/math/48df4c3c7ccc8857bb1a8690c2b1207275b0a626.png" alt="\Pi"/> are computed on the grid using
@@ -120,8 +120,7 @@ coefficients are determined directly from the Fourier coefficients
 \frac{1}{a} \frac{\partial V}{\partial \mu} . \end{aligned}"/></p>
 </div><p>The relative vorticity and divergence coefficients are obtained by
 Gaussian quadrature directly, using <a class="reference internal" href="chapter3.html#equation-3.b.27">(237)</a>  for the
-<img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/>–derivative terms and <a class="reference internal" href="chapter3.html#equation-3.b.30">(240)</a>  for the
-<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>–derivatives.</p>
+<img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> –derivative terms and <a class="reference internal" href="chapter3.html#equation-3.b.30">(240)</a> for the <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> –derivatives.</p>
 <p>Once the spectral coefficients of the prognostic variables are
 available, the grid–point values of <img class="math" src="../_images/math/8bd3d8b4c8c75cc4de9a4e18f85f0d36940de1da.png" alt="\zeta, \delta, T', \Pi,"/> and
 <img class="math" src="../_images/math/387527ef6fd5f95a4eb4fd1eff3f8f2d3ba4f545.png" alt="\Phi_s"/> may be calculated from <a class="reference internal" href="chapter3.html#equation-3.b.49">(263)</a> , the gradient
@@ -152,7 +151,7 @@ section, the model also requires lower boundary conditions. The required
 data are surface temperature (<img class="math" src="../_images/math/643b2116f57284a169e090a0e28b886dfa7f710a.png" alt="T_s)"/> at each ocean point, the
 surface geopotential at each point, and a flag at each point to indicate
 whether the point is land, ocean, or sea ice. The land surface model
-requires its own boundary data, as described by Bonan (1996). A surface
+requires its own boundary data, as described by <a class="reference internal" href="chapter8.html#bonan96a" id="id2">[Bon96]</a>. A surface
 temperature and three subsurface temperatures must also be provided at
 non-ocean points.</p>
 <p>For the uncoupled configuration of the model, a seasonally varying
@@ -173,14 +172,14 @@ values.</p>
 included a simple land-ocean-sea ice mask to define the underlying
 surface of the model. It is well known that fluxes of fresh water, heat,
 and momentum between the atmosphere and underlying surface are strongly
-affected by surface type. The provides a much more accurate
+affected by surface type. The CAM6.0 provides a much more accurate
 representation of flux exchanges from coastal boundaries, island
 regions, and ice edges by including a fractional specification for land,
 ice, and ocean. That is, the area occupied by these surface types is
 described as a fractional portion of the atmospheric grid box. This
 fractional specification provides a mechanism to account for flux
 differences due to sub-grid inhomogeneity of surface types.</p>
-<p>In each atmospheric grid box is partitioned into three surface types:
+<p>In CAM6.0 each atmospheric grid box is partitioned into three surface types:
 land, sea ice, and ocean. Land fraction is assigned at model
 initialization and is considered fixed throughout the model run. Ice
 concentration data is provided by the external time varying dataset
@@ -191,15 +190,14 @@ not already partitioned into land or ice is regarded as ocean.</p>
 weighted by the appropriate fractional area, and then summed to provide
 a mean value for a grid box:</p>
 <div class="math" id="equation-eq:fsurftype">
-<p><span class="eqno">(2)<a class="headerlink" href="#equation-eq:fsurftype" title="Permalink to this equation">¶</a></span><img src="../_images/math/02c45b7d2b1aba5dbf027d555575502c3fdd3c22.png" alt="{F_{\psi}}_T = a_i \, {F_{\psi}}_i + a_o \, {F_{\psi}}_o +
-a_l \, {F_{\psi}}_l \, \;,"/></p>
+<p><span class="eqno">(2)<a class="headerlink" href="#equation-eq:fsurftype" title="Permalink to this equation">¶</a></span><img src="../_images/math/4aff17428a7707c402f6041ae510bbb37d9c627e.png" alt="{F_{\psi}}_T = a_i \, {F_{\psi}}_i + a_o \, {F_{\psi}}_o +  a_l \, {F_{\psi}}_l \, \;,"/></p>
 </div><p>where <img class="math" src="../_images/math/a3965ac90c9513644606210339d525386626dcb2.png" alt="F"/> denotes the surface flux of the arbitrary scalar
 quantity <img class="math" src="../_images/math/499a2ee48b33448e80b97af9df9550828bdbfb59.png" alt="\psi"/>, <img class="math" src="../_images/math/bd9d9c7512c898e0a254a0882184197bc1bd9c9f.png" alt="a"/> denotes fractional area, and the
 subscripts <img class="math" src="../_images/math/df2d2d60f979a1a719d8a251b09f91515e45dd65.png" alt="T, i, o,"/> and <img class="math" src="../_images/math/b359488b993294ebbc2c7b30ab8f749dcbc6826d.png" alt="l"/> respectively denote the total,
 ice, ocean, and land components of the fluxes. For each time-step the
 aggregated grid box fluxes are passed to the atmosphere and all flux
 arrays which have been used for the accumulations are reset to zero in
-preparation for the next time-step. The fractional land values for were
+preparation for the next time-step. The fractional land values for CAM6.0 were
 calculated from Navy 10-Min Global Elevation Data. An area preserving
 binning algorithm was used to interpolate from the high-resolution Navy
 dataset to standard model resolutions.</p>
@@ -211,7 +209,7 @@ mixing–ratio data. The path lengths are interpolated to the model
 with the sea–surface temperatures, the seasonal version assigns the
 monthly averages to the mid–month date and updates them every 12&nbsp;hours
 via linear interpolation. The actual mixing ratios used in the standard
-version were derived by Chervin (1986) from analysis of Dütsch (1986).</p>
+version were derived by <a class="reference internal" href="chapter8.html#chervin86" id="id3">[Che86]</a> from analysis of <a class="reference internal" href="chapter8.html#dutsch78" id="id4">[Dutsch86]</a>.</p>
 <p>The sub-grid scale standard deviation of surface orography is specified
 in the following manner. The variance is first evaluated from the global
 Navy 10<img class="math" src="../_images/math/58d31c73a2f69ba28577edac1557482d84a0e43f.png" alt="^\prime"/> topographic height data over an intermediate
@@ -219,7 +217,7 @@ grid (<img class="math" src="../_images/math/882b9dc3391f93329df1ce9debc74ff957b
 resolutions, <img class="math" src="../_images/math/756b8d15c3628c44f628dae1bb7ce644f286abbb.png" alt="1.67^{\circ} \times 1.67^{\circ}"/> for T63, and
 <img class="math" src="../_images/math/9a8bcb1273ab7f9f3dcd5a5e9113a51120da47ca.png" alt="1.0^\circ \times 1.0^\circ"/> for T106 resolution) and is assumed
 to be isotropic. Once computed on the appropriate grid, the standard
-deviations are binned to the &nbsp; grid (<em>i.e.,</em> all values whose latitude
+deviations are binned to the CAM6.0 grid (<em>i.e.,</em> all values whose latitude
 and longitude centers fall within each grid box are averaged together).
 Finally, the standard deviation is smoothed twice with a 1–2–1 spatial
 filter. Values over ocean are set to zero.</p>

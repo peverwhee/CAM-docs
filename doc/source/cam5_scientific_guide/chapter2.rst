@@ -1,9 +1,11 @@
 .. _chap-coupling:
 
+.. |cam| replace:: CAM6.0
+
 Coupling of Dynamical Core and Parameterization Suite
 =====================================================
 
-The cleanly separates the parameterization suite from the dynamical
+The |cam| cleanly separates the parameterization suite from the dynamical
 core, and makes it easier to replace or modify each in isolation. The
 dynamical core can be coupled to the parameterization suite in a purely
 time split manner or in a purely process split one, as described below.
@@ -105,7 +107,7 @@ dependency left understood. With this notation the *Time Split* system
    \psi^{n+1} = {\boldsymbol{P}}\left({\boldsymbol{D}}\left(\psi^{n-1},0\right)\right) \;.
    
 
-The total parameterization package in consists of a sequence of
+The total parameterization package in |cam| consists of a sequence of
 components, indicated by
 
 .. math::
@@ -130,7 +132,7 @@ provide lower flux boundary conditions for the turbulent mixing
 parameterization, vertical diffusion, and gravity wave drag.
 
 Defining operators following :eq:`7` for each of the parameterization
-components, the couplings in are summarized as:
+components, the couplings in |cam| are summarized as:
 
 TIME SPLIT
 
@@ -171,6 +173,6 @@ coordinate every sub-step of the dynamical core. Besides the expense
 involved, it is not completely obvious how to interpolate the
 parameterized forcing, which can have a vertical grid scale component
 arising from vertical grid scale clouds, to a different vertical grid.
-:ref:`Williamson 2002 <Williamson-2002>` compares simulations with the Eulerian spectral
+:cite:`williamson02` compares simulations with the Eulerian spectral
 transform dynamical core coupled to the CCM3 parameterization suite via
 *Process Split* and *Time Split* approximations.

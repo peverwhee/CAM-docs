@@ -92,8 +92,8 @@
 <li><a class="reference internal" href="#parameterized-psc-ozone-loss">6.5.4. Parameterized PSC ozone loss</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#physical-parameterizations">6.6. &nbsp;Physical Parameterizations</a><ul>
-<li><a class="reference internal" href="#domain-and-resolution">6.6.1. &nbsp;Domain and Resolution</a></li>
+<li><a class="reference internal" href="#physical-parameterizations">6.6. Physical Parameterizations</a><ul>
+<li><a class="reference internal" href="#domain-and-resolution">6.6.1. Domain and Resolution</a></li>
 <li><a class="reference internal" href="#molecular-diffusion-and-constituent-separation">6.6.2. Molecular Diffusion and Constituent Separation</a><ul>
 <li><a class="reference internal" href="#molecular-viscosity-and-diffusivity">6.6.2.1. Molecular viscosity and diffusivity</a></li>
 <li><a class="reference internal" href="#diffusive-separation-velocities">6.6.2.2. Diffusive separation velocities</a></li>
@@ -120,7 +120,7 @@
 <li><a class="reference internal" href="#volcanic-heating">6.6.6.3. Volcanic Heating</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id1">6.6.7. &nbsp;chemistry</a><ul>
+<li><a class="reference internal" href="#id41">6.6.7. &nbsp;chemistry</a><ul>
 <li><a class="reference internal" href="#chemical-mechanism-neutral-species">6.6.7.1. Chemical Mechanism (Neutral Species)</a></li>
 <li><a class="reference internal" href="#stratospheric-aerosols">6.6.7.2. Stratospheric Aerosols</a></li>
 <li><a class="reference internal" href="#sedimentation-of-stratospheric-aerosols">6.6.7.3. Sedimentation of Stratospheric Aerosols</a></li>
@@ -136,7 +136,7 @@
 <li><a class="reference internal" href="#ion-drag-calculation">6.6.8.6. Ion drag calculation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2">6.6.9. Boundary Conditions</a></li>
+<li><a class="reference internal" href="#id42">6.6.9. Boundary Conditions</a></li>
 </ul>
 </li>
 </ul>
@@ -181,11 +181,11 @@
           <div class="body" role="main">
             
   <div class="section" id="extensions-to-cam">
-<h1>6. Extensions to CAM<a class="headerlink" href="#extensions-to-cam" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>6. Extensions to CAM<a class="headerlink" href="#extensions-to-cam" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>6.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This section contains a description of the neutral constituent chemical
-options available CAM and , including different chemical schemes,
+options available CAM and WACCM4.0, including different chemical schemes,
 emissions, boundary conditions, lightning, dry depositions and wet
 removal; 2) the photolysis approach; 3) numerical algorithms used to
 solve the corresponding set of ordinary differential equations.; 4)
@@ -197,10 +197,10 @@ additions to superfast chemistry.</p>
 <h3>6.2.1. Chemistry Schemes<a class="headerlink" href="#chemistry-schemes" title="Permalink to this headline">¶</a></h3>
 <p>For CAM-Chem, an extensive tropospheric chemistry option is available
 (trop mozart), as well as an extensive tropospheric and stratospheric
-chemistry (trop-strat mozart) as discussed in detail in (<strong>???</strong>),
+chemistry (trop-strat mozart) as discussed in detail in ([lamarque:12]),
 including a list of all species and reactions. Furthermore, a superfast
 chemistry option is available for CAM, as discussed in
-Section&nbsp;[sec:chem<sub>s</sub>uperfast]. For each chemical scheme,
+Section&nbsp;<a class="reference internal" href="#sec-chem-superfast"><span class="std std-ref">Superfast Chemistry</span></a>. For each chemical scheme,
 CAM-chem uses the same chemical preprocessor as MOZART-4. This
 preprocessor generates Fortran code for each specific chemical
 mechanism, allowing for an easy update and modification of existing
@@ -208,33 +208,35 @@ chemical mechanisms. In particular, the generated code provides two
 chemical solvers, one explicit and one semi-implicit, which the user
 specifies based on the chemical lifetime of each species. For all
 supported compsets, this generated code is available in a sub-directory
-of atm/src/chemistry.</p>
+of <code class="docutils literal"><span class="pre">atm/src/chemistry</span></code>.</p>
 <div class="section" id="the-bulk-aerosol-model">
 <h4>6.2.1.1. The Bulk Aerosol Model<a class="headerlink" href="#the-bulk-aerosol-model" title="Permalink to this headline">¶</a></h4>
-<p>CAM4-chem uses the bulk aerosol model discussed in (<strong>???</strong>) and
-(<strong>???</strong>). This model has a representation of aerosols based on the work
-by (<strong>???</strong>) and (<strong>???</strong>), i.e. sulfate aerosol is formed by the
-oxidation of SO<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/> in the gas phase (by reaction with the
-hydroxyl radical) and in the aqueous phase (by reaction with ozone and
-hydrogen peroxide). Furthermore, the model includes a representation of
-ammonium nitrate that is dependent on the amount of sulfate present in
-the air mass following the parameterization of gas/aerosol partitioning
-by (<strong>???</strong>). Because only the bulk mass is calculated, a lognormal
-distribution is assumed for all aerosols using different mean radius and
-geometric standard deviation (<strong>???</strong>). The conversion of carbonaceous
-aerosols (organic and black) from hydrophobic to hydrophilic is assumed
-to occur within a fixed 1.6 days (<strong>???</strong>). Natural aerosols (desert
-dust and sea salt) are implemented following (<strong>???</strong>) and (<strong>???</strong>) and
-the sources of these aerosols are derived based on the model calculated
-wind speed and surface conditions. In addition, secondary-organic
-aerosols (SOA) are linked to the gas-phase chemistry through the
-oxidation of atmospheric non-methane hydrocarbons (NMHCs), as in
-(<strong>???</strong>).</p>
+<p>CAM4-chem uses the bulk aerosol model discussed in [lamarque:05]
+and [emmons:10]. This model has a representation of aerosols
+based on the work by [{tie:02] and [tie:05], i.e. sulfate
+aerosol is formed by the oxidation of SO<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/> in the gas
+phase (by reaction with the hydroxyl radical) and in the aqueous phase
+(by reaction with ozone and hydrogen peroxide).  Furthermore, the
+model includes a representation of ammonium nitrate that is dependent
+on the amount of sulfate present in the air mass following the
+parameterization of gas/aerosol partitioning by
+[metzger:01]. Because only the bulk mass is calculated, a
+lognormal distribution is assumed for all aerosols using different
+mean radius and geometric standard deviation [liao:03].  The
+conversion of carbonaceous aerosols (organic and black) from
+hydrophobic to hydrophilic is assumed to occur within a fixed 1.6 days
+[tie:05]. Natural aerosols (desert dust and sea salt) are
+implemented following [mahowald:06a] and [mahowald:06b]
+and the sources of these aerosols are derived based on the model
+calculated wind speed and surface conditions.  In addition,
+secondary-organic aerosols (SOA) are linked to the gas-phase chemistry
+through the oxidation of atmospheric non-methane hydrocarbons (NMHCs),
+as in [lack:04].</p>
 </div>
 <div class="section" id="cam-chem-using-the-modal-aerosol-model">
 <h4>6.2.1.2. CAM-Chem using the Modal Aerosol Model<a class="headerlink" href="#cam-chem-using-the-modal-aerosol-model" title="Permalink to this headline">¶</a></h4>
 <p>CAM-Chem has the ability to run with two modal aerosols models, the MAM3
-and MAM7 (<strong>???</strong>). The Modal Aerosols Model, is described in Section
+and MAM7 ([liu:12]). The Modal Aerosols Model, is described in Section
 4.8.2. In CAM5-Chem, the gase-phase chemistry is coupled to Modal
 Aerosol Model in chemical species O<img class="math" src="../_images/math/4313cf755ae9528d90ca36bd8a3bc3df19101f9c.png" alt="_{3}"/>, OH, HO<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/>
 and NO<img class="math" src="../_images/math/4313cf755ae9528d90ca36bd8a3bc3df19101f9c.png" alt="_{3}"/>, as derived from the chemical mechanism and not
@@ -245,22 +247,21 @@ chemical mechanism.</p>
 <div class="section" id="trop-mozart-chemistry">
 <h4>6.2.1.3. Trop MOZART Chemistry<a class="headerlink" href="#trop-mozart-chemistry" title="Permalink to this headline">¶</a></h4>
 <p>The extensive tropospheric chemistry scheme represents a minor update to
-the MOZART-4 mechanism, fully described in (<strong>???</strong>). In particular, we
+the MOZART-4 mechanism, fully described in ([emmons:10]). In particular, we
 have included C<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/>H<img class="math" src="../_images/math/bb24541895bbe61f03ab83032effbbdcddfe5e82.png" alt="_{2}"/>, HCOOH, HCN and
 CH<img class="math" src="../_images/math/4313cf755ae9528d90ca36bd8a3bc3df19101f9c.png" alt="_{3}"/>CN. Reaction rates have been updated to JPL-2006
-(<strong>???</strong>). A minor update has been made to the isoprene oxidation
+([sander_etal:06]). A minor update has been made to the isoprene oxidation
 scheme, including an increase in the production of glyoxal. This
 mechanism is mainly of relevance in the troposphere and is intended for
 simulations for which long-term trends in the stratospheric composition
 are not crucial. Therefore, in this configuration, the stratospheric
 distributions of long-lived species (see discussion below) are specified
-from previously performed WACCM simulations (<strong>???</strong>); see
-Section&nbsp;[sec:boundary]).</p>
+from previously performed WACCM simulations ([garcia_etal:07]); see Section <a class="reference internal" href="#sec-boundary"><span class="std std-ref">Boundary conditions</span></a>).</p>
 </div>
 <div class="section" id="trop-strat-mozart-chemistry">
 <h4>6.2.1.4. Trop-Strat MOZART Chemistry<a class="headerlink" href="#trop-strat-mozart-chemistry" title="Permalink to this headline">¶</a></h4>
 <p>The extensive tropospheric and stratospheric chemistry includes the full
-stratospheric chemistry from , with an updated enforcement of the
+stratospheric chemistry from WACCM4.0, with an updated enforcement of the
 conservation of total chlorine and total bromine under advection to
 improve the performance of the model in simulating the ozone hole. In
 addition, we have updated the heterogeneous chemistry module to reflect
@@ -271,21 +272,22 @@ Section&nbsp;[sec:waccm]; (<strong>???</strong>), Kinnison et al, 2012, (in prep
 <div class="section" id="soa-calculation-in-cam-chem">
 <h4>6.2.1.5. SOA calculation in CAM-Chem<a class="headerlink" href="#soa-calculation-in-cam-chem" title="Permalink to this headline">¶</a></h4>
 <p>An SOA simulation of intermediate complexity is also available in
-CAM-Chem. This is based on the 2-product model scheme of (<strong>???</strong>), as
-implemented in CAM-Chem by (<strong>???</strong>). This treats the products of VOC
-oxidation as semi-volatile species, which re-partition every time step
-based on the temperature (enthalpy of vaporization of 42 kJmol-1) and
-organic aerosol mass available for condensation of vapours (<strong>???</strong>). In
-CAM-Chem we treat secondary organic aerosol formation from the products
-of isoprene, monoterpene and aromatic (benzene, toluene and xylene)
-oxidation by OH, O<img class="math" src="../_images/math/4313cf755ae9528d90ca36bd8a3bc3df19101f9c.png" alt="_{3}"/> and NO<img class="math" src="../_images/math/4313cf755ae9528d90ca36bd8a3bc3df19101f9c.png" alt="_{3}"/>. The yields and
-partitioning coefficients are based on smog chamber studies (<strong>???</strong>;
-<strong>???</strong>; <strong>???</strong>). The SOA calculation is setup to run with biogenic
-emissions calucated by the MEGAN2.1 model (see Section&nbsp;[sec:Emissions]).</p>
+CAM-Chem. This is based on the 2-product model scheme of
+[odum:97], as implemented in CAM-Chem by [heald:08]. This
+treats the products of VOC oxidation as semi-volatile species, which
+re-partition every time step based on the temperature (enthalpy of
+vaporization of 42 kJmol-1) and organic aerosol mass available for
+condensation of vapours [pankow:94].  In CAM-Chem we treat
+secondary organic aerosol formation from the products of isoprene,
+monoterpene and aromatic (benzene, toluene and xylene) oxidation by
+OH, O<img class="math" src="../_images/math/4313cf755ae9528d90ca36bd8a3bc3df19101f9c.png" alt="_{3}"/> and NO<img class="math" src="../_images/math/4313cf755ae9528d90ca36bd8a3bc3df19101f9c.png" alt="_{3}"/>.  The yields and partitioning
+coefficients are based on smog chamber studies
+[griffin:99][henze:08][ng:07].  The SOA calculation is setup to
+run with biogenic emissions calucated by the MEGAN2.1 model (see Section <a class="reference internal" href="#sec-emissions"><span class="std std-ref">Emissions</span></a>).</p>
 </div>
 </div>
 <div class="section" id="emissions">
-<h3>6.2.2. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h3>
+<span id="sec-emissions"></span><h3>6.2.2. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h3>
 <p>Surface emissions are used in as a flux boundary condition for the
 diffusion equation of all applicable tracers in the planetary
 boundary-layer scheme. The surface flux files used in the released
@@ -361,7 +363,7 @@ model produces biogenic emissions to prevent double counting.</p>
 </div>
 </div>
 <div class="section" id="boundary-conditions">
-<h3>6.2.3. Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<span id="sec-boundary"></span><h3>6.2.3. Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="lower-boundary-conditions">
 <h4>6.2.3.1. Lower boundary conditions<a class="headerlink" href="#lower-boundary-conditions" title="Permalink to this headline">¶</a></h4>
 <p>For all long-lived species (methane and longer lifetimes, in addition to
@@ -410,7 +412,7 @@ NOx is increased by a factor of 3 to reach the same emissions of 3-4
 Tg(N)/year.</p>
 </div>
 <div class="section" id="dry-deposition">
-<h3>6.2.5. Dry deposition<a class="headerlink" href="#dry-deposition" title="Permalink to this headline">¶</a></h3>
+<span id="sec-dry-deposition"></span><h3>6.2.5. Dry deposition<a class="headerlink" href="#dry-deposition" title="Permalink to this headline">¶</a></h3>
 <p>Dry deposition is represented following the resistance approach
 originally described in (<strong>???</strong>), as discussed in (<strong>???</strong>), this
 earlier paper was subsequently updated and we have included all updates
@@ -442,7 +444,7 @@ the mechanism are per default affected by dry deposition if depostion
 velocities are defined in the model.</p>
 </div>
 <div class="section" id="wet-removal">
-<h3>6.2.6. Wet removal<a class="headerlink" href="#wet-removal" title="Permalink to this headline">¶</a></h3>
+<span id="sec-wet-removal"></span><h3>6.2.6. Wet removal<a class="headerlink" href="#wet-removal" title="Permalink to this headline">¶</a></h3>
 <p>Wet removal of soluble gas-phase species is the combination of two
 processes: in-cloud, or nucleation scavenging (rainout), which is the
 local uptake of soluble gases and aerosols by the formation of initial
@@ -614,8 +616,7 @@ where <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a
 method. The solution to equation <a class="reference internal" href="#equation-solver4">(4)</a>  is solved with a Newton-
 Raphson iteration approach as shown below:</p>
 <div class="math" id="equation-solver5">
-<p><span class="eqno">(5)<a class="headerlink" href="#equation-solver5" title="Permalink to this equation">¶</a></span><img src="../_images/math/9bfa0648399cbd8738e4b27b0a662df63d8b657f.png" alt="\vec{y}^{\,\, n+1}_{m+1} = \vec{y}^{\,\, n+1}_m - \vec{J} \cdot \vec{G}(\vec{y}^{\,\, n+1}_m);
-\; m=0,1,\ldots, M"/></p>
+<p><span class="eqno">(5)<a class="headerlink" href="#equation-solver5" title="Permalink to this equation">¶</a></span><img src="../_images/math/5688257ffc86ff37fcf9e167a264e7d8587d454e.png" alt="\vec{y}^{\,\, n+1}_{m+1} = \vec{y}^{\,\, n+1}_m - \vec{J} \cdot \vec{G}(\vec{y}^{\,\, n+1}_m); \; m=0,1,\ldots, M"/></p>
 </div><p>Where <img class="math" src="../_images/math/edba97b4c0d864d26e92ea7ea73767fa38eef3f7.png" alt="m"/> is the iteration index and has a maximum value of ten.
 The elements of the Jacobian matrix <img class="math" src="../_images/math/c5832c31bc7b0a7034ea38fcf0220919be445d8e.png" alt="\vec J"/> are given by:</p>
 <div class="math">
@@ -630,11 +631,11 @@ desired, it is set to 0.0001. If the iteration maximum is reached (for
 any species) before the error criterion is met, the time step is cut in
 half and the solution to equation <a class="reference internal" href="#equation-solver5">(5)</a>  is iterated again. The
 time step can be reduced five times before the solution is accepted.
-This approach is based on the work of (<strong>???</strong>) and (<strong>???</strong>); see also
-(<strong>???</strong>).</p>
+This approach is based on the work of [sandu_etal:96] and [sandu_etal:97]; see also
+[brasseur_etal:99].</p>
 </div>
 <div class="section" id="superfast-chemistry">
-<h2>6.5. Superfast Chemistry<a class="headerlink" href="#superfast-chemistry" title="Permalink to this headline">¶</a></h2>
+<span id="sec-chem-superfast"></span><h2>6.5. Superfast Chemistry<a class="headerlink" href="#superfast-chemistry" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="chemical-mechanism">
 <h3>6.5.1. Chemical mechanism<a class="headerlink" href="#chemical-mechanism" title="Permalink to this headline">¶</a></h3>
 <p>The super-fast mechanism was developed for long coupled
@@ -653,11 +654,10 @@ terms by which global change operates in tropospheric ozone and sulfate
 photochemistry. The families selected are Ox, HOx, NOy, the
 CH<img class="math" src="../_images/math/7543f6b5afdfe584b14fc07c80ba81409810be74.png" alt="_{4}"/> oxidation suite plus isoprene (to capture the main NMHC
 effects), and a group of sulfur species to simulate natural and
-anthropogenic sources leading to sulfate aerosol. Sulfate aerosols is
-handled following Tie et al. (2005). In this scheme, CH4 concentrations
-are read in from a file and uses CAM3.5 simulations (<strong>???</strong>). The
-super-fast mechanism was validated by comparing the super-fast and full
-mechanisms in side-by-side simulations.</p>
+anthropogenic sources leading to sulfate aerosol.
+Sulfate aerosols is handled following <a class="reference internal" href="chapter8.html#tie2005" id="id26">[TMW+05]</a>.
+In this scheme, CH4 concentrations are read in from a file and uses CAM3.5 simulations [lamarque:10].
+The super-fast mechanism was validated by comparing the super-fast and full mechanisms in side-by-side simulations.</p>
 </div>
 <div class="section" id="emissions-for-cam4-superfast-chemistry">
 <h3>6.5.2. Emissions for CAM4 superfast chemistry<a class="headerlink" href="#emissions-for-cam4-superfast-chemistry" title="Permalink to this headline">¶</a></h3>
@@ -673,19 +673,22 @@ mechanisms in side-by-side simulations.</p>
 </div>
 <div class="section" id="linoz">
 <h3>6.5.3. LINOZ<a class="headerlink" href="#linoz" title="Permalink to this headline">¶</a></h3>
-<p>Linoz is linearized ozone chemistry for stratospheric modeling
-(<strong>???</strong>). It calculates the net production of ozone (i.e., production
-minus loss) as a function of only three independent variables: local
-ozone concentration, temperature, and overhead column ozone). A zonal
-mean climatology for these three variables as well as the other key
-chemical variables such a total odd-nitrogen methane abundance is
-developed from satellite and other in situ observations. A relatively
-complete photochemical box model (<strong>???</strong>) is used to integrate the
-radicals to a steady state balance and then compute the net production
-of ozone. Small perturbations about the chemical climatology are used to
-calculate the coefficients of the first-order Taylor series expansion of
-the net production in terms of local ozone mixing ratio (f), temperature
-(T), and overhead column ozone (c).</p>
+<p>Linoz is linearized ozone chemistry for stratospheric
+modeling [mclinden:00]. It calculates the net
+production of ozone (i.e., production minus loss) as a
+function of only three independent variables: local ozone
+concentration, temperature, and overhead column ozone). A
+zonal mean climatology for these three variables as well as
+the other key chemical variables such a total odd-nitrogen
+methane abundance is developed from satellite and other in
+situ observations. A relatively complete photochemical box
+model [prather:92] is used to integrate the radicals to a
+steady state balance and then compute the net production of
+ozone. Small perturbations about the chemical climatology
+are used to calculate the coefficients of the first-order Taylor
+series expansion of the net production in terms of local
+ozone mixing ratio (f), temperature (T), and overhead
+column ozone (c).</p>
 <div class="math">
 <p><img src="../_images/math/cde34406a9a27e49b9d5492b7a6d9cf5e902b60c.png" alt="\begin{aligned}
 \frac{df}{df} &amp;=&amp; (P - L)^o + \left.{\frac{\delta (P - L)}{\delta f}}\right|_o(f - f^o) + \left.\frac{\delta (P - L)}{\delta T}\right|_o (T - T^o)\\ \nonumber
@@ -708,30 +711,31 @@ is implemented for the chemical tendency of ozone in CAM-chem.</p>
 <div class="section" id="parameterized-psc-ozone-loss">
 <h3>6.5.4. Parameterized PSC ozone loss<a class="headerlink" href="#parameterized-psc-ozone-loss" title="Permalink to this headline">¶</a></h3>
 <p>In the superfast chemistry, we incorporate the PSCs parameterization
-scheme of (<strong>???</strong>) when the temperature falls below 195 K and the sun
-is above the horizon at stratospheric altitudes. The O<img class="math" src="../_images/math/2912b78af320853e0afcf706763b5d39b26b5c1e.png" alt="_3"/> loss
-scales as the squared stratospheric chlorine loading (normalized by the
-1980 level threshold). In this formulation PSC activation invokes a
-rapid e-fold of O<img class="math" src="../_images/math/2912b78af320853e0afcf706763b5d39b26b5c1e.png" alt="_3"/> based on a photochemical model, but only
-when t he temperature stays below the PSC threshold. The stratospheric
-chlorine loading (1850-2005) is input in the model using equivalent
-effective stratospheric chlorine (EESC) (<strong>???</strong>) table based on
-observed mixing ratios at the surface.</p>
+scheme of [cariolle_et_al:90] when the temperature falls below
+195 K and the sun is above the horizon at stratospheric altitudes.
+The O<img class="math" src="../_images/math/2912b78af320853e0afcf706763b5d39b26b5c1e.png" alt="_3"/> loss scales as the squared stratospheric chlorine
+loading (normalized by the 1980 level threshold). In this formulation
+PSC activation invokes a rapid e-fold of O<img class="math" src="../_images/math/2912b78af320853e0afcf706763b5d39b26b5c1e.png" alt="_3"/> based on a
+photochemical model, but only when t he temperature stays below the
+PSC threshold. The stratospheric chlorine loading (1850-2005) is input
+in the model using equivalent effective stratospheric chlorine (EESC)
+([newman:07]) table based on observed mixing ratios at the
+surface.</p>
 <p>This can be used instead of the more explicit representation available
 from WACCM in the strat-trop configuration.</p>
 </div>
 </div>
 <div class="section" id="physical-parameterizations">
-<h2>6.6. &nbsp;Physical Parameterizations<a class="headerlink" href="#physical-parameterizations" title="Permalink to this headline">¶</a></h2>
-<p>In , we extend the physical parameterizations used in CAM4 by adding
+<h2>6.6. Physical Parameterizations<a class="headerlink" href="#physical-parameterizations" title="Permalink to this headline">¶</a></h2>
+<p>In WACCM4.0, we extend the physical parameterizations used in CAM4 by adding
 constituent separation velocities to the molecular (vertical) diffusion
 and modifying the gravity spectrum parameterization. Both of these
 parameterizations are present, but not used, in CAM4. In addition, we
 replace the CAM4 parameterizations for both solar and longwave radiation
 above <img class="math" src="../_images/math/5649f49c754aa9312b270dfd5f93ce37ff9f26a5.png" alt="\sim 65"/> km, and add neutral and ion chemistry models.</p>
 <div class="section" id="domain-and-resolution">
-<h3>6.6.1. &nbsp;Domain and Resolution<a class="headerlink" href="#domain-and-resolution" title="Permalink to this headline">¶</a></h3>
-<p>&nbsp;has 66 vertical levels from the ground to <img class="math" src="../_images/math/c1349341eb0fbd6357ae9e20b9eeaac08f7d8075.png" alt="5.1 \times 10^{-6}"/>
+<h3>6.6.1. Domain and Resolution<a class="headerlink" href="#domain-and-resolution" title="Permalink to this headline">¶</a></h3>
+<p>WACCM4.0 has 66 vertical levels from the ground to <img class="math" src="../_images/math/c1349341eb0fbd6357ae9e20b9eeaac08f7d8075.png" alt="5.1 \times 10^{-6}"/>
 hPa, as in the previous WACCM versions. As in CAM4, the vertical
 coordinate is purely isobaric above 100 hPa, but is terrain following
 below that level. At any model grid point, the local pressure p is
@@ -773,14 +777,14 @@ region have been included.</p>
 stratosphere (below 30 km), and 1.1 km in the troposphere (except near
 the ground where much higher vertical resolution is used in the
 planetary boundary layer).</p>
-<p>Two standard horizontal resolutions are supported in : the &nbsp;(latitude
+<p>Two standard horizontal resolutions are supported in WACCM4.0: the <img class="math" src="../_images/math/3951e795728f1c0c9d6bc3fe101d5116fbbbeb55.png" alt="4 \times 5 ^{\circ}"/> (latitude
 <img class="math" src="../_images/math/214eb8a4d9a622d1d31f06cad9f5264e29242b63.png" alt="\times"/> longitude) low resolution version has 72 longitude and 46
-latitude points; the &nbsp;medium resolution version has 96 longitude and 144
-latitude points. A &nbsp;high resolution version of &nbsp;has had limited testing,
+latitude points; the <img class="math" src="../_images/math/b09641e909230fd3b8dae063ee7e2ecdb551cdb6.png" alt="1.9 \times 2.5 ^{\circ}"/> medium resolution version has 96 longitude and 144
+latitude points. A <img class="math" src="../_images/math/4f6fff994f719397de0a6972b49a170c30ede816.png" alt="0.9 \times 2.5 ^{\circ}"/> high resolution version of &nbsp;has had limited testing,
 and is not yet supported, due to computational cost constraints. The
-&nbsp;version has been used extensively for MLT studies, where it gives very
-similar results to the &nbsp;version. However, caution should be exercised in
-using &nbsp;results below the stratopause, since the meridional resolution
+<img class="math" src="../_images/math/3951e795728f1c0c9d6bc3fe101d5116fbbbeb55.png" alt="4 \times 5 ^{\circ}"/> version has been used extensively for MLT studies, where it gives very
+similar results to the <img class="math" src="../_images/math/b09641e909230fd3b8dae063ee7e2ecdb551cdb6.png" alt="1.9 \times 2.5 ^{\circ}"/> version. However, caution should be exercised in
+using <img class="math" src="../_images/math/3951e795728f1c0c9d6bc3fe101d5116fbbbeb55.png" alt="4 \times 5 ^{\circ}"/> results below the stratopause, since the meridional resolution
 may not be sufficient to represent adequately the dynamics of either the
 polar vortex or synoptic and planetary waves.</p>
 <p>At all resolutions, the time step is 1800 s for the physical
@@ -794,7 +798,7 @@ to the turbulence parameterization, computes the molecular diffusivities
 (if necessary) and finally computes the tendencies of the input
 variables. The diffusion equations are actually solved implicitly, so
 the tendencies are computed from the difference between the final and
-initial profiles. In , we extend this parameterization to include the
+initial profiles. In WACCM4.0, we extend this parameterization to include the
 terms required for the gravitational separation of constituents of
 differing molecular weights. The formulation for molecular diffusion
 follows (<strong>???</strong>)</p>
@@ -845,7 +849,7 @@ be omitted here.</p>
 <div class="math" id="equation-Kmh">
 <p><span class="eqno">(14)<a class="headerlink" href="#equation-Kmh" title="Permalink to this equation">¶</a></span><img src="../_images/math/caef436d674088c7e1de24cf2b0080e144db1c1b.png" alt="K_H^m = P_r K_m^m,"/></p>
 </div><p>where <img class="math" src="../_images/math/7105fc7510fb6041f509989fd183251fe7341e73.png" alt="P_r"/> is the Prandtl number and we assume <img class="math" src="../_images/math/c1a325e786059f12968f96d0d9294aacdfcce75a.png" alt="P_r=1"/> in
-. The constituent diffusivities are</p>
+WACCM4.0. The constituent diffusivities are</p>
 <div class="math" id="equation-Kmq">
 <p><span class="eqno">(15)<a class="headerlink" href="#equation-Kmq" title="Permalink to this equation">¶</a></span><img src="../_images/math/67a0a6eb7b1659b1b66d0e8fc5c1d472f227e1e6.png" alt="K_q^m = T^{1/2} M_w/ \rho,"/></p>
 </div><p>where <img class="math" src="../_images/math/f17d59905f89a054537c343254885d895f7088c7.png" alt="M_w"/> is the molecular weight.</p>
@@ -853,12 +857,12 @@ be omitted here.</p>
 <div class="section" id="diffusive-separation-velocities">
 <h4>6.6.2.2. Diffusive separation velocities<a class="headerlink" href="#diffusive-separation-velocities" title="Permalink to this headline">¶</a></h4>
 <p>As the mean free path increases, constituents of different molecular
-weights begin to separate in the vertical. In , this separation is
+weights begin to separate in the vertical. In WACCM4.0, this separation is
 represented by a separation velocity for each constituent with respect
 mean air. Since &nbsp;extends only into the lower thermosphere, we avoid the
 full complexity of the separation problem and represent mean air by the
 usual dry air mixture used in the lower atmosphere
-(<img class="math" src="../_images/math/0f0c82d32516acc517b6c9b6b157f320ff73b0af.png" alt="M_w = 28.966"/>) (<strong>???</strong>).</p>
+(<img class="math" src="../_images/math/0f0c82d32516acc517b6c9b6b157f320ff73b0af.png" alt="M_w = 28.966"/>) ([banks-kockarts:73]).</p>
 </div>
 <div class="section" id="discretization-of-the-vertical-diffusion-equations">
 <h4>6.6.2.3. Discretization of the vertical diffusion equations<a class="headerlink" href="#discretization-of-the-vertical-diffusion-equations" title="Permalink to this headline">¶</a></h4>
@@ -973,10 +977,10 @@ reversed, which merely requires writing <a class="reference internal" href="#equ
 <img class="math" src="../_images/math/3fd81da183edbe205a497d780ef3fd383383e8a4.png" alt="\psi^{k-1}_{n+1}"/> instead of <img class="math" src="../_images/math/bb6083a50bec539befda9a98361de69408584027.png" alt="\psi^{k+1}_{n+1}"/>. The order
 used here is particularly convenient because the turbulent diffusivities
 for heat and all constituents are the same but their molecular
-diffusivities are not. Since the terms in <a class="reference internal" href="#equation-eq:tridiag5">(25)</a> and <code class="xref eq docutils literal"><span class="pre">:eq:tridiag6</span></code>
+diffusivities are not. Since the terms in <a class="reference internal" href="#equation-eq:tridiag5">(25)</a> and <a class="reference internal" href="#equation-eq:tridiag6">(26)</a>
 are determined from the bottom upward, it is only necessary to
-recalculate <img class="math" src="../_images/math/f39de020351b42ffc48ebca084da313b1182de54.png" alt="A^k"/>, <img class="math" src="../_images/math/b7d7f20a45ea539d42fb3d0c2ed27a4cf7642db3.png" alt="C^k"/>, <img class="math" src="../_images/math/29242a8e13ed87a6456b3b62df2203326a97e6de.png" alt="E^k"/> and <img class="math" src="../_images/math/d0af86fb0a61e0f23de46b22cb1459738402387b.png" alt="1/({B^k -
-A^k E^{k+1}})"/> for each constituent within the region where molecular
+recalculate <img class="math" src="../_images/math/f39de020351b42ffc48ebca084da313b1182de54.png" alt="A^k"/>, <img class="math" src="../_images/math/b7d7f20a45ea539d42fb3d0c2ed27a4cf7642db3.png" alt="C^k"/>, <img class="math" src="../_images/math/29242a8e13ed87a6456b3b62df2203326a97e6de.png" alt="E^k"/> and <img class="math" src="../_images/math/58b3cc5e8a3f35243dbb3ce45855759a6a2fc4e0.png" alt="1/({B^k - A^k E^{k+1}})"/>
+for each constituent within the region where molecular
 diffusion is important.</p>
 </div>
 </div>
@@ -984,20 +988,22 @@ diffusion is important.</p>
 <h3>6.6.3. Gravity Wave Drag<a class="headerlink" href="#gravity-wave-drag" title="Permalink to this headline">¶</a></h3>
 <p>Vertically propagating gravity waves can be excited in the atmosphere
 where stably stratified air flows over an irregular lower boundary and
-by internal heating and shear. These waves are capable of transporting
-significant quantities of horizontal momentum between their source
-regions and regions where they are absorbed or dissipated. Previous GCM
-results have shown that the large-scale momentum sinks resulting from
-breaking gravity waves play an important role in determining the
-structure of the large-scale flow. CAM4 incorporates a parameterization
-for a spectrum of vertically propagating internal gravity waves based on
-the work of (<strong>???</strong>), (<strong>???</strong>), (<strong>???</strong>) and (<strong>???</strong>). The
-parameterization solves separately for a general spectrum of
-monochromatic waves and for a single stationary wave generated by flow
-over orography, following (<strong>???</strong>). The spectrum is omitted in the
-standard tropospheric version of CAM4, as in previous versions of the
-CCM. Here we describe the modified version of the gravity wave spectrum
-parameterization used in .</p>
+by internal heating and shear.  These waves are capable of
+transporting significant quantities of horizontal momentum between
+their source regions and regions where they are absorbed or
+dissipated.  Previous GCM results have shown that the large-scale
+momentum sinks resulting from breaking gravity waves play an important
+role in determining the structure of the large-scale flow. CAM4
+incorporates a parameterization for a spectrum of vertically
+propagating internal gravity waves based on the work of
+[lindzen:81], [holton:82],
+[garcia-solomon:85] and
+[mcfarlane:87]. The parameterization solves separately for a general
+spectrum of monochromatic waves and for a single stationary wave generated by
+flow over orography, following [mcfarlane:87]. The spectrum is omitted in
+the standard tropospheric version of CAM4, as in previous versions of the CCM.
+Here we describe the modified version of the gravity wave spectrum
+parameterization used in WACCM4.0.</p>
 <div class="section" id="adiabatic-inviscid-formulation">
 <h4>6.6.3.1. Adiabatic inviscid formulation<a class="headerlink" href="#adiabatic-inviscid-formulation" title="Permalink to this headline">¶</a></h4>
 <p>Following (<strong>???</strong>), the continuous equations for the gravity wave
@@ -1089,7 +1095,7 @@ from the divergence of <img class="math" src="../_images/math/f0855d9044452cca88
 </div><p>where <img class="math" src="../_images/math/78a06cf7a34f39fde71fbba0d5539baae7c72d4e.png" alt="e"/> is an “efficiency” factor. For a background wave
 spectrum, <img class="math" src="../_images/math/78a06cf7a34f39fde71fbba0d5539baae7c72d4e.png" alt="e"/> represents the temporal and spatial intermittency in
 the wave sources. The analytic solution <a class="reference internal" href="#equation-eq:gw_utend">(39)</a>  is not
-used in ; it is shown here to illustrate how the acceleration due to
+used in WACCM4.0; it is shown here to illustrate how the acceleration due to
 breaking gravity waves depends on the intrinsic phase speed. In the
 model, the stress profile is computed at interfaces and differenced to
 get the specific force at layer midpoints.</p>
@@ -1111,7 +1117,7 @@ affected by thermal dissipation or molecular diffusion. The imaginary
 part of the local vertical wavenumber, <img class="math" src="../_images/math/159e1bfcbbeedf7e28983ee80db2b2d37c3b3ebc.png" alt="\lambda_i"/> is then:</p>
 <div class="math" id="equation-eq:gw_lambdai">
 <p><span class="eqno">(41)<a class="headerlink" href="#equation-eq:gw_lambdai" title="Permalink to this equation">¶</a></span><img src="../_images/math/658b1b1fa5ad36d3262dde3e72c60fdbe6eae2a0.png" alt="\lambda_i = \frac{N^3 \ K_m^m}{2 k (\overline u -c)^4 } \, ."/></p>
-</div><p>In , ([eq:gw:sub:<cite>t</cite>audamp]–[eq:gw<sub>l</sub>ambdai]) are only used
+</div><p>In WACCM4.0, (<a class="reference internal" href="#equation-eq:gw_taudamp">(40)</a> – <a class="reference internal" href="#equation-eq:gw_lambdai">(41)</a>) are only used
 within the domain where molecular diffusion is important (above
 <img class="math" src="../_images/math/261ade2451615c3837418a8b2450a60d1e9b4b35.png" alt="\sim 75"/> km). At lower altitudes, molecular diffusion is
 negligible, <img class="math" src="../_images/math/c844830b0dca35bac64b2fb66315626cff566617.png" alt="\lambda_i \rightarrow 0"/>, and <img class="math" src="../_images/math/557d5fad862c9046d26e1a930f45a550c146d592.png" alt="\tau"/> is
@@ -1125,7 +1131,7 @@ background state. In addition, a phase shift is introduced between the
 wave’s vertical velocity field and its temperature and constituent
 perturbations so that fluxes of heat and constituents are nonzero within
 the dissipation region. The nature of the phase shift and the resulting
-transport depends on the dissipation mechanism; in , we assume that the
+transport depends on the dissipation mechanism; in WACCM4.0, we assume that the
 dissipation can be represented by a linear damping on the potential
 temperature and constituent perturbations. For potential temperature,
 <img class="math" src="../_images/math/3be04d4207434584251f6921820c24ac9fa8c6f1.png" alt="\theta"/>, this leads to:</p>
@@ -1134,8 +1140,7 @@ temperature and constituent perturbations. For potential temperature,
 \right) \theta^\prime + w' {\partial \overline\theta \over \partial z}
 = -\delta \theta^\prime \, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/> is the dissipation rate implied by wave breaking,
-which depends on the wave’s group velocity, <img class="math" src="../_images/math/dec7eea860f9426fdd7b97e566213bb0179dca00.png" alt="c_{gz}"/> (see
-(<strong>???</strong>)):</p>
+which depends on the wave’s group velocity, <img class="math" src="../_images/math/dec7eea860f9426fdd7b97e566213bb0179dca00.png" alt="c_{gz}"/> (see [garcia:91]).</p>
 <div class="math" id="equation-eq:gw_dissip">
 <p><span class="eqno">(43)<a class="headerlink" href="#equation-eq:gw_dissip" title="Permalink to this equation">¶</a></span><img src="../_images/math/2244ada9b7221395f2438ad5fbddfdd3282114ef.png" alt="\delta = {c_{gz} \over 2H} = k \ {(\overline u - c)^2 \over 2H N}
 \, ."/></p>
@@ -1154,9 +1159,9 @@ represented as vertical diffusion, with coefficient <img class="math" src="../_i
 to the term in brackets in <a class="reference internal" href="#equation-eq:gw_kzz">(44)</a> , but they do not
 represent turbulent diffusive fluxes but rather eddy fluxes. Any
 additional turbulent fluxes due to wave breaking are ignored. To take
-into account the effect of localization of turbulence (e.g., (<strong>???</strong>;**???**)),
+into account the effect of localization of turbulence (e.g., [fritts-dunkerton:85][mcintyre:89])
 <a class="reference internal" href="#equation-eq:gw_kzz">(44)</a>  is multiplied times an inverse Prandtl
-number, <img class="math" src="../_images/math/6304f91a99b602f7e115bbb2272b4470ed404f8d.png" alt="{Pr}^{-1}"/>; in &nbsp;we use <img class="math" src="../_images/math/e2378553b18d643bdf14e4d1bb1a9f3b0f902492.png" alt="{Pr}^{-1}=0.25"/>.</p>
+number, <img class="math" src="../_images/math/6304f91a99b602f7e115bbb2272b4470ed404f8d.png" alt="{Pr}^{-1}"/>; in WACCM4.0 we use <img class="math" src="../_images/math/e2378553b18d643bdf14e4d1bb1a9f3b0f902492.png" alt="{Pr}^{-1}=0.25"/>.</p>
 </div>
 <div class="section" id="heating-due-to-wave-dissipation">
 <h4>6.6.3.5. Heating due to wave dissipation<a class="headerlink" href="#heating-due-to-wave-dissipation" title="Permalink to this headline">¶</a></h4>
@@ -1199,7 +1204,7 @@ rate may be expressed as:</p>
 <p><span class="eqno">(47)<a class="headerlink" href="#equation-eq:gw_qgw" title="Permalink to this equation">¶</a></span><img src="../_images/math/e3c09d8e964390b2f7d050879ce3a8484e21ea6b.png" alt="Q_{gw} =
   {1 \over \rho\, c_p} \ c \ {\partial \, \tau^* \over \partial Z} =
   {1 \over c_p} \left[ \ e  \cdot  {k \, c\,(c-\overline u)^3 \over 2 N H} \right] ,"/></p>
-</div><p>where <img class="math" src="../_images/math/bdf930cd3af636fb27411ce02123dd469624494d.png" alt="c_p"/> is the specific heat at constant pressure. In ,
+</div><p>where <img class="math" src="../_images/math/bdf930cd3af636fb27411ce02123dd469624494d.png" alt="c_p"/> is the specific heat at constant pressure. In WACCM4.0,
 <img class="math" src="../_images/math/6e0e2b51233c22b3b98a1dbfe0fde4ea32bab6df.png" alt="Q_{gw}"/> is calculated for each component of the gravity wave
 spectrum using the first equality in <a class="reference internal" href="#equation-eq:gw_qgw">(47)</a> , i.e., the
 product of the phase velocity times the stress divergence.</p>
@@ -1490,7 +1495,7 @@ atmospheric scale height of <img class="math" src="../_images/math/f8970549e06e8
 between 60 and 70 km.</p>
 <div class="section" id="longwave-radiation">
 <h4>6.6.6.1. Longwave radiation<a class="headerlink" href="#longwave-radiation" title="Permalink to this headline">¶</a></h4>
-<p>&nbsp;retains the longwave (LW) formulation used in CAM4 (<strong>???</strong>). However,
+<p>WACCM4.0 retains the longwave (LW) formulation used in CAM4 (<strong>???</strong>). However,
 in the MLT longwave radiation uses the parameterization of (<strong>???</strong>) for
 <img class="math" src="../_images/math/bf556d781d8152aba3827e752c0363da8e9bc930.png" alt="\rm CO_2"/> and <img class="math" src="../_images/math/14355fe747ec3fd1c7c369f82985f6081508a49c.png" alt="\rm O_3"/> cooling and the parameterization of
 (<strong>???</strong>) for <img class="math" src="../_images/math/1cb78284c5327fa7698316f6ab25499320249563.png" alt="\rm NO"/> cooling at 5.3 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m. As noted
@@ -1499,11 +1504,11 @@ are merged smoothly at 65 km with those produced by the standard CAM4 LW
 code, as recently revised by (<strong>???</strong>). In the interactive chemistry
 case all of the gases (O, <img class="math" src="../_images/math/cf250695f5e627c0d3d49fc3a6580092b307459d.png" alt="\rm O_2"/>, <img class="math" src="../_images/math/14355fe747ec3fd1c7c369f82985f6081508a49c.png" alt="\rm O_3"/>,
 <img class="math" src="../_images/math/8a5b0248ed1d0e8898dd23fbaafcf43be176a332.png" alt="\rm N_2"/>, NO, and <img class="math" src="../_images/math/bf556d781d8152aba3827e752c0363da8e9bc930.png" alt="\rm CO_2"/>) that are required by these
-parameterizations, are predicted within .</p>
+parameterizations, are predicted within WACCM4.0.</p>
 </div>
 <div class="section" id="shortwave-radiation">
 <h4>6.6.6.2. Shortwave radiation<a class="headerlink" href="#shortwave-radiation" title="Permalink to this headline">¶</a></h4>
-<p>&nbsp;uses a combination of solar parameterizations to specify spectral
+<p>WACCM4.0 uses a combination of solar parameterizations to specify spectral
 irradiances over two spectral intervals. The first spectral interval
 covers soft x-ray and extreme ultraviolet irradiances (wavelengths
 between 0.05 nm to Lyman-<img class="math" src="../_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/> (121.6 nm)) and is calculated
@@ -1525,7 +1530,7 @@ and 750nm, 5 nm between 750nm and 5<img class="math" src="../_images/math/d79e8a
 5<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m and 10<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m, and 50 nm between
 10<img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m and 100 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m.</p>
 <p>In the troposphere, stratosphere and lower mesosphere (z <img class="math" src="../_images/math/863f524a433d6d1e5715f76f12040c654f10d86d.png" alt="&lt;"/> 65km)
-&nbsp;retains the CAM4 shortwave heating (200 nm to 4.55 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m)
+WACCM4.0 retains the CAM4 shortwave heating (200 nm to 4.55 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m)
 which is calculated from the net shortwave spectral flux into each layer
 (<strong>???</strong>). The solar spectrum for the CAM4 heating calculation is
 divided into 19 intervals (<strong>???</strong>). The heating in these intervals must
@@ -1583,7 +1588,7 @@ defined as:</p>
 <p><img src="../_images/math/ab0b8fb3fe0df47a8cdd050a56453d289fd7b213.png" alt="Q_{UV} = (\rho c_p)^{-1} \sum_{k} n_k \sum_{j}
             J_{k}(\lambda_j) \{ \frac{hc}{\lambda_j} -BDE_k \},"/></p>
 </div><p>where <img class="math" src="../_images/math/09a1de02d07744b8c796e8de98f7a268db6af799.png" alt="BDE"/> is the bond dissociation energy.</p>
-<p>In addition to these sources of heat, &nbsp;calculates heating by absorption
+<p>In addition to these sources of heat, WACCM4.0 calculates heating by absorption
 in the near-infrared by CO<img class="math" src="../_images/math/ba312cf0eeebc5f3ecc40ece2c744c499d75dc2d.png" alt="_2"/> (between 1.05 to 4.3
 <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/>m), which has its largest contribution near 70km and can
 exceed 1 K/day (<strong>???</strong>). Heating from this process is calculated using
@@ -1594,14 +1599,14 @@ in section [ion:sub:<cite>d</cite>rag]. Local heating rates from joule heating
 can be very large in the auroral regions, reaching over
 10<img class="math" src="../_images/math/2f3b4d4eadd11c44b1b9ee0a71b77e266dd42755.png" alt="^3"/>K/day in the upper levels of the model.</p>
 <p>Airglow, radiation produced when excited atoms or molecules
-spontaneously emit, is accounted for in &nbsp;for emissions of
+spontaneously emit, is accounted for in WACCM4.0 for emissions of
 O<img class="math" src="../_images/math/7a1d95ee467a461d6733e586fddf5b6a4b2eb1d9.png" alt="_2(^1\Delta )"/>, O<img class="math" src="../_images/math/b2da2057d853f61a4bc3216336095a636db00f9e.png" alt="_2(^1\Sigma )"/>, and vibrationally
 excited OH. Airglow from the excited molecular oxygen species are
 handled explicitly; radiative lifetimes for O<img class="math" src="../_images/math/7a1d95ee467a461d6733e586fddf5b6a4b2eb1d9.png" alt="_2(^1\Delta )"/> and
 O<img class="math" src="../_images/math/b2da2057d853f61a4bc3216336095a636db00f9e.png" alt="_2(^1\Sigma )"/> are 2.58<img class="math" src="../_images/math/214eb8a4d9a622d1d31f06cad9f5264e29242b63.png" alt="\times"/>10<img class="math" src="../_images/math/5f477aab3fc16c28031ee427766820fcf736178f.png" alt="^{-4}"/>
 s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/> and 0.085 s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/> respectively. However,
 modeling of the many possible vibrational transitions of OH is
-impractical in a model as large as . Energy losses from the emission of
+impractical in a model as large as WACCM4.0. Energy losses from the emission of
 vibrationally excited OH are therefore accounted for by applying an
 efficiency factor to the exothermicity of the reaction that produces
 vibrationally excited OH; the reaction of hydrogen and ozone. In other
@@ -1626,8 +1631,8 @@ is then passed to the radiative transfer code (CAMRT), which in turn
 calculates heating and cooling rates.</p>
 </div>
 </div>
-<div class="section" id="id1">
-<h3>6.6.7. &nbsp;chemistry<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id41">
+<h3>6.6.7. &nbsp;chemistry<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="chemical-mechanism-neutral-species">
 <h4>6.6.7.1. Chemical Mechanism (Neutral Species)<a class="headerlink" href="#chemical-mechanism-neutral-species" title="Permalink to this headline">¶</a></h4>
 <p>&nbsp;includes a detailed neutral chemistry model for the middle atmosphere
@@ -1807,7 +1812,7 @@ index. For <img class="math" src="../_images/math/a86b92f9170d667c69eb33eac2378e
 </div><p><img class="math" src="../_images/math/b79bb860a3ba241a59d8c26978f61585f7ec620b.png" alt="K_p"/> is also available from NOAA’s Space Environment Center and
 covers the period from 1933 to the present, making it ideal for
 long-term retrospective simulations.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id43">
 <img alt="../_images/ions.jpg" src="../_images/ions.jpg" />
 <p class="caption"><span class="caption-text">Global mean distribution of charged constituents during July
 solar minimum conditions.</span></p>
@@ -1815,7 +1820,7 @@ solar minimum conditions.</span></p>
 Global mean distribution of charged constituents during July solar
 minimum conditions.</div>
 </div>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id44">
 <img alt="../_images/ionprod.jpg" src="../_images/ionprod.jpg" />
 <p class="caption"><span class="caption-text">a) Global distribution of ionization rates at
 7.3<img class="math" src="../_images/math/152a54e96ac8792e80cac0775a12d0cccfdfc5da.png" alt="\times 10^{-5}"/> hPa, July 1, UT0100 HRS. Contour interval
@@ -4160,8 +4165,8 @@ drift velocity <img class="math" src="../_images/math/a9810c55f63f1258257030eb1b
 here.</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h3>6.6.9. Boundary Conditions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id42">
+<h3>6.6.9. Boundary Conditions<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
 <p>The upper boundary conditions for momentum and for most constituents are
 the usual zero flux conditions used in CAM4. However, in the energy
 budget of the thermosphere, much of the SW radiation at wavelengths
@@ -4215,7 +4220,7 @@ unrealistically large mixing ratios at the model top in polar night.</p>
 coupled ocean modeling component combined with a thermodynamic sea ice
 component based on the CCSM3 sea ice model. This configuration of the
 atmospheric model allows for a fully-interactive treatment of surface
-exchange processes in the . The ocean prognostic variable is the mixed
+exchange processes in the CAM6.0. The ocean prognostic variable is the mixed
 layer temperature <img class="math" src="../_images/math/12ac17de972a05ed226db54081eb45aeff73edf8.png" alt="T_{o}"/>, while the thermodynamic sea ice model
 treats snow depth, surface temperature, ice thickness, ice fractional
 coverage, and internal energy at four layers for a single thickness
@@ -4227,7 +4232,7 @@ prescribed sea surface temperatures and sea ice distributions, the net
 surface energy flux over the ocean surface can be evaluated to yield the
 heat source <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/>. Additional exchange of heat occurs between the
 ocean mixed layer and the sea ice model during ice formation and ice
-melt. To ensure the SOM sea ice simulation compares well to the observed
+melt. To ensure the CAM6.0 SOM sea ice simulation compares well to the observed
 ice distribution, and to moderate sea ice changes in climate change
 experiments, the <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> flux term is adjusted under the ice in a
 globally conserving manner.</p>
@@ -4285,8 +4290,8 @@ determined using this dataset’s standard measure of salinity
 specified salinity, temperature, and atmospheric pressure) where the
 equality <img class="math" src="../_images/math/5cea61f5a7ebc2d8cd29725510dad8383e484e28.png" alt="\sigma_t(h_o)-\sigma_t"/>(surface) = .125 is satisfied
 on a <img class="math" src="../_images/math/bbdd4c48f2282bf8cfe044768722a2dba986e828.png" alt="1^\circ
-\times 1^\circ"/> grid. These data are then averaged to the standard grid
-(all data falling within a grid box are equally weighted), horizontally
+\times 1^\circ"/> grid. These data are then averaged to the standard CAM6.0 grid
+(all data falling within a CAM6.0 grid box are equally weighted), horizontally
 smoothed 10 times using a 1-2-1 smoother, and capped at 200m (to prevent
 excessively long adjustment times in coupled atmosphere ocean
 experiments). The resulting mixed layer depths in the tropics are
@@ -4296,7 +4301,7 @@ The annually-averaged geographically-varying mixed layer depth, which is
 used for purposes related to energy conservation, is produced by
 averaging the monthly mean values.</p>
 <p>The geographic distribution of the internal heat source <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> is
-generally specified on a monthly basis using a control integration as
+generally specified on a monthly basis using a control CAM6.0 integration as
 described below. During a SOM numerical integration <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> is
 linearly interpolated between monthly values (taken as mid month) to the
 appropriate model time step. The energy fluxes associated with ice
@@ -4324,13 +4329,13 @@ Hence, the first adjustment to <img class="math" src="../_images/math/b047915888
 <p><span class="eqno">(69)<a class="headerlink" href="#equation-6.a.3" title="Permalink to this equation">¶</a></span><img src="../_images/math/c315b6880e55e20204bd3554350902661f0c5c17.png" alt="T_o^{(n+1)'} = T_o^n + \frac{(1-A^{n}) F^{n}}
 {\rho_{o} C_o h_{o}} \Delta t"/></p>
 </div><p>where <img class="math" src="../_images/math/ec002955bdf95ee9869878fbad4f80fc98539359.png" alt="\Delta t"/> is the model time step. We note that <img class="math" src="../_images/math/db77dcef8ab699ce41c0e6471a7a8e2359e4a9f1.png" alt="A^n"/>
-is computed from the fraction of the total grid box that is not covered
+is computed from the fraction of the total CAM6.0 grid box that is not covered
 by land, since only ocean and sea ice covered portion of the grid cell
 are considered for the SOM configuration:</p>
 <div class="math" id="equation-6.a.4">
 <p><span class="eqno">(70)<a class="headerlink" href="#equation-6.a.4" title="Permalink to this equation">¶</a></span><img src="../_images/math/85836228f16bab2d8f6f588c9e16e0d8fbf1b786.png" alt="A^n = \frac{{icefrac}^n} {(1 - landfrac)}"/></p>
-</div><p>where <img class="math" src="../_images/math/bc25ab05d0032dde2e54d7f10884ba8e08b9c3a5.png" alt="icefrac"/> is the fraction of ice in the grid cell and
-<img class="math" src="../_images/math/ec1378f98103144bbf8a513e9b59a7626cdabcbd.png" alt="landfrac"/> is the fraction of land in the grid box.</p>
+</div><p>where <img class="math" src="../_images/math/bc25ab05d0032dde2e54d7f10884ba8e08b9c3a5.png" alt="icefrac"/> is the fraction of ice in the CAM6.0 grid cell and
+<img class="math" src="../_images/math/ec1378f98103144bbf8a513e9b59a7626cdabcbd.png" alt="landfrac"/> is the fraction of land in the CAM6.0 grid box.</p>
 <p>The <img class="math" src="../_images/math/10d3de678911964ce12d5130014bd18e13e23f17.png" alt="Q^n"/> flux is then adjusted since it is possible (using
 monthly specified values of <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/>) to introduce a non-physical
 cooling of the mixed layer when its temperature is at the freezing
@@ -4407,12 +4412,12 @@ model takes the latter two variables as input and computes the
 atmosphere-ice and ocean-ice heat fluxes and advances the state of the
 sea ice, including snow depth, surface temperature, ice thickness, ice
 fractional coverage, and internal energy profile in the ice. The physics
-of the sea ice component model in are discussed in detail in the next
+of the sea ice component model in CAM6.0 are discussed in detail in the next
 chapter.</p>
 </div>
 <div class="section" id="evaluation-of-the-ocean-flux">
 <h2>7.3. Evaluation of the Ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> Flux<a class="headerlink" href="#evaluation-of-the-ocean-flux" title="Permalink to this headline">¶</a></h2>
-<p>The ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> flux is generally evaluated using a control
+<p>The ocean <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/> flux is generally evaluated using a CAM6.0 control
 simulation driven by prescribed sea surface temperature and sea ice
 distributions. Let</p>
 <div class="math">
@@ -4420,7 +4425,7 @@ distributions. Let</p>
 </div><p>over ocean (regardless of whether the ocean surface is open or ice
 covered), for each of 12 ensemble mean months (n=1,...,12). The Q flux
 distribution for each month n is then evaluated: (note that here we use
-the sign convention on the Q flux).</p>
+the CAM6.0 sign convention on the Q flux).</p>
 <div class="math">
 <p><img src="../_images/math/c6d844d36d0abee8954b4c500e379459390d815e.png" alt="Q = Q_{ocean} - Q_{ice} - F_{net}"/></p>
 </div><p>where:</p>

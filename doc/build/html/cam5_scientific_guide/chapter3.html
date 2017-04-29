@@ -70,7 +70,7 @@
 <li><a class="reference internal" href="#global-energy-fixer">4.1.10. Global Energy Fixer</a></li>
 <li><a class="reference internal" href="#further-discussion">4.1.11. Further discussion</a></li>
 <li><a class="reference internal" href="#specified-dynamics-option">4.1.12. Specified Dynamics Option</a></li>
-<li><a class="reference internal" href="#id1">4.1.13. Further discussion</a></li>
+<li><a class="reference internal" href="#id15">4.1.13. Further discussion</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#spectral-element-dynamical-core">4.2. Spectral Element Dynamical Core</a><ul>
@@ -104,7 +104,7 @@
 <li><a class="reference internal" href="#combination-of-terms">4.3.11. Combination of terms</a></li>
 <li><a class="reference internal" href="#transformation-to-spectral-space">4.3.12. Transformation to spectral space</a></li>
 <li><a class="reference internal" href="#solution-of-semi-implicit-equations">4.3.13. Solution of semi-implicit equations</a></li>
-<li><a class="reference internal" href="#id2">4.3.14. Horizontal diffusion</a></li>
+<li><a class="reference internal" href="#id69">4.3.14. Horizontal diffusion</a></li>
 <li><a class="reference internal" href="#initial-divergence-damping">4.3.15. Initial divergence damping</a></li>
 <li><a class="reference internal" href="#transformation-from-spectral-to-physical-space">4.3.16. Transformation from spectral to physical space</a></li>
 <li><a class="reference internal" href="#horizontal-diffusion-correction">4.3.17. Horizontal diffusion correction</a></li>
@@ -165,8 +165,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="dynamics">
-<span id="chap3"></span><h1>4. Dynamics<a class="headerlink" href="#dynamics" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="chap3"></span><div class="section" id="dynamics">
+<h1>4. Dynamics<a class="headerlink" href="#dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="finite-volume-dynamical-core">
 <span id="sec-finite-volume"></span><h2>4.1. Finite Volume Dynamical Core<a class="headerlink" href="#finite-volume-dynamical-core" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overview">
@@ -176,8 +176,8 @@ initially developed and used at the NASA Data Assimilation Office (DAO)
 for data assimilation, numerical weather predictions, and climate
 simulations. The finite-volume discretization is local and entirely in
 physical space. The horizontal discretization is based on a conservative
-“<em>flux-form semi-Lagrangian</em>” scheme described by Lin and Rood (1996)
-(hereafter LR96) and Lin and Rood (1997) (hereafter LR97). The vertical
+“<em>flux-form semi-Lagrangian</em>” scheme described by <a class="reference internal" href="chapter8.html#lin96" id="id1">[LR96]</a>
+(hereafter LR96) and <a class="reference internal" href="chapter8.html#lin97b" id="id2">[LR97]</a> (hereafter LR97). The vertical
 discretization can be best described as <em>Lagrangian</em> with a conservative
 re-mapping, which essentially makes it <em>quasi-Lagrangian</em>. The
 <em>quasi-Lagrangian</em> aspect of the vertical coordinate is transparent to
@@ -195,7 +195,7 @@ larger time step (<em>e.g.</em>, 30 minutes as for the physics).</p>
 <h3>4.1.2. The governing equations for the hydrostatic atmosphere<a class="headerlink" href="#the-governing-equations-for-the-hydrostatic-atmosphere" title="Permalink to this headline">¶</a></h3>
 <p>For reference purposes, we present the continuous differential equations
 for the hydrostatic 3D atmospheric flow on the sphere for a general
-vertical coordinate <img class="math" src="../_images/math/1bed834b3e718b4086e9b3c32284be47445d0c27.png" alt="\zeta"/> (<em>e.g</em>., Kasahara (1974)). Using
+vertical coordinate <img class="math" src="../_images/math/1bed834b3e718b4086e9b3c32284be47445d0c27.png" alt="\zeta"/> (<em>e.g</em>., <a class="reference internal" href="chapter8.html#kasahara74" id="id3">[Kas74]</a>). Using
 standard notations, the hydrostatic balance equation is given as
 follows:</p>
 <div class="math" id="equation-hydro">
@@ -254,10 +254,10 @@ is defined as follows:</p>
 <p><img src="../_images/math/81a284f1e868d71627536287372c06b031833f05.png" alt="\Omega =2\omega \, sin\theta +\frac{1}{A\, cos\theta }\left[
 \frac{\partial }{\partial \lambda }v-\frac{\partial }{\partial \theta
 }(u\, cos\theta )\right] ,"/></p>
-</div><p>where <em>:math:`omega`</em> is the angular velocity of the earth. Note that
-the last term in (<a class="reference internal" href="#equation-u-pi">(6)</a>) and (<a class="reference internal" href="#equation-v-pi">(7)</a>) vanishes if the vertical
+</div><p>where <img class="math" src="../_images/math/b51aa99e0bc8cc8c3d17c0b9cf822db73e13293e.png" alt="\omega"/> is the angular velocity of the earth. Note that
+the last term in <a class="reference internal" href="#equation-u-pi">(6)</a> and <a class="reference internal" href="#equation-v-pi">(7)</a> vanishes if the vertical
 coordinate <img class="math" src="../_images/math/1bed834b3e718b4086e9b3c32284be47445d0c27.png" alt="\zeta"/> is a conservative quantity (<em>e.g</em>., entropy
-under adiabatic conditions (Hsu and Arakawa 1990) or an imaginary
+under adiabatic conditions <a class="reference internal" href="chapter8.html#hsu90" id="id4">[HA90]</a> or an imaginary
 conservative tracer), and the 3D divergence operator becomes 2D along
 constant <img class="math" src="../_images/math/1bed834b3e718b4086e9b3c32284be47445d0c27.png" alt="\zeta"/> surfaces. The discretization of the 2D
 horizontal transport process is described in section [FVhdisc]. The
@@ -277,19 +277,18 @@ fixer in CAM, respectively. Last the global energy fixer is described
 <p>Since the vertical transport term would vanish after the introduction of
 the vertical Lagrangian control-volume discretization (see section
 [FVvdisc]), we shall present here only the 2D (horizontal) forms of the
-FFSL transport algorithm for the transport of density (<a class="reference internal" href="#equation-mass-pi">(3)</a>) and
-mixing ratio-like quantities (<a class="reference internal" href="#equation-tracer-pi">(4)</a>) on the sphere. The governing
-equation for the pseudo-density (<a class="reference internal" href="#equation-mass-pi">(3)</a>) becomes</p>
+FFSL transport algorithm for the transport of density <a class="reference internal" href="#equation-mass-pi">(3)</a> and
+mixing ratio-like quantities <a class="reference internal" href="#equation-tracer-pi">(4)</a> on the sphere. The governing
+equation for the pseudo-density <a class="reference internal" href="#equation-mass-pi">(3)</a> becomes</p>
 <div class="math" id="equation-pi-2d">
 <p><span class="eqno">(8)<a class="headerlink" href="#equation-pi-2d" title="Permalink to this equation">¶</a></span><img src="../_images/math/52ff56025129ac48b4e8a0ea31ddd0df0fd1036b.png" alt="\frac{\partial }{\partial t}\pi +\frac{1}{Acos\theta }\left[
 \frac{\partial }{\partial \lambda }(u\pi )+\frac{\partial }{\partial
 \theta }(v\pi \, cos\theta )\right] =0 ."/></p>
 </div><p>The finite-volume (<em>integral</em>) representation of the continuous
 <img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/> field is defined as follows:</p>
-<p>Given the <em>exact</em> 2D wind field :math:`
-overrightarrow{V}(t;lambda ,theta )=(U,V)` the 2D integral
+<p>Given the <em>exact</em> 2D wind field <img class="math" src="../_images/math/0496769d0d40c9ed4d12c4e1442a74bd8dd700df.png" alt="\overrightarrow{V}(t;\lambda ,\theta )=(U,V)"/> the 2D integral
 representation of the conservation law for <img class="math" src="../_images/math/1a7f991d4cec72689b3e4795853911e145a74f6f.png" alt="\widetilde{\pi }"/>
-can be obtained by integrating (<a class="reference internal" href="#equation-pi-2d">(8)</a>) in time and in space</p>
+can be obtained by integrating <a class="reference internal" href="#equation-pi-2d">(8)</a> in time and in space</p>
 <p>The above 2D transport equation is still <em>exact</em> <em>for the finite-volume
 under consideration</em>. To carry out the contour integral, certain
 approximations must be made. LR96 essentially decomposed the flux
@@ -298,8 +297,7 @@ Introducing the following difference operator</p>
 <div class="math">
 <p><img src="../_images/math/dd2d38b98cfe437fb2ee1f388797e875dfb0398f.png" alt="\delta _{x}q=q(x+\frac{\Delta x}{2})-q(x-\frac{\Delta x}{2}),"/></p>
 </div><p>and assuming <img class="math" src="../_images/math/2a6e8f225802940c196c0dc39f8d7486b6ae8c3d.png" alt="(u^{*},v^{*})"/> is the time-averaged (from time
-<img class="math" src="../_images/math/d1cc3cf041e50c6d94a447b955762cb488ec0a82.png" alt="t
-` to time :math:`t+\Delta t"/>) <img class="math" src="../_images/math/c7900fb441bc2935fcb67d43d14edae9dc80b6b5.png" alt="\overrightarrow{V}"/> on the
+<img class="math" src="../_images/math/5ec053cf70dc1c98cc297322250569eda193e7a4.png" alt="t"/> to time <img class="math" src="../_images/math/acbab363f98c011e1a927c8ff8b4f565421f5def.png" alt="t+\Delta t"/>) <img class="math" src="../_images/math/c7900fb441bc2935fcb67d43d14edae9dc80b6b5.png" alt="\overrightarrow{V}"/> on the
 C-grid (<em>e.g</em>., Fig. 1 in LR96), the 1-D finite-volume flux-form
 transport operator <em>F</em> in the <img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/>-direction is</p>
 <div class="math" id="equation-xtp">
@@ -307,8 +305,7 @@ transport operator <em>F</em> in the <img class="math" src="../_images/math/76f1
 }\, \delta _{\lambda }\left[ \int _{t}^{t+\Delta t}\pi U\, dt\right]
 =-\frac{\Delta t}{A\Delta \lambda cos\theta }\, \delta _{\lambda
 }\left[ \chi (u^{*},\Delta t;\pi )\right] ,"/></p>
-</div><p>where <img class="math" src="../_images/math/1bc8153a40ba7d2281c26bfe99604ad9e6f34749.png" alt="\chi"/> , the time-accumulated (from <em>t</em> to
-<em>t</em>+<em>:math:`Delta`t</em>) mass flux across the cell wall, is
+</div><p>where <img class="math" src="../_images/math/1bc8153a40ba7d2281c26bfe99604ad9e6f34749.png" alt="\chi"/> , the time-accumulated (from <em>t</em> to <em>t</em>+<img class="math" src="../_images/math/4d26a3c646f81ab56cceb818c7801dd1f3cfaaf3.png" alt="\Delta"/>t) mass flux across the cell wall, is
 defined as follows,</p>
 <div class="math" id="equation-xmass">
 <p><span class="eqno">(10)<a class="headerlink" href="#equation-xmass" title="Permalink to this equation">¶</a></span><img src="../_images/math/fc866945be9b44f48d608ce30c640b088f0d4713.png" alt="\chi (u^{*},\Delta t;\pi )=\frac{1}{\Delta t}\int _{t}^{t+\Delta t}\pi
@@ -327,7 +324,7 @@ LR96) back to time <img class="math" src="../_images/math/5ec053cf70dc1c98cc2973
 Fig. 3 of LR96). The very essence of the 1D finite-volume algorithm is
 to construct, based on the given initial cell-mean values of :math:`
 widetilde{pi }`, an approximated subgrid distribution of the true
-<img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/> field, to enable an analytic integration of (<a class="reference internal" href="#equation-pi-">(11)</a>).
+<img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/> field, to enable an analytic integration of <a class="reference internal" href="#equation-pi-">(11)</a>.
 Assuming there is no error in obtaining the time-mean wind
 <img class="math" src="../_images/math/c0920f8d03f9be255bf6180e6d4571d34355db16.png" alt="(u^{\*})"/>, the only error produced by the 1D transport scheme
 would be solely due to the approximation to the continuous distribution
@@ -336,9 +333,9 @@ case in 2D; Lauritzen, Ullrich, and Nair (2010)). From this perspective,
 it can be said that the 1D finite-volume transport algorithm combines
 the time-space discretization in the approximation of the time-mean
 cell-edge values <img class="math" src="../_images/math/96c92166a8253677a489d76aa07ca4543dd1a9c3.png" alt="\pi ^{*}"/>. The physically correct way of
-approximating the integral (<a class="reference internal" href="#equation-pi-">(11)</a>) must be “upwind”, in the sense that
+approximating the integral <a class="reference internal" href="#equation-pi-">(11)</a> must be “upwind”, in the sense that
 it is integrated along the backward trajectory of the cell edges. For
-example, a center difference approximation to (<a class="reference internal" href="#equation-pi-">(11)</a>) would be
+example, a center difference approximation to <a class="reference internal" href="#equation-pi-">(11)</a> would be
 physically incorrect, and consequently numerically unstable unless
 artificial numerical diffusion is added.</p>
 <p>Central to the accuracy and computational efficiency of the
@@ -346,16 +343,16 @@ finite-volume algorithms is the degrees of freedom that describe the
 subgrid distribution. The first order upwind scheme, for example, has
 zero degrees of freedom within the volume as it is assumed that the
 subgrid distribution is piecewise constant having the same value as the
-given volume-mean. The second order finite-volume scheme (<em>e.g</em>., Lin et
-al. (1994)) assumes a piece-wise linear subgrid distribution, which
+given volume-mean. The second order finite-volume scheme (<em>e.g</em>., <a class="reference internal" href="chapter8.html#lin94" id="id5">[LCSW94]</a>)
+assumes a piece-wise linear subgrid distribution, which
 allows one degree of freedom for the specification of the “slope” of the
-linear distribution to improve the accuracy of integrating (<a class="reference internal" href="#equation-pi-">(11)</a>).
-The Piecewise Parabolic Method (PPM, Colella and Woodward (1984)) has
+linear distribution to improve the accuracy of integrating <a class="reference internal" href="#equation-pi-">(11)</a>.
+The Piecewise Parabolic Method (PPM, <a class="reference internal" href="chapter8.html#colella84" id="id6">[CW84]</a>) has
 two degrees of freedom in the construction of the second order
 polynomial within the volume, and as a result, the accuracy is
 significantly enhanced. The PPM appears to strike a good balance between
 computational efficiency and accuracy. Therefore, the PPM is the basic
-1D scheme we chose (see, e.g., Machenhauer (1998)). Note that the
+1D scheme we chose (see, e.g., <a class="reference internal" href="chapter8.html#machenhauer98" id="id7">[Mac98]</a>). Note that the
 subgrid PPM distributions are compact, and do not extend beyond the
 volume under consideration. The accuracy is therefore significantly
 better than the order of the chosen polynomials implies. While the PPM
@@ -385,7 +382,7 @@ C_{def}^{\lambda } ,"/></p>
 the degree of the flow deformation in the <img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/>-direction.
 The above derivation of <img class="math" src="../_images/math/875eb40014526135383caa89fd500ae40a835f56.png" alt="f"/> is slightly different from LR96’s
 approach, which adopted the traditional 1D advective-form
-semi-Lagrangian scheme. The advantage of using (<a class="reference internal" href="#equation-xadv">(12)</a>) is that
+semi-Lagrangian scheme. The advantage of using <a class="reference internal" href="#equation-xadv">(12)</a> is that
 computation of winds at cell centers (Eq. 2.25 in LR96) are avoided.</p>
 <p>Analogously, the <strong>1D flux-form transport operator</strong> <em>G</em> <strong>in the
 latitudinal (:math:`theta`) direction is derived as follows:</strong></p>
@@ -417,7 +414,7 @@ as</p>
 t,\widetilde{\pi }^{\theta }\right] +G\left[ v^{*},\Delta
 t,\widetilde{\pi }^{\lambda }\right] ."/></p>
 </div><p>Using explicitly the mass fluxes <img class="math" src="../_images/math/76854ccd19641bc44f336cf00a6e24649e4155ad.png" alt="\left( \chi ,Y\right)"/>,
-(<a class="reference internal" href="#equation-den-gf">(19)</a>) is rewritten as</p>
+<a class="reference internal" href="#equation-den-gf">(19)</a> is rewritten as</p>
 <div class="math" id="equation-air">
 <p><span class="eqno">(20)<a class="headerlink" href="#equation-air" title="Permalink to this equation">¶</a></span><img src="../_images/math/aa9724822d63fdaf52cf98f91eafd0745dca0978.png" alt="\widetilde{\pi }^{n+1}=\widetilde{\pi }^{n}-\frac{\Delta t}{Acos\theta
 }\left\{ \frac{1}{\Delta \lambda }\delta _{\lambda }\left[ \chi
@@ -425,7 +422,7 @@ t,\widetilde{\pi }^{\lambda }\right] ."/></p>
 \theta }\delta _{\theta }\left[ cos\theta \, Y(v^{*},\Delta
 t;\widetilde{\pi }^{\lambda })\right] \right\} ,"/></p>
 </div><p>where <img class="math" src="../_images/math/0062c26909b3e07ee8f5a6285b2563d69bc979ff.png" alt="Y"/>, the mass flux in the meridional direction, is
-defined in a similar fashion as <img class="math" src="../_images/math/1bc8153a40ba7d2281c26bfe99604ad9e6f34749.png" alt="\chi"/> (<a class="reference internal" href="#equation-xmass">(10)</a>). The ability of
+defined in a similar fashion as <img class="math" src="../_images/math/1bc8153a40ba7d2281c26bfe99604ad9e6f34749.png" alt="\chi"/> <a class="reference internal" href="#equation-xmass">(10)</a>. The ability of
 the LR96 scheme to approximate the exact geometry of the fluxes for
 deformational flows is discussed in Machenhauer, Kaas, and Lauritzen
 (2009) and Lauritzen, Ullrich, and Nair (2010).</p>
@@ -448,7 +445,7 @@ previously should be used as follows</p>
 t,\widetilde{q}^{\theta })+G(Y,\Delta t,\widetilde{q}^{\lambda
 })\right] ."/></p>
 </div><p>Note that the above form of the tracer transport equation consistently
-degenerates to (<a class="reference internal" href="#equation-den-gf">(19)</a>) if <img class="math" src="../_images/math/06abc6409414bb1111ad05d758de31bb4ae74996.png" alt="\widetilde{q}\equiv 1"/> (<em>i.e</em>.,
+degenerates to <a class="reference internal" href="#equation-den-gf">(19)</a> if <img class="math" src="../_images/math/06abc6409414bb1111ad05d758de31bb4ae74996.png" alt="\widetilde{q}\equiv 1"/> (<em>i.e</em>.,
 the tracer density equals to the background air density), which is
 another important condition for a flux-form transport algorithm to be
 able to avoid generation of noise (<em>e.g</em>., creation of artificial
@@ -457,8 +454,8 @@ gradients) and to maintain mass conservation.</p>
 <div class="section" id="a-vertically-lagrangian-and-horizontally-eulerian-control-volume-discretization-of-the-hydrodynamics">
 <span id="fvvdisc"></span><h3>4.1.4. A <em>vertically Lagrangian</em> and <em>horizontally Eulerian</em> control-volume discretization of the hydrodynamics<a class="headerlink" href="#a-vertically-lagrangian-and-horizontally-eulerian-control-volume-discretization-of-the-hydrodynamics" title="Permalink to this headline">¶</a></h3>
 <p>The very idea of using Lagrangian vertical coordinate for formulating
-governing equations for the atmosphere is not entirely new. Starr
-(1945)) is likely the first to have formulated, in the <em>continuous
+governing equations for the atmosphere is not entirely new. <a class="reference internal" href="chapter8.html#starr45" id="id8">[Sta45]</a>)
+is likely the first to have formulated, in the <em>continuous
 differential form</em>, the governing equations using a Lagrangian
 coordinate. Starr did not make use of the <em>discrete</em> Lagrangian
 control-volume concept for discretization nor did he present a solution
@@ -494,7 +491,7 @@ monotonic function of height and constant on the initial reference
 coordinate surfaces (<em>e.g</em>., the value of “<img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>” in the hybrid
 <img class="math" src="../_images/math/bd6b8599416273f91a7a00fa258e1bc6f557f371.png" alt="\sigma -p"/> coordinate used in CAM), the 3D governing equations
 written for the general vertical coordinate in section 1.2 can be
-reduced to 2D forms. After factoring out the constant <img class="math" src="../_images/math/f5424a59c2c38d4ddeab01198254d815fa0e9973.png" alt="\delta \zeta"/>, (<a class="reference internal" href="#equation-mass-pi">(3)</a>), the conservation law for the pseudo-density
+reduced to 2D forms. After factoring out the constant <img class="math" src="../_images/math/f5424a59c2c38d4ddeab01198254d815fa0e9973.png" alt="\delta \zeta"/>, <a class="reference internal" href="#equation-mass-pi">(3)</a>, the conservation law for the pseudo-density
 (<img class="math" src="../_images/math/68612aa744500919fcd9b506081b046dfc093c3d.png" alt="\pi=\frac{\delta p}{\delta \zeta }"/>), becomes</p>
 <div class="math" id="equation-mass-lcv">
 <p><span class="eqno">(23)<a class="headerlink" href="#equation-mass-lcv" title="Permalink to this equation">¶</a></span><img src="../_images/math/724ad46804c325bc12a315c907d7884d70bf3285.png" alt="\frac{\partial }{\partial t}\delta p+\frac{1}{Acos\theta }\left[
@@ -502,26 +499,26 @@ reduced to 2D forms. After factoring out the constant <img class="math" src="../
 }{\partial \theta }(v\delta p\, cos\theta )\right] =0 ,"/></p>
 </div><p>where the symbol <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/> represents the vertical difference
 between the two neighboring Lagrangian surfaces that bound the finite
-control-volume. From (<a class="reference internal" href="#equation-hydro">(1)</a>), the pressure thickness
+control-volume. From <a class="reference internal" href="#equation-hydro">(1)</a>, the pressure thickness
 <img class="math" src="../_images/math/b9b3054e0caac87844767ff5b7173783fe4d49d1.png" alt="\delta p"/> of that control-volume is proportional to the total
 mass, <em>i.e</em>., <img class="math" src="../_images/math/a7be8fd9d159626f622ab2ea4154d02aaed537c9.png" alt="\delta p=-\rho g\delta z"/>. Therefore, it can be said that the
 Lagrangian control-volume vertical discretization has the hydrostatic
 balance built-in, and <img class="math" src="../_images/math/b9b3054e0caac87844767ff5b7173783fe4d49d1.png" alt="\delta p"/> can be regarded as the
 “pseudo-density” for the discretized Lagrangian vertical coordinate
 system.</p>
-<p>Similarly, (<a class="reference internal" href="#equation-tracer-pi">(4)</a>), the mass conservation law for all tracer
+<p>Similarly, <a class="reference internal" href="#equation-tracer-pi">(4)</a>, the mass conservation law for all tracer
 species, is</p>
 <div class="math" id="equation-tracer-lcv">
 <p><span class="eqno">(24)<a class="headerlink" href="#equation-tracer-lcv" title="Permalink to this equation">¶</a></span><img src="../_images/math/e385252f7da4941f42f4ba1bd6b0c8984e8d4235.png" alt="\frac{\partial }{\partial t}(q\delta p)+\frac{1}{Acos\theta }\left[
 \frac{\partial }{\partial \lambda }(uq\delta p)+\frac{\partial
 }{\partial \theta }(vq\delta p\, cos\theta )\right] =0,"/></p>
-</div><p>the thermodynamic equation, (<a class="reference internal" href="#equation-thermo-pi">(5)</a>), becomes</p>
+</div><p>the thermodynamic equation, <a class="reference internal" href="#equation-thermo-pi">(5)</a>, becomes</p>
 <div class="math" id="equation-Thermo-lcv">
 <p><span class="eqno">(25)<a class="headerlink" href="#equation-Thermo-lcv" title="Permalink to this equation">¶</a></span><img src="../_images/math/9d5fba11e9ecc312daad63a0af213815c04bfb6e.png" alt="\frac{\partial }{\partial t}(\Theta \delta p)+\frac{1}{Acos\theta
 }\left[ \frac{\partial }{\partial \lambda }(u\Theta \delta
 p)+\frac{\partial }{\partial \theta }(v\Theta \delta p\, cos\theta
 )\right] =0,"/></p>
-</div><p>and (<a class="reference internal" href="#equation-u-pi">(6)</a>) and (<a class="reference internal" href="#equation-v-pi">(7)</a>), the momentum equations, are reduced to</p>
+</div><p>and <a class="reference internal" href="#equation-u-pi">(6)</a> and <a class="reference internal" href="#equation-v-pi">(7)</a>, the momentum equations, are reduced to</p>
 <div class="math" id="equation-u-lcv">
 <p><span class="eqno">(26)<a class="headerlink" href="#equation-u-lcv" title="Permalink to this equation">¶</a></span><img src="../_images/math/f92f02375643bf0be59babca63145705d8b2fb76.png" alt="\frac{\partial }{\partial t}u=\Omega v-\frac{1}{Acos\theta }\left[
 \frac{\partial }{\partial \lambda }\left( \kappa +\Phi -\nu D\right)
@@ -537,25 +534,25 @@ as follows:</p>
 <div class="math" id="equation-L-coord">
 <p><span class="eqno">(28)<a class="headerlink" href="#equation-L-coord" title="Permalink to this equation">¶</a></span><img src="../_images/math/eafd30afc2a1612b15a9202a100128f3a2791ca1.png" alt="P_{l}=P_{\infty }+\sum ^{l}_{k=1}\delta P_{k},\, \, \, \, \, (for\,
 l=1,\, 2,\, 3,\, ...,\, N) ,"/></p>
-</div><p>where the subscript <em>:math:`l`</em> is the vertical index ranging from 1
+</div><p>where the subscript <img class="math" src="../_images/math/b359488b993294ebbc2c7b30ab8f749dcbc6826d.png" alt="l"/> is the vertical index ranging from 1
 at the lower bounding Lagrangian surface of the first (the highest)
-layer to <em>:math:`N`</em> at the Earth’s surface. There are <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/>+1
-Lagrangian surfaces to define a total number of <em>:math:`N`</em> Lagrangian
+layer to <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/> at the Earth’s surface. There are <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/>+1
+Lagrangian surfaces to define a total number of <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/> Lagrangian
 layers. The surface pressure, which is the pressure at the lowest
 Lagrangian surface, is easily computed as <img class="math" src="../_images/math/845d154678415a42a4e9933cf7285846649484fb.png" alt="P_{N}"/> using
-(<a class="reference internal" href="#equation-L-coord">(28)</a>). The surface pressure is needed for the physical
+<a class="reference internal" href="#equation-L-coord">(28)</a>. The surface pressure is needed for the physical
 parameterizations and to define the reference Eulerian coordinate for
-the mapping procedure (to be described in section [FVmap]).</p>
+the mapping procedure (to be described in section <a class="reference internal" href="#fvmap"><span class="std std-ref">A mass, momentum, and total energy conserving mapping algorithm</span></a>).</p>
 <p>With the exception of the pressure-gradient terms and the addition of a
 thermodynamic equation, the above 2D Lagrangian dynamical system is the
 same as the shallow water system described in LR97. The conservation law
 for the depth of fluid <img class="math" src="../_images/math/293fb39e1b93282c804a86186e721b32f829f1b2.png" alt="h"/> in the shallow water system of LR97
-is replaced by (<a class="reference internal" href="#equation-mass-lcv">(23)</a>) for the pressure thickness <img class="math" src="../_images/math/b9b3054e0caac87844767ff5b7173783fe4d49d1.png" alt="\delta p"/>.
+is replaced by <a class="reference internal" href="#equation-mass-lcv">(23)</a> for the pressure thickness <img class="math" src="../_images/math/b9b3054e0caac87844767ff5b7173783fe4d49d1.png" alt="\delta p"/>.
 The ideal gas law, the mass conservation law for air mass,
-the conservation law for the potential temperature (<a class="reference internal" href="#equation-Thermo-lcv">(25)</a>),
-together with the modified momentum equations (<a class="reference internal" href="#equation-u-lcv">(26)</a>) and (<a class="reference internal" href="#equation-v-lcv">(27)</a>)
+the conservation law for the potential temperature <a class="reference internal" href="#equation-Thermo-lcv">(25)</a>,
+together with the modified momentum equations <a class="reference internal" href="#equation-u-lcv">(26)</a> and <a class="reference internal" href="#equation-v-lcv">(27)</a>
 close the 2D Lagrangian dynamical system, which are vertically coupled
-only by the hydrostatic relation (see (<a class="reference internal" href="#equation-hydro-PT">(51)</a>), section [FVmap]).</p>
+only by the hydrostatic relation (see <a class="reference internal" href="#equation-hydro-PT">(51)</a>), section [FVmap].</p>
 <p>The time marching procedure for the 2D Lagrangian dynamics follows
 closely that of the shallow water dynamics fully described in LR97. For
 computational efficiency, we shall take advantage of the stability of
@@ -568,8 +565,8 @@ time-split procedure for the <em>prognostic variables</em>
 <img class="math" src="../_images/math/dc3dc5119979667ad2fbaf83343ff01b41570af1.png" alt="\left[ \delta p,\Theta ,u,v;q\right]"/> on the D-grid. Discretization on
 the C-grid for obtaining the <em>diagnostic variables</em>, the time-averaged
 winds <img class="math" src="../_images/math/2a6e8f225802940c196c0dc39f8d7486b6ae8c3d.png" alt="(u^{*},v^{*})"/>, is analogous to that of the D-grid (see also LR97).</p>
-<p>Introducing the following short hand notations (<em>cf</em>, (<a class="reference internal" href="#equation-def-1">(17)</a>) and
-(<a class="reference internal" href="#equation-def-2">(18)</a>)):</p>
+<p>Introducing the following short hand notations (<em>cf</em>, <a class="reference internal" href="#equation-def-1">(17)</a> and
+<a class="reference internal" href="#equation-def-2">(18)</a>):</p>
 <div class="math">
 <p><img src="../_images/math/d36c72ddbb927eaac64f3d83decb6bedff8771eb.png" alt="(\, )_{i}^{\theta }=(\,
 )^{n+\frac{i-1}{m}}+\frac{1}{2}g[v_{i}^{*},\Delta \tau ,(\,
@@ -578,7 +575,7 @@ winds <img class="math" src="../_images/math/2a6e8f225802940c196c0dc39f8d7486b6a
 <p><img src="../_images/math/0590088c4b3228fe185956bb012bd06454070db9.png" alt="(\, )_{i}^{\lambda }=(\,
 )^{n+\frac{i-1}{m}}+\frac{1}{2}f[u_{i}^{*},\Delta \tau ,(\,
 )^{n+\frac{i-1}{m}}],"/></p>
-</div><p>and applying directly (<a class="reference internal" href="#equation-air">(20)</a>), the update of “pressure thickness”
+</div><p>and applying directly <a class="reference internal" href="#equation-air">(20)</a>, the update of “pressure thickness”
 <img class="math" src="../_images/math/b9b3054e0caac87844767ff5b7173783fe4d49d1.png" alt="\delta p"/>, using the fractional time step
 <img class="math" src="../_images/math/2978169f60212cd66bc80903bf7bfdc1f3d4eaa4.png" alt="\Delta \tau =\Delta
 t/m"/>, can be written as</p>
@@ -619,7 +616,7 @@ divergence on the D-grid, is discretized as follows:</p>
 <p><img src="../_images/math/759e9cbb90b3afca66a9abb9b448235a413c2506.png" alt="D^{*}=\frac{1}{Acos\theta }\left[ \frac{1}{\Delta \lambda }\delta
 _{\lambda }u^{n+\frac{i-1}{m}}+\frac{1}{\Delta \theta }\delta _{\theta
 }\left( v^{n+\frac{i-1}{m}}cos\theta \right) \right] ."/></p>
-</div><p>The finite-volume mean pressure-gradient terms in (<a class="reference internal" href="#equation-u">(31)</a>) and (<a class="reference internal" href="#equation-v">(32)</a>) are
+</div><p>The finite-volume mean pressure-gradient terms in <a class="reference internal" href="#equation-u">(31)</a> and <a class="reference internal" href="#equation-v">(32)</a> are
 computed as follows:</p>
 <div class="math" id="equation-px">
 <p><span class="eqno">(33)<a class="headerlink" href="#equation-px" title="Permalink to this equation">¶</a></span><img src="../_images/math/5fa144ce22b82ea3f3992351e3ec1a7e4b720708.png" alt="\widehat{P_{\lambda }}=\frac{\oint _{\Pi \rightleftharpoons \lambda
@@ -631,10 +628,10 @@ d\lambda } ,"/></p>
 </div><p>where <img class="math" src="../_images/math/6a613708939aeb0ae85aa78c60e350f014e8ae5b.png" alt="\Pi =p^{\kappa }\, (\kappa =R/C_{p})"/>, and the symbols “<img class="math" src="../_images/math/a2c5c8aeabcfd35dacda105dc69e0294b0ba2111.png" alt="\Pi \rightleftharpoons \lambda"/>” and
 “<img class="math" src="../_images/math/48df4c3c7ccc8857bb1a8690c2b1207275b0a626.png" alt="\Pi"/><img class="math" src="../_images/math/5ee769c2b18c89a63af81f94e153c162563756b1.png" alt="\rightleftharpoons \theta"/>” indicate that the contour integrations are
 to be carried out, using the finite-volume algorithm described in L97, in the <img class="math" src="../_images/math/ce971e8700c1561bb61b97a32993aaf97ced28f9.png" alt="(\Pi ,\lambda )"/> and <img class="math" src="../_images/math/a824b51f44245e075e80ad23184961809457ff0b.png" alt="(\Pi ,\theta )"/> space, respectively.</p>
-<p>To complete one time step, equations (<a class="reference internal" href="#equation-mass">(29)</a>-[v]), together with their
+<p>To complete one time step, equations <a class="reference internal" href="#equation-mass">(29)</a>-[v], together with their
 counterparts on the C-grid are cycled <img class="math" src="../_images/math/edba97b4c0d864d26e92ea7ea73767fa38eef3f7.png" alt="m"/> times using the
 fractional time step <img class="math" src="../_images/math/1c2c99eb9d15122203087177a9c308a6748f5814.png" alt="\Delta \tau"/>, which are followed by the
-tracer transport using (<a class="reference internal" href="#equation-tracer-lcv">(24)</a>) with the large-time-step
+tracer transport using <a class="reference internal" href="#equation-tracer-lcv">(24)</a> with the large-time-step
 <img class="math" src="../_images/math/ec002955bdf95ee9869878fbad4f80fc98539359.png" alt="\Delta t"/>.</p>
 <p>Mass fluxes <img class="math" src="../_images/math/64a7c4a2404b52640b54f15c0b183c1c758775b7.png" alt="(x^{*},y^{*})"/> and the winds
 <img class="math" src="../_images/math/2a6e8f225802940c196c0dc39f8d7486b6ae8c3d.png" alt="(u^{*},v^{*})"/> on the C-grid are accumulated for the
@@ -666,10 +663,9 @@ ensures the conservation of the tracer mass and maintains the highest
 degree of consistency possible given the time split integration
 procedure. A graphical illustration of the different levels of
 sub-cycling in CAM5 is given on Figure [fig:subc].</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id90">
 <span id="figure-1"></span><img alt="../_images/dt.jpg" src="../_images/dt.jpg" />
-<p class="caption"><span class="caption-text">Figure 3.1: A graphical illustration of the different levels of sub-cycling
-in CAM5.</span></p>
+<p class="caption"><span class="caption-text">Figure 3.1: A graphical illustration of the different levels of sub-cycling in CAM5.</span></p>
 </div>
 <p>The algorithm described here can be readily applied to a regional model
 if appropriate boundary conditions are supplied. There is formally no
@@ -687,9 +683,9 @@ selective and is applied only to the diagnostic variables on the
 auxiliary C-grid and the tendency terms in the D-grid momentum
 equations. No polar filter is applied directly to any of the prognostic
 variables.</p>
-<p>The design of the polar filter follows closely that of Suarez and Takacs
-(1995) for the C-grid Arakawa type dynamical core (<em>e.g</em>., Arakawa and
-Lamb (1981)). For the the fast-fourier transform component of the polar
+<p>The design of the polar filter follows closely that of <a class="reference internal" href="chapter8.html#suarez95" id="id9">[ST95]</a>
+for the C-grid Arakawa type dynamical core (<em>e.g</em>., <a class="reference internal" href="chapter8.html#arakawa81" id="id10">[AL81]</a>).
+For the CAM6.0 the fast-fourier transform component of the polar
 filtering has replaced the algebraic form at all filtering latitudes.
 Because our prognostic variables are computed on the D-grid and the fact
 that the FFSL transport scheme is stable for Courant number greater than
@@ -708,8 +704,7 @@ large-time-step transport perspective, the small-time-step integration
 of the 2D Lagrangian dynamics can be regarded as a very accurate
 iterative solver, with <em>m</em> iterations, for computing the time mean winds
 and the mass fluxes, analogous in functionality to a semi-implicit
-algorithm’s elliptic solver (<em>e.g</em>., Ringler, Heikes, and D. A. Randall
-(2000)). Besides accuracy, the merit of an “explicit” versus
+algorithm’s elliptic solver (<em>e.g</em>., <a class="reference internal" href="chapter8.html#ringler00" id="id11">[RHR00]</a>). Besides accuracy, the merit of an “explicit” versus
 “semi-implicit” algorithm ultimately depends on the computational
 efficiency of each approach. In light of the advantage of the explicit
 algorithm in parallelization, we do not regard the explicit algorithm
@@ -812,7 +807,7 @@ target coordinate. The mass in each layer (<img class="math" src="../_images/mat
 then distributed vertically according to the chosen Eulerian
 coordinate. The surface pressure typically plays an “anchoring” role
 in defining the terrain following Eulerian vertical coordinate. The
-hybrid <img class="math" src="../_images/math/4acc948a6c4f979dbea184002aa7edb8b9f6e5a5.png" alt="\eta -coordinate"/> used in the NCAR CCM3 (Kiehl et al. 1996) is adopted in the
+hybrid <img class="math" src="../_images/math/4acc948a6c4f979dbea184002aa7edb8b9f6e5a5.png" alt="\eta -coordinate"/> used in the NCAR CCM3 (<a class="reference internal" href="chapter8.html#kiehl96" id="id12">[KHB+96]</a>) is adopted in the
 current model setup.</p>
 <p><strong>Step 2</strong>: Construct the piece-wise continuous vertical subgrid
 profiles of tracer mixing ratios (<img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/>), zonal and meridional
@@ -848,7 +843,7 @@ calculated as</p>
 \frac{v^{2}_{i-\frac{1}{2},j,k}+v^{2}_{i+\frac{1}{2},j,k}}{2}\right) \nonumber\end{aligned}"/></p>
 </div><p>The method employed to create subgrid profiles is set by the flag
 <img class="math" src="../_images/math/8ab3ae89c3febfb67718ab1f46065de69974c350.png" alt="te\_method"/>. For <img class="math" src="../_images/math/8ab3ae89c3febfb67718ab1f46065de69974c350.png" alt="te\_method"/> = 0 (default), the
-Piece-wise Parabolic Method (PPM, Colella and Woodward (1984)) over
+Piece-wise Parabolic Method (PPM, <a class="reference internal" href="chapter8.html#colella84" id="id13">[CW84]</a>) over
 a pressure coordinate is used and for <img class="math" src="../_images/math/ff68dd3fce8f0f32ea50796a5d09253861c1d1bb.png" alt="te\_method = 1"/> a
 cublic spline over a logarithmic pressure coordinate is used.</p>
 <p><strong>Step 3</strong>: Layer mean values of <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/>, (<em>u</em>, <em>v</em>), and
@@ -923,7 +918,7 @@ the Lagrangian control-volume back to the Eulerian framework.</p>
 consists of <img class="math" src="../_images/math/edba97b4c0d864d26e92ea7ea73767fa38eef3f7.png" alt="m"/> small time steps for the 2D Lagrangian dynamics
 and one large time step for tracer transport. The mapping time step can
 be much larger than that used for the large-time-step tracer transport.
-In tests using the Held-Suarez forcing (Held and Suarez 1994), a
+In tests using the Held-Suarez forcing (<a class="reference internal" href="chapter8.html#held94" id="id14">[HS94]</a>), a
 three-hour mapping time interval is found to be adequate. In the full
 model integration, one may choose the same time step used for the
 physical parameterizations so as to ensure the input state variables to
@@ -1224,44 +1219,43 @@ correct surface geopotential height (PHIS) to ensure consistency with
 the input dynamical fields, which is important to prevent unrealistic
 vertical mixing.</p>
 </div>
-<div class="section" id="id1">
-<h3>4.1.13. Further discussion<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>4.1.13. Further discussion<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="spectral-element-dynamical-core">
 <span id="s-intro"></span><h2>4.2. Spectral Element Dynamical Core<a class="headerlink" href="#spectral-element-dynamical-core" title="Permalink to this headline">¶</a></h2>
-<p>The CAM includes an optional dynamical core from HOMME, NCAR’s
-High-Order Method Modeling Environment (Dennis et al. 2005). The
-stand-alone HOMME is used for research in several different types of
-dynamical cores. The dynamical core incorporated into CAM4 uses HOMME’s
-continuous Galerkin spectral finite element method (Taylor, Tribbia, and
-Iskandarani 1997; Fournier, Taylor, and Tribbia 2004; Thomas and Loft
-2005; Wang et al. 2007; Taylor and Fournier 2010), here abbreviated to
-the spectral element method (SEM). This method is designed for fully
-unstructured quadrilateral meshes. The current configurations in the CAM
-are based on the cubed-sphere grid. The main motivation for the
-inclusion of HOMME is to improve the scalability of the CAM by
-introducing quasi-uniform grids which require no polar filters (Taylor,
-Edwards, and St.Cyr 2008). HOMME is also the first dynamical core in the
-CAM which locally conserves energy in addition to mass and
-two-dimensional potential vorticity (Taylor 2010).</p>
+<p>The CAM includes an optional dynamical core from HOMME, NCAR&#8217;s
+High-Order Method Modeling Environment <a class="reference internal" href="chapter8.html#dennis05" id="id16">[DFS+05]</a>.  The stand-alone
+HOMME is used for research in several different types of dynamical
+cores.  The dynamical core incorporated into CAM4 uses HOMME&#8217;s
+continuous Galerkin spectral finite element method
+<a class="reference internal" href="chapter8.html#taylor97" id="id17">[TTI97]</a>,:cite:<cite>fournier04</cite>,:cite:<cite>thomas05</cite>,:cite:<cite>wang07</cite>,:cite:<cite>taylor10b</cite>,
+here abbreviated to the spectral element method (SEM).  This method
+is designed for fully unstructured quadrilateral meshes.  The current
+configurations in the CAM are based on the cubed-sphere grid.  The main
+motivation for the inclusion of HOMME is to improve the scalability of
+the CAM by introducing quasi-uniform grids which require no polar
+filters <a class="reference internal" href="chapter8.html#taylor08" id="id18">[TEStCyr08]</a>.  HOMME is also the first dynamical core
+in the CAM which locally conserves energy in
+addition to mass and two-dimensional potential vorticity <a class="reference internal" href="chapter8.html#taylor10a" id="id19">[Tay10]</a>.</p>
 <p>HOMME represents a large change in the horizontal grid as compared to
-the other dynamical cores in CAM. Almost all other aspects of HOMME are
-based on a combination of well-tested approaches from the Eulerian and
-FV dynamical cores. For tracer advection, HOMME is modeled as closely as
-possible on the FV core. It uses the same conservation form of the
-transport equation and the same vertically Lagrangian discretization
-(Lin 2004). The HOMME dynamics are modeled as closely as possible on
-Eulerian core. They share the same vertical coordinate, vertical
-discretization, hyper-viscosity based horizontal diffusion, top-of-model
-dissipation, and solve the same moist hydrostatic equations. The main
-differences are that HOMME advects the surface pressure instead of its
-logarithm (in order to conserve mass and energy), and HOMME uses the
-vector-invariant form of the momentum equation instead of the
-vorticity-divergence formulation. Several dry dynamical cores including
-HOMME are evaluated in Lauritzen et al. (2010) using a grid-rotated
-version of the baroclinic instability test case (Jablonowski and
-Williamson 2006).</p>
+the other dynamical cores in CAM.  Almost all other aspects of HOMME
+are based on a combination of well-tested approaches from the Eulerian
+and FV dynamical cores.  For tracer advection, HOMME is modeled as
+closely as possible on the FV core.  It uses the same
+conservation form of the transport equation and the same vertically
+Lagrangian discretization <a class="reference internal" href="chapter8.html#lin04" id="id20">[Lin04]</a>.  The HOMME dynamics are
+modeled as closely as possible on Eulerian core.  They share
+the same vertical coordinate, vertical discretization, hyper-viscosity
+based horizontal diffusion, top-of-model dissipation, and solve the
+same moist hydrostatic equations.  The main differences are that HOMME
+advects the surface pressure instead of its logarithm (in order to
+conserve mass and energy), and HOMME uses the vector-invariant form of
+the momentum equation instead of the vorticity-divergence formulation.
+Several dry dynamical cores including HOMME are evaluated in
+<a class="reference internal" href="chapter8.html#lauritzen09" id="id21">[LJTN09]</a> using a grid-rotated version of the
+baroclinic instability test case <a class="reference internal" href="chapter8.html#jablonowski06" id="id22">[JW06]</a>.</p>
 <p>The timestepping in HOMME is a form of dynamics/tracer/physics
 subcycling, achieved through the use of multi-stage 2nd order accurate
 Runge-Kutta methods. The tracers and dynamics use the same timestep
@@ -1292,7 +1286,7 @@ is used as a prognostic variable as opposed to its logarithm.</p>
 <img class="math" src="../_images/math/0e9822ea59126df8d0abf27faaaff6e20dc72376.png" alt="\partial p / \partial z  = - g \rho"/> is used to replace the
 mass density <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> by an <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>-coordinate pseudo-density
 <img class="math" src="../_images/math/b18d6545cdefb0d97bd4d7b5367873c60028717d.png" alt="\partial p / \partial \eta"/>. The material derivative in
-<img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>-coordinates can be written (e.g. Satoh (2004), Sec.3.3),</p>
+<img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>-coordinates can be written (e.g. (e.g. <a class="reference internal" href="chapter8.html#satoh04" id="id23">[Sat04]</a>, Sec.3.3),</p>
 <div class="math">
 <p><img src="../_images/math/3781eb3ca144de88d1a75ed5a5ba6e2de2ee222b.png" alt="\frac{ D X }{D t} = {{\frac{\partial {X}}{\partial t}}} + {{{\smash[t]{\vec{u}}}}}\cdot {\nabla}X + {{\dot\eta}}{\frac{\partial {X}}{\partial \eta}}"/></p>
 </div><p>where the <img class="math" src="../_images/math/384e3981a30f59265e1ef93490d09bb4bffc9866.png" alt="{\nabla}()"/> operator (as well as
@@ -1392,8 +1386,8 @@ water vapor as would be present in a full model) a corresponding forcing
 term must be added to to ensure that dry air mass is conserved.</p>
 <p>The energy is specific to the hydrostatic equations. We have omitted
 terms from the physical total energy which are constant under the
-evolution of the unforced hydrostatic equations (Staniforth, Wood, and
-Girard 2003). It can be converted into a more universal form involving
+evolution of the unforced hydrostatic equations (<a class="reference internal" href="chapter8.html#staniforth03" id="id24">[SWG03]</a>).
+It can be converted into a more universal form involving
 <img class="math" src="../_images/math/8348708a00d25044ed0740cf08cc4197bbe5252c.png" alt="\tfrac12 {{{\smash[t]{\vec{u}}}}}^2 + c^*_v T + \Phi"/>, with
 <img class="math" src="../_images/math/876de87f1e6e095bc3ca435b956b5e5c31076a02.png" alt="c^*_v"/> defined similarly to <img class="math" src="../_images/math/c7fc477701bfc6ec2866d347a8e04539b33b4039.png" alt="c^*_p"/>, so that
 <img class="math" src="../_images/math/2993a0ae9de79d5a639e5cda0e50b1b7044c0ec5.png" alt="c^*_v = c_v + (c_{vv}-c_v) q"/> where <img class="math" src="../_images/math/659cba87d79c331599a2e6e680eb3c607104cdf7.png" alt="c_v"/> and
@@ -1437,16 +1431,16 @@ a point on the surface of the sphere, denoted by <img class="math" src="../_imag
 <img class="math" src="../_images/math/cd30e0b91d2b53728ae09ccac9d857b79b3adfcb.png" alt="\Omega"/> using the cubed-sphere grid (Fig.&nbsp;<a class="reference internal" href="#f-sphere4"><span class="std std-ref">Figure 3.2: Tiling the surface of the sphere with quadrilaterals. An inscribed cube is projected to the surface of the sphere.
 The faces of the cubed sphere are further subdivided to form a quadrilateral grid of the desired resolution. Coordinate lines from the
 gnomonic equal-angle projection are shown.</span></a>) first used
-in Sadourny (1972). Each cube face is mapped to the surface of the
-sphere with the equal-angle gnomonic projection (Rančić, Purser, and
-Mesinger 1996). The map from the reference element <img class="math" src="../_images/math/dead02c0dd80548fa64600e06e6d9a0412ee41d1.png" alt="[-1,1]^2"/> to
+in <a class="reference internal" href="chapter8.html#sadourny72" id="id25">[Sad72]</a>. Each cube face is mapped to the surface of the
+sphere with the equal-angle gnomonic projection (<a class="reference internal" href="chapter8.html#rancic96" id="id26">[RancicPM96]</a>).
+The map from the reference element <img class="math" src="../_images/math/dead02c0dd80548fa64600e06e6d9a0412ee41d1.png" alt="[-1,1]^2"/> to
 the cube face is a translation and scaling. The composition of these two
 maps defines a <img class="math" src="../_images/math/e0bb42e364def125ef0348323fe215b3d34e838b.png" alt="{\mathcal C^{1}}"/> map from the spherical elements
 to the reference element <img class="math" src="../_images/math/e1cdac3b0ab78248dad8f67e24b15272e5d09790.png" alt="{{[-1,1]^2}}"/>. We denote this map and
 its inverse by</p>
 <div class="math" id="equation-e:map">
 <p><span class="eqno">(63)<a class="headerlink" href="#equation-e:map" title="Permalink to this equation">¶</a></span><img src="../_images/math/9a9d88390ffb0da8320d6f170cad56e063cfc730.png" alt="{{\smash[t]{\vec{r}}}}= {{\smash[t]{\vec{r}}}}({{\smash[t]{\vec{x}}}};m), \qquad  {{\smash[t]{\vec{x}}}}= {{\smash[t]{\vec{x}}}}({{\smash[t]{\vec{r}}}};m)."/></p>
-</div><div class="figure align-center" id="id4">
+</div><div class="figure align-center" id="id91">
 <span id="f-sphere4"></span><img alt="../_images/figure3-2.jpg" src="../_images/figure3-2.jpg" />
 <p class="caption"><span class="caption-text">Figure 3.2: Tiling the surface of the sphere with quadrilaterals. An inscribed cube is projected to the surface of the sphere.
 The faces of the cubed sphere are further subdivided to form a quadrilateral grid of the desired resolution. Coordinate lines from the
@@ -1522,7 +1516,7 @@ contravariant components are polynomials in each element. Similarly,</p>
 <img class="math" src="../_images/math/43994c406598e3be456f7fb02d09d8f98fd42c30.png" alt="{\mathcal V^{1}_{}}"/> subspace and it can be formulated solely in
 terms of functions in <img class="math" src="../_images/math/43994c406598e3be456f7fb02d09d8f98fd42c30.png" alt="{\mathcal V^{1}_{}}"/>. In CAM-HOMME, the
 typical configuration is to run with <img class="math" src="../_images/math/db5661cc2370bc55356715c3193a5c032f1bb420.png" alt="d=3"/> which achieves a 4th
-order accurate horizontal discretization (Taylor and Fournier 2010). All
+order accurate horizontal discretization (<a class="reference internal" href="chapter8.html#taylor10b" id="id27">[TF10]</a>). All
 variables in the CAM-HOMME initial condition and history files as well
 as variables passed to the physics routines are represented by their
 grid point values at the points
@@ -1545,7 +1539,7 @@ values at any redundant points must all be the same.</p>
 <div class="section" id="horizontal-discretization-differential-operators">
 <h3>4.2.4. Horizontal Discretization: Differential Operators<a class="headerlink" href="#horizontal-discretization-differential-operators" title="Permalink to this headline">¶</a></h3>
 <p>We use the standard curvilinear coordinate formulas for vector operators
-following Heinbockel (2001). Given the <img class="math" src="../_images/math/f1f7d6de4984879f72e0178c6acd533e6d03d337.png" alt="2\times2"/> Jacobian of the
+following <a class="reference internal" href="chapter8.html#heinbockel01" id="id28">[Hei01]</a>. Given the <img class="math" src="../_images/math/f1f7d6de4984879f72e0178c6acd533e6d03d337.png" alt="2\times2"/> Jacobian of the
 the mapping from <img class="math" src="../_images/math/e1cdac3b0ab78248dad8f67e24b15272e5d09790.png" alt="{{[-1,1]^2}}"/> to <img class="math" src="../_images/math/4581273430480cde47b754eb0e9959c00ee7b281.png" alt="\Omega_m"/>, we denote its
 determinant-magnitude by</p>
 <div class="math" id="equation-e:Jd">
@@ -1567,15 +1561,15 @@ contravariant basis vector and
 <img class="math" src="../_images/math/fe65dcff2a4c44baa211c611016e63a8724e60fc.png" alt="{{\smash[t]{\vec{g}}}}_\beta={\frac{\partial {{{\smash[t]{\vec{r}}}}}}{\partial x^\beta}}"/>
 is a covariant basis vector.</p>
 <p>The dot product and contravariant components of the cross product are
-Heinbockel (2001 Table 1)</p>
+<a class="reference internal" href="chapter8.html#heinbockel01" id="id29">[Hei01]</a> Table 1</p>
 <div class="math" id="equation-e:dotandcross">
 <p><span class="eqno">(70)<a class="headerlink" href="#equation-e:dotandcross" title="Permalink to this equation">¶</a></span><img src="../_images/math/1d458ee6e9b721948555b0aabd1d5e9d978d3341.png" alt="{{{\smash[t]{\vec{u}}}}}{\mathbin{\mathbf{\cdot}}}{{{\smash[t]{\vec{v}}}}}=  \sum_{\alpha=1}^3 u_\alpha v^\alpha\qquad\text{and}\qquad
 \left( {{{\smash[t]{\vec{u}}}}}{{\times}}{{{\smash[t]{\vec{v}}}}}\right)^\alpha  =
 \frac 1 {J}\sum_{\beta,\gamma=1}^3\epsilon^{\alpha \beta \gamma } u_\beta v_\gamma"/></p>
 </div><p>where <img class="math" src="../_images/math/3a68a1a63f0e8f50a0eb709c351e07e9863c3089.png" alt="\epsilon^{\alpha\beta\gamma}\in\{0,\pm1\}"/> is the
 Levi-Civita symbol. The divergence, covariant coordinates of the
-gradient and contravariant coordinates of the curl are Heinbockel (2001
-eqs.&nbsp;2.1.1, 2.1.4 &amp; 2.1.6)</p>
+gradient and contravariant coordinates of the curl are
+<a class="reference internal" href="chapter8.html#heinbockel01" id="id30">[Hei01]</a> [eqs.2.1.1, 2.1.4 and 2.1.6]</p>
 <div class="math" id="equation-e:divgradcurl">
 <p><span class="eqno">(71)<a class="headerlink" href="#equation-e:divgradcurl" title="Permalink to this equation">¶</a></span><img src="../_images/math/2160b87698582efd4b8215bb7dfdd0a487171627.png" alt="{\nabla\cdot}{{{\smash[t]{\vec{v}}}}}= \frac 1 {J}\sum_\alpha{\frac{\partial {}}{\partial x^\alpha}}({J}v^\alpha),
 \quad
@@ -1604,7 +1598,7 @@ boundaries.</p>
 <p>For non-constant <img class="math" src="../_images/math/c91c9ed8610e6d55aa61e05ce65981ca7f787ecf.png" alt="{J}"/>, these operators may not be computed
 exactly by the SEM due to the Jacobian factors in the operators and the
 Jacobian factors that appear when converting between covariant and
-contravariant coordinates. We follow Thomas and Loft (2000) and evaluate
+contravariant coordinates. We follow <a class="reference internal" href="chapter8.html#thomas00" id="id31">[TL00]</a>  and evaluate
 these operators in the form shown in . The quadratic terms that appear
 are first projected into <img class="math" src="../_images/math/5543ae9c97da1b7461702a048b2e4e61868626bd.png" alt="{\mathcal V^{0}_{}}"/> via interpolation
 at the GLL nodes and then this interpolant is differentiated exactly
@@ -1642,8 +1636,7 @@ The SEM is well known for being quite efficient in computing these types
 of operations. The SEM divergence, gradient and curl can all be
 evaluated at the <img class="math" src="../_images/math/92bfeba05daa24ee383f5300413a681b47a18d24.png" alt="(d+1)^3"/> GLL nodes within each element in
 <img class="math" src="../_images/math/66957b660d2b96af8b2ba52ea568fa142f38d218.png" alt="\mathcal{O}(d)"/> operations per node using the tensor-product
-property of these points (Deville, Fischer, and Mund 2002; Karniadakis
-and Sherwin 2005).</p>
+property of these points  <a class="reference internal" href="chapter8.html#deville02" id="id32">[DFM02]</a>,:cite:<cite>karniadakis05</cite>.</p>
 </div>
 <div class="section" id="horizontal-discretization-discrete-inner-product">
 <h3>4.2.5. Horizontal Discretization: Discrete Inner-Product<a class="headerlink" href="#horizontal-discretization-discrete-inner-product" title="Permalink to this headline">¶</a></h3>
@@ -1683,19 +1676,19 @@ be the unique orthogonal (self-adjoint) projection operator from
 <img class="math" src="../_images/math/5543ae9c97da1b7461702a048b2e4e61868626bd.png" alt="{\mathcal V^{0}_{}}"/> onto <img class="math" src="../_images/math/43994c406598e3be456f7fb02d09d8f98fd42c30.png" alt="{\mathcal V^{1}_{}}"/> w.r.t.&nbsp;the
 SEM discrete inner product . The operation <img class="math" src="../_images/math/fb53653902aed65008d06ddaf24adf0079fe9951.png" alt="{{P}}"/> is essentially
 the same as the common procedure in the SEM described as <em>assembly</em>
-(Karniadakis and Sherwin 2005, 7), or <em>direct stiffness summation</em>
-(Deville, Fischer, and Mund 2002 eq.&nbsp;4.5.8). Thus the SEM assembly
+<a class="reference internal" href="chapter8.html#karniadakis05" id="id33">[KS05]</a> [p.7] or <em>direct stiffness summation</em>
+<a class="reference internal" href="chapter8.html#deville02" id="id34">[DFM02]</a> [eq.4.5.8]. Thus the SEM assembly
 procedure is not an ad-hoc way to remove the redundant degrees of
 freedom in <img class="math" src="../_images/math/5543ae9c97da1b7461702a048b2e4e61868626bd.png" alt="{\mathcal V^{0}_{}}"/>, but is in fact the natural
 projection operator <img class="math" src="../_images/math/fb53653902aed65008d06ddaf24adf0079fe9951.png" alt="{{P}}"/>. Applying the projection operator in a
 finite element method requires inverting the finite element mass matrix.
 A remarkable fact about the SEM is that with the GLL based discrete
 inner product and the careful choice of global basis functions, the mass
-matrix is diagonal (Maday and Patera 1987). The resulting projection
+matrix is diagonal <a class="reference internal" href="chapter8.html#maday87" id="id35">[MP87]</a>. The resulting projection
 operator then has a very simple form: at element interior points, it
 leaves the nodal values unchanged, while at element boundary points
 shared by multiple elements it is a Jacobian-weighted average over all
-redundant values (Taylor and Fournier 2010).</p>
+redundant values (<a class="reference internal" href="chapter8.html#taylor10b" id="id36">[TF10]</a>).</p>
 <p>To apply the projection
 <img class="math" src="../_images/math/f9eeded86a9a364b189c65408b01f6693aed5f02.png" alt="{{P}}: {{{\mathcal V^{0}_{\rm cov}}}} \rightarrow {{{\mathcal V^{1}_{\rm cov}}}}"/>
 to vectors <img class="math" src="../_images/math/31c2370144662984d486998d0bf4721795def793.png" alt="{{{\smash[t]{\vec{u}}}}}"/>, one cannot project the
@@ -1773,8 +1766,7 @@ which element boundary data must be exchanged between adjacent elements.</p>
 <div class="section" id="vertical-discretization">
 <h3>4.2.8. Vertical Discretization<a class="headerlink" href="#vertical-discretization" title="Permalink to this headline">¶</a></h3>
 <p>The vertical coordinate system uses a Lorenz staggering of the variables
-as shown in <a class="reference internal" href="#figure-1"><span class="std std-ref">Figure 3.1: A graphical illustration of the different levels of sub-cycling
-in CAM5.</span></a>. Let <img class="math" src="../_images/math/684381a21cd73ebbf43b63a087d3f7410ee99ce8.png" alt="K"/> be the total number of layers,
+as shown in <a class="reference internal" href="#figure-1"><span class="std std-ref">Figure 3.1: A graphical illustration of the different levels of sub-cycling in CAM5.</span></a>. Let <img class="math" src="../_images/math/684381a21cd73ebbf43b63a087d3f7410ee99ce8.png" alt="K"/> be the total number of layers,
 with variables <img class="math" src="../_images/math/ca531845aa86f7428d84d52ddce68d6f0746f42a.png" alt="{{{\smash[t]{\vec{u}}}}}, T, q, \omega, \Phi"/> at
 layer mid points denoted by <img class="math" src="../_images/math/80ae273147ddd1ca9d87ea4125254e41d6e792f5.png" alt="k=1,2,\dots,K"/>. We denote layer
 interfaces by <img class="math" src="../_images/math/0a351aa1409e877bfacd3c64510cf656a0f2e2f9.png" alt="k+\tfrac12,  k=0,1,\dots,K"/>, so that
@@ -1811,7 +1803,7 @@ layer mid-points,</p>
 over-bar notation since the formula can be seen as a
 <img class="math" src="../_images/math/da689decc8cdc781c5175e2efefa73c1226bc56b.png" alt="{\pi}"/>-weighted average of a layer interface centered difference
 approximation to <img class="math" src="../_images/math/f50bbeeb5ef732441770f4543c6e8dd5021bbb40.png" alt="{{\dot\eta}}\partial/\partial \eta"/>. This
-formulation was constructed in Simmons and Burridge (1981) in order to
+formulation was constructed in <a class="reference internal" href="chapter8.html#simmons81b" id="id37">[SB81]</a> in order to
 ensure mass and energy conservation. Here we will use an equivalent
 expression that can be written in terms of
 <img class="math" src="../_images/math/7d6485fc0d26718839a22042e2aea6055d945f2d.png" alt="{ \mathop{\delta_\eta}}"/>,</p>
@@ -1895,7 +1887,7 @@ representing the integral from <img class="math" src="../_images/math/da26d7d2c1
 </div><p>Similar to [eul:econserve], we note that</p>
 <div class="math" id="equation-E:quadconsistency">
 <p><span class="eqno">(82)<a class="headerlink" href="#equation-E:quadconsistency" title="Permalink to this equation">¶</a></span><img src="../_images/math/9f81b571b276d9c1903b1b2be2f2ccd275f64ad6.png" alt="\Delta\eta_i \, C_{ij}  = \Delta\eta_j \, H_{ji}"/></p>
-</div><p>which ensures energy conservation (Taylor 2010).</p>
+</div><p>which ensures energy conservation (<a class="reference internal" href="chapter8.html#taylor10a" id="id38">[Tay10]</a>).</p>
 </div>
 <div class="section" id="consistency">
 <h3>4.2.10. Consistency<a class="headerlink" href="#consistency" title="Permalink to this headline">¶</a></h3>
@@ -1911,7 +1903,7 @@ then we can derive, at layer mid-points,</p>
 { \mathop{\delta_\eta}}\left( {{\dot\eta}}{\pi}\right)."/></p>
 </div><p>A second type of consistency that has been identified as important is
 that , the discrete equation for <img class="math" src="../_images/math/b51aa99e0bc8cc8c3d17c0b9cf822db73e13293e.png" alt="\omega"/>, be consistent with ,
-the discrete continuity equation (D. L. Williamson and Olson 1994b). The
+the discrete continuity equation (<a class="reference internal" href="chapter8.html#williamson94" id="id39">[WO94b]</a>). The
 two discrete equations should imply a reasonable discretization of
 <img class="math" src="../_images/math/50c2f82b066f1f0dcfd0be835cc937af1a567196.png" alt="\omega = Dp/Dt"/>. To show this, we take the average of at layers
 <img class="math" src="../_images/math/b4d4fd29f78974a6366e49b2ef330b1c3639d066.png" alt="i-1/2"/> and <img class="math" src="../_images/math/00d07b0aa817bcf81af64f576f07414cf7f726cc.png" alt="i+1/2"/> and combine this with (at layer
@@ -1960,7 +1952,7 @@ for vectors can be written as</p>
 <div class="math">
 <p><img src="../_images/math/3d6224db268687ed7dd7e7442b9955a8b217c926.png" alt="{{\frac{\partial {{{{\smash[t]{\vec{u}}}}}}}{\partial t}}} = -\nu \Delta^2 {{{\smash[t]{\vec{u}}}}}."/></p>
 </div><p>An integral form of this equation suitable for the SEM is obtained using
-a mixed finite element formulation (following Giraldo (1999)) which
+a mixed finite element formulation (<a class="reference internal" href="chapter8.html#giraldo99" id="id40">[Gir99]</a>) which
 writes the equation as a system of equations involving only first
 derivatives. We start by introduced an auxiliary vector
 <img class="math" src="../_images/math/df09673189a3a28f92da554d2f3b91b3098efb89.png" alt="{{\smash[t]{\vec{f}}}}"/> and using the identity
@@ -2021,13 +2013,13 @@ coordinates given in [eul:hdiff] is not yet implemented in CAM-HOMME.</p>
 <h3>4.2.13. Discrete formulation: Tracer Advection<a class="headerlink" href="#discrete-formulation-tracer-advection" title="Permalink to this headline">¶</a></h3>
 <p>All tracers, including specific humidity, are advected with a
 discretized version of . HOMME uses the vertically Lagrangian approach
-(see [FVvdisc]) from Lin (2004). At the beginning of each timestep, the
+(see [FVvdisc]) from <a class="reference internal" href="chapter8.html#lin04" id="id41">[Lin04]</a>. At the beginning of each timestep, the
 tracers are assumed to be given on the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>-coordinate layer mid
 points. The tracers are advanced in time on a moving vertical coordinate
 system <img class="math" src="../_images/math/68509b7d872aa3c5b89d76e790ac8d14db02d830.png" alt="\eta'"/> defined so that <img class="math" src="../_images/math/f367c5bfd5e0e9b854d8e3f976e026c8bc740e22.png" alt="{{\dot\eta}}' = 0"/>. At the
 end of the timestep, the tracers are remapped back to the
 <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>-coordinate layer mid points using the monotone remap
-algorithm from Zerroukat, Wood, and Staniforth (2005).</p>
+algorithm from <a class="reference internal" href="chapter8.html#zerroukat05" id="id42">[ZWS05]</a>.</p>
 <p>The horizontal advection step consists of using the SEM to solve</p>
 <div class="math" id="equation-E:PEqDlagrange">
 <p><span class="eqno">(86)<a class="headerlink" href="#equation-E:PEqDlagrange" title="Permalink to this equation">¶</a></span><img src="../_images/math/00ea5301db2b3abb1636d587759f4e11525baccd.png" alt="{{\frac{\partial {}}{\partial t}}} \left( {\pi}q \right) =
@@ -2042,8 +2034,8 @@ advection of <img class="math" src="../_images/math/da689decc8cdc781c5175e2efefa
 consistency capability is not in the version of HOMME included in CAM
 4.0, but should be in all later versions.</p>
 <p>The equation is discretized in time using the optimal 3 stage strong
-stability preserving (SSP) second order Runge-Kutta method from Spiteri
-and Ruuth (2002). The RK-SSP method is chosen because it will preserve
+stability preserving (SSP) second order Runge-Kutta method from <a class="reference internal" href="chapter8.html#spiteri02" id="id43">[SR02]</a>.
+The RK-SSP method is chosen because it will preserve
 the monotonicity properties of the horizontal discretization. RK-SSP
 methods are convex combinations of forward-Euler timesteps, so each
 stage <img class="math" src="../_images/math/63751cb2e98ba393b0f22e45ca127c3cebb61487.png" alt="s"/> of the RK-SSP timestep looks like</p>
@@ -2053,8 +2045,7 @@ stage <img class="math" src="../_images/math/63751cb2e98ba393b0f22e45ca127c3cebb
 -  \Delta t {\nabla_{\rm h} \cdot }\left( {\overline{\left({\pi}{{{\smash[t]{\vec{u}}}}}\right)}}q^s  \right)"/></p>
 </div><p>Simply discretizing this equation with the SEM will result in locally
 conservative, high-order accurate but oscillatory transport scheme. A
-limiter is added to reduce or eliminate these oscillations (Taylor,
-St.Cyr, and Fournier 2009). HOMME supports both monotone and
+limiter is added to reduce or eliminate these oscillations (<a class="reference internal" href="chapter8.html#taylor09" id="id44">[TStCyrF09]</a>). HOMME supports both monotone and
 sign-preserving limiters, but the most effective limiter for HOMME has
 not yet been determined. The default configuration in CAM4 is to use the
 sign-preserving limiter to prevent negative values of <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> coupled
@@ -2065,7 +2056,7 @@ with a sign-preserving hyper-viscosity operator which dissipates
 <h3>4.2.14. Conservation and Compatibility<a class="headerlink" href="#conservation-and-compatibility" title="Permalink to this headline">¶</a></h3>
 <p>The SEM is compatible, meaning it has a discrete version of the
 divergence theorem, Stokes theorem and curl/gradient annihilator
-properties Taylor and Fournier (2010). The divergence theorem is the key
+properties <a class="reference internal" href="chapter8.html#taylor10b" id="id45">[TF10]</a>. The divergence theorem is the key
 property of the horizontal discretization that is needed to show
 conservation. For an arbitrary scalar <img class="math" src="../_images/math/293fb39e1b93282c804a86186e721b32f829f1b2.png" alt="h"/> and vector
 <img class="math" src="../_images/math/31c2370144662984d486998d0bf4721795def793.png" alt="{{{\smash[t]{\vec{u}}}}}"/> at layer mid-points, the divergence
@@ -2080,8 +2071,8 @@ by</p>
 with the addition of an element boundary integral. The local form is
 used to show local conservation of mass and that the horizontal
 advection operator locally conserves the two-dimensional potential
-vorticity (Taylor and Fournier 2010).</p>
-<p>In the vertical, Simmons and Burridge (1981) showed that the
+vorticity (citep{taylor10b}).</p>
+<p>In the vertical, <a class="reference internal" href="chapter8.html#simmons81b" id="id46">[SB81]</a> showed that the
 <img class="math" src="../_images/math/7d6485fc0d26718839a22042e2aea6055d945f2d.png" alt="{ \mathop{\delta_\eta}}"/> and
 <img class="math" src="../_images/math/b38638205c39e1317473a11b716f4e4f27ffd831.png" alt="{ \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}"/> operators
 needed to satisfy two integral identities to ensure conservation. For
@@ -2112,12 +2103,11 @@ partial (fg) = f partial g + g partial f.
 ` Construction of methods with both properties on a staggered unequally
 spaced grid is the reason behind the complex definition for
 <img class="math" src="../_images/math/b38638205c39e1317473a11b716f4e4f27ffd831.png" alt="{ \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}"/> in .</p>
-<p>The energy conservation properties of CAM-HOMME were studied in Taylor
-(2010) using the aqua planet test case (Neale and Hoskins 2001a; Neale
-and Hoskins 2001b). CAM-HOMME uses</p>
+<p>The energy conservation properties of CAM-HOMME were studied in <a class="reference internal" href="chapter8.html#taylor10a" id="id47">[Tay10]</a>)
+using the aqua planet test case (<a class="reference internal" href="chapter8.html#neale01a" id="id48">[NH01b]</a><a class="reference internal" href="chapter8.html#neale01b" id="id49">[NH01a]</a>). CAM-HOMME uses</p>
 <div class="math">
-<p><img src="../_images/math/adfdef67765f384dcb57500bc89138b79b313560.png" alt="E =
- {\langle}\sum_{i=1}^K \Delta \eta_i {\pi}_i  \left( \frac12 {{{\smash[t]{\vec{u}}}}}^2 + c_p^* T  \right)_i
+<p><img src="../_images/math/bf3bf0cd4ca7c4eee886e6d590345513c7cc6337.png" alt="E =
+{\langle}\sum_{i=1}^K \Delta \eta_i {\pi}_i  \left( \frac12 {{{\smash[t]{\vec{u}}}}}^2 + c_p^* T  \right)_i
 {\rangle}+
 {\langle}p_s \Phi_s
 {\rangle}"/></p>
@@ -2129,34 +2119,34 @@ initial condition, the error in conservation decreases to machine
 precision at a second-order rate with decreasing timestep. In the full
 non-adiabatic case with a realistic timestep,
 <img class="math" src="../_images/math/bfdebd62745a8e1d7a960d021b47408e69793830.png" alt="dE/dt \sim 0.013 \text{W/m}^2"/>.</p>
-<p>The CAM physics conserve a dry energy <img class="math" src="../_images/math/4cfc8b4aba4f923c65810acaf99b25a9b8c0f6a0.png" alt="E_{\text dry}"/> from Boville
-and Bretherton (2003) which is not conserved by the moist primitive
+<p>The CAM physics conserve a dry energy <img class="math" src="../_images/math/4cfc8b4aba4f923c65810acaf99b25a9b8c0f6a0.png" alt="E_{\text dry}"/> from <a class="reference internal" href="chapter8.html#boville03" id="id50">[BB03]</a>
+which is not conserved by the moist primitive
 equations. Although <img class="math" src="../_images/math/70b2de727da9b37e29e3e62ad3714351c1f782ec.png" alt="E-E_{\text dry}"/> is small, adiabatic
 processes in the primitive equations result in a net heating
-<img class="math" src="../_images/math/0bf8cdf89f4dc40bbd751e754555d91a2f8d3589.png" alt="dE_{\text dry}/dt \sim 0.5 \text{W/m}^2"/> (Taylor 2010). If it is
+<img class="math" src="../_images/math/0bf8cdf89f4dc40bbd751e754555d91a2f8d3589.png" alt="dE_{\text dry}/dt \sim 0.5 \text{W/m}^2"/> (<a class="reference internal" href="chapter8.html#taylor10a" id="id51">[Tay10]</a>). If it is
 desired that the dynamical core conserve <img class="math" src="../_images/math/8c69a96ccbb081c83bc2e059e77cdaf2800d2a16.png" alt="E_\text{dry}"/> instead of
-<img class="math" src="../_images/math/4b6222b865b812d2a59368cd1629eed6b54454d5.png" alt="E"/>, HOMME uses the energy fixer from [energyfixer].</p>
+<img class="math" src="../_images/math/4b6222b865b812d2a59368cd1629eed6b54454d5.png" alt="E"/>, HOMME uses the energy fixer from <a class="reference internal" href="#energyfixer"><span class="std std-ref">Energy Fixer</span></a>.</p>
 </div>
 </div>
 <div class="section" id="eulerian-dynamical-core">
 <h2>4.3. Eulerian Dynamical Core<a class="headerlink" href="#eulerian-dynamical-core" title="Permalink to this headline">¶</a></h2>
-<p>The hybrid vertical coordinate that has been implemented in is described
-in this section. The hybrid coordinate was developed by Simmons and
-Strüfing (1981) in order to provide a general framework for a vertical
-coordinate which is terrain following at the Earth’s surface, but
-reduces to a pressure coordinate at some point above the surface. The
-hybrid coordinate is more general in concept than the modified
-<img class="math" src="../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> scheme of Sangster (1960), which is used in the GFDL
-SKYHI model. However, the hybrid coordinate is normally specified in
-such a way that the two coordinates are identical.</p>
-<p>The following description uses the same general development as Simmons
-and Strüfing (1981), who based their development on the generalized
-vertical coordinate of Kasahara (1974). A specific form of the
-coordinate (the hybrid coordinate) is introduced at the latest possible
-point. The description here differs from Simmons and Strüfing (1981) in
+<p>The hybrid vertical coordinate that has been implemented in {cam} is
+described in this section. The hybrid coordinate was developed by
+<a class="reference internal" href="chapter8.html#simmons81a" id="id52">[SStrufing81]</a> in order to provide a general framework for a
+vertical coordinate which is terrain following at the Earth&#8217;s surface,
+but reduces to a pressure coordinate at some point above the
+surface. The hybrid coordinate is more general in concept than the
+modified <img class="math" src="../_images/math/48c52174fa8fe42ae9f67aa39a174329e17b4cad.png" alt="sigma"/> scheme of <a class="reference internal" href="chapter8.html#sangster60" id="id53">[San60]</a>, which is used in the
+GFDL SKYHI model. However, the hybrid coordinate is normally specified
+in such a way that the two coordinates are identical.</p>
+<p>The following description uses the same general development as
+<a class="reference internal" href="chapter8.html#simmons81a" id="id54">[SStrufing81]</a>, who based their development on the generalized
+vertical coordinate of <a class="reference internal" href="chapter8.html#kasahara74" id="id55">[Kas74]</a>.  A specific form of the
+coordinate (the hybrid coordinate) is introduced at the latest
+possible point. The description here differs from <a class="reference internal" href="chapter8.html#simmons81a" id="id56">[SStrufing81]</a> in
 allowing for an upper boundary at finite height (nonzero pressure), as
-in the original development by Kasahara. Such an upper boundary may be
-required when the equations are solved using vertical finite
+in the original development by Kasahara.  Such an upper boundary may
+be required when the equations are solved using vertical finite
 differences.</p>
 <div class="section" id="generalized-terrain-following-vertical-coordinates">
 <h3>4.3.1. Generalized terrain-following vertical coordinates<a class="headerlink" href="#generalized-terrain-following-vertical-coordinates" title="Permalink to this headline">¶</a></h3>
@@ -2174,15 +2164,15 @@ model.</li>
 <p>The latter requirement provides that the top of the model will be a
 pressure surface, simplifying the specification of boundary conditions.
 In the case that <img class="math" src="../_images/math/2c75590ad155c82004ca759b688149bebf83dafb.png" alt="p_t=0"/>, the last two requirements are identical
-and the system reduces to that described in Simmons and Strüfing (1981).
+and the system reduces to that described in <a class="reference internal" href="chapter8.html#simmons81a" id="id57">[SStrufing81]</a>.
 The boundary conditions that are required to close the system are:</p>
 <div class="math" id="equation-3.a.1">
 <p><span class="eqno">(91)<a class="headerlink" href="#equation-3.a.1" title="Permalink to this equation">¶</a></span><img src="../_images/math/8af022b1f9faf48a506d0b8d202c5a2350bea68a.png" alt="\dot\eta(\pi,\pi) = 0,"/></p>
 </div><div class="math" id="equation-3.a.2">
 <p><span class="eqno">(92)<a class="headerlink" href="#equation-3.a.2" title="Permalink to this equation">¶</a></span><img src="../_images/math/f217f46c501a1d0ed2695edc5abf81f7b1f2b0c4.png" alt="\dot\eta(p_t,\pi) =  \omega(p_t) = 0."/></p>
 </div><p>Given the above description of the coordinate, the continuous system of
-equations can be written following Kasahara (1974) and Simmons and
-Strüfing (1981). The prognostic equations are:</p>
+equations can be written following citet{kasahara74} and
+<a class="reference internal" href="chapter8.html#simmons81a" id="id58">[SStrufing81]</a>. The prognostic equations are:</p>
 <div class="math" id="equation-3.a.3">
 <p><span class="eqno">(93)<a class="headerlink" href="#equation-3.a.3" title="Permalink to this equation">¶</a></span><img src="../_images/math/14509ac68d53283131486061b0cc4e4b62ca562d.png" alt="\frac{\partial\zeta}{\partial t}
  = {\boldsymbol{k}}\cdot\nabla\times ({\boldsymbol{n}}/\cos\phi) +
@@ -2388,24 +2378,24 @@ d\left( \frac{\partial p}{\partial\pi}\right)
 - \int_{p(\eta_t)}^{p(\eta)} \delta dp ."/></p>
 </div><p>Once <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> is specified, then
 <img class="math" src="../_images/math/5bb60b877e7c79145f8e69c022ec07550aac3204.png" alt="\partial p/\partial\pi"/> can be determined and
-(<a class="reference internal" href="#equation-3.a.23">(113)</a>)-(<a class="reference internal" href="#equation-3.a.32">(122)</a>) can be solved in a GCM.</p>
+<a class="reference internal" href="#equation-3.a.23">(113)</a> - <a class="reference internal" href="#equation-3.a.32">(122)</a> can be solved in a GCM.</p>
 <p>In the actual definition of the hybrid coordinate, it is not necessary
-to specify <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> explicitly, since (<a class="reference internal" href="#equation-3.a.23">(113)</a>)-(<a class="reference internal" href="#equation-3.a.32">(122)</a>)
+to specify <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> explicitly, since <a class="reference internal" href="#equation-3.a.23">(113)</a> -<a class="reference internal" href="#equation-3.a.32">(122)</a>
 only requires that <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> and <img class="math" src="../_images/math/e9faa09c826e443b398c62a5a3d77b218475943a.png" alt="\partial
 p/\partial\pi"/> be determined. It is sufficient to specify
 <img class="math" src="../_images/math/af36d08119202bc000a407a6b9276637ddebc15c.png" alt="p(\eta,\pi)"/> and to let <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> be defined implicitly. This
 will be done in section [ssec:finitediffeqs]. In the case that
 <img class="math" src="../_images/math/95ee65cdffcc8f7f0c3fe9723696609b79b62dce.png" alt="p(\eta,\pi)=\sigma\pi"/> and <img class="math" src="../_images/math/ffdfe3760154a2fe3d06da85ba36f18fa5307394.png" alt="\eta_t=0"/>,
-(<a class="reference internal" href="#equation-3.a.23">(113)</a>)-(<a class="reference internal" href="#equation-3.a.32">(122)</a>) can be reduced to the set of equations solved by
+<a class="reference internal" href="#equation-3.a.23">(113)</a> - <a class="reference internal" href="#equation-3.a.32">(122)</a> can be reduced to the set of equations solved by
 CCM1.</p>
 </div>
 <div class="section" id="continuous-equations-using">
 <h3>4.3.3. Continuous equations using <img class="math" src="../_images/math/fe97902b4016e484299911cff59e358104446bbd.png" alt="\partial\ln(\pi)/\partial t"/><a class="headerlink" href="#continuous-equations-using" title="Permalink to this headline">¶</a></h3>
 <p>In practice, the solutions generated by solving the above equations are
 excessively noisy. This problem appears to arise from aliasing problems
-in the hydrostatic equation (<a class="reference internal" href="#equation-3.a.30">(120)</a>). The <img class="math" src="../_images/math/a1015909871cfc6e5391294e07770a374880437f.png" alt="\ln p"/> integral
+in the hydrostatic equation <a class="reference internal" href="#equation-3.a.30">(120)</a>. The <img class="math" src="../_images/math/a1015909871cfc6e5391294e07770a374880437f.png" alt="\ln p"/> integral
 introduces a high order nonlinearity which enters directly into the
-divergence equation (<a class="reference internal" href="#equation-3.a.24">(114)</a>). Large gravity waves are generated in the
+divergence equation <a class="reference internal" href="#equation-3.a.24">(114)</a>. Large gravity waves are generated in the
 vicinity of steep orography, such as in the Pacific Ocean west of the
 Andes.</p>
 <p>The noise problem is solved by converting the equations given above,
@@ -2584,8 +2574,7 @@ in the vertical, and are described in the following sections. At this
 stage only some very general properties of the finite difference
 representation must be specified. A layering structure is assumed in
 which field values are predicted on <img class="math" src="../_images/math/684381a21cd73ebbf43b63a087d3f7410ee99ce8.png" alt="K"/> layer midpoints denoted by
-an integer index, <img class="math" src="../_images/math/482d617de367c71377b90996cde58aa20d7b8735.png" alt="\eta_k"/> (see Figure <a class="reference internal" href="#figure-1"><span class="std std-ref">Figure 3.1: A graphical illustration of the different levels of sub-cycling
-in CAM5.</span></a>). The interface
+an integer index, <img class="math" src="../_images/math/482d617de367c71377b90996cde58aa20d7b8735.png" alt="\eta_k"/> (see Figure <a class="reference internal" href="#figure-1"><span class="std std-ref">Figure 3.1: A graphical illustration of the different levels of sub-cycling in CAM5.</span></a>). The interface
 between <img class="math" src="../_images/math/482d617de367c71377b90996cde58aa20d7b8735.png" alt="\eta_k"/> and <img class="math" src="../_images/math/639ffbb405affee80f1a14903229c989177e23d8.png" alt="\eta_{k+1}"/> is denoted by a
 half-integer index, <img class="math" src="../_images/math/479abd9bc53dd234be2563d30920dce155c16ed7.png" alt="\eta_{k+1/2}"/>. The model top is at
 <img class="math" src="../_images/math/0ffbbb0f8e97e4b414e57fe4a8a3330d1de31e0e.png" alt="\eta_{1/2}=\eta_t"/>, and the Earth’s surface is at
@@ -2596,6 +2585,10 @@ the vertical. The column vectors representing a vertical column of grid
 points will be denoted by underbars, the matrices will be denoted by
 bold-faced capital letters, and superscript <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> will denote the
 vector transpose.</p>
+<div class="figure align-center" id="id92">
+<img alt="../_images/figure3-1.jpg" src="../_images/figure3-1.jpg" />
+<p class="caption"><span class="caption-text">Vertical structure of CAM6.0</span></p>
+</div>
 <p>The finite difference forms of <a class="reference internal" href="#equation-3.a.52">(142)</a> -<a class="reference internal" href="#equation-3.a.54">(144)</a>  may then be written
 down as:</p>
 <div class="math" id="equation-3.a.56">
@@ -2818,8 +2811,8 @@ vertical velocity equation <a class="reference internal" href="#equation-3.a.42"
 included as an approximation to <img class="math" src="../_images/math/12d60334781246fcda6818b3a7e21b6fca3efe40.png" alt="1/p_k"/> for <img class="math" src="../_images/math/2169fe431217ea2a1f5a58d89de26ebf1b9207b8.png" alt="\ell \leq k"/>
 and the symbol <img class="math" src="../_images/math/4d26a3c646f81ab56cceb818c7801dd1f3cfaaf3.png" alt="\Delta"/> is similarly defined as in <a class="reference internal" href="#equation-3.a.62">(150)</a> .
 <img class="math" src="../_images/math/39d890d9ddce7a0448aa01befd33ee86936a261f.png" alt="C_{k\ell}"/> will be determined so that <img class="math" src="../_images/math/b51aa99e0bc8cc8c3d17c0b9cf822db73e13293e.png" alt="\omega"/> is
-consistent with the discrete continuity equation following D. L.
-Williamson and Olson (1994a). Using <a class="reference internal" href="#equation-3.a.69">(157)</a>  and <a class="reference internal" href="#equation-3.a.71">(159)</a> , the
+consistent with the discrete continuity equation following
+<a class="reference internal" href="chapter8.html#williamson94a" id="id59">[WO94a]</a>. Using <a class="reference internal" href="#equation-3.a.69">(157)</a>  and <a class="reference internal" href="#equation-3.a.71">(159)</a> , the
 finite difference analog of <a class="reference internal" href="#equation-3.a.68">(156)</a>  is</p>
 <div class="math" id="equation-3.a.72">
 <p><span class="eqno">(160)<a class="headerlink" href="#equation-3.a.72" title="Permalink to this equation">¶</a></span><img src="../_images/math/51857787bd5568efd0fc88ff66125784cb898dfc.png" alt="\begin{aligned}
@@ -2875,9 +2868,9 @@ spherical harmonic expansions.</p>
 </div>
 <div class="section" id="horizontal-diffusion">
 <span id="eul-hdiff"></span><h3>4.3.6. Horizontal diffusion<a class="headerlink" href="#horizontal-diffusion" title="Permalink to this headline">¶</a></h3>
-<p>contains a horizontal diffusion term for <img class="math" src="../_images/math/b5f27ef787a4a1e946b37bbea9bc67fc0b686a17.png" alt="T, \zeta"/>, and
+<p>CAM6.0 contains a horizontal diffusion term for <img class="math" src="../_images/math/b5f27ef787a4a1e946b37bbea9bc67fc0b686a17.png" alt="T, \zeta"/>, and
 <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/> to prevent spectral blocking and to provide reasonable
-kinetic energy spectra. The horizontal diffusion operator in is also
+kinetic energy spectra. The horizontal diffusion operator in CAM6.0 is also
 used to ensure that the CFL condition is not violated in the upper
 layers of the model. The horizontal diffusion is a linear
 <img class="math" src="../_images/math/ef44dc819887d16dff3e77fffb9cb6ce4c9c7362.png" alt="\nabla^2"/> form on <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> surfaces in the top three levels
@@ -2902,7 +2895,7 @@ horizontal diffusion is given by</p>
 </div><p>Since these terms are linear, they are easily calculated in spectral
 space. The undifferentiated correction term is added to the vorticity
 and divergence diffusion operators to prevent damping of uniform
-<img class="math" src="../_images/math/af97456b578fac8ca77a5c6091899625fded6563.png" alt="(n=1)"/> rotations (Orszag 1974; Bourke et al. 1977). The
+<img class="math" src="../_images/math/af97456b578fac8ca77a5c6091899625fded6563.png" alt="(n=1)"/> rotations (<a class="reference internal" href="chapter8.html#orszag74" id="id60">[Ors74]</a><a class="reference internal" href="chapter8.html#bourke77" id="id61">[BMPT77]</a>). The
 <img class="math" src="../_images/math/ef44dc819887d16dff3e77fffb9cb6ce4c9c7362.png" alt="\nabla^2"/> form of the horizontal diffusion is applied <em>only</em> to
 pressure surfaces in the standard model configuration.</p>
 <p>The horizontal diffusion operator is better applied to pressure surfaces
@@ -3194,15 +3187,15 @@ in the horizontal. It is more efficient computationally to substitute
 the definitions of these matrices into <a class="reference internal" href="#equation-3.a.95">(183)</a>  and <a class="reference internal" href="#equation-3.a.104">(192)</a>  at the
 cost of some loss of generality in the code. The finite difference
 equations have been written in the form <a class="reference internal" href="#equation-3.a.94">(182)</a> -<a class="reference internal" href="#equation-3.a.111">(199)</a>  because
-this form is quite general. For example, the equations solved by Simmons
-and Strüfing (1981) at ECMWF can be obtained by changing only the
+this form is quite general. For example, the equations solved by <a class="reference internal" href="chapter8.html#simmons81a" id="id62">[SStrufing81]</a>
+at ECMWF can be obtained by changing only the
 vectors and hydrostatic matrix defined by <a class="reference internal" href="#equation-3.a.108">(196)</a> -<a class="reference internal" href="#equation-3.a.111">(199)</a> .</p>
 </div>
 <div class="section" id="time-filter">
 <h3>4.3.8. Time filter<a class="headerlink" href="#time-filter" title="Permalink to this headline">¶</a></h3>
 <p>The time step is completed by applying a recursive time filter
-originally designed by (Robert 1966) and later studied by (Asselin
-1972).</p>
+originally designed by <a class="reference internal" href="chapter8.html#robert66" id="id63">[Rob66]</a> and later studied by
+<a class="reference internal" href="chapter8.html#asselin72" id="id64">[Ass72]</a>.</p>
 <div class="math">
 <p><img src="../_images/math/1cbde8b763699b7457f2dea31a501a8d027fd456.png" alt="\overline \psi^n = \psi^n + \alpha \left( \overline{\psi}^{n-1}
  - 2 \psi^n + \psi^{n+1} \right)"/></p>
@@ -3229,20 +3222,17 @@ and the user need not be too concerned with the spectral aspects. For
 users interested in diagnosing the balance of terms in the evolution
 equations, however, the details are important and care must be taken to
 understand which terms have been spectrally truncated and which have
-not. The algebra involved in the spectral transformations has been
-presented in several publications (Daley et al. 1976; Bourke et al.
-1977; Machenhauer 1979). In this report, we present only the details
-relevant to the model code; for more details and general philosophy, the
-reader is referred to these earlier papers.</p>
+not.  The algebra involved in the spectral transformations has been presented in several
+publications <a class="reference internal" href="chapter8.html#daley76" id="id65">[DGHS76]</a><a class="reference internal" href="chapter8.html#bourke77" id="id66">[BMPT77]</a><a class="reference internal" href="chapter8.html#machenhauer79" id="id67">[Mac79]</a>.  In this report,
+we present only the details relevant to the model code; for more
+details and general philosophy, the reader is referred to these
+earlier papers.</p>
 </div>
 <div class="section" id="spectral-algorithm-overview">
 <h3>4.3.10. Spectral algorithm overview<a class="headerlink" href="#spectral-algorithm-overview" title="Permalink to this headline">¶</a></h3>
-<div class="line-block">
-<div class="line">The horizontal representation of an arbitrary variable <img class="math" src="../_images/math/499a2ee48b33448e80b97af9df9550828bdbfb59.png" alt="\psi"/>
-consists of a truncated series of spherical harmonic functions,</div>
-</div>
-<blockquote>
-<div><div class="math" id="equation-3.b.1">
+<p>The horizontal representation of an arbitrary variable <img class="math" src="../_images/math/499a2ee48b33448e80b97af9df9550828bdbfb59.png" alt="\psi"/>
+consists of a truncated series of spherical harmonic functions,</p>
+<div class="math" id="equation-3.b.1">
 <p><span class="eqno">(200)<a class="headerlink" href="#equation-3.b.1" title="Permalink to this equation">¶</a></span><img src="../_images/math/d8cdbe872545b4cd842540b5f938a3a8cb778494.png" alt="\psi(\lambda, \mu) = \sum^M_{m=-M} \; \; \sum^{{\mathcal N} \left( m
 \right)}_{n=|m|} \psi^m_n P^m_n (\mu) e^{im \lambda} ,"/></p>
 </div><p>where <img class="math" src="../_images/math/ee7f5403f637fc7815441213db52d7b7c0bd331d.png" alt="\mu = \sin \phi, \ M"/> is the highest Fourier wavenumber
@@ -3250,7 +3240,7 @@ included in the east–west representation, and <img class="math" src="../_image
 \right)"/> is the highest degree of the associated Legendre polynomials
 for longitudinal wavenumber <img class="math" src="../_images/math/edba97b4c0d864d26e92ea7ea73767fa38eef3f7.png" alt="m"/>. The properties of the spherical
 harmonic functions used in the representation can be found in the
-review by Machenhauer (1979). The model is coded for a general
+review by <a class="reference internal" href="chapter8.html#machenhauer79" id="id68">[Mac79]</a>. The model is coded for a general
 pentagonal truncation, illustrated in Figure&nbsp;[figure:2], defined by
 three parameters: <img class="math" src="../_images/math/ef55cd7c8b7ca9988ad0879a75f2645c3fc91ee0.png" alt="M, K"/>, and <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/>, where <img class="math" src="../_images/math/450a8e2c2320d77181e0d4fc68c947e9a5de8ecb.png" alt="M"/> is
 defined above, <img class="math" src="../_images/math/684381a21cd73ebbf43b63a087d3f7410ee99ce8.png" alt="K"/> is the highest degree of the associated
@@ -3266,8 +3256,8 @@ subsets of this pentagonal case:</p>
 represents an arbitrary limit on the two-dimensional wavenumber
 <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/>, and for the pentagonal truncation described above is
 simply given by</p>
-<p><img class="math" src="../_images/math/c0799b0b867eb8aceea40b7eb81c4140d67dc3f7.png" alt="{\mathcal N} \left( m \right) = \min\left(N + \vert m \vert , K \right)"/>.</p>
-</div></blockquote>
+<blockquote>
+<div><img class="math" src="../_images/math/c0799b0b867eb8aceea40b7eb81c4140d67dc3f7.png" alt="{\mathcal N} \left( m \right) = \min\left(N + \vert m \vert , K \right)"/>.</div></blockquote>
 <p>The associated Legendre polynomials used in the model are normalized
 such that</p>
 <div class="math" id="equation-3.b.3">
@@ -3357,7 +3347,7 @@ spherical harmonics:</p>
  \left(\psi_O\right)^m_i (\mu_i) P^m_n (\mu_i) 2w_i &amp; \text{for $n-m$
  odd}.
 \end{cases}"/></p>
-</div><p>The model uses the spectral transform method (Machenhauer 1979) for all
+</div><p>The model uses the spectral transform method (citep{machenhauer79}) for all
 nonlinear terms. However, the model can be thought of as starting from
 grid–point values at time <img class="math" src="../_images/math/5ec053cf70dc1c98cc297322250569eda193e7a4.png" alt="t"/> (consistent with the spectral
 representation) and producing a forecast of the grid–point values at
@@ -3628,8 +3618,8 @@ component <img class="math" src="../_images/math/c91c0b51017ab441b8ef682be7b6ccb
 perturbations are taken with respect to a specified
 <img class="math" src="../_images/math/00603f4e1bf73877e726b64a92975be99fc1e4be.png" alt="\underline{T}^r"/>.</p>
 </div>
-<div class="section" id="id2">
-<h3>4.3.14. Horizontal diffusion<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id69">
+<h3>4.3.14. Horizontal diffusion<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned earlier, the horizontal diffusion in <a class="reference internal" href="#equation-3.a.87">(175)</a>  and
 <a class="reference internal" href="#equation-3.a.90">(178)</a>  is computed implicitly via time splitting after the
 transformations into spectral space and solution of the semi-implicit
@@ -3684,7 +3674,7 @@ speed is large enough that <img class="math" src="../_images/math/84a617d119e63f
 <a class="reference internal" href="#equation-3.b.2">(201)</a> , and temporarily reduces the effective resolution of the model
 in the affected levels. The number of levels at which this “Courant
 number limiter” may be applied is user-selectable, but it is only used
-in the top level of the 26&nbsp;level control runs.</p>
+in the top level of the 26&nbsp;level CAM6.0 control runs.</p>
 <p>The diffusion of <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> is not complete at this stage. In order to
 make the partial correction from <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> to <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> in <a class="reference internal" href="#equation-3.a.81">(169)</a>
 local, it is not included until grid–point values are available. This
@@ -3912,7 +3902,7 @@ latitude. Poleward of 70<img class="math" src="../_images/math/416949279b3505b72
 geodesic coordinate for the calculation at each arrival point. The local
 geodesic coordinate is essentially a rotated spherical coordinate system
 whose equator goes through the arrival point. Details are provided in
-Williamson and Rasch (1989). The transformed system is rotated about the
+<a class="reference internal" href="chapter8.html#williamson89" id="id70">[WR89]</a>. The transformed system is rotated about the
 axis through <img class="math" src="../_images/math/54ad20cd426acca01469c3675863ba81d2fc5d76.png" alt="\left( \lambda_A - \frac{\pi}{2}, 0
 \right)"/> and <img class="math" src="../_images/math/a58e1f208633c8c5636941bf84c171993b96d01b.png" alt="\left( \lambda_A + \frac{\pi}{2}, 0 \right)"/>, by an
 angle <img class="math" src="../_images/math/5da2687b80444b539ba67a904eea7cb53ff593af.png" alt="\varphi_A"/> so the equator goes through
@@ -3963,8 +3953,8 @@ design and</p>
 <p><span class="eqno">(293)<a class="headerlink" href="#equation-3.c.16" title="Permalink to this equation">¶</a></span><img src="../_images/math/2dc64446232700c3b278cea348e12ab13d330369.png" alt="\theta = \left( x_D - x_i \right) \big/ \left( x_{i+1} - x_i \right),"/></p>
 </div><p>where <img class="math" src="../_images/math/a59f68a4202623bb859a7093f0316bf466e6f75d.png" alt="x"/> is either <img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> or <img class="math" src="../_images/math/a8a89b67dbbf9e738fc05f11538d0293ae7399d3.png" alt="\varphi"/> and the
 departure point <img class="math" src="../_images/math/fd14d21c110d79d392f6fb535524f723852f2c82.png" alt="x_D"/> falls within the interval
-<img class="math" src="../_images/math/60576cdcbdeaf16e6f741bbd1454885e2ad069ab.png" alt="\left( x_i, x_{i+1} \right)"/>. Following (23) of (Rasch and
-Williamson 1990) with <img class="math" src="../_images/math/178d562204710a4acf9aa600cba820f1252f59a9.png" alt="r_i=3"/> the Hermite cubic interpolant is
+<img class="math" src="../_images/math/60576cdcbdeaf16e6f741bbd1454885e2ad069ab.png" alt="\left( x_i, x_{i+1} \right)"/>. Following (23) of (<a class="reference internal" href="chapter8.html#rasch90" id="id71">[RW90]</a>)
+with <img class="math" src="../_images/math/178d562204710a4acf9aa600cba820f1252f59a9.png" alt="r_i=3"/> the Hermite cubic interpolant is
 given by</p>
 <div class="math" id="equation-3.c.17">
 <p><span class="eqno">(294)<a class="headerlink" href="#equation-3.c.17" title="Permalink to this equation">¶</a></span><img src="../_images/math/dd7dda2328edf7af2d42dca391c5815c151e481d.png" alt="\begin{aligned}
@@ -3978,7 +3968,7 @@ q_D &amp; = &amp; q_{i+1} \left[ 3-2\theta \right]\theta^2
 </div><p>where <img class="math" src="../_images/math/6ac5b221350111f1f7caa0689b250d2542580bd4.png" alt="q_i"/> is the value at the grid point <img class="math" src="../_images/math/7720e563212e11bf72de255ab82c2a3b97c1a7f5.png" alt="x_i"/>,
 <img class="math" src="../_images/math/93f9b5333c1aa73b70b1a61bf3bfbb88be44ecf2.png" alt="d_i"/> is the derivative estimate given below, and
 <img class="math" src="../_images/math/2fbd33f4f249322f1422420c15be1c9f9c3dc0d8.png" alt="h_i = x_{i+1} - x_i"/>.</p>
-<p>Following (3.2.12) and (3.2.13) of Hildebrand (1956), the Lagrangian
+<p>Following (3.2.12) and (3.2.13) of <a class="reference internal" href="chapter8.html#hildebrand56" id="id72">[Hil56]</a>, the Lagrangian
 cubic polynomial interpolant used for the velocity interpolation, is
 given by</p>
 <div class="math" id="equation-3.c.18">
@@ -4127,7 +4117,7 @@ beginning of the time step.</p>
 <p>The fixers which ensure conservation are applied to the dry atmospheric
 mass, water vapor specific humidity and constituent mixing ratios. For
 water vapor and atmospheric mass the desired discrete relations,
-following D. L. Williamson and Olson (1994a) are</p>
+following <a class="reference internal" href="chapter8.html#williamson94a" id="id73">[WO94a]</a> are</p>
 <div class="math" id="equation-3.d.1">
 <p><span class="eqno">(308)<a class="headerlink" href="#equation-3.d.1" title="Permalink to this equation">¶</a></span><img src="../_images/math/4f3a1798d70670b21718bfcb21f86ffa0825cd25.png" alt="\int\limits_2 \, \pi^+ - \int\limits_3 \, q^+ \Delta p^+ =
 {\boldsymbol{P}} ,"/></p>
@@ -4155,7 +4145,7 @@ denotes the provisional value before adjustment. The form
 ratio is small and when the change made to the mixing ratio by the
 advection is small. In addition, the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> factor is included to
 make the changes approximately proportional to mass per unit volume
-(Rasch, Boville, and Brasseur 1995). Satisfying <a class="reference internal" href="#equation-3.d.1">(308)</a>  and <a class="reference internal" href="#equation-3.d.2">(309)</a>
+(<a class="reference internal" href="chapter8.html#rasch95" id="id74">[RBB95]</a>). Satisfying <a class="reference internal" href="#equation-3.d.1">(308)</a>  and <a class="reference internal" href="#equation-3.d.2">(309)</a>
 gives</p>
 <div class="math" id="equation-3.d.6">
 <p><span class="eqno">(313)<a class="headerlink" href="#equation-3.d.6" title="Permalink to this equation">¶</a></span><img src="../_images/math/b367fdf1894e5beeb54baf8249ec9424ff3557cd.png" alt="\alpha = \frac{\int\limits_3 \, q^- \Delta p^- - \int\limits_3 \, \hat
@@ -4180,7 +4170,7 @@ conservation:</p>
 <p><span class="eqno">(315)<a class="headerlink" href="#equation-3.d.8" title="Permalink to this equation">¶</a></span><img src="../_images/math/4c6156b145c7d1b100892362815e8eb79e3cba6f.png" alt="\int\limits_3\chi^+ (1-q^+) \Delta p^+ = \int\limits_3 \chi^-
 (1-q^-)\Delta p^- \ ."/></p>
 </div><p>The term <img class="math" src="../_images/math/f54d04afafe3b2e1f03c59afdac190259324fae0.png" alt="(1-q)\Delta p"/> defines the dry air mass in a layer.
-Following Rasch, Boville, and Brasseur (1995) the change made by the
+Following <a class="reference internal" href="chapter8.html#rasch95" id="id75">[RBB95]</a> the change made by the
 fixer has the same form as <a class="reference internal" href="#equation-3.d.5">(312)</a></p>
 <div class="math" id="equation-3.d.9">
 <p><span class="eqno">(316)<a class="headerlink" href="#equation-3.d.9" title="Permalink to this equation">¶</a></span><img src="../_images/math/1af4281d13e6ea3c0f7660abc4c1e7efc78ef4a5.png" alt="\chi^+ \left( \lambda, \varphi, \eta \right) = \hat \chi^+ +
@@ -4223,7 +4213,7 @@ e.g. at the end of the model time step. Therefore, we now replace
 (1-q^0)\Delta p^0
  \ ."/></p>
 </div><p>There is a corresponding change in the first term of the numerator of
-<a class="reference internal" href="#equation-3.d.10">(317)</a>  in which <img class="math" src="../_images/math/5fd8b9e3ff20b3f2cddef7bc21a3ed43365cdd4d.png" alt="q^-"/> is replace by <img class="math" src="../_images/math/523c6afabb2220102ab6e6369bbd2b0d150d79e0.png" alt="q^0"/>. uses
+<a class="reference internal" href="#equation-3.d.10">(317)</a>  in which <img class="math" src="../_images/math/5fd8b9e3ff20b3f2cddef7bc21a3ed43365cdd4d.png" alt="q^-"/> is replace by <img class="math" src="../_images/math/523c6afabb2220102ab6e6369bbd2b0d150d79e0.png" alt="q^0"/>. CAM6.0 uses
 <a class="reference internal" href="#equation-3.d.10">(317)</a>  for water substances and constituents affecting the
 temperature field to prevent changes to the IPCC simulations. In the
 future, constituent fields may use a <em>corrected</em> version of <a class="reference internal" href="#equation-3.d.10">(317)</a> .</p>
@@ -4321,7 +4311,7 @@ reduced grids. The term reduced grid generally refers to a grid based on
 latitude and longitude circles in which the longitudinal grid increment
 increases at latitudes approaching the poles so that the longitudinal
 distance between grid points is reasonably constant. Details are
-provided in (Williamson and Rosinski 2000). This option provides a
+provided in (<a class="reference internal" href="chapter8.html#williamson00" id="id76">[WR00]</a>). This option provides a
 saving of computer time of up to 25%.</p>
 </div>
 </div>
@@ -4330,8 +4320,8 @@ saving of computer time of up to 25%.</p>
 <div class="section" id="introduction">
 <h3>4.4.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>The two-time-level semi-implicit semi-Lagrangian spectral transform
-dynamical core in evolved from the three-time-level CCM2 semi-Lagrangian
-version detailed in D. L. Williamson and Olson (1994a) hereafter
+dynamical core in CAM6.0 evolved from the three-time-level CCM2 semi-Lagrangian
+version detailed in <a class="reference internal" href="chapter8.html#williamson94a" id="id77">[WO94a]</a> hereafter
 referred to as W&amp;O94. As a first approximation, to convert from a
 three-time-level scheme to a two-time-level scheme, the time level index
 n-1 becomes n, the time level index n becomes n+<img class="math" src="../_images/math/53a1944a0c12abdb53a8890745f2820ff335ee54.png" alt="\frac{1}{ 2}"/>,
@@ -4355,8 +4345,8 @@ coordinate (<img class="math" src="../_images/math/5635a7c34414599c2452d72430811
 </div><p>where <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> is pressure, <img class="math" src="../_images/math/f44df021950898ccf1cb654e028ce34bc85af01b.png" alt="p_s"/> is surface pressure, and
 <img class="math" src="../_images/math/7c438115286b3f5e6cb72b12e7ee579f6e013733.png" alt="p_o"/> is a specified constant reference pressure. The coefficients
 <img class="math" src="../_images/math/0043fe6507e9b1d112e07a2801e24927e267dd50.png" alt="A"/> and <img class="math" src="../_images/math/9805f44feec6f81d376d09e88b8236635edbb3c8.png" alt="B"/> specify the actual coordinate used. As mentioned
-by Simmons and Burridge (1981) and implemented by Simmons and Strüfing
-(1981) and Simmons and Strüfing (1983), the coefficients <img class="math" src="../_images/math/0043fe6507e9b1d112e07a2801e24927e267dd50.png" alt="A"/> and
+by <a class="reference internal" href="chapter8.html#simmons81b" id="id78">[SB81]</a> and implemented by <a class="reference internal" href="chapter8.html#simmons81a" id="id79">[SStrufing81]</a>
+and <a class="reference internal" href="chapter8.html#simmons83" id="id80">[SStrufing83]</a>, the coefficients <img class="math" src="../_images/math/0043fe6507e9b1d112e07a2801e24927e267dd50.png" alt="A"/> and
 <img class="math" src="../_images/math/9805f44feec6f81d376d09e88b8236635edbb3c8.png" alt="B"/> are defined only at the discrete model levels. This has
 implications in the continuity equation development which follows.</p>
 <p>In the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> system the hydrostatic equation is approximated in a
@@ -4381,7 +4371,7 @@ constant <img class="math" src="../_images/math/bf1fa74c814cfbc22f349d3354060c74
 </div></div>
 <div class="section" id="perturbation-surface-pressure-prognostic-variable">
 <h3>4.4.4. Perturbation surface pressure prognostic variable<a class="headerlink" href="#perturbation-surface-pressure-prognostic-variable" title="Permalink to this headline">¶</a></h3>
-<p>To ameliorate the mountain resonance problem, Ritchie and Tanguay (1996)
+<p>To ameliorate the mountain resonance problem, <a class="reference internal" href="chapter8.html#ritchie-tanguay96" id="id81">[RT96]</a>
 introduce a perturbation <img class="math" src="../_images/math/a527f8be5abecb24a35d49fdd58552e8d5858ea8.png" alt="{\rm ln}\,p_{s}"/> surface pressure
 prognostic variable</p>
 <div class="math">
@@ -4389,14 +4379,14 @@ prognostic variable</p>
 {\rm ln}\,p'_{s} &amp;=&amp; {\rm ln}\,p_{s} - {\rm ln}\,p_{s}^* \\ {\rm
 ln}\,p_{s}^* &amp;=&amp; - \frac{\Phi_s}{R T^r}\end{aligned}"/></p>
 </div><p>The perturbation surface pressure, <img class="math" src="../_images/math/6b8674daa36a34ac2d4cc0fd85b731833f90b026.png" alt="{\rm ln}\,p'_{s}"/>, is never
-actually used as a grid point variable in the code. It is only used for
+actually used as a grid point variable in the CAM6.0 code. It is only used for
 the semi-implicit development and solution. The total <img class="math" src="../_images/math/960e3d4fd604eb0d0360d13b34ee72b638f13237.png" alt="{\rm
 ln}\,p_{s}"/> is reclaimed in spectral space from the spectral
 coefficients of <img class="math" src="../_images/math/387527ef6fd5f95a4eb4fd1eff3f8f2d3ba4f545.png" alt="\Phi_s"/> immediately after the semi-implicit
 equations are solved, and transformed back to spectral space along with
 its derivatives. This is in part because
 <img class="math" src="../_images/math/6eba18e8e7a381ed232ff07501591e6853c6a8ce.png" alt="\nabla ^4{\rm ln}\,p_{s}"/> is needed for the horizontal diffusion
-correction to pressure surfaces. However the semi-Lagrangian default is
+correction to pressure surfaces. However the semi-Lagrangian CAM6.0 default is
 to run with no horizontal diffusion.</p>
 </div>
 <div class="section" id="extrapolated-variables">
@@ -4567,7 +4557,7 @@ divergence at time (<img class="math" src="../_images/math/b700b57c3b9fcd19ef715
 <h3>4.4.8. Thermodynamic Equation<a class="headerlink" href="#thermodynamic-equation" title="Permalink to this headline">¶</a></h3>
 <p>The thermodynamic equation is obtained from (25) of W&amp;O94 modified to be
 spatially uncentered and to use <img class="math" src="../_images/math/0c5ed2d3305c082f9bd4fb9967197b6ca255405f.png" alt="{\rm ln}\,p_{s}'"/>. In addition
-Hortal’s modification (Temperton, Hortal, and Simmons 2001) is included,
+Hortal’s modification (citep{tempertonetal01}) is included,
 in which</p>
 <div class="math">
 <p><img src="../_images/math/77fd1211b1e942208dc349ff5c5200280127c325.png" alt="{d \over dt} \left[
@@ -4634,7 +4624,7 @@ T_0\left({(p_k)_{ref} \over (p_s)_{ref} }\right)^{R \gamma / g} \\
 <h3>4.4.9. Momentum equations<a class="headerlink" href="#momentum-equations" title="Permalink to this headline">¶</a></h3>
 <p>The momentum equations follow from (3) of W&amp;O94 modified to be spatially
 uncentered, to use <img class="math" src="../_images/math/0c5ed2d3305c082f9bd4fb9967197b6ca255405f.png" alt="{\rm ln}\,p_{s}'"/>, and with the Coriolis term
-implicit following Côté and Staniforth (1988) and Temperton (1997). The
+implicit following <a class="reference internal" href="chapter8.html#cote-staniforth88" id="id82">[CS88]</a> and <a class="reference internal" href="chapter8.html#temperton97" id="id83">[Tem97]</a>. The
 semi-implicit, semi-Lagrangian momentum equation at level <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> (but
 with the level subscript <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> suppressed) is</p>
 <div class="math">
@@ -4741,7 +4731,7 @@ spherical unit vectors in the longitudinal and latitudinal directions,
 respectively, at the points indicated by the subscripts, and
 <img class="math" src="../_images/math/878af4edb554fb2b7af6b345609dfb8710ce0aa3.png" alt="\mathcal U"/> and <img class="math" src="../_images/math/93d9e17aa001c7abb102e52d10ef28e4b71da343.png" alt="\mathcal V"/> denote the appropriate combinations of
 terms in [vmeq]. Note that <img class="math" src="../_images/math/474be80fc72b9ea6832d2901f033c78c6afa0659.png" alt="{\mathcal U}^{^{n+1}}_{_{A}}"/> is distinct
-from the <img class="math" src="../_images/math/b4ae82f007c300b5e9507fb0c06c74a99e66f058.png" alt="{\mathcal U}_{_{A}}"/>. Following Bates et al. (1990),
+from the <img class="math" src="../_images/math/b4ae82f007c300b5e9507fb0c06c74a99e66f058.png" alt="{\mathcal U}_{_{A}}"/>. Following <a class="reference internal" href="chapter8.html#batesetal90" id="id84">[BSHB90]</a>,
 equations for the individual components are obtained by relating the
 unit vectors at the departure points
 (<img class="math" src="../_images/math/bc8d8d492b89dbba8e06fb700b13a5303c4297d8.png" alt="{\bf {\hat{i}}}_{_{D}}"/>,<img class="math" src="../_images/math/85571295d01d122684db50fe192647bef61b9181.png" alt="{\bf {\hat{j}}}_{_{D}}"/>) to
@@ -4756,8 +4746,8 @@ those at the arrival points
 </div><p>in which the vertical components (<img class="math" src="../_images/math/3445b8457b6c17fcbf497634bbe0a4a6c7f11978.png" alt="{\bf {\hat{k}}}"/>) are ignored.
 The dependence of <img class="math" src="../_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/>’s and <img class="math" src="../_images/math/410a9d0df9c135dd73b269cba7ef04dcfd932b1f.png" alt="\beta"/>’s on the
 latitudes and longitudes of the arrival and departure points is given in
-the Appendix of Bates et al. (1990).</p>
-<p>W&amp;O94 followed Bates et al. (1990) which ignored rotating the vector to
+the Appendix of <a class="reference internal" href="chapter8.html#batesetal90" id="id85">[BSHB90]</a>.</p>
+<p>W&amp;O94 followed <a class="reference internal" href="chapter8.html#batesetal90" id="id86">[BSHB90]</a> which ignored rotating the vector to
 remain parallel to the earth’s surface during translation. We include
 that factor by keeping the length of the vector written in terms of
 <img class="math" src="../_images/math/7846908f52b93f5375e16049c3b3696ee1db117f.png" alt="\left({\mathbf{{\hat{i}}}}_{_{A}},{\mathbf{{\hat{j}}}}_{_{A}}\right)"/>
@@ -4838,12 +4828,12 @@ Thus, (10) of W&amp;O94 becomes</p>
   = {{\mathcal M}}\end{aligned}"/></p>
 </div><p>Transform to spectral space as described in the description of the
 Eulerian spectral transform dynamical core. Note, from (4.5b) and (4.6)
-on page 177 of Machenhauer (1979)</p>
+on page 177 of <a class="reference internal" href="chapter8.html#machenhauer79" id="id87">[Mac79]</a></p>
 <div class="math">
 <p><img src="../_images/math/86962a3bee4994bf4861cd6a5afec8a4c4b71558.png" alt="\begin{aligned}
   \mu P_n^m &amp;=&amp; D_{n+1}^m P_{n+1}^m + D_{n}^m P_{n-1}^m \\ D_{n}^m &amp;=&amp;
   \left({n^2-m^2 \over 4n^2-1}\right)^{1 \over 2}\end{aligned}"/></p>
-</div><p>and from (4.5a) on page 177 of Machenhauer (1979)</p>
+</div><p>and from (4.5a) on page 177 of <a class="reference internal" href="chapter8.html#machenhauer79" id="id88">[Mac79]</a></p>
 <div class="math">
 <p><img src="../_images/math/7225a62a89d49d9d24e7c8e6e4721b6856d4f0fe.png" alt="\left( 1 - \mu^2\right) {{\partial}\over{\partial}\mu}P_n^m = -nD_{n+1}^m P_{n+1}^m
   + \left (n+1 \right) D_{n}^m P_{n-1}^m"/></p>
@@ -5097,7 +5087,7 @@ coefficients by</p>
 </div></div>
 <div class="section" id="trajectory-calculation">
 <h3>4.4.11. Trajectory Calculation<a class="headerlink" href="#trajectory-calculation" title="Permalink to this headline">¶</a></h3>
-<p>The trajectory calculation follows Hortal (1999) Let
+<p>The trajectory calculation follows <a class="reference internal" href="chapter8.html#hortal99" id="id89">[Hor99]</a> Let
 <img class="math" src="../_images/math/b1339f5e667268bfd3301cc15b53978ef473d29e.png" alt="{\boldsymbol{R}}"/> denote the position vector of the parcel,</p>
 <div class="math">
 <p><img src="../_images/math/b58c72cb76141ed034b5de3de35b1b3fcf9a5aaf.png" alt="{d{\boldsymbol{R}} \over dt} = {\boldsymbol{V}}"/></p>

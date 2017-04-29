@@ -1,5 +1,7 @@
 .. _chap3:
 
+.. |cam| replace:: CAM6.0
+
 Dynamics
 ========
 
@@ -18,8 +20,8 @@ initially developed and used at the NASA Data Assimilation Office (DAO)
 for data assimilation, numerical weather predictions, and climate
 simulations. The finite-volume discretization is local and entirely in
 physical space. The horizontal discretization is based on a conservative
-“*flux-form semi-Lagrangian*” scheme described by Lin and Rood (1996)
-(hereafter LR96) and Lin and Rood (1997) (hereafter LR97). The vertical
+“*flux-form semi-Lagrangian*” scheme described by :cite:`lin96`
+(hereafter LR96) and :cite:`lin97b` (hereafter LR97). The vertical
 discretization can be best described as *Lagrangian* with a conservative
 re-mapping, which essentially makes it *quasi-Lagrangian*. The
 *quasi-Lagrangian* aspect of the vertical coordinate is transparent to
@@ -39,7 +41,7 @@ The governing equations for the hydrostatic atmosphere
 
 For reference purposes, we present the continuous differential equations
 for the hydrostatic 3D atmospheric flow on the sphere for a general
-vertical coordinate :math:`\zeta` (*e.g*., Kasahara (1974)). Using
+vertical coordinate :math:`\zeta` (*e.g*., :cite:`kasahara74`). Using
 standard notations, the hydrostatic balance equation is given as
 follows:
 
@@ -132,10 +134,10 @@ is defined as follows:
    \frac{\partial }{\partial \lambda }v-\frac{\partial }{\partial \theta
    }(u\, cos\theta )\right] ,
 
-where *:math:`\omega`* is the angular velocity of the earth. Note that
-the last term in (:eq:`u-pi`) and (:eq:`v-pi`) vanishes if the vertical
+where :math:`\omega` is the angular velocity of the earth. Note that
+the last term in :eq:`u-pi` and :eq:`v-pi` vanishes if the vertical
 coordinate :math:`\zeta` is a conservative quantity (*e.g*., entropy
-under adiabatic conditions (Hsu and Arakawa 1990) or an imaginary
+under adiabatic conditions :cite:`hsu90` or an imaginary
 conservative tracer), and the 3D divergence operator becomes 2D along
 constant :math:`\zeta` surfaces. The discretization of the 2D
 horizontal transport process is described in section [FVhdisc]. The
@@ -158,9 +160,9 @@ Horizontal discretization of the transport process on the sphere
 Since the vertical transport term would vanish after the introduction of
 the vertical Lagrangian control-volume discretization (see section
 [FVvdisc]), we shall present here only the 2D (horizontal) forms of the
-FFSL transport algorithm for the transport of density (:eq:`mass-pi`) and
-mixing ratio-like quantities (:eq:`tracer-pi`) on the sphere. The governing
-equation for the pseudo-density (:eq:`mass-pi`) becomes
+FFSL transport algorithm for the transport of density :eq:`mass-pi` and
+mixing ratio-like quantities :eq:`tracer-pi` on the sphere. The governing
+equation for the pseudo-density :eq:`mass-pi` becomes
 
 .. math::
    :label: pi-2d
@@ -172,10 +174,9 @@ equation for the pseudo-density (:eq:`mass-pi`) becomes
 The finite-volume (*integral*) representation of the continuous
 :math:`\pi` field is defined as follows:
 
-Given the *exact* 2D wind field :math:`
-\overrightarrow{V}(t;\lambda ,\theta )=(U,V)` the 2D integral
+Given the *exact* 2D wind field :math:`\overrightarrow{V}(t;\lambda ,\theta )=(U,V)` the 2D integral
 representation of the conservation law for :math:`\widetilde{\pi }`
-can be obtained by integrating (:eq:`pi-2d`) in time and in space
+can be obtained by integrating :eq:`pi-2d` in time and in space
 
 The above 2D transport equation is still *exact* *for the finite-volume
 under consideration*. To carry out the contour integral, certain
@@ -186,8 +187,7 @@ Introducing the following difference operator
 .. math:: \delta _{x}q=q(x+\frac{\Delta x}{2})-q(x-\frac{\Delta x}{2}),
 
 and assuming :math:`(u^{*},v^{*})` is the time-averaged (from time
-:math:`t
-` to time :math:`t+\Delta t`) :math:`\overrightarrow{V}` on the
+:math:`t` to time :math:`t+\Delta t`) :math:`\overrightarrow{V}` on the
 C-grid (*e.g*., Fig. 1 in LR96), the 1-D finite-volume flux-form
 transport operator *F* in the :math:`\lambda`-direction is
 
@@ -199,8 +199,7 @@ transport operator *F* in the :math:`\lambda`-direction is
    =-\frac{\Delta t}{A\Delta \lambda cos\theta }\, \delta _{\lambda
    }\left[ \chi (u^{*},\Delta t;\pi )\right] ,
 
-where :math:`\chi` , the time-accumulated (from *t* to
-*t*\ +\ *:math:`\Delta`\ t*) mass flux across the cell wall, is
+where :math:`\chi` , the time-accumulated (from *t* to *t*\ +\ :math:`\Delta`\ t) mass flux across the cell wall, is
 defined as follows,
 
 .. math::
@@ -229,7 +228,7 @@ LR96) back to time :math:`t` (the departure point; *e.g*., point B’ in
 Fig. 3 of LR96). The very essence of the 1D finite-volume algorithm is
 to construct, based on the given initial cell-mean values of :math:`
 \widetilde{\pi }`, an approximated subgrid distribution of the true
-:math:`\pi` field, to enable an analytic integration of (:eq:`pi-`).
+:math:`\pi` field, to enable an analytic integration of :eq:`pi-`.
 Assuming there is no error in obtaining the time-mean wind
 :math:`(u^{\*})`, the only error produced by the 1D transport scheme
 would be solely due to the approximation to the continuous distribution
@@ -238,9 +237,9 @@ case in 2D; Lauritzen, Ullrich, and Nair (2010)). From this perspective,
 it can be said that the 1D finite-volume transport algorithm combines
 the time-space discretization in the approximation of the time-mean
 cell-edge values :math:`\pi ^{*}`. The physically correct way of
-approximating the integral (:eq:`pi-`) must be “upwind”, in the sense that
+approximating the integral :eq:`pi-` must be “upwind”, in the sense that
 it is integrated along the backward trajectory of the cell edges. For
-example, a center difference approximation to (:eq:`pi-`) would be
+example, a center difference approximation to :eq:`pi-` would be
 physically incorrect, and consequently numerically unstable unless
 artificial numerical diffusion is added.
 
@@ -249,16 +248,16 @@ finite-volume algorithms is the degrees of freedom that describe the
 subgrid distribution. The first order upwind scheme, for example, has
 zero degrees of freedom within the volume as it is assumed that the
 subgrid distribution is piecewise constant having the same value as the
-given volume-mean. The second order finite-volume scheme (*e.g*., Lin et
-al. (1994)) assumes a piece-wise linear subgrid distribution, which
+given volume-mean. The second order finite-volume scheme (*e.g*., :cite:`lin94`) 
+assumes a piece-wise linear subgrid distribution, which
 allows one degree of freedom for the specification of the “slope” of the
-linear distribution to improve the accuracy of integrating (:eq:`pi-`).
-The Piecewise Parabolic Method (PPM, Colella and Woodward (1984)) has
+linear distribution to improve the accuracy of integrating :eq:`pi-`.
+The Piecewise Parabolic Method (PPM, :cite:`colella84`) has
 two degrees of freedom in the construction of the second order
 polynomial within the volume, and as a result, the accuracy is
 significantly enhanced. The PPM appears to strike a good balance between
 computational efficiency and accuracy. Therefore, the PPM is the basic
-1D scheme we chose (see, e.g., Machenhauer (1998)). Note that the
+1D scheme we chose (see, e.g., :cite:`machenhauer98`). Note that the
 subgrid PPM distributions are compact, and do not extend beyond the
 volume under consideration. The accuracy is therefore significantly
 better than the order of the chosen polynomials implies. While the PPM
@@ -298,7 +297,7 @@ where :math:`C_{def}^{\lambda }` is a dimensionless number indicating
 the degree of the flow deformation in the :math:`\lambda`-direction.
 The above derivation of :math:`f` is slightly different from LR96’s
 approach, which adopted the traditional 1D advective-form
-semi-Lagrangian scheme. The advantage of using (:eq:`xadv`) is that
+semi-Lagrangian scheme. The advantage of using :eq:`xadv` is that
 computation of winds at cell centers (Eq. 2.25 in LR96) are avoided.
 
 Analogously, the **1D flux-form transport operator** *G* **in the
@@ -359,7 +358,7 @@ as
    t,\widetilde{\pi }^{\lambda }\right] .
 
 Using explicitly the mass fluxes :math:`\left( \chi ,Y\right)`,
-(:eq:`den-gf`) is rewritten as
+:eq:`den-gf` is rewritten as
 
 .. math::
    :label: air
@@ -372,7 +371,7 @@ Using explicitly the mass fluxes :math:`\left( \chi ,Y\right)`,
    t;\widetilde{\pi }^{\lambda })\right] \right\} ,
 
 where :math:`Y`, the mass flux in the meridional direction, is
-defined in a similar fashion as :math:`\chi` (:eq:`xmass`). The ability of
+defined in a similar fashion as :math:`\chi` :eq:`xmass`. The ability of
 the LR96 scheme to approximate the exact geometry of the fluxes for
 deformational flows is discussed in Machenhauer, Kaas, and Lauritzen
 (2009) and Lauritzen, Ullrich, and Nair (2010).
@@ -405,7 +404,7 @@ previously should be used as follows
    })\right] .
 
 Note that the above form of the tracer transport equation consistently
-degenerates to (:eq:`den-gf`) if :math:`\widetilde{q}\equiv 1` (*i.e*.,
+degenerates to :eq:`den-gf` if :math:`\widetilde{q}\equiv 1` (*i.e*.,
 the tracer density equals to the background air density), which is
 another important condition for a flux-form transport algorithm to be
 able to avoid generation of noise (*e.g*., creation of artificial
@@ -417,8 +416,8 @@ A *vertically Lagrangian* and *horizontally Eulerian* control-volume discretizat
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The very idea of using Lagrangian vertical coordinate for formulating
-governing equations for the atmosphere is not entirely new. Starr
-(1945)) is likely the first to have formulated, in the *continuous
+governing equations for the atmosphere is not entirely new. :cite:`starr45`) 
+is likely the first to have formulated, in the *continuous
 differential form*, the governing equations using a Lagrangian
 coordinate. Starr did not make use of the *discrete* Lagrangian
 control-volume concept for discretization nor did he present a solution
@@ -458,7 +457,7 @@ monotonic function of height and constant on the initial reference
 coordinate surfaces (*e.g*., the value of “:math:`\eta`” in the hybrid
 :math:`\sigma -p` coordinate used in CAM), the 3D governing equations
 written for the general vertical coordinate in section 1.2 can be
-reduced to 2D forms. After factoring out the constant :math:`\delta \zeta`, (:eq:`mass-pi`), the conservation law for the pseudo-density
+reduced to 2D forms. After factoring out the constant :math:`\delta \zeta`, :eq:`mass-pi`, the conservation law for the pseudo-density
 (:math:`\pi=\frac{\delta p}{\delta \zeta }`), becomes
 
 .. math::
@@ -471,7 +470,7 @@ reduced to 2D forms. After factoring out the constant :math:`\delta \zeta`, (:eq
 
 where the symbol :math:`\delta` represents the vertical difference
 between the two neighboring Lagrangian surfaces that bound the finite
-control-volume. From (:eq:`hydro`), the pressure thickness
+control-volume. From :eq:`hydro`, the pressure thickness
 :math:`\delta p` of that control-volume is proportional to the total
 mass, *i.e*., :math:`\delta p=-\rho g\delta z`. Therefore, it can be said that the
 Lagrangian control-volume vertical discretization has the hydrostatic
@@ -479,7 +478,7 @@ balance built-in, and :math:`\delta p` can be regarded as the
 “pseudo-density” for the discretized Lagrangian vertical coordinate
 system.
 
-Similarly, (:eq:`tracer-pi`), the mass conservation law for all tracer
+Similarly, :eq:`tracer-pi`, the mass conservation law for all tracer
 species, is
 
 .. math::
@@ -490,7 +489,7 @@ species, is
    \frac{\partial }{\partial \lambda }(uq\delta p)+\frac{\partial
    }{\partial \theta }(vq\delta p\, cos\theta )\right] =0,
 
-the thermodynamic equation, (:eq:`thermo-pi`), becomes
+the thermodynamic equation, :eq:`thermo-pi`, becomes
 
 .. math::
    :label: Thermo-lcv
@@ -501,7 +500,7 @@ the thermodynamic equation, (:eq:`thermo-pi`), becomes
    p)+\frac{\partial }{\partial \theta }(v\Theta \delta p\, cos\theta
    )\right] =0,
 
-and (:eq:`u-pi`) and (:eq:`v-pi`), the momentum equations, are reduced to
+and :eq:`u-pi` and :eq:`v-pi`, the momentum equations, are reduced to
 
 .. math::
    :label: u-lcv
@@ -531,26 +530,26 @@ as follows:
    P_{l}=P_{\infty }+\sum ^{l}_{k=1}\delta P_{k},\, \, \, \, \, (for\,
    l=1,\, 2,\, 3,\, ...,\, N) ,
 
-where the subscript *:math:`l`* is the vertical index ranging from 1
+where the subscript :math:`l` is the vertical index ranging from 1
 at the lower bounding Lagrangian surface of the first (the highest)
-layer to *:math:`N`* at the Earth’s surface. There are :math:`N`\ +1
-Lagrangian surfaces to define a total number of *:math:`N`* Lagrangian
+layer to :math:`N` at the Earth’s surface. There are :math:`N`\ +1
+Lagrangian surfaces to define a total number of :math:`N` Lagrangian
 layers. The surface pressure, which is the pressure at the lowest
 Lagrangian surface, is easily computed as :math:`P_{N}` using
-(:eq:`L-coord`). The surface pressure is needed for the physical
+:eq:`L-coord`. The surface pressure is needed for the physical
 parameterizations and to define the reference Eulerian coordinate for
-the mapping procedure (to be described in section [FVmap]).
+the mapping procedure (to be described in section :ref:`FVmap`).
 
 With the exception of the pressure-gradient terms and the addition of a
 thermodynamic equation, the above 2D Lagrangian dynamical system is the
 same as the shallow water system described in LR97. The conservation law
 for the depth of fluid :math:`h` in the shallow water system of LR97
-is replaced by (:eq:`mass-lcv`) for the pressure thickness :math:`\delta p`. 
+is replaced by :eq:`mass-lcv` for the pressure thickness :math:`\delta p`. 
 The ideal gas law, the mass conservation law for air mass,
-the conservation law for the potential temperature (:eq:`Thermo-lcv`),
-together with the modified momentum equations (:eq:`u-lcv`) and (:eq:`v-lcv`)
+the conservation law for the potential temperature :eq:`Thermo-lcv`,
+together with the modified momentum equations :eq:`u-lcv` and :eq:`v-lcv`
 close the 2D Lagrangian dynamical system, which are vertically coupled
-only by the hydrostatic relation (see (:eq:`hydro-PT`), section [FVmap]).
+only by the hydrostatic relation (see :eq:`hydro-PT`), section [FVmap].
 
 The time marching procedure for the 2D Lagrangian dynamics follows
 closely that of the shallow water dynamics fully described in LR97. For
@@ -558,17 +557,15 @@ computational efficiency, we shall take advantage of the stability of
 the FFSL transport algorithm by using a much larger time step
 (:math:`\Delta t)` for the transport of all tracer species (including
 water vapor). As in the shallow water system, the Lagrangian dynamics
-uses a relatively small time step, :math:`\Delta \tau
-=\Delta t/m`, where :math:`m` is the number of the sub-cycling needed
+uses a relatively small time step, :math:`\Delta \tau =\Delta t/m`, where :math:`m` is the number of the sub-cycling needed
 to stabilize the fastest wave in the system. We shall describe here this
-time-split procedure for the *prognostic variables* :math:`
-\left[ \delta p,\Theta ,u,v;q\right]` on the D-grid. Discretization on
+time-split procedure for the *prognostic variables* 
+:math:`\left[ \delta p,\Theta ,u,v;q\right]` on the D-grid. Discretization on
 the C-grid for obtaining the *diagnostic variables*, the time-averaged
-winds :math:`(u^{*},v^{*})`, is analogous to that of the D-grid (see
-also LR97).
+winds :math:`(u^{*},v^{*})`, is analogous to that of the D-grid (see also LR97).
 
-Introducing the following short hand notations (*cf*, (:eq:`def-1`) and
-(:eq:`def-2`)):
+Introducing the following short hand notations (*cf*, :eq:`def-1` and
+:eq:`def-2`):
 
 .. math::
 
@@ -582,7 +579,7 @@ Introducing the following short hand notations (*cf*, (:eq:`def-1`) and
    )^{n+\frac{i-1}{m}}+\frac{1}{2}f[u_{i}^{*},\Delta \tau ,(\,
    )^{n+\frac{i-1}{m}}],
 
-and applying directly (:eq:`air`), the update of “pressure thickness”
+and applying directly :eq:`air`, the update of “pressure thickness”
 :math:`\delta p`, using the fractional time step
 :math:`\Delta \tau =\Delta
 t/m`, can be written as
@@ -645,7 +642,7 @@ divergence on the D-grid, is discretized as follows:
    _{\lambda }u^{n+\frac{i-1}{m}}+\frac{1}{\Delta \theta }\delta _{\theta
    }\left( v^{n+\frac{i-1}{m}}cos\theta \right) \right] .
 
-The finite-volume mean pressure-gradient terms in (:eq:`u`) and (:eq:`v`) are
+The finite-volume mean pressure-gradient terms in :eq:`u` and :eq:`v` are
 computed as follows:
 
 .. math::
@@ -667,10 +664,10 @@ where :math:`\Pi =p^{\kappa }\, (\kappa =R/C_{p})`, and the symbols “:math:`\P
 “:math:`\Pi`\ :math:`\rightleftharpoons \theta`” indicate that the contour integrations are
 to be carried out, using the finite-volume algorithm described in L97, in the :math:`(\Pi ,\lambda )` and :math:`(\Pi ,\theta )` space, respectively.
 
-To complete one time step, equations (:eq:`mass`-[v]), together with their
+To complete one time step, equations :eq:`mass`-[v], together with their
 counterparts on the C-grid are cycled :math:`m` times using the
 fractional time step :math:`\Delta \tau`, which are followed by the
-tracer transport using (:eq:`tracer-lcv`) with the large-time-step
+tracer transport using :eq:`tracer-lcv` with the large-time-step
 :math:`\Delta t`.
 
 Mass fluxes :math:`(x^{*},y^{*})` and the winds
@@ -730,8 +727,7 @@ sub-cycling in CAM5 is given on Figure [fig:subc].
 .. figure:: figures/dt.jpg
    :align: center
    
-   Figure 3.1: A graphical illustration of the different levels of sub-cycling
-   in CAM5.
+   Figure 3.1: A graphical illustration of the different levels of sub-cycling in CAM5.
 
 The algorithm described here can be readily applied to a regional model
 if appropriate boundary conditions are supplied. There is formally no
@@ -750,9 +746,9 @@ auxiliary C-grid and the tendency terms in the D-grid momentum
 equations. No polar filter is applied directly to any of the prognostic
 variables.
 
-The design of the polar filter follows closely that of Suarez and Takacs
-(1995) for the C-grid Arakawa type dynamical core (*e.g*., Arakawa and
-Lamb (1981)). For the the fast-fourier transform component of the polar
+The design of the polar filter follows closely that of :cite:`suarez95`
+for the C-grid Arakawa type dynamical core (*e.g*., :cite:`arakawa81`). 
+For the |cam| the fast-fourier transform component of the polar
 filtering has replaced the algebraic form at all filtering latitudes.
 Because our prognostic variables are computed on the D-grid and the fact
 that the FFSL transport scheme is stable for Courant number greater than
@@ -772,8 +768,7 @@ large-time-step transport perspective, the small-time-step integration
 of the 2D Lagrangian dynamics can be regarded as a very accurate
 iterative solver, with *m* iterations, for computing the time mean winds
 and the mass fluxes, analogous in functionality to a semi-implicit
-algorithm’s elliptic solver (*e.g*., Ringler, Heikes, and D. A. Randall
-(2000)). Besides accuracy, the merit of an “explicit” versus
+algorithm’s elliptic solver (*e.g*., :cite:`ringler00`). Besides accuracy, the merit of an “explicit” versus
 “semi-implicit” algorithm ultimately depends on the computational
 efficiency of each approach. In light of the advantage of the explicit
 algorithm in parallelization, we do not regard the explicit algorithm
@@ -923,7 +918,7 @@ mapping procedure as follows.
     then distributed vertically according to the chosen Eulerian
     coordinate. The surface pressure typically plays an “anchoring” role
     in defining the terrain following Eulerian vertical coordinate. The
-    hybrid :math:`\eta -coordinate` used in the NCAR CCM3 (Kiehl et al. 1996) is adopted in the
+    hybrid :math:`\eta -coordinate` used in the NCAR CCM3 (:cite:`kiehl96`) is adopted in the
     current model setup.
 
     **Step 2**: Construct the piece-wise continuous vertical subgrid
@@ -971,7 +966,7 @@ mapping procedure as follows.
 
     The method employed to create subgrid profiles is set by the flag
     :math:`te\_method`. For :math:`te\_method` = 0 (default), the
-    Piece-wise Parabolic Method (PPM, Colella and Woodward (1984)) over
+    Piece-wise Parabolic Method (PPM, :cite:`colella84`) over
     a pressure coordinate is used and for :math:`te\_method = 1` a
     cublic spline over a logarithmic pressure coordinate is used.
 
@@ -1068,7 +1063,7 @@ As described in section [FVvdisc], the model time integration cycle
 consists of :math:`m` small time steps for the 2D Lagrangian dynamics
 and one large time step for tracer transport. The mapping time step can
 be much larger than that used for the large-time-step tracer transport.
-In tests using the Held-Suarez forcing (Held and Suarez 1994), a
+In tests using the Held-Suarez forcing (:cite:`held94`), a
 three-hour mapping time interval is found to be adequate. In the full
 model integration, one may choose the same time step used for the
 physical parameterizations so as to ensure the input state variables to
@@ -1450,39 +1445,39 @@ Further discussion
 Spectral Element Dynamical Core
 -------------------------------
 
-The CAM includes an optional dynamical core from HOMME, NCAR’s
-High-Order Method Modeling Environment (Dennis et al. 2005). The
-stand-alone HOMME is used for research in several different types of
-dynamical cores. The dynamical core incorporated into CAM4 uses HOMME’s
-continuous Galerkin spectral finite element method (Taylor, Tribbia, and
-Iskandarani 1997; Fournier, Taylor, and Tribbia 2004; Thomas and Loft
-2005; Wang et al. 2007; Taylor and Fournier 2010), here abbreviated to
-the spectral element method (SEM). This method is designed for fully
-unstructured quadrilateral meshes. The current configurations in the CAM
-are based on the cubed-sphere grid. The main motivation for the
-inclusion of HOMME is to improve the scalability of the CAM by
-introducing quasi-uniform grids which require no polar filters (Taylor,
-Edwards, and St.Cyr 2008). HOMME is also the first dynamical core in the
-CAM which locally conserves energy in addition to mass and
-two-dimensional potential vorticity (Taylor 2010).
+The CAM includes an optional dynamical core from HOMME, NCAR's
+High-Order Method Modeling Environment :cite:`dennis05`.  The stand-alone
+HOMME is used for research in several different types of dynamical
+cores.  The dynamical core incorporated into CAM4 uses HOMME's
+continuous Galerkin spectral finite element method 
+:cite:`taylor97`,:cite:`fournier04`,:cite:`thomas05`,:cite:`wang07`,:cite:`taylor10b`,
+here abbreviated to the spectral element method (SEM).  This method
+is designed for fully unstructured quadrilateral meshes.  The current
+configurations in the CAM are based on the cubed-sphere grid.  The main
+motivation for the inclusion of HOMME is to improve the scalability of
+the CAM by introducing quasi-uniform grids which require no polar
+filters :cite:`taylor08`.  HOMME is also the first dynamical core
+in the CAM which locally conserves energy in
+addition to mass and two-dimensional potential vorticity :cite:`taylor10a`.
 
 HOMME represents a large change in the horizontal grid as compared to
-the other dynamical cores in CAM. Almost all other aspects of HOMME are
-based on a combination of well-tested approaches from the Eulerian and
-FV dynamical cores. For tracer advection, HOMME is modeled as closely as
-possible on the FV core. It uses the same conservation form of the
-transport equation and the same vertically Lagrangian discretization
-(Lin 2004). The HOMME dynamics are modeled as closely as possible on
-Eulerian core. They share the same vertical coordinate, vertical
-discretization, hyper-viscosity based horizontal diffusion, top-of-model
-dissipation, and solve the same moist hydrostatic equations. The main
-differences are that HOMME advects the surface pressure instead of its
-logarithm (in order to conserve mass and energy), and HOMME uses the
-vector-invariant form of the momentum equation instead of the
-vorticity-divergence formulation. Several dry dynamical cores including
-HOMME are evaluated in Lauritzen et al. (2010) using a grid-rotated
-version of the baroclinic instability test case (Jablonowski and
-Williamson 2006).
+the other dynamical cores in CAM.  Almost all other aspects of HOMME
+are based on a combination of well-tested approaches from the Eulerian
+and FV dynamical cores.  For tracer advection, HOMME is modeled as
+closely as possible on the FV core.  It uses the same
+conservation form of the transport equation and the same vertically
+Lagrangian discretization :cite:`lin04`.  The HOMME dynamics are
+modeled as closely as possible on Eulerian core.  They share
+the same vertical coordinate, vertical discretization, hyper-viscosity
+based horizontal diffusion, top-of-model dissipation, and solve the
+same moist hydrostatic equations.  The main differences are that HOMME
+advects the surface pressure instead of its logarithm (in order to
+conserve mass and energy), and HOMME uses the vector-invariant form of
+the momentum equation instead of the vorticity-divergence formulation.
+Several dry dynamical cores including HOMME are evaluated in
+:cite:`lauritzen09` using a grid-rotated version of the
+baroclinic instability test case :cite:`jablonowski06`.  
+
 
 The timestepping in HOMME is a form of dynamics/tracer/physics
 subcycling, achieved through the use of multi-stage 2nd order accurate
@@ -1518,7 +1513,7 @@ The hydrostatic approximation
 :math:`\partial p / \partial z  = - g \rho` is used to replace the
 mass density :math:`\rho` by an :math:`\eta`-coordinate pseudo-density
 :math:`\partial p / \partial \eta`. The material derivative in
-:math:`\eta`-coordinates can be written (e.g. Satoh (2004), Sec.3.3),
+:math:`\eta`-coordinates can be written (e.g. (e.g. :cite:`satoh04`, Sec.3.3),
 
 .. math:: \frac{ D X }{D t} = {{\frac{\partial {X}}{\partial t}}} + {{{\smash[t]{\vec{u}}}}}\cdot {\nabla}X + {{\dot\eta}}{\frac{\partial {X}}{\partial \eta}}
 
@@ -1648,8 +1643,8 @@ term must be added to to ensure that dry air mass is conserved.
 
 The energy is specific to the hydrostatic equations. We have omitted
 terms from the physical total energy which are constant under the
-evolution of the unforced hydrostatic equations (Staniforth, Wood, and
-Girard 2003). It can be converted into a more universal form involving
+evolution of the unforced hydrostatic equations (:cite:`staniforth03`).
+It can be converted into a more universal form involving
 :math:`\tfrac12 {{{\smash[t]{\vec{u}}}}}^2 + c^*_v T + \Phi`, with
 :math:`c^*_v` defined similarly to :math:`c^*_p`, so that
 :math:`c^*_v = c_v + (c_{vv}-c_v) q` where :math:`c_v` and
@@ -1701,9 +1696,9 @@ reference square :math:`{{[-1,1]^2}}` and let :math:`r^\alpha` and
 :math:`{{\smash[t]{\vec{r}}}}` be the coordinates and position vector of
 a point on the surface of the sphere, denoted by :math:`\Omega`. We mesh
 :math:`\Omega` using the cubed-sphere grid (Fig. :ref:`f-sphere4`) first used
-in Sadourny (1972). Each cube face is mapped to the surface of the
-sphere with the equal-angle gnomonic projection (Rančić, Purser, and
-Mesinger 1996). The map from the reference element :math:`[-1,1]^2` to
+in :cite:`sadourny72`. Each cube face is mapped to the surface of the
+sphere with the equal-angle gnomonic projection (:cite:`rancic96`).
+The map from the reference element :math:`[-1,1]^2` to
 the cube face is a translation and scaling. The composition of these two
 maps defines a :math:`{\mathcal C^{1}}` map from the spherical elements
 to the reference element :math:`{{[-1,1]^2}}`. We denote this map and
@@ -1818,7 +1813,7 @@ The SEM is a Galerkin method with respect to the
 :math:`{\mathcal V^{1}_{}}` subspace and it can be formulated solely in
 terms of functions in :math:`{\mathcal V^{1}_{}}`. In CAM-HOMME, the
 typical configuration is to run with :math:`d=3` which achieves a 4th
-order accurate horizontal discretization (Taylor and Fournier 2010). All
+order accurate horizontal discretization (:cite:`taylor10b`). All
 variables in the CAM-HOMME initial condition and history files as well
 as variables passed to the physics routines are represented by their
 grid point values at the points
@@ -1847,7 +1842,7 @@ Horizontal Discretization: Differential Operators
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We use the standard curvilinear coordinate formulas for vector operators
-following Heinbockel (2001). Given the :math:`2\times2` Jacobian of the
+following :cite:`heinbockel01`. Given the :math:`2\times2` Jacobian of the
 the mapping from :math:`{{[-1,1]^2}}` to :math:`\Omega_m`, we denote its
 determinant-magnitude by
 
@@ -1880,7 +1875,7 @@ contravariant basis vector and
 is a covariant basis vector.
 
 The dot product and contravariant components of the cross product are
-Heinbockel (2001 Table 1)
+:cite:`heinbockel01` Table 1
 
 .. math::
    :label: e:dotandcross
@@ -1892,8 +1887,8 @@ Heinbockel (2001 Table 1)
 
 where :math:`\epsilon^{\alpha\beta\gamma}\in\{0,\pm1\}` is the
 Levi-Civita symbol. The divergence, covariant coordinates of the
-gradient and contravariant coordinates of the curl are Heinbockel (2001
-eqs. 2.1.1, 2.1.4 & 2.1.6)
+gradient and contravariant coordinates of the curl are 
+:cite:`heinbockel01` [eqs.\ 2.1.1, 2.1.4 and 2.1.6]
 
 .. math::
    :label: e:divgradcurl
@@ -1928,7 +1923,7 @@ boundaries.
 For non-constant :math:`{J}`, these operators may not be computed
 exactly by the SEM due to the Jacobian factors in the operators and the
 Jacobian factors that appear when converting between covariant and
-contravariant coordinates. We follow Thomas and Loft (2000) and evaluate
+contravariant coordinates. We follow :cite:`thomas00`  and evaluate
 these operators in the form shown in . The quadratic terms that appear
 are first projected into :math:`{\mathcal V^{0}_{}}` via interpolation
 at the GLL nodes and then this interpolant is differentiated exactly
@@ -1975,8 +1970,7 @@ The SEM is well known for being quite efficient in computing these types
 of operations. The SEM divergence, gradient and curl can all be
 evaluated at the :math:`(d+1)^3` GLL nodes within each element in
 :math:`\mathcal{O}(d)` operations per node using the tensor-product
-property of these points (Deville, Fischer, and Mund 2002; Karniadakis
-and Sherwin 2005).
+property of these points  :cite:`deville02`,:cite:`karniadakis05`.
 
 Horizontal Discretization: Discrete Inner-Product
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2033,19 +2027,19 @@ be the unique orthogonal (self-adjoint) projection operator from
 :math:`{\mathcal V^{0}_{}}` onto :math:`{\mathcal V^{1}_{}}` w.r.t. the
 SEM discrete inner product . The operation :math:`{{P}}` is essentially
 the same as the common procedure in the SEM described as *assembly*
-(Karniadakis and Sherwin 2005, 7), or *direct stiffness summation*
-(Deville, Fischer, and Mund 2002 eq. 4.5.8). Thus the SEM assembly
+:cite:`karniadakis05` [p.7] or *direct stiffness summation*
+:cite:`deville02` [eq.\ 4.5.8]. Thus the SEM assembly
 procedure is not an ad-hoc way to remove the redundant degrees of
 freedom in :math:`{\mathcal V^{0}_{}}`, but is in fact the natural
 projection operator :math:`{{P}}`. Applying the projection operator in a
 finite element method requires inverting the finite element mass matrix.
 A remarkable fact about the SEM is that with the GLL based discrete
 inner product and the careful choice of global basis functions, the mass
-matrix is diagonal (Maday and Patera 1987). The resulting projection
+matrix is diagonal :cite:`maday87`. The resulting projection
 operator then has a very simple form: at element interior points, it
 leaves the nodal values unchanged, while at element boundary points
 shared by multiple elements it is a Jacobian-weighted average over all
-redundant values (Taylor and Fournier 2010).
+redundant values (:cite:`taylor10b`).
 
 To apply the projection
 :math:`{{P}}: {{{\mathcal V^{0}_{\rm cov}}}} \rightarrow {{{\mathcal V^{1}_{\rm cov}}}}`
@@ -2176,7 +2170,7 @@ where :math:`\Delta\eta_k = \eta_{k+1/2} - \eta_{k-1/2}`. We use the
 over-bar notation since the formula can be seen as a
 :math:`{\pi}`-weighted average of a layer interface centered difference
 approximation to :math:`{{\dot\eta}}\partial/\partial \eta`. This
-formulation was constructed in Simmons and Burridge (1981) in order to
+formulation was constructed in :cite:`simmons81b` in order to
 ensure mass and energy conservation. Here we will use an equivalent
 expression that can be written in terms of
 :math:`{ \mathop{\delta_\eta}}`,
@@ -2289,7 +2283,7 @@ Similar to [eul:econserve], we note that
    \Delta\eta_i \, C_{ij}  = \Delta\eta_j \, H_{ji} 
    
 
-which ensures energy conservation (Taylor 2010).
+which ensures energy conservation (:cite:`taylor10a`).
 
 Consistency
 ~~~~~~~~~~~
@@ -2311,7 +2305,7 @@ then we can derive, at layer mid-points,
 
 A second type of consistency that has been identified as important is
 that , the discrete equation for :math:`\omega`, be consistent with ,
-the discrete continuity equation (D. L. Williamson and Olson 1994b). The
+the discrete continuity equation (:cite:`williamson94`). The
 two discrete equations should imply a reasonable discretization of
 :math:`\omega = Dp/Dt`. To show this, we take the average of at layers
 :math:`i-1/2` and :math:`i+1/2` and combine this with (at layer
@@ -2369,7 +2363,7 @@ for vectors can be written as
 .. math:: {{\frac{\partial {{{{\smash[t]{\vec{u}}}}}}}{\partial t}}} = -\nu \Delta^2 {{{\smash[t]{\vec{u}}}}}.
 
 An integral form of this equation suitable for the SEM is obtained using
-a mixed finite element formulation (following Giraldo (1999)) which
+a mixed finite element formulation (:cite:`giraldo99`) which
 writes the equation as a system of equations involving only first
 derivatives. We start by introduced an auxiliary vector
 :math:`{{\smash[t]{\vec{f}}}}` and using the identity
@@ -2446,13 +2440,13 @@ Discrete formulation: Tracer Advection
 
 All tracers, including specific humidity, are advected with a
 discretized version of . HOMME uses the vertically Lagrangian approach
-(see [FVvdisc]) from Lin (2004). At the beginning of each timestep, the
+(see [FVvdisc]) from :cite:`lin04`. At the beginning of each timestep, the
 tracers are assumed to be given on the :math:`\eta`-coordinate layer mid
 points. The tracers are advanced in time on a moving vertical coordinate
 system :math:`\eta'` defined so that :math:`{{\dot\eta}}' = 0`. At the
 end of the timestep, the tracers are remapped back to the
 :math:`\eta`-coordinate layer mid points using the monotone remap
-algorithm from Zerroukat, Wood, and Staniforth (2005).
+algorithm from :cite:`zerroukat05`.
 
 The horizontal advection step consists of using the SEM to solve
 
@@ -2474,8 +2468,8 @@ consistency capability is not in the version of HOMME included in CAM
 4.0, but should be in all later versions.
 
 The equation is discretized in time using the optimal 3 stage strong
-stability preserving (SSP) second order Runge-Kutta method from Spiteri
-and Ruuth (2002). The RK-SSP method is chosen because it will preserve
+stability preserving (SSP) second order Runge-Kutta method from :cite:`spiteri02`.  
+The RK-SSP method is chosen because it will preserve
 the monotonicity properties of the horizontal discretization. RK-SSP
 methods are convex combinations of forward-Euler timesteps, so each
 stage :math:`s` of the RK-SSP timestep looks like
@@ -2490,8 +2484,7 @@ stage :math:`s` of the RK-SSP timestep looks like
 
 Simply discretizing this equation with the SEM will result in locally
 conservative, high-order accurate but oscillatory transport scheme. A
-limiter is added to reduce or eliminate these oscillations (Taylor,
-St.Cyr, and Fournier 2009). HOMME supports both monotone and
+limiter is added to reduce or eliminate these oscillations (:cite:`taylor09`). HOMME supports both monotone and
 sign-preserving limiters, but the most effective limiter for HOMME has
 not yet been determined. The default configuration in CAM4 is to use the
 sign-preserving limiter to prevent negative values of :math:`q` coupled
@@ -2503,7 +2496,7 @@ Conservation and Compatibility
 
 The SEM is compatible, meaning it has a discrete version of the
 divergence theorem, Stokes theorem and curl/gradient annihilator
-properties Taylor and Fournier (2010). The divergence theorem is the key
+properties :cite:`taylor10b`. The divergence theorem is the key
 property of the horizontal discretization that is needed to show
 conservation. For an arbitrary scalar :math:`h` and vector
 :math:`{{{\smash[t]{\vec{u}}}}}` at layer mid-points, the divergence
@@ -2524,9 +2517,9 @@ The discrete divergence and Stokes theorem apply locally at the element
 with the addition of an element boundary integral. The local form is
 used to show local conservation of mass and that the horizontal
 advection operator locally conserves the two-dimensional potential
-vorticity (Taylor and Fournier 2010).
+vorticity (\citep{taylor10b}).
 
-In the vertical, Simmons and Burridge (1981) showed that the
+In the vertical, :cite:`simmons81b` showed that the
 :math:`{ \mathop{\delta_\eta}}` and
 :math:`{ \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}` operators
 needed to satisfy two integral identities to ensure conservation. For
@@ -2568,14 +2561,13 @@ which is a discrete integrated-by-parts analog of :math:`
 spaced grid is the reason behind the complex definition for
 :math:`{ \mathop{\overline{ {{\dot\eta}}\delta_\eta }}}` in .
 
-The energy conservation properties of CAM-HOMME were studied in Taylor
-(2010) using the aqua planet test case (Neale and Hoskins 2001a; Neale
-and Hoskins 2001b). CAM-HOMME uses
+The energy conservation properties of CAM-HOMME were studied in :cite:`taylor10a`)
+using the aqua planet test case (:cite:`neale01a,neale01b`). CAM-HOMME uses
 
 .. math::
 
    E =   
-    {\langle}\sum_{i=1}^K \Delta \eta_i {\pi}_i  \left( \frac12 {{{\smash[t]{\vec{u}}}}}^2 + c_p^* T  \right)_i
+   {\langle}\sum_{i=1}^K \Delta \eta_i {\pi}_i  \left( \frac12 {{{\smash[t]{\vec{u}}}}}^2 + c_p^* T  \right)_i
    {\rangle}+
    {\langle}p_s \Phi_s 
    {\rangle}
@@ -2589,36 +2581,37 @@ precision at a second-order rate with decreasing timestep. In the full
 non-adiabatic case with a realistic timestep,
 :math:`dE/dt \sim 0.013 \text{W/m}^2`.
 
-The CAM physics conserve a dry energy :math:`E_{\text dry}` from Boville
-and Bretherton (2003) which is not conserved by the moist primitive
+The CAM physics conserve a dry energy :math:`E_{\text dry}` from :cite:`boville03`
+which is not conserved by the moist primitive
 equations. Although :math:`E-E_{\text dry}` is small, adiabatic
 processes in the primitive equations result in a net heating
-:math:`dE_{\text dry}/dt \sim 0.5 \text{W/m}^2` (Taylor 2010). If it is
+:math:`dE_{\text dry}/dt \sim 0.5 \text{W/m}^2` (:cite:`taylor10a`). If it is
 desired that the dynamical core conserve :math:`E_\text{dry}` instead of
-:math:`E`, HOMME uses the energy fixer from [energyfixer].
+:math:`E`, HOMME uses the energy fixer from :ref:`energyfixer`.
 
 Eulerian Dynamical Core
 -----------------------
 
-The hybrid vertical coordinate that has been implemented in is described
-in this section. The hybrid coordinate was developed by Simmons and
-Strüfing (1981) in order to provide a general framework for a vertical
-coordinate which is terrain following at the Earth’s surface, but
-reduces to a pressure coordinate at some point above the surface. The
-hybrid coordinate is more general in concept than the modified
-:math:`\sigma` scheme of Sangster (1960), which is used in the GFDL
-SKYHI model. However, the hybrid coordinate is normally specified in
-such a way that the two coordinates are identical.
+The hybrid vertical coordinate that has been implemented in {\cam} is
+described in this section. The hybrid coordinate was developed by
+:cite:`simmons81a` in order to provide a general framework for a
+vertical coordinate which is terrain following at the Earth's surface,
+but reduces to a pressure coordinate at some point above the
+surface. The hybrid coordinate is more general in concept than the
+modified :math:`sigma` scheme of :cite:`sangster60`, which is used in the
+GFDL SKYHI model. However, the hybrid coordinate is normally specified
+in such a way that the two coordinates are identical.
 
-The following description uses the same general development as Simmons
-and Strüfing (1981), who based their development on the generalized
-vertical coordinate of Kasahara (1974). A specific form of the
-coordinate (the hybrid coordinate) is introduced at the latest possible
-point. The description here differs from Simmons and Strüfing (1981) in
+The following description uses the same general development as
+:cite:`simmons81a`, who based their development on the generalized
+vertical coordinate of :cite:`kasahara74`.  A specific form of the
+coordinate (the hybrid coordinate) is introduced at the latest
+possible point. The description here differs from :cite:`simmons81a` in
 allowing for an upper boundary at finite height (nonzero pressure), as
-in the original development by Kasahara. Such an upper boundary may be
-required when the equations are solved using vertical finite
+in the original development by Kasahara.  Such an upper boundary may
+be required when the equations are solved using vertical finite
 differences.
+
 
 Generalized terrain-following vertical coordinates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2640,7 +2633,7 @@ require the generalized coordinate :math:`\eta(p,\pi)` to satisfy:
 The latter requirement provides that the top of the model will be a
 pressure surface, simplifying the specification of boundary conditions.
 In the case that :math:`p_t=0`, the last two requirements are identical
-and the system reduces to that described in Simmons and Strüfing (1981).
+and the system reduces to that described in :cite:`simmons81a`.
 The boundary conditions that are required to close the system are:
 
 .. math::
@@ -2654,8 +2647,8 @@ The boundary conditions that are required to close the system are:
    \dot\eta(p_t,\pi) =  \omega(p_t) = 0.  
 
 Given the above description of the coordinate, the continuous system of
-equations can be written following Kasahara (1974) and Simmons and
-Strüfing (1981). The prognostic equations are:
+equations can be written following \citet{kasahara74} and
+:cite:`simmons81a`. The prognostic equations are:
 
 .. math::
    :label: 3.a.3
@@ -2965,16 +2958,16 @@ with the aid of :eq:`3.a.17`, :eq:`3.a.18`, and :eq:`3.a.22`.
 
 Once :math:`\eta(p,\pi)` is specified, then
 :math:`\partial p/\partial\pi` can be determined and
-(:eq:`3.a.23`)-(:eq:`3.a.32`) can be solved in a GCM.
+:eq:`3.a.23` - :eq:`3.a.32` can be solved in a GCM.
 
 In the actual definition of the hybrid coordinate, it is not necessary
-to specify :math:`\eta(p,\pi)` explicitly, since (:eq:`3.a.23`)-(:eq:`3.a.32`)
+to specify :math:`\eta(p,\pi)` explicitly, since :eq:`3.a.23` -:eq:`3.a.32`
 only requires that :math:`p` and :math:`\partial
 p/\partial\pi` be determined. It is sufficient to specify
 :math:`p(\eta,\pi)` and to let :math:`\eta` be defined implicitly. This
 will be done in section [ssec:finitediffeqs]. In the case that
 :math:`p(\eta,\pi)=\sigma\pi` and :math:`\eta_t=0`,
-(:eq:`3.a.23`)-(:eq:`3.a.32`) can be reduced to the set of equations solved by
+:eq:`3.a.23` - :eq:`3.a.32` can be reduced to the set of equations solved by
 CCM1.
 
 Continuous equations using :math:`\partial\ln(\pi)/\partial t`
@@ -2982,9 +2975,9 @@ Continuous equations using :math:`\partial\ln(\pi)/\partial t`
 
 In practice, the solutions generated by solving the above equations are
 excessively noisy. This problem appears to arise from aliasing problems
-in the hydrostatic equation (:eq:`3.a.30`). The :math:`\ln p` integral
+in the hydrostatic equation :eq:`3.a.30`. The :math:`\ln p` integral
 introduces a high order nonlinearity which enters directly into the
-divergence equation (:eq:`3.a.24`). Large gravity waves are generated in the
+divergence equation :eq:`3.a.24`. Large gravity waves are generated in the
 vicinity of steep orography, such as in the Pacific Ocean west of the
 Andes.
 
@@ -3257,6 +3250,11 @@ the vertical. The column vectors representing a vertical column of grid
 points will be denoted by underbars, the matrices will be denoted by
 bold-faced capital letters, and superscript :math:`T` will denote the
 vector transpose.
+
+.. figure:: figures/figure3-1.jpg
+   :align: center
+
+   Vertical structure of |cam|
 
 The finite difference forms of :eq:`3.a.52` -:eq:`3.a.54`  may then be written
 down as:
@@ -3542,8 +3540,8 @@ where :math:`C_{k\ell}=0` for :math:`\ell>k`, and :math:`C_{k\ell}` is
 included as an approximation to :math:`1/p_k` for :math:`\ell \leq k`
 and the symbol :math:`\Delta` is similarly defined as in :eq:`3.a.62` .
 :math:`C_{k\ell}` will be determined so that :math:`\omega` is
-consistent with the discrete continuity equation following D. L.
-Williamson and Olson (1994a). Using :eq:`3.a.69`  and :eq:`3.a.71` , the
+consistent with the discrete continuity equation following 
+:cite:`williamson94a`. Using :eq:`3.a.69`  and :eq:`3.a.71` , the
 finite difference analog of :eq:`3.a.68`  is
 
 .. math::
@@ -3617,9 +3615,9 @@ spherical harmonic expansions.
 Horizontal diffusion
 ~~~~~~~~~~~~~~~~~~~~
 
-contains a horizontal diffusion term for :math:`T, \zeta`, and
+|cam| contains a horizontal diffusion term for :math:`T, \zeta`, and
 :math:`\delta` to prevent spectral blocking and to provide reasonable
-kinetic energy spectra. The horizontal diffusion operator in is also
+kinetic energy spectra. The horizontal diffusion operator in |cam| is also
 used to ensure that the CFL condition is not violated in the upper
 layers of the model. The horizontal diffusion is a linear
 :math:`\nabla^2` form on :math:`\eta` surfaces in the top three levels
@@ -3655,7 +3653,7 @@ horizontal diffusion is given by
 Since these terms are linear, they are easily calculated in spectral
 space. The undifferentiated correction term is added to the vorticity
 and divergence diffusion operators to prevent damping of uniform
-:math:`(n=1)` rotations (Orszag 1974; Bourke et al. 1977). The
+:math:`(n=1)` rotations (:cite:`orszag74,bourke77`). The
 :math:`\nabla^2` form of the horizontal diffusion is applied *only* to
 pressure surfaces in the standard model configuration.
 
@@ -4065,16 +4063,16 @@ in the horizontal. It is more efficient computationally to substitute
 the definitions of these matrices into :eq:`3.a.95`  and :eq:`3.a.104`  at the
 cost of some loss of generality in the code. The finite difference
 equations have been written in the form :eq:`3.a.94` -:eq:`3.a.111`  because
-this form is quite general. For example, the equations solved by Simmons
-and Strüfing (1981) at ECMWF can be obtained by changing only the
+this form is quite general. For example, the equations solved by :cite:`simmons81a` 
+at ECMWF can be obtained by changing only the
 vectors and hydrostatic matrix defined by :eq:`3.a.108` -:eq:`3.a.111` .
 
 Time filter
 ~~~~~~~~~~~
 
 The time step is completed by applying a recursive time filter
-originally designed by (Robert 1966) and later studied by (Asselin
-1972).
+originally designed by :cite:`robert66` and later studied by
+:cite:`asselin72`.
 
 .. math::
 
@@ -4104,62 +4102,66 @@ and the user need not be too concerned with the spectral aspects. For
 users interested in diagnosing the balance of terms in the evolution
 equations, however, the details are important and care must be taken to
 understand which terms have been spectrally truncated and which have
-not. The algebra involved in the spectral transformations has been
-presented in several publications (Daley et al. 1976; Bourke et al.
-1977; Machenhauer 1979). In this report, we present only the details
-relevant to the model code; for more details and general philosophy, the
-reader is referred to these earlier papers.
+not.  The algebra involved in the spectral transformations has been presented in several
+publications :cite:`daley76,bourke77,machenhauer79`.  In this report,
+we present only the details relevant to the model code; for more
+details and general philosophy, the reader is referred to these
+earlier papers.
 
 Spectral algorithm overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| The horizontal representation of an arbitrary variable :math:`\psi`
-  consists of a truncated series of spherical harmonic functions,
+The horizontal representation of an arbitrary variable :math:`\psi`
+consists of a truncated series of spherical harmonic functions,
 
-  .. math::
-     :label: 3.b.1
+.. math::
+   :label: 3.b.1
 
-     \psi(\lambda, \mu) = \sum^M_{m=-M} \; \; \sum^{{\mathcal N} \left( m
-     \right)}_{n=|m|} \psi^m_n P^m_n (\mu) e^{im \lambda} , 
+   \psi(\lambda, \mu) = \sum^M_{m=-M} \; \; \sum^{{\mathcal N} \left( m
+   \right)}_{n=|m|} \psi^m_n P^m_n (\mu) e^{im \lambda} , 
 
-  where :math:`\mu = \sin \phi, \ M` is the highest Fourier wavenumber
-  included in the east–west representation, and :math:`{\mathcal N}\left( m
-  \right)` is the highest degree of the associated Legendre polynomials
-  for longitudinal wavenumber :math:`m`. The properties of the spherical
-  harmonic functions used in the representation can be found in the
-  review by Machenhauer (1979). The model is coded for a general
-  pentagonal truncation, illustrated in Figure [figure:2], defined by
-  three parameters: :math:`M, K`, and :math:`N`, where :math:`M` is
-  defined above, :math:`K` is the highest degree of the associated
-  Legendre polynomials, and :math:`N` is the highest degree of the
-  Legendre polynomials for :math:`m= 0`. The common truncations are
-  subsets of this pentagonal case:
+where :math:`\mu = \sin \phi, \ M` is the highest Fourier wavenumber
+included in the east–west representation, and :math:`{\mathcal N}\left( m
+\right)` is the highest degree of the associated Legendre polynomials
+for longitudinal wavenumber :math:`m`. The properties of the spherical
+harmonic functions used in the representation can be found in the
+review by :cite:`machenhauer79`. The model is coded for a general
+pentagonal truncation, illustrated in Figure [figure:2], defined by
+three parameters: :math:`M, K`, and :math:`N`, where :math:`M` is
+defined above, :math:`K` is the highest degree of the associated
+Legendre polynomials, and :math:`N` is the highest degree of the
+Legendre polynomials for :math:`m= 0`. The common truncations are
+subsets of this pentagonal case:
 
-  .. math::
-     :label: 3.b.2
+.. math::
+   :label: 3.b.2
 
-     \begin{aligned}
-     \mathrm{Triangular:} \; &M = N = K , \nonumber \\ \mathrm{Rhomboidal:}
-     \; &K = N + M ,  \\ \mathrm{Trapezoidal:} \; &N = K > M
-     . \nonumber\end{aligned}
+   \begin{aligned}
+   \mathrm{Triangular:} \; &M = N = K , \nonumber \\ \mathrm{Rhomboidal:}
+   \; &K = N + M ,  \\ \mathrm{Trapezoidal:} \; &N = K > M
+   . \nonumber\end{aligned}
 
-  The quantity :math:`{\mathcal N} \left( m \right)` in :eq:`3.b.1` 
-  represents an arbitrary limit on the two-dimensional wavenumber
-  :math:`n`, and for the pentagonal truncation described above is
-  simply given by
+The quantity :math:`{\mathcal N} \left( m \right)` in :eq:`3.b.1` 
+represents an arbitrary limit on the two-dimensional wavenumber
+:math:`n`, and for the pentagonal truncation described above is
+simply given by
 
   :math:`{\mathcal N} \left( m \right) = \min\left(N + \vert m \vert , K \right)`.
 
 The associated Legendre polynomials used in the model are normalized
 such that
 
-.. math:: \int^1_{-1} \left[P^m_n(\mu)\right]^2 d\mu = 1 .  
-	  :label: 3.b.3
+.. math:: 
+   :label: 3.b.3
+
+   \int^1_{-1} \left[P^m_n(\mu)\right]^2 d\mu = 1 .  
 
 With this normalization, the Coriolis parameter :math:`f` is
 
-.. math:: f = \frac{\Omega}{\sqrt {0.375}} P^o_1 , 
-	  :label: 3.b.4
+.. math:: 
+   :label: 3.b.4
+
+   f = \frac{\Omega}{\sqrt {0.375}} P^o_1 , 
 
 which is required for the absolute vorticity.
 
@@ -4301,7 +4303,7 @@ spherical harmonics:
    \end{cases}
    
 
-The model uses the spectral transform method (Machenhauer 1979) for all
+The model uses the spectral transform method (\citep{machenhauer79}) for all
 nonlinear terms. However, the model can be thought of as starting from
 grid–point values at time :math:`t` (consistent with the spectral
 representation) and producing a forecast of the grid–point values at
@@ -4782,7 +4784,7 @@ speed is large enough that :math:`n_c < K`, the truncation parameter in
 :eq:`3.b.2` , and temporarily reduces the effective resolution of the model
 in the affected levels. The number of levels at which this “Courant
 number limiter” may be applied is user-selectable, but it is only used
-in the top level of the 26 level control runs.
+in the top level of the 26 level |cam| control runs.
 
 The diffusion of :math:`T` is not complete at this stage. In order to
 make the partial correction from :math:`\eta` to :math:`p` in :eq:`3.a.81` 
@@ -5127,7 +5129,7 @@ latitude. Poleward of 70\ :math:`^\circ` we transform to a local
 geodesic coordinate for the calculation at each arrival point. The local
 geodesic coordinate is essentially a rotated spherical coordinate system
 whose equator goes through the arrival point. Details are provided in
-Williamson and Rasch (1989). The transformed system is rotated about the
+:cite:`williamson89`. The transformed system is rotated about the
 axis through :math:`\left( \lambda_A - \frac{\pi}{2}, 0
 \right)` and :math:`\left( \lambda_A + \frac{\pi}{2}, 0 \right)`, by an
 angle :math:`\varphi_A` so the equator goes through
@@ -5205,8 +5207,8 @@ The interpolants are most easily defined on the interval 0 :math:`\leq \theta \l
 
 where :math:`x` is either :math:`\lambda` or :math:`\varphi` and the
 departure point :math:`x_D` falls within the interval
-:math:`\left( x_i, x_{i+1} \right)`. Following (23) of (Rasch and
-Williamson 1990) with :math:`r_i=3` the Hermite cubic interpolant is
+:math:`\left( x_i, x_{i+1} \right)`. Following (23) of (:cite:`rasch90`) 
+with :math:`r_i=3` the Hermite cubic interpolant is
 given by
 
 .. math::
@@ -5225,7 +5227,7 @@ where :math:`q_i` is the value at the grid point :math:`x_i`,
 :math:`d_i` is the derivative estimate given below, and
 :math:`h_i = x_{i+1} - x_i`.
 
-Following (3.2.12) and (3.2.13) of Hildebrand (1956), the Lagrangian
+Following (3.2.12) and (3.2.13) of :cite:`hildebrand56`, the Lagrangian
 cubic polynomial interpolant used for the velocity interpolation, is
 given by
 
@@ -5435,7 +5437,7 @@ beginning of the time step.
 The fixers which ensure conservation are applied to the dry atmospheric
 mass, water vapor specific humidity and constituent mixing ratios. For
 water vapor and atmospheric mass the desired discrete relations,
-following D. L. Williamson and Olson (1994a) are
+following :cite:`williamson94a` are
 
 .. math::
    :label: 3.d.1
@@ -5480,7 +5482,7 @@ denotes the provisional value before adjustment. The form
 ratio is small and when the change made to the mixing ratio by the
 advection is small. In addition, the :math:`\eta` factor is included to
 make the changes approximately proportional to mass per unit volume
-(Rasch, Boville, and Brasseur 1995). Satisfying :eq:`3.d.1`  and :eq:`3.d.2` 
+(:cite:`rasch95`). Satisfying :eq:`3.d.1`  and :eq:`3.d.2` 
 gives
 
 .. math::
@@ -5517,7 +5519,7 @@ conservation:
    (1-q^-)\Delta p^- \ .
    
 The term :math:`(1-q)\Delta p` defines the dry air mass in a layer.
-Following Rasch, Boville, and Brasseur (1995) the change made by the
+Following :cite:`rasch95` the change made by the
 fixer has the same form as :eq:`3.d.5` 
 
 .. math::
@@ -5576,7 +5578,7 @@ e.g. at the end of the model time step. Therefore, we now replace
     \ .
 
 There is a corresponding change in the first term of the numerator of
-:eq:`3.d.10`  in which :math:`q^-` is replace by :math:`q^0`. uses
+:eq:`3.d.10`  in which :math:`q^-` is replace by :math:`q^0`. |cam| uses
 :eq:`3.d.10`  for water substances and constituents affecting the
 temperature field to prevent changes to the IPCC simulations. In the
 future, constituent fields may use a *corrected* version of :eq:`3.d.10` .
@@ -5711,7 +5713,7 @@ reduced grids. The term reduced grid generally refers to a grid based on
 latitude and longitude circles in which the longitudinal grid increment
 increases at latitudes approaching the poles so that the longitudinal
 distance between grid points is reasonably constant. Details are
-provided in (Williamson and Rosinski 2000). This option provides a
+provided in (:cite:`williamson00`). This option provides a
 saving of computer time of up to 25%.
 
 .. _sec-semi-lagrange:
@@ -5723,8 +5725,8 @@ Introduction
 ~~~~~~~~~~~~
 
 The two-time-level semi-implicit semi-Lagrangian spectral transform
-dynamical core in evolved from the three-time-level CCM2 semi-Lagrangian
-version detailed in D. L. Williamson and Olson (1994a) hereafter
+dynamical core in |cam| evolved from the three-time-level CCM2 semi-Lagrangian
+version detailed in :cite:`williamson94a` hereafter
 referred to as W&O94. As a first approximation, to convert from a
 three-time-level scheme to a two-time-level scheme, the time level index
 n-1 becomes n, the time level index n becomes n+\ :math:`\frac{1}{ 2}`,
@@ -5745,22 +5747,26 @@ Vertical coordinate and hydrostatic equation
 The semi-Lagrangian dynamical core adopts the same hybrid vertical
 coordinate (:math:`\eta`) as the Eulerian core defined by
 
-.. math:: p(\eta, p_s) = A (\eta)p_o + B(\eta) p_s \; , 
-	  :label: sld.1
+.. math:: 
+   :label: sld.1
+
+   p(\eta, p_s) = A (\eta)p_o + B(\eta) p_s \; , 
 
 where :math:`p` is pressure, :math:`p_s` is surface pressure, and
 :math:`p_o` is a specified constant reference pressure. The coefficients
 :math:`A` and :math:`B` specify the actual coordinate used. As mentioned
-by Simmons and Burridge (1981) and implemented by Simmons and Strüfing
-(1981) and Simmons and Strüfing (1983), the coefficients :math:`A` and
+by :cite:`simmons81b` and implemented by :cite:`simmons81a`
+and :cite:`simmons83`, the coefficients :math:`A` and
 :math:`B` are defined only at the discrete model levels. This has
 implications in the continuity equation development which follows.
 
 In the :math:`\eta` system the hydrostatic equation is approximated in a
 general way by
 
-.. math:: \Phi_k = \Phi_s + R \sum^K_{l=k} H_{kl}\, (p)\, T_{vl} 
-	  :label: sld.2
+.. math:: 
+   :label: sld.2
+
+   \Phi_k = \Phi_s + R \sum^K_{l=k} H_{kl}\, (p)\, T_{vl} 
 
 where k is the vertical grid index running from 1 at the top of the
 model to :math:`K` at the first model level above the surface,
@@ -5782,7 +5788,7 @@ constant :math:`T^r` and :math:`p_s^r`. We choose
 Perturbation surface pressure prognostic variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To ameliorate the mountain resonance problem, Ritchie and Tanguay (1996)
+To ameliorate the mountain resonance problem, :cite:`ritchie_tanguay96` 
 introduce a perturbation :math:`{\rm ln}\,p_{s}` surface pressure
 prognostic variable
 
@@ -5793,14 +5799,14 @@ prognostic variable
    ln}\,p_{s}^* &=& - \frac{\Phi_s}{R T^r}\end{aligned}
 
 The perturbation surface pressure, :math:`{\rm ln}\,p'_{s}`, is never
-actually used as a grid point variable in the code. It is only used for
+actually used as a grid point variable in the |cam| code. It is only used for
 the semi-implicit development and solution. The total :math:`{\rm
 ln}\,p_{s}` is reclaimed in spectral space from the spectral
 coefficients of :math:`\Phi_s` immediately after the semi-implicit
 equations are solved, and transformed back to spectral space along with
 its derivatives. This is in part because
 :math:`\nabla ^4{\rm ln}\,p_{s}` is needed for the horizontal diffusion
-correction to pressure surfaces. However the semi-Lagrangian default is
+correction to pressure surfaces. However the semi-Lagrangian |cam| default is
 to run with no horizontal diffusion.
 
 Extrapolated variables
@@ -5997,7 +6003,7 @@ Thermodynamic Equation
 
 The thermodynamic equation is obtained from (25) of W&O94 modified to be
 spatially uncentered and to use :math:`{\rm ln}\,p_{s}'`. In addition
-Hortal’s modification (Temperton, Hortal, and Simmons 2001) is included,
+Hortal’s modification (\citep{tempertonetal01}) is included,
 in which
 
 .. math::
@@ -6074,7 +6080,7 @@ Momentum equations
 
 The momentum equations follow from (3) of W&O94 modified to be spatially
 uncentered, to use :math:`{\rm ln}\,p_{s}'`, and with the Coriolis term
-implicit following Côté and Staniforth (1988) and Temperton (1997). The
+implicit following :cite:`cote_staniforth88` and :cite:`temperton97`. The
 semi-implicit, semi-Lagrangian momentum equation at level :math:`k` (but
 with the level subscript :math:`k` suppressed) is
 
@@ -6201,7 +6207,7 @@ spherical unit vectors in the longitudinal and latitudinal directions,
 respectively, at the points indicated by the subscripts, and
 :math:`\mathcal U` and :math:`\mathcal V` denote the appropriate combinations of
 terms in [vmeq]. Note that :math:`{\mathcal U}^{^{n+1}}_{_{A}}` is distinct
-from the :math:`{\mathcal U}_{_{A}}`. Following Bates et al. (1990),
+from the :math:`{\mathcal U}_{_{A}}`. Following :cite:`batesetal90`,
 equations for the individual components are obtained by relating the
 unit vectors at the departure points
 (:math:`{\bf {\hat{i}}}_{_{D}}`,\ :math:`{\bf {\hat{j}}}_{_{D}}`) to
@@ -6219,9 +6225,9 @@ those at the arrival points
 in which the vertical components (:math:`{\bf {\hat{k}}}`) are ignored.
 The dependence of :math:`\alpha`\ ’s and :math:`\beta`\ ’s on the
 latitudes and longitudes of the arrival and departure points is given in
-the Appendix of Bates et al. (1990).
+the Appendix of :cite:`batesetal90`.
 
-W&O94 followed Bates et al. (1990) which ignored rotating the vector to
+W&O94 followed :cite:`batesetal90` which ignored rotating the vector to
 remain parallel to the earth’s surface during translation. We include
 that factor by keeping the length of the vector written in terms of
 :math:`\left({\mathbf{{\hat{i}}}}_{_{A}},{\mathbf{{\hat{j}}}}_{_{A}}\right)`
@@ -6321,7 +6327,7 @@ Then the vorticity and divergence equations become
 
 Transform to spectral space as described in the description of the
 Eulerian spectral transform dynamical core. Note, from (4.5b) and (4.6)
-on page 177 of Machenhauer (1979)
+on page 177 of :cite:`machenhauer79`
 
 .. math::
 
@@ -6329,7 +6335,7 @@ on page 177 of Machenhauer (1979)
      \mu P_n^m &=& D_{n+1}^m P_{n+1}^m + D_{n}^m P_{n-1}^m \\ D_{n}^m &=&
      \left({n^2-m^2 \over 4n^2-1}\right)^{1 \over 2}\end{aligned}
 
-and from (4.5a) on page 177 of Machenhauer (1979)
+and from (4.5a) on page 177 of :cite:`machenhauer79`
 
 .. math::
 
@@ -6645,7 +6651,7 @@ The remaining variables are obtained in physical space by
 Trajectory Calculation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The trajectory calculation follows Hortal (1999) Let
+The trajectory calculation follows :cite:`hortal99` Let
 :math:`{\boldsymbol{R}}` denote the position vector of the parcel,
 
 .. math:: {d{\boldsymbol{R}} \over dt} = {\boldsymbol{V}}

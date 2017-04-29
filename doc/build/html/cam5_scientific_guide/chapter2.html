@@ -85,9 +85,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="coupling-of-dynamical-core-and-parameterization-suite">
-<span id="chap-coupling"></span><h1>3. Coupling of Dynamical Core and Parameterization Suite<a class="headerlink" href="#coupling-of-dynamical-core-and-parameterization-suite" title="Permalink to this headline">¶</a></h1>
-<p>The cleanly separates the parameterization suite from the dynamical
+  <span class="target" id="chap-coupling"></span><div class="section" id="coupling-of-dynamical-core-and-parameterization-suite">
+<h1>3. Coupling of Dynamical Core and Parameterization Suite<a class="headerlink" href="#coupling-of-dynamical-core-and-parameterization-suite" title="Permalink to this headline">¶</a></h1>
+<p>The CAM6.0 cleanly separates the parameterization suite from the dynamical
 core, and makes it easier to replace or modify each in isolation. The
 dynamical core can be coupled to the parameterization suite in a purely
 time split manner or in a purely process split one, as described below.</p>
@@ -147,7 +147,7 @@ dependency left understood. With this notation the <em>Time Split</em> system
 <a class="reference internal" href="#equation-5">(4)</a> and <a class="reference internal" href="#equation-6">(5)</a> can be written</p>
 <div class="math" id="equation-9">
 <p><span class="eqno">(8)<a class="headerlink" href="#equation-9" title="Permalink to this equation">¶</a></span><img src="../_images/math/66d73bbcdf1cf67741e88b859c52163175cec38b.png" alt="\psi^{n+1} = {\boldsymbol{P}}\left({\boldsymbol{D}}\left(\psi^{n-1},0\right)\right) \;."/></p>
-</div><p>The total parameterization package in consists of a sequence of
+</div><p>The total parameterization package in CAM6.0 consists of a sequence of
 components, indicated by</p>
 <div class="math" id="equation-10">
 <p><span class="eqno">(9)<a class="headerlink" href="#equation-10" title="Permalink to this equation">¶</a></span><img src="../_images/math/5f5be224dd36f0f6648ce4d9029bc9dd66654a44.png" alt="P = \{ M,R,S,T \} \;,"/></p>
@@ -166,7 +166,7 @@ provide lower flux boundary conditions for the turbulent mixing
 <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> which is comprised of the planetary boundary layer
 parameterization, vertical diffusion, and gravity wave drag.</p>
 <p>Defining operators following <a class="reference internal" href="#equation-7">(6)</a> for each of the parameterization
-components, the couplings in are summarized as:</p>
+components, the couplings in CAM6.0 are summarized as:</p>
 <p>TIME SPLIT</p>
 <div class="math" id="equation-11">
 <p><span class="eqno">(10)<a class="headerlink" href="#equation-11" title="Permalink to this equation">¶</a></span><img src="../_images/math/7d68e796d27c2c5872327e9ca1c727d3adcac174.png" alt="\psi^{n+1} = {\boldsymbol{T}}\left({\boldsymbol{S}}\left({\boldsymbol{R}}\left({\boldsymbol{M}}\left(
@@ -196,7 +196,7 @@ coordinate every sub-step of the dynamical core. Besides the expense
 involved, it is not completely obvious how to interpolate the
 parameterized forcing, which can have a vertical grid scale component
 arising from vertical grid scale clouds, to a different vertical grid.
-<a class="reference internal" href="references.html#williamson-2002"><span class="std std-ref">Williamson 2002</span></a> compares simulations with the Eulerian spectral
+<a class="reference internal" href="chapter8.html#williamson02" id="id1">[Wil02]</a> compares simulations with the Eulerian spectral
 transform dynamical core coupled to the CCM3 parameterization suite via
 <em>Process Split</em> and <em>Time Split</em> approximations.</p>
 </div>

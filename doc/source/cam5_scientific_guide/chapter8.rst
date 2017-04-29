@@ -40,3 +40,8 @@ The model code defines these constants to the stated accuracy. We do
 not mean to imply that these constants are known to this accuracy nor
 that the low-order digits are significant to the physical
 approximations employed.
+
+Bibliography
+============
+
+.. bibliography:: refs.bib

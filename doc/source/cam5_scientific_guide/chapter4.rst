@@ -1,10 +1,12 @@
 .. _model_physics:
 
+.. |cam| replace:: CAM6.0
+
 Model Physics
 =============
 
 As stated in chapter [chap:coupling], the total parameterization package
-in consists of a sequence of components, indicated by
+in |cam| consists of a sequence of components, indicated by
 
 .. math::
 
@@ -28,7 +30,7 @@ gravity wave drag.
 The updating described in the preceding paragraph of all variable except
 temperature is straightforward. Temperature, however, is a little more
 complicated and follows the general procedure described by Boville and
-Bretherton (2003) involving dry static energy. The state variable
+:cite:`boville03` involving dry static energy. The state variable
 updated after each time-split parameterization component is the dry
 static energy :math:`s_i`. Let :math:`i` be the index in a sequence of
 :math:`I` time-split processes. The dry static energy at the end of the
@@ -200,26 +202,25 @@ provided the appropriate :math:`\delta p` is used in the summation.
 Deep Convection
 ---------------
 
-The process of deep convection is treated with a parameterization scheme
-developed by Zhang and McFarlane (1995) and modified with the addition
-of convective momentum transports by Richter and Rasch (2008) and a
-modified dilute plume calculation following Raymond and Blyth (1986;
-Raymond and Blyth 1992). The scheme is based on a plume ensemble
-approach where it is assumed that an ensemble of convective scale
-updrafts (and the associated saturated downdrafts) may exist whenever
-the atmosphere is conditionally unstable in the lower troposphere. The
-updraft ensemble is comprised of plumes sufficiently buoyant so as to
-penetrate the unstable layer, where all plumes have the same upward mass
-flux at the bottom of the convective layer. Moist convection occurs only
-when there is convective available potential energy (CAPE) for which
-parcel ascent from the sub-cloud layer acts to destroy the CAPE at an
-exponential rate using a specified adjustment time scale. For the
-convenience of the reader we will review some aspects of the
-formulation, but refer the interested reader to Zhang and McFarlane
-(1995) for additional detail, including behavioral characteristics of
-the parameterization scheme. Evaporation of convective precipitation is
-computed following the procedure described in section
-[conv:sub:`e`\ vap].
+The process of deep convection is treated with a parameterization
+scheme developed by :cite:`zhang95` and modified with the addition of
+convective momentum transports by :cite:`richter08` and a modified
+dilute plume calculation following  :cite:`raymond86,raymond92`. The
+scheme is based on a plume ensemble approach where it is assumed that
+an ensemble of convective scale updrafts (and the associated saturated
+downdrafts) may exist whenever the atmosphere is conditionally
+unstable in the lower troposphere.  The updraft ensemble is comprised
+of plumes sufficiently buoyant so as to penetrate the unstable layer,
+where all plumes have the same upward mass flux at the bottom of the
+convective layer.  Moist convection occurs only when there is
+convective available potential energy (CAPE) for which parcel ascent
+from the sub-cloud layer acts to destroy the CAPE at an exponential
+rate using a specified adjustment time scale.  For the convenience of
+the reader we will review some aspects of the formulation, but refer
+the interested reader to :cite:`zhang95` for additional detail,
+including behavioral characteristics of the parameterization scheme.
+Evaporation of convective precipitation is computed following the
+procedure described in section :ref:`conv_evap`.
 
 The large-scale budget equations distinguish between a cloud and
 sub-cloud layer where temperature and moisture response to convection in
@@ -839,7 +840,7 @@ Gregory, Kershaw, and Inness (1997) as
 
    \boldsymbol{P}^d_G   = -C_d M_d\frac{\partial \boldsymbol{V}}{\partial z}. 
 
-:math:`C_u` and :math:`C_d` are tunable parameters. In the
+:math:`C_u` and :math:`C_d` are tunable parameters. In the |cam| 
 implementation we use :math:`C_u = C_d = 0.4`. The value of :math:`C_u`
 and :math:`C_d` control the strength of convective momentum transport.
 As these coefiicients increase so do the pressure gradient terms, and
@@ -848,7 +849,7 @@ convective momentum transport decreases.
 Deep Convective Tracer Transport
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The provides the ability to transport constituents via convection. The
+The |cam| provides the ability to transport constituents via convection. The
 method used for constituent transport by deep convection is a
 modification of the formulation described in Zhang and McFarlane (1995).
 
@@ -916,7 +917,7 @@ well.
 Evaporation of convective precipitation
 ---------------------------------------
 
-The employs a Sundqvist (1988) style evaporation of the convective
+The |cam| employs a :cite:`sundqvist88` style evaporation of the convective
 precipitation as it makes its way to the surface. This scheme relates
 the rate at which raindrops evaporate to the local large-scale
 subsaturation, and the rate at which convective rainwater is made
@@ -925,8 +926,8 @@ available to the subsaturated model layer
 .. math::
    :label: 4.g.15
 
-   E_{r_k} = K_E \; (1 - \text{RH}_k) \; {(\hat{R}_{r_k})}^{1/2}
-   
+   E_{r_k} = K_E \; (1 - \text{RH}_k) \; {(\hat{R}_{r_k})}^{1/2} 
+
    ~.
 
 where :math:`\text{RH}_k` is the relative humidity at level :math:`k`,
@@ -950,8 +951,7 @@ with the previously diagnosed rainwater flux in the layer below,
 .. math::
    :label: 4.g.16
 
-   \hat{R}_{r_{k+1}} = \hat{R}_{r_k} - \left({{\Delta p_k} \over
-   g}\right) \; E_{r_k} + R_{r_{k+1}}
+   \hat{R}_{r_{k+1}} = \hat{R}_{r_k} - \left({{\Delta p_k} \over g}\right) \; E_{r_k} + R_{r_{k+1}}
    
    ~.
 
@@ -983,8 +983,7 @@ column to survive the evaporation process
 .. math::
    :label: 4.g.19
 
-   P_s = \left( \hat{R}_{r_{K}} - \left({{\Delta p_K} \over g}\right) \;
-   E_{r_K} \right) /\rho_{H_{2}0}
+   P_s = \left( \hat{R}_{r_{K}} - \left({{\Delta p_K} \over g}\right) \;  E_{r_K} \right) /\rho_{H_{2}0}
    
    ~.
 
@@ -1000,8 +999,8 @@ Prognostic Condensate and Precipitation Parameterization
 Introductory comments
 ~~~~~~~~~~~~~~~~~~~~~
 
-The parameterization of non-convective cloud processes in  is described
-in Rasch and Kristjánsson (1998) and Zhang et al. (2003). The original
+The parameterization of non-convective cloud processes in |cam| is described
+in :cite:`rasch98` and :cite:`zhang03`. The original
 formulation is introduced in Rasch and Kristjánsson (1998). Revisions to
 the parameterization to deal more realistically with the treatment of
 the condensation and evaporation under forcing by large scale processes
@@ -1017,7 +1016,7 @@ replaces the diagnosed liquid water path of CCM3 with evolution
 equations for two additional predicted variables: liquid and ice phase
 condensate. At one point during each time step, these are combined into
 a total condensate and partitioned according to temperature (as
-described in section [microscale]), but elsewhere function as
+described in section :ref:`microscale`), but elsewhere function as
 independent quantities. They are affected by both resolved (advective)
 and unresolved (convective, turbulent) processes. Condensate can
 evaporate back into the environment or be converted to a precipitating
@@ -1210,7 +1209,7 @@ homogeneous freezing of cloud droplets (subscript hom), melting
 (subscript mlt), ice multiplication (subsrcipt mult), sedimentation
 (subscript sed), and convective detrainment (subscript det). The
 formulations for these processes are detailed in section 3. Numerical
-aspects in solving [eq:MG6] and [eq:MG7] are detailed in section 4.
+aspects in solving :eq:`eq:MG6` and :ea:`eq:MG7` are detailed in section 4.
 
 Sub-grid cloud variability
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1249,7 +1248,7 @@ variability of cloud water is that the grid-average microphysical
 process rates can be derived in a straightforward manner as follows. For
 any generic local microphysical process rate :math:`M_p =
 xq_c^{\prime\prime y}`, replacing :math:`q_c^{\prime\prime}` with
-:math:`P(q_c^{\prime\prime})` from [eq:MG8] and integrating over the PDF
+:math:`P(q_c^{\prime\prime})` from :eq:`eq:MG8` and integrating over the PDF
 yields a mean in-cloud process rate
 
 .. math::
@@ -1258,8 +1257,7 @@ yields a mean in-cloud process rate
    
    M_p^{\prime} = x \frac{\Gamma(\nu + y)}{\Gamma(\nu)\nu^y}q_c^{\prime y}
 
-Thus, each cloud water microphysical process rate in [eq:MG6] and
-[eq:MG7] is multiplied by a factor
+Thus, each cloud water microphysical process rate in :eq:`eq:MG6` and :eq:`eq:MG7` is multiplied by a factor
 
 .. math::
    :label: eq:MG10
@@ -1309,7 +1307,7 @@ number-weighted terminal fallspeeds, respectively, and :math:`S_q` and
    
    S_N=  \left(\frac{\partial N_p}{\partial t}\right)_{auto} + \left(\frac{\partial N_p}{\partial t}\right)_{het} + \left(\frac{\partial N_p}{\partial t}\right)_{hom} + \left(\frac{\partial N_p}{\partial t}\right)_{mlt} + \left(\frac{\partial N_p}{\partial t}\right)_{evap} + \left(\frac{\partial N_p}{\partial t}\right)_{self} +\left(\frac{\partial N_p}{\partial t}\right)_{coll}
 
-The symbolic terms on the right-hand sides of [eq:MG13] and [eq:MG14]
+The symbolic terms on the right-hand sides of :eq:`eq:MG13` and :eq:`eq:MG14`
 are autoconversion (subscript auto), accretion of cloud water (subscript
 accw), accretion of cloud ice (subscript acci), heterogeneous freezing
 (subscript het), homogeneous freezing (subscript hom), melting
@@ -1321,10 +1319,10 @@ snow (subscript coll). Formulations for these processes are described in
 section 3.
 
 In the diagnostic treatment , :math:`(\partial q_p / \partial t )` =0
-and :math:`(\partial N_p / \partial t )` =0 . This allows [eq:MG11] and
-[eq:MG12] to be expressed as a function of z only. The :math:`q_p` and
+and :math:`(\partial N_p / \partial t )` =0 . This allows :eq:`eq:MG11` and
+:eq:`eq:MG12` to be expressed as a function of z only. The :math:`q_p` and
 :math:`N_p` are therefore determined by discretizing and numerically
-integrating [eq:MG11] and [eq:MG12] downward from the top of the model
+integrating :eq:`eq:MG11` and :eq:`eq:MG12` downward from the top of the model
 atmosphere following Ghan and Easter (1992):
 
 .. math::
@@ -1342,16 +1340,16 @@ atmosphere following Ghan and Easter (1992):
 where :math:`k` is the vertical level (increasing with height, i.e.,
 :math:`k+1` is the next vertical level above :math:`k`). Since
 :math:`V_{q,k}`, :math:`S_{q,k}`, :math:`V_{N,k}`, and :math:`S_{N,k}`
-depend on :math:`q_{p,k}` and :math:`N_{p,k}`, [eq:MG15] and [eq:MG16]
+depend on :math:`q_{p,k}` and :math:`N_{p,k}`, :eq:`eq:MG15` and :eq:`eq:MG16`
 must be solved by iteration or some other method. The approach of Ghan
 and Easter (1992) uses values of :math:`q_{p,k}` and :math:`N_{p,k}`
 from the previous time step as provisional estimates in order to
 calculate :math:`V_{q,k}`, :math:`V_{N,k}`, :math:`S_{p,k}`, and
 :math:`S_{N,k}`. “Final” values of :math:`q_{p,k}` and :math:`N_{p,k}`
 are calculated from these values of :math:`V_{q,k}`, :math:`V_{N,k}`,
-:math:`S_{q,k}` and :math:`S_{N,k}` using [eq:MG15] and [eq:MG16]. Here
+:math:`S_{q,k}` and :math:`S_{N,k}` using :eq:`eq:MG15` and :eq:`eq:MG16`. Here
 we employ another method that obtains provisional values of
-:math:`q_{p,k}` and :math:`N_{p,k}` from [eq:MG15] and [eq:MG16]
+:math:`q_{p,k}` and :math:`N_{p,k}` from :eq:`eq:MG15` and :eq:`eq:MG16`
 assuming :math:`V_{q,k} \sim V_{q,k+1}` and
 :math:`V_{N,k} \sim V_{N,k+1}`. It is also assumed that all source/sink
 terms in :math:`S_{q,k}` and :math:`S_{N,q}` can be approximated by the
@@ -1367,11 +1365,11 @@ fallspeeds of 0.45 m/s for rain and 0.36 m/s for snow.
 Rain and snow are considered separately, and both may occur
 simultaneously in supercooled conditions (hereafter subscript p for
 precipitation is replaced by subscripts r for rain and s for snow). The
-rain/snow particle size distributions are given by [eq:MG1], with the
+rain/snow particle size distributions are given by :eq:`eq:MG1`, with the
 shape parameter :math:`\mu` = 0, resulting in Marshall-Palmer
 (exponential) size distributions. The size distribution parameters
-:math:`\lambda` and :math:`N_0` are similarly given by [eq:MG3] and
-[eq:MG4] with :math:`\mu` = 0. The bulk particle density (parameter
+:math:`\lambda` and :math:`N_0` are similarly given by :eq:`eq:MG3` and
+:eq:`eq:MG4` with :math:`\mu` = 0. The bulk particle density (parameter
 :math:`\rho` in [eq:MG3]) is :math:`\rho` = 1000 kg m\ :math:`^{-3}` for
 rain and :math:`\rho` = 100 kg m\ :math:`^{-3}` for snow following
 Reisner, Rasmussen, and Bruintjes (1998).
@@ -1970,7 +1968,7 @@ Parameterization of Cloud Fraction
 ----------------------------------
 
 Cloud amount (or cloud fraction), and the associated optical properties,
-are evaluated via a diagnostic method in . The basic approach is similar
+are evaluated via a diagnostic method in |cam|. The basic approach is similar
 to that employed in CAM3. The diagnosis of cloud fraction is a
 generalization of the scheme introduced by Slingo (1987), with
 variations described in Hack et al. (1993; Kiehl et al. 1998), and Rasch
@@ -2053,7 +2051,7 @@ Appendix [adjustableparameters]. Also, the parameter
 :math:`RH_{\min}^{low}` is adjusted over land by :math:`-0.10`. This
 distinction is made to account for the increased sub-grid-scale
 variability of the water vapor field due to inhomogeneities in the land
-surface properties and subgrid orographic effects. In a modification is
+surface properties and subgrid orographic effects. In |cam| a modification is
 made to the layered cloud fraction to prevent extensive cloud decks that
 have zero or near-zero condensate in cold climates. The adjustment is
 based on Vavrus and Waliser (2008) and reduces the diagnosed low cloud
@@ -2076,7 +2074,7 @@ This is equivalent to a maximum overlap assumption of cloud types within
 each gridbox. The condensate value is assumed uniform within any and all
 types of cloud within each grid box. In order to prevent inconsistent
 values of total cloud fraction and condensate being passed to the
-radiation parameterization in the a second updated cloud fraction
+radiation parameterization in the |cam| a second updated cloud fraction
 calculation is performed. Cloud fraction and therefore relative humidity
 are now consitent with condensate values on entry to the radiation
 parameterization. This vastly reduces the frequency of ’empty clouds’
@@ -3323,7 +3321,7 @@ constant between time steps.
 Diurnal Cycle and Earth Orbit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In , the diurnal cycle and earth orbit is computed using the method of
+In |cam|, the diurnal cycle and earth orbit is computed using the method of
 (Berger 1978). Using this formulation, the insolation can be determined
 for any time within :math:`10^6` years of 1950 AD. The insolation at the
 top of the model atmosphere is given by

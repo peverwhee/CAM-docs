@@ -23,6 +23,5 @@ CAM5 Scientific Guide
    chapter7.rst
    chapter8.rst
    acronyms.rst
-   references.rst
 
 
