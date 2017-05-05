@@ -6,7 +6,7 @@
 .. _scientific-guide:
 
 #####################################
-CAM5 Scientific Guide
+CAM6 Scientific Guide
 #####################################
 
 .. toctree::
