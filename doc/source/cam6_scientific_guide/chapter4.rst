@@ -1054,8 +1054,9 @@ Cloud Microphysics
 ------------------
 
 The base parameterization of stratiform cloud microphysics is described
-by Morrison and Gettelman (2008). Details of the CAM implementation are
-described by Gettelman, Morrison, and Ghan (2008). Modifications to
+by Gettelman and Morrison (2015), and is version 2 of the scheme
+described by Morrison and Gettelman (2008). Details of the CAM implementation are
+described by Gettelman et al (2015) and :cite:`gettelman2008`. Modifications to
 handle ice nucleation and ice supersaturation are described by Gettelman
 and others (2010).
 
