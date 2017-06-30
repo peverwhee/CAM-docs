@@ -1,8 +1,8 @@
 .. _building-and-running-cam:
 
-**************************
+************************************
 Building and Running CAM within CESM
-**************************
+************************************
 
 If you need to install CESM, please refer to `downloading CESM <http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html>`_.
 
@@ -89,9 +89,9 @@ Modifying CAM's configuration
 	% cd test_FHIST
 	%xmlchange --append CAM_CONFIG_OPTS='-nthreads 3'
 
-------------------------------
+--------------------------------------
 Modifying namelist settings in CAM run
-------------------------------
+--------------------------------------
 To modify CAM namelist settings, add the appropriate keyword/value pair at the end of the $CASEROOT/user_nl_cam file.  If the run needs to change namelist settings in other components, then modify the appropriate $CASEROOT/user_nl_XXX file.
 
 For example, to change the CO2 constant to 400, modify **user_nl_cam** and add the following line at the end:
@@ -103,10 +103,10 @@ To see the result, call **preview_namelists** and verify that the new value appe
 
 A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html>`_
 
-==============================
+===============================
 Example:  Using CMIP5 emissions
-==============================
+===============================
 
-==============================
+===================================================
 Example:  Setting up a new Single Column (SCAM) run
-==============================
+===================================================
