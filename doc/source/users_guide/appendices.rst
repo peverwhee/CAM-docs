@@ -295,44 +295,24 @@ CAM parallelization
 ####################
 
 ``-[no]smp``
-  Switch on [off] SMP parallelism (OpenMP). This option can be used when building a model that doesn't contain CICE. It allows building an executable whose thread count can be set at run time.
+  Switch on [off] SMP parallelism (OpenMP).
 
 ``-[no]spmd``
-  Switch on [off] SPMD parallelism (MPI). This option can be used when building a model that doesn't contain CICE. It allows building an executable whose task count can be set at run time.
-
-######################################################
-CAM parallelization when running standalone with CICE
-######################################################
-
-``-ntasks <n>``
-  This option must be used to specify SPMD parallelism when the CICE component is present. ``<n>`` is the number of MPI tasks. Setting ntasks > 0 implies ``-spmd``. Use ``-nospmd`` to turn off linking with an MPI library. To configure for pure MPI specify ``"-ntasks N -nosmp". ntasks`` is used by CICE to determine default grid decompositions which must be specified at build time.
-
-``-nthreads <n>``
-  This option must be used to specify SMP parallelism when the CICE component is present. ``<n>`` is the number of OpenMP threads per process. Setting nthreads > 0 implies ``-smp``. Use ``-nosmp`` to turn off compilation of OMP directives. For pure OpenMP set ``"-nthreads N -nospmd". nthreads`` is used by CICE to determine default grid decomposition which must be specified at build time.
-
-**NOTE:**  When CAM is running standalone with CICE the default CICE decomposition is determined from the values of the ``-ntasks`` and ``-nthreads`` arguments. The user also has the ability to explicitly set the CICE decomposition using the following four arguments. If any of these arguments is set then *ALL FOUR* must be set.
-
-``-cice_bsizex <n>``
-  CICE block size in longitude dimension. This size must evenly divide the number of longitude points in the global grid.
-
-``-cice_bsizey <n>``
-  CICE block size in latitude dimension. This size must evenly divide the number of latitude points in the global grid.
-
-``-cice_maxblocks <n>``
-  Maximum number of CICE blocks per process.
-
-``-cice_decomptype <name>``
-  CICE decomposition type ``[ cartesian | spacecurve | roundrobin ]``.
+  Switch on [off] SPMD parallelism (MPI). 
 
 ############################
 General options to configure
 ############################
 
 ``-cache <name>``
-  Name of output cache file. Default: ``config_cache.xml``.
+  Name of output cache file. 
+
+  Default: ``config_cache.xml``.
 
 ``-cachedir <dir>``
-  Name of directory where output cache file is written. Default: CAM build directory.
+  Name of directory where output cache file is written. 
+
+  Default: CAM build directory.
 
 ``-ccsm_seq``
   Switch to specify that CAM is being built from within the CESM scripts. This produces Filepath and CCSM_cppdefs files that contains only the paths and CPP macros needed to build a library for the CAM component.
@@ -375,10 +355,14 @@ CAM standalone build
 Options for building CAM via standalone scripts:
 
 ``-cam_bld <dir>``
-  Directory where CAM will be built. This is where configure will write the output files it generates (Makefile, Filepath, etc...). Default: ./
+  Directory where CAM will be built. This is where configure will write the output files it generates (Makefile, Filepath, etc...).
+
+  Default: ``./
 
 ``-cam_exe <name>``
-  Name of the CAM executable. Default: ``cam``.
+  Name of the CAM executable. 
+
+  Default: ``cam``.
 
 ``-cam_exedir <dir>``
   Directory where CAM executable will be created. Default: CAM build directory.
@@ -396,10 +380,14 @@ Options for building CAM via standalone scripts:
   Directory containing ESMF library and the ``esmf.mk`` file. If this option is specified then the external ESMF library will be used in place of the ESMF-WRF time manager code which is provided in the CESM source distribution.
 
 ``-fc <name>``
-  User specified Fortran compiler. Default: Depends on the OS and whether MPI is enabled.
+  User specified Fortran compiler. 
+
+  Default: Depends on the OS and whether MPI is enabled.
 
 ``-fc_type [pgi | lahey | intel | pathscale | gnu | xlf]``
-  Type of the Fortran compiler. This argument is used in conjunction with the ``-fc`` argument when the name of the fortran compiler refers to a wrapper script (e.g., ``mpif90`` or ``ftn``). In this case the user needs to specify the type of Fortran compiler that is being invoked by the wrapper script. Default: Depends on the name of the Fortran compiler.
+  Type of the Fortran compiler. This argument is used in conjunction with the ``-fc`` argument when the name of the fortran compiler refers to a wrapper script (e.g., ``mpif90`` or ``ftn``). In this case the user needs to specify the type of Fortran compiler that is being invoked by the wrapper script. 
+
+  Default: Depends on the name of the Fortran compiler.
 
 ``-fflags <string>``
   A string of user specified Fortran compiler options appended to the default options set in the Makefile. See ``-fopt`` to override optimization flags.
@@ -417,7 +405,9 @@ Options for building CAM via standalone scripts:
   A string of user specified load options. Appended to Makefile defaults.
 
 ``-linker <name>``
-  User specified linker. Default: use the Fortran compiler.
+  User specified linker. 
+
+  Default: use the Fortran compiler.
 
 ``-mpi_inc <dir>``
   Directory containing MPI include files.
@@ -444,7 +434,9 @@ Options for building CAM via standalone scripts:
   Build CAM with the offline radiation driver. This produces an executable that can only be used for offline radiation calculations.
 
 ``-target_os <name>``
-  Override the OS setting for cross platform compilation from the following list ``[aix|irix|linux| bgl|bgp ]``. Default: OS on which configure is executed as defined by the Perl $OSNAME variable.
+  Override the OS setting for cross platform compilation from the following list ``[aix|irix|linux| bgl|bgp ]``. 
+
+  Default: OS on which configure is executed as defined by the Perl $OSNAME variable.
 
 ``-usr_src <dir1>[,<dir2>[,<dir3>[...]]]``
   Directories containing user source code. Note that these directories will also be searched for modified versions of the files needed by the ``build-namelist`` script, e.g., the namelist definition and use case files.
@@ -554,14 +546,8 @@ The following options may all be specified with either one or two leading dashes
 ``-case <name>``
   Case identifier up to 80 characters. This value is used to set the case_name variable in the driver namelist. Default: ``camrun``
 
--cice_nl <namelist>
-  Specify namelist settings for CICE directly on the commandline by supplying a string containing FORTRAN namelist syntax, e.g., ``-cice_nl` "&ice histfreq=1 /"``. This namelist will be passed to the invocation of the CICE build-namelist via its -``namelist`` argument.
-
 ``-config <filepath>``
   Read the specified configuration cache file to determine the configuration of the CAM executable. Default: ``config_cache.xml``.
-
-``-config_cice <filepath>``
-  Filepath of the CICE config_cache file. This filepath is passed to the invocation of the CICE ``build-namelist``. Only specify this to override the default filepath which was set when the CICE ``configure`` was invoked by the CAM ``configure``.
 
 ``-csmdata <dir>``
   Root directory of CESM input data. Can also be set by using the ``CSMDATA`` environment variable.

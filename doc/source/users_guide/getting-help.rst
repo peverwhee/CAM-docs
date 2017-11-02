@@ -10,7 +10,7 @@ The following describes the following ways to get help with using CAM.
 The CAM Web Page
 -----------------------
 
-The central source for information on CAM is the `CAM web page <http://www.cesm.ucar.edu/models/cesm2.0/cam>`_.
+The central source for information on CAM is the `CAM web page <http://www.cesm.ucar.edu/models/cesm2.0/atmosphere>`_.
 
 ------------------------------
 The CESM Bulletin Board

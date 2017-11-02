@@ -42,7 +42,7 @@ CAM compsets
 CAM compsets include the F, PORT and Q compsets.
 
 - **F**: CAM standalone runs, using an active Land and everything else is prognostic
-- **PORT**: Parallel offline radiation tool
+- **P**: Parallel offline radiation tool (PORT)
 - **Q**: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)
 
 CAM has a number of predefined compsets with different levels of support.  
@@ -57,7 +57,8 @@ CAM has a number of predefined compsets with different levels of support.
 | Compset Name | supported resolution |Description                              | Period      |
 +==============+======================+=========================================+=============+
 | FHIST_DEV    | f09_f09_mg17         | Historical current developer            | 1979 to 2015|
-|              |                      | setup (CAM6)                            |             |
+|              |                      | setup (CAM6) *[Note - this is similar   |             |
+|              |                      | to the obsolete CAM5 FAMIP compset]*    |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | F2000climo   | f09_f09_mg17         | Climatological 21st century             | 2000 to 2015|
 +--------------+----------------------+-----------------------------------------+-------------+
@@ -72,6 +73,7 @@ CAM has a number of predefined compsets with different levels of support.
 |              |                                         |             |
 +--------------+-----------------------------------------+-------------+
 
+It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
 ------------------------------
 Modifying CAM's configuration 
@@ -94,7 +96,7 @@ For example, to change the CO2 constant to 400, modify **user_nl_cam** and add t
 
 	co2_ppmv=400. 
 
-To see the result, call **preview_namelists** and verify that the new value appears in **CaseDocs/atm_in**.
+To see the result, call **preview_namelists** and verify that the new value appears in **CaseDocs/atm_in**.  The exception to this are variables within the **camexp** namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM's build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.
 
 A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html>`_
 
@@ -146,7 +148,3 @@ After confirming that the requested namelist changes have been put into the atm_
 
 	% ./case.build
 	% ./case.submit
-
-===================================================
-Example:  Setting up a new Single Column (SCAM) run
-===================================================
