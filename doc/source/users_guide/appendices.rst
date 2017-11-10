@@ -338,7 +338,7 @@ Surface components used in standalone CAM
 
 Options for surface components used in standalone CAM mode:
 
-``-ocn`` [ ``docn`` | ``dom`` | ``som`` | ``socn`` | ``aquaplanet`` ]``
+``-ocn`` [ ``docn`` | ``dom`` | ``som`` | ``socn`` | ``aquaplanet`` ]
   Specify ocean component.  Use data ocean model (``docn`` or ``dom``), stub ocean (``socn``), or aqua planet 
   ocean (``aquaplanet``) in cam build.  When built from the CESM scripts the value of ocn may be set to 
   pop.  This doesn't impact how CAM is built, only how attributes are matched when searching for 
