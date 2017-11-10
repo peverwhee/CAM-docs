@@ -6,10 +6,11 @@ Model Output:
 
 **Brian Eaton will review this chapter for accuracy**
 
-**NOTE TO CAC -- Make sure to document where output files reside - either run or archive direcotories and how to find out where they are**
-
-**Add fincl for include and fexcl for exclude in an example**
-**Use empty_htapes=.true. to exclude everything and then fincl for what want to write out**
+**NOTE TO CAC to add**
+ - **Make sure to document where output files reside - either run or archive direcotories and how to find out where they are**
+ - **Add fincl for include and fexcl for exclude in an example**
+ - **Use empty_htapes=.true. to exclude everything and then fincl for what want to write out**
+ - **Make a list of the namelist settings for history (i.e. history_amwg, history_vdiag, etc)**
 
 CAM produces a series of NetCDF format history files containing atmospheric gridpoint data generated during the course of a run. It also produces a series of NetCDF format restart files necessary to continue a run once it has terminated successfully and a series of initial conditions files that may be used to initialize new simulations. The contents of these datasets are described below.
 

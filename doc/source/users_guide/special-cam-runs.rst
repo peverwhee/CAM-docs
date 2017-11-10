@@ -102,24 +102,26 @@ Extracting samples of CESM state
 Set up the **user_nl_cam** file
 ::
 
- ! Remove all default output and only output what specified
- empty_htapes=.true.
-
  ! Output the radiation data
  rad_data_output=.true.
 
  ! Specify the radiation data be written to histfile number 2 (rad_data will be in files with cam.h1 in their name)
- rad_data_histfile_num=1
-
+ rad_data_histfile_num=2
+ 
  ! Write out the instantaneous rad_data
  rad_data_avgflag='I'
-
+ 
  ! Add back in the fields for the output
  fincl1 = 'SOLIN', 'QRS', 'FSNS', 'FSNT','FSNSC', 'FSDSC','FSNR','FLNR',
           'FSNTOA', 'FSUTOA', 'FSNTOAC', 'FSNTC', 'FSDSC', 'FSDS', 'SWCF',
           'QRL', 'FLNS', 'FLDS', 'FLNT', 'LWCF', 'FLUT' ,'FLUTC', 'FLNTC',
           'FLNSC', 'FLDSC'
-
+ 
+ fincl2 = 'SOLIN', 'QRS', 'FSNS', 'FSNT','FSNSC', 'FSDSC','FSNR','FLNR',
+          'FSNTOA', 'FSUTOA', 'FSNTOAC', 'FSNTC', 'FSDSC', 'FSDS', 'SWCF',
+          'QRL', 'FLNS', 'FLDS', 'FLNT', 'LWCF', 'FLUT' ,'FLUTC', 'FLNTC',
+          'FLNSC', 'FLDSC'
+ 
  ! Write out every timestep
  nhtfrq=1
 
@@ -156,7 +158,7 @@ To output the radiation data, the **user_nl_cam** needs to contain the following
  rad_data_avgflag='I'
 
 
-For this test, TThe user needs to complete the setup/build process and run for at least 16 months.  For a simple verification test, the times can be as short as 9 timesteps.
+For this test, the user needs to complete the setup/build process and run for at least 16 months.  For a simple verification test, the times can be as short as 9 timesteps.
 ::
 
  % ./case.setup

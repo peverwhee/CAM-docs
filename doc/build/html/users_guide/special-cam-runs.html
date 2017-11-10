@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6. Special CAM configurations &#8212; camdoc  documentation</title>
+    <title>7. Special CAM configurations &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Appendices" href="appendices.html" />
-    <link rel="prev" title="5. Physics modifications via the namelist" href="physics-modifications-via-the-namelist.html" />
+    <link rel="next" title="8. Appendices" href="appendices.html" />
+    <link rel="prev" title="6. Physics modifications via the namelist" href="physics-modifications-via-the-namelist.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="appendices.html" title="7. Appendices"
+          <a href="appendices.html" title="8. Appendices"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="physics-modifications-via-the-namelist.html" title="5. Physics modifications via the namelist"
+          <a href="physics-modifications-via-the-namelist.html" title="6. Physics modifications via the namelist"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User’s Guide</a> &#187;</li> 
@@ -52,23 +52,23 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">6. Special CAM configurations</a><ul>
-<li><a class="reference internal" href="#cam-single-column-fscam-compset">6.1. CAM single column (FSCAM compset)</a><ul>
-<li><a class="reference internal" href="#example-setting-up-a-scam-run">6.1.1. Example:  Setting up a SCAM run</a></li>
-<li><a class="reference internal" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations">6.1.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
+<li><a class="reference internal" href="#">7. Special CAM configurations</a><ul>
+<li><a class="reference internal" href="#cam-single-column-fscam-compset">7.1. CAM single column (FSCAM compset)</a><ul>
+<li><a class="reference internal" href="#example-setting-up-a-scam-run">7.1.1. Example:  Setting up a SCAM run</a></li>
+<li><a class="reference internal" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations">7.1.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cam-aquaplanet-qp-and-qs-compsets">6.2. CAM aquaplanet (QP and QS compsets)</a><ul>
-<li><a class="reference internal" href="#example-running-an-aquaplanet-run">6.2.1. Example:  Running an aquaplanet run</a></li>
-<li><a class="reference internal" href="#example-modifying-an-aquaplanet-run">6.2.2. Example:  Modifying an aquaplanet run</a></li>
+<li><a class="reference internal" href="#cam-aquaplanet-qp-and-qs-compsets">7.2. CAM aquaplanet (QP and QS compsets)</a><ul>
+<li><a class="reference internal" href="#example-running-an-aquaplanet-run">7.2.1. Example:  Running an aquaplanet run</a></li>
+<li><a class="reference internal" href="#example-modifying-an-aquaplanet-run">7.2.2. Example:  Modifying an aquaplanet run</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cam-parallel-offline-radiation-tool-port-p-compsets">6.3. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
-<li><a class="reference internal" href="#still-being-edited-example-verifying-a-port-setup">6.3.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup</a></li>
-<li><a class="reference internal" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2">6.3.2. Example: Using PORT to study flux differences due to 4 x CO2</a><ul>
-<li><a class="reference internal" href="#step-1-extracting-cesm-state-for-use-in-port">6.3.2.1. Step 1:  Extracting CESM state for use in PORT.</a></li>
-<li><a class="reference internal" href="#step-2-compile-and-run-port-on-extracted-radiation-data">6.3.2.2. Step 2:  Compile and run PORT on extracted radiation data</a></li>
-<li><a class="reference internal" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file">6.3.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file</a></li>
+<li><a class="reference internal" href="#cam-parallel-offline-radiation-tool-port-p-compsets">7.3. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
+<li><a class="reference internal" href="#still-being-edited-example-verifying-a-port-setup">7.3.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup</a></li>
+<li><a class="reference internal" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2">7.3.2. Example: Using PORT to study flux differences due to 4 x CO2</a><ul>
+<li><a class="reference internal" href="#step-1-extracting-cesm-state-for-use-in-port">7.3.2.1. Step 1:  Extracting CESM state for use in PORT.</a></li>
+<li><a class="reference internal" href="#step-2-compile-and-run-port-on-extracted-radiation-data">7.3.2.2. Step 2:  Compile and run PORT on extracted radiation data</a></li>
+<li><a class="reference internal" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file">7.3.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file</a></li>
 </ul>
 </li>
 </ul>
@@ -79,10 +79,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="physics-modifications-via-the-namelist.html"
-                        title="previous chapter">5. Physics modifications via the namelist</a></p>
+                        title="previous chapter">6. Physics modifications via the namelist</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="appendices.html"
-                        title="next chapter">7. Appendices</a></p>
+                        title="next chapter">8. Appendices</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -109,7 +109,7 @@
           <div class="body" role="main">
             
   <div class="section" id="special-cam-configurations">
-<span id="special-cam-runs"></span><h1>6. Special CAM configurations<a class="headerlink" href="#special-cam-configurations" title="Permalink to this headline">¶</a></h1>
+<span id="special-cam-runs"></span><h1>7. Special CAM configurations<a class="headerlink" href="#special-cam-configurations" title="Permalink to this headline">¶</a></h1>
 <dl class="docutils">
 <dt>There are several special configurations in which CAM can be run.  These include:</dt>
 <dd><ul class="first last simple">
@@ -120,7 +120,7 @@
 </dd>
 </dl>
 <div class="section" id="cam-single-column-fscam-compset">
-<h2>6.1. CAM single column (FSCAM compset)<a class="headerlink" href="#cam-single-column-fscam-compset" title="Permalink to this headline">¶</a></h2>
+<h2>7.1. CAM single column (FSCAM compset)<a class="headerlink" href="#cam-single-column-fscam-compset" title="Permalink to this headline">¶</a></h2>
 <p>SCAM cases are set up for a small set of different locations/dates, called an Intensive Observing Period (IOP) (see XXXX for more information).  Each of these IOP’s have separate preconfigured settings which are referenced by create_new_case using the –user-mods-dir flag.</p>
 <p>The list of the available configurations and the associated usermods_dirs directory are:</p>
 <blockquote>
@@ -136,7 +136,7 @@
 </ul>
 </div></blockquote>
 <div class="section" id="example-setting-up-a-scam-run">
-<h3>6.1.1. Example:  Setting up a SCAM run<a class="headerlink" href="#example-setting-up-a-scam-run" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.1. Example:  Setting up a SCAM run<a class="headerlink" href="#example-setting-up-a-scam-run" title="Permalink to this headline">¶</a></h3>
 <p>Users specify the directory containing the specifications for running an IOP using the –user-mods-dir flag.  In this example we are using the MPACE IOP.  Note that the default settings are to run for all of the observations within the IOP, but a user may shorten that by issuing an xmlchange for the STOP_N setting.  In this example we will limit the run to 600 timesteps</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mpace</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mpace</span>
@@ -150,7 +150,7 @@
 <p>If user neglects to specify a –use-mods-dir, then it defaults to a shortened run of ARM97.</p>
 </div>
 <div class="section" id="example-efficient-way-to-cycle-over-several-scam-iop-locations">
-<h3>6.1.2. Example:  Efficient way to cycle over several SCAM IOP locations<a class="headerlink" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.2. Example:  Efficient way to cycle over several SCAM IOP locations<a class="headerlink" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations" title="Permalink to this headline">¶</a></h3>
 <p>While a user can use the above directions for running multiple IOP’s, rebuilding the executable for each IOP is time-consuming and unnecessary as the same executable may be used for multiple IOP’s.  A more efficient way to run over several IOP’s is to use create_newcase using the scam_mandatory setup and then using create_clone for all SCAM IOP’s.  This example, will make runs for TWP06 and SPARTICUS by running create_newcase using the setup in scam_mandatory and then using create_clone for test_scam_twp06 and test_scam_sparticus.  Note the addition of the flag –keepexe on the create_clone command to indicate that the executable will be used from the test_scam_mandatory case.</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mandatory</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mandatory</span>
@@ -172,21 +172,21 @@
 </div>
 </div>
 <div class="section" id="cam-aquaplanet-qp-and-qs-compsets">
-<h2>6.2. CAM aquaplanet (QP and QS compsets)<a class="headerlink" href="#cam-aquaplanet-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h2>
+<h2>7.2. CAM aquaplanet (QP and QS compsets)<a class="headerlink" href="#cam-aquaplanet-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h2>
 <p>(Describe what aquaplanet is and why it is useful)</p>
 <div class="section" id="example-running-an-aquaplanet-run">
-<h3>6.2.1. Example:  Running an aquaplanet run<a class="headerlink" href="#example-running-an-aquaplanet-run" title="Permalink to this headline">¶</a></h3>
+<h3>7.2.1. Example:  Running an aquaplanet run<a class="headerlink" href="#example-running-an-aquaplanet-run" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="example-modifying-an-aquaplanet-run">
-<h3>6.2.2. Example:  Modifying an aquaplanet run<a class="headerlink" href="#example-modifying-an-aquaplanet-run" title="Permalink to this headline">¶</a></h3>
+<h3>7.2.2. Example:  Modifying an aquaplanet run<a class="headerlink" href="#example-modifying-an-aquaplanet-run" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="cam-parallel-offline-radiation-tool-port-p-compsets">
-<h2>6.3. CAM Parallel Offline Radiation Tool (PORT - P compsets)<a class="headerlink" href="#cam-parallel-offline-radiation-tool-port-p-compsets" title="Permalink to this headline">¶</a></h2>
+<h2>7.3. CAM Parallel Offline Radiation Tool (PORT - P compsets)<a class="headerlink" href="#cam-parallel-offline-radiation-tool-port-p-compsets" title="Permalink to this headline">¶</a></h2>
 <p>PORT is used as part of the process for computing radiative forcing and instantaneous radiative forcing.  For effective radiative forcing please see the documentation related to F-case runs.</p>
 <p>PORT uses instantaneous samples of the model state to compute the radiative fluxes and heating rates through the atmosphere.  This computation does not include middle and upper atmospheric radiative transfer as implemented in WACCM.  The only prognostic variable is temperature, in the specific PORT configuration to compute radiative forcing that includes the stratospheric adjustment (fixed dynamical heating).</p>
 <div class="section" id="still-being-edited-example-verifying-a-port-setup">
-<h3>6.3.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup<a class="headerlink" href="#still-being-edited-example-verifying-a-port-setup" title="Permalink to this headline">¶</a></h3>
+<h3>7.3.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup<a class="headerlink" href="#still-being-edited-example-verifying-a-port-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Run CESM 9 timesteps outputting in addition to rad, FLNT,FSNT, etc.</li>
 <li>Run PORT using the h1 file - need to output every timestep</li>
@@ -194,24 +194,26 @@
 </ul>
 </div>
 <div class="section" id="example-using-port-to-study-flux-differences-due-to-4-x-co2">
-<h3>6.3.2. Example: Using PORT to study flux differences due to 4 x CO2<a class="headerlink" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2" title="Permalink to this headline">¶</a></h3>
+<h3>7.3.2. Example: Using PORT to study flux differences due to 4 x CO2<a class="headerlink" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2" title="Permalink to this headline">¶</a></h3>
 <p>There are typically three stages to computing radiative forcing</p>
 <p>Extracting samples of CESM state</p>
 <p>Set up the <strong>user_nl_cam</strong> file</p>
-<div class="highlight-default"><div class="highlight"><pre>! Remove all default output and only output what specified
-empty_htapes=.true.
-
-! Output the radiation data
+<div class="highlight-default"><div class="highlight"><pre>! Output the radiation data
 rad_data_output=.true.
 
 ! Specify the radiation data be written to histfile number 2 (rad_data will be in files with cam.h1 in their name)
-rad_data_histfile_num=1
+rad_data_histfile_num=2
 
 ! Write out the instantaneous rad_data
 rad_data_avgflag=&#39;I&#39;
 
 ! Add back in the fields for the output
 fincl1 = &#39;SOLIN&#39;, &#39;QRS&#39;, &#39;FSNS&#39;, &#39;FSNT&#39;,&#39;FSNSC&#39;, &#39;FSDSC&#39;,&#39;FSNR&#39;,&#39;FLNR&#39;,
+         &#39;FSNTOA&#39;, &#39;FSUTOA&#39;, &#39;FSNTOAC&#39;, &#39;FSNTC&#39;, &#39;FSDSC&#39;, &#39;FSDS&#39;, &#39;SWCF&#39;,
+         &#39;QRL&#39;, &#39;FLNS&#39;, &#39;FLDS&#39;, &#39;FLNT&#39;, &#39;LWCF&#39;, &#39;FLUT&#39; ,&#39;FLUTC&#39;, &#39;FLNTC&#39;,
+         &#39;FLNSC&#39;, &#39;FLDSC&#39;
+
+fincl2 = &#39;SOLIN&#39;, &#39;QRS&#39;, &#39;FSNS&#39;, &#39;FSNT&#39;,&#39;FSNSC&#39;, &#39;FSDSC&#39;,&#39;FSNR&#39;,&#39;FLNR&#39;,
          &#39;FSNTOA&#39;, &#39;FSUTOA&#39;, &#39;FSNTOAC&#39;, &#39;FSNTC&#39;, &#39;FSDSC&#39;, &#39;FSDS&#39;, &#39;SWCF&#39;,
          &#39;QRL&#39;, &#39;FLNS&#39;, &#39;FLDS&#39;, &#39;FLNT&#39;, &#39;LWCF&#39;, &#39;FLUT&#39; ,&#39;FLUTC&#39;, &#39;FLNTC&#39;,
          &#39;FLNSC&#39;, &#39;FLDSC&#39;
@@ -229,7 +231,7 @@ nhtfrq=1
 </div>
 <p>Radiative Forcing is defined as the difference between the top of atmosphere fluxes computed in stages 2 and 3 above.</p>
 <div class="section" id="step-1-extracting-cesm-state-for-use-in-port">
-<h4>6.3.2.1. Step 1:  Extracting CESM state for use in PORT.<a class="headerlink" href="#step-1-extracting-cesm-state-for-use-in-port" title="Permalink to this headline">¶</a></h4>
+<h4>7.3.2.1. Step 1:  Extracting CESM state for use in PORT.<a class="headerlink" href="#step-1-extracting-cesm-state-for-use-in-port" title="Permalink to this headline">¶</a></h4>
 <p>A user first needs to set up a run from which the radiation data will be extracted.  In this example, we will use the F2000_DEV compset, but any configuration of CAM may be used, dependent on what the user wishes to study.</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_forPORT</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000_DEV</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_forPORT</span>
@@ -246,7 +248,7 @@ rad_data_histfile_num=2
 rad_data_avgflag=&#39;I&#39;
 </pre></div>
 </div>
-<p>For this test, TThe user needs to complete the setup/build process and run for at least 16 months.  For a simple verification test, the times can be as short as 9 timesteps.</p>
+<p>For this test, the user needs to complete the setup/build process and run for at least 16 months.  For a simple verification test, the times can be as short as 9 timesteps.</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">nmonths</span>
@@ -257,7 +259,7 @@ rad_data_avgflag=&#39;I&#39;
 <p>After your job completes, you will have a number of files, including ones with filenames containing “cam.h1”.  The “cam.h1” files contain the radiation history which was specified by the namelist and will be used in the next step.</p>
 </div>
 <div class="section" id="step-2-compile-and-run-port-on-extracted-radiation-data">
-<h4>6.3.2.2. Step 2:  Compile and run PORT on extracted radiation data<a class="headerlink" href="#step-2-compile-and-run-port-on-extracted-radiation-data" title="Permalink to this headline">¶</a></h4>
+<h4>7.3.2.2. Step 2:  Compile and run PORT on extracted radiation data<a class="headerlink" href="#step-2-compile-and-run-port-on-extracted-radiation-data" title="Permalink to this headline">¶</a></h4>
 <p>Configure CESM to construct the PORT executable by running the offline radiation tool.  A new case needs to be created for this step and it will use the special CAM6 PORT compset, PC6</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_run_orig</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_PORT_run_orig</span>
@@ -281,7 +283,7 @@ rad_data_fdh=.true.
 </div>
 </div>
 <div class="section" id="step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file">
-<h4>6.3.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file<a class="headerlink" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file" title="Permalink to this headline">¶</a></h4>
+<h4>7.3.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file<a class="headerlink" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file" title="Permalink to this headline">¶</a></h4>
 <p>Create a variation to the input files to study the effects the variation has on radiation.  In this case we are quadrupling the CO2 and modifying this via the netcdf utility, ncap for each file.  Further documentation on ncap can be found in the <a class="reference external" href="http://nco.sourceforge.net/nco.html">NCO User Guide</a>.</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="o">%</span><span class="n">ncap</span> <span class="o">-</span><span class="n">s</span> <span class="s">&quot;rad_co2=4*rad_co2&quot;</span> <span class="n">extracted_file</span><span class="o">.</span><span class="n">nc</span> <span class="n">extracted_file_with_quadrupled_co2</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
@@ -326,10 +328,10 @@ rad_data_fdh=.true.
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="appendices.html" title="7. Appendices"
+          <a href="appendices.html" title="8. Appendices"
              >next</a> |</li>
         <li class="right" >
-          <a href="physics-modifications-via-the-namelist.html" title="5. Physics modifications via the namelist"
+          <a href="physics-modifications-via-the-namelist.html" title="6. Physics modifications via the namelist"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User’s Guide</a> &#187;</li> 

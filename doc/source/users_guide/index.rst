@@ -10,14 +10,16 @@ CAM6 User's Guide
 #####################################
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :numbered:
 
    introduction.rst
    getting-help.rst
    building-and-running-cam.rst
+   atmospheric-configurations.rst
+   input-datasets.rst
    model-output.rst
    physics-modifications-via-the-namelist.rst
-   special-cam-runs.rst
+   CAM-chem-specifics.rst
    appendices.rst
    references.rst

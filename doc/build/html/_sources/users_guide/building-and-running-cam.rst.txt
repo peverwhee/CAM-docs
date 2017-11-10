@@ -1,16 +1,18 @@
 .. _building-and-running-cam:
 
-************************************
-Building and Running CAM within CESM
-************************************
+**********************************************************
+Building and Running the atmospheric model within CESM
+**********************************************************
 
 If you need to install CESM, please refer to `downloading CESM <http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html>`_.
 
-CAM runs are setup, built and submitted via the cime scripts.  A simple session to build an FHIST_DEV, 1 degree case and call it test_FHIST is illustrated as follows:
+CAM runs are setup, built and submitted via the cime scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using a named configuration known as a compset.  Compsets will be described in much more detail in :ref:`Atmospheric configurations <atmospheric-configurations>`.  For this chapter, we will be using the compset FHIST.
+
+A simple session to build the compset FHIST, 1 degree case and name the case test_FHIST is illustrated as follows:
 ::
 
         % cd cime/scripts
-	% ./create_newcase --case test_FHIST --res f09_f09_mg17 --compset FHIST_DEV 
+	% ./create_newcase --case test_FHIST --res f09_f09_mg17 --compset FHIST 
 	% cd test_FHIST
 	% ./case.setup
 	% ./case.build
@@ -35,45 +37,6 @@ Further, detailed information for each of the above steps can be found at:
 In addtion, there is information for `customizing a case <http://esmci.github.io/cime/users_guide/customizing-a-case.html>`_.  
 
 It is encouraged for users to review these sections as they go into much more detail than is contained here.
-
---------------------------
-CAM compsets
---------------------------
-CAM compsets include the F, PORT and Q compsets.
-
-- **F**: CAM standalone runs, using an active Land and everything else is prognostic
-- **P**: Parallel offline radiation tool (PORT)
-- **Q**: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)
-
-CAM has a number of predefined compsets with different levels of support.  
-
-- **Scientifically supported**:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.
-- **Tested**: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of "Tested" simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.
-- **Unsupported**:  These compsets are setup as a "convenience" for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the --run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.
-
-**Scientifically supported CAM compsets**
-
-+--------------+----------------------+-----------------------------------------+-------------+
-| Compset Name | supported resolution |Description                              | Period      |
-+==============+======================+=========================================+=============+
-| FHIST_DEV    | f09_f09_mg17         | Historical current developer            | 1979 to 2015|
-|              |                      | setup (CAM6) *[Note - this is similar   |             |
-|              |                      | to the obsolete CAM5 FAMIP compset]*    |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| F2000climo   | f09_f09_mg17         | Climatological 21st century             | 2000 to 2015|
-+--------------+----------------------+-----------------------------------------+-------------+
-
-
-
-**Tested CAM compsets**
-
-+--------------+-----------------------------------------+-------------+
-| Compset Name | Description                             | Period      |
-+==============+=========================================+=============+
-|              |                                         |             |
-+--------------+-----------------------------------------+-------------+
-
-It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
 ------------------------------
 Modifying CAM's configuration 
@@ -109,7 +72,7 @@ First the user must create a case and set it up
 ::
 
         % cd cime/scripts
-        % ./create_newcase --case test_FHIST_CMIP5_emiss --res f09_f09_mg17 --compset FHIST_DEV
+        % ./create_newcase --case test_FHIST_CMIP5_emiss --res f09_f09_mg17 --compset FHIST
         % cd test_FHIST
         % ./case.setup
 
