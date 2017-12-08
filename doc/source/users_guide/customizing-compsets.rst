@@ -3,6 +3,7 @@
 **************************************
 Customizing CAM runs
 **************************************
+
 Compsets are useful for easily setting up standard runs of CAM.  Sometimes though a user wants to customize a run.  The first step in doing this is to start with a compset which is close to what a user wants to run and then applying the appropriate modifications.  Users must be mindful of using a compset which has appropriate settings for the experiment to be run.  
 
 It is important to understand that there are two main ways that CAM runs can be modified. 
