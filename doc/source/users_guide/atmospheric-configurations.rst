@@ -19,18 +19,18 @@ The predefined compsets exist with one of three levels of support.
 - **Tested**: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of "Tested" simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.
 - **Unsupported**:  These compsets are setup as a "convenience" for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the --run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.
 
-A complete listing of all compsets is found `here <http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html>`_
-
-This chapter will only discuss the **scientifically supported** compsets.
-
--------------------------------------------------------------------------------
-CAM compsets
--------------------------------------------------------------------------------
-CAM compsets include the F, PORT and Q compsets.
+CAM compsets include the F, P and Q compsets.
 
 - **F**: CAM standalone runs, using an active Land and everything else is prognostic
 - **P**: Parallel offline radiation tool (PORT)
 - **Q**: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)
+
+This chapter will discuss some of the atmospheric compsets in more detail, but a complete listing of all compsets is found `here <http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html>`_
+
+-------------------------------------------------------------------------------
+CAM scientifically supported compsets
+-------------------------------------------------------------------------------
+CAM has a number of compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, it is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following tables.
 
 **Scientifically supported CAM compsets**
 
@@ -44,24 +44,10 @@ CAM compsets include the F, PORT and Q compsets.
 | F2000climo   | f09_f09_mg17         | Climatological 21st century             | 2000 to 2015|
 +--------------+----------------------+-----------------------------------------+-------------+
 
-
 It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
-
 -------------------------------------------------------------------------------
-CAM-chem compsets
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------
-WACCM compsets
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------
-WACCM-X compsets
--------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------
-Simple Models
+CAM Simple Models
 -------------------------------------------------------------------------------
 
 There are several simpler configurations in which CAM can be run.  These include:
@@ -73,15 +59,91 @@ There are several simpler configurations in which CAM can be run.  These include
 CAM aquaplanet (QP and QS compsets)
 ====================================================================================
 
-(Describe what aquaplanet is and why it is useful)
+Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale & Hoskins [NH]_, Williamson et al. [W]_). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. [MWO]_
 
-########################################################################################
-Example:  Running an aquaplanet run
-########################################################################################
+**Scientifically supported Aquaplanet compsets**
 
-########################################################################################
-Example:  Modifying an aquaplanet run
-########################################################################################
++--------------+----------------------+-----------------------------------------+-------------+
+| Compset Name | supported resolution |Description                              | Period      |
++==============+======================+=========================================+=============+
+| QPC6         | f09_f09_mg17         | Prescribed SST Aquaplanet using CAM6    | 2000 to 2015|
++--------------+----------------------+-----------------------------------------+-------------+
+| QSC6         | f09_f09_mg17         | Slab-Ocean Aquaplanet using CAM6        | 2000 to 2015|
++--------------+----------------------+-----------------------------------------+-------------+
+
+Aquaplanet compsets which have not been throughly tested.  They require the **--run-unsupported** flag and are provided as a convenience:
+ - QPC5 -- Prescribed SST Aquaplanet using CAM5
+ - QPC4 -- Prescribed SST Aquaplanet using CAM4
+ - QSC5 -- Slab-Ocean Aquaplanet for CAM5
+ - QSC4 -- Slab-Ocean Aquaplanet for CAM4
+
+###############################################################
+Example 1: Default Aquaplanet with prescribed SST
+###############################################################
+To run the standard CAM6 aquaplanet, simply supply the compset name::
+
+  cd cime/scripts
+  ./create_newcase --case aqua_case --compset QPC6 --res f09_f09_mg17
+  cd aqua_case
+  ./case.setup
+  ./case.build
+  ./case.submit
+
+By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE "QOBS" option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. [MWO]_ for details.
+
+###############################################################
+Example 2: Default Aquaplanet with Slab-Ocean Model
+###############################################################
+To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name::
+
+  cd cime/scripts
+  ./create_newcase --case aqua_case --compset QSC6 --res f09_f09_mg17
+  cd aqua_case
+  ./case.setup
+  ./case.build
+  ./case.submit
+
+Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate "qflux" file. To specify such a file::
+
+  ./xmlchange --file env_run.xml --id DOCN_SOM_FILENAME --val path/to/file.nc
+
+
+###############################################################
+Example 3: Aquaplanet with alternate prescribed SST
+###############################################################
+All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option::
+
+  cd cime/scripts
+  ./create_newcase --case cam5_3keq --compset 2000_CAM50_SLND_SICE_DOCN%AQP7_SROF_SGLC_SWAV --user-compset --res f09_f09_mg17 --run-unsupported
+  cd cam5_3keq
+  ./case.setup
+  ./case.build
+  ./case.submit
+
+The example uses the 3KEQ SST pattern, which is specified with "AQP7" in the compset name. The analytical SST profiles are defined in the source code (cime/src/components/data_comps/docn/docn_comp_mod.F90). Also note this example switched to CAM5 physics by specifying "CAM50" in the compset name. The run-unsupported flag is required.
+
+###############################################################
+Example 4: Aquaplanet with user-specified SST dataset
+###############################################################
+An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file::
+
+  cd cime/scripts
+  ./create_newcase --case aqua_sst_case --compset QPC4 --res f19_f19_mg17  --run-unsupported
+  cd aqua_case
+  ./case.setup
+  ./xmlchange --file env_run.xml --id DOCN_MODE --val sst_aquapfile
+  ./xmlchange --file env_run.xml --id DOCN_AQP_FILENAME --val sst.nc
+  ./case.build
+  ./case.submit
+
+Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.
+
+
+.. [MWO] Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the community atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: http://dx.doi.org/10.1002/2015MS000593
+
+.. [NH] Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107. http://dx.doi.org/10.1006/asle.2000.0022
+
+.. [W] Williamson, D. L., and Coauthors, 2012: The APE atlas. NCAR Technical Note NCAR/TN-484+STR, doi:10.5065/D6FF3QBR. http://dx.doi.org/10.5065/D6FF3QBR
 
 ====================================================================================
 CAM Parallel Offline Radiation Tool (PORT - P compsets)
@@ -292,4 +354,35 @@ While a user can use the above directions for running multiple IOP's, rebuilding
         % ./create_clone --case test_scam_sparticus --clone test_scam_mandatory --user-mods-dir ../../components/cam/cime_config/usermods_dirs/scam_sparticus --keepexe
         % cd test_scam_sparticus
         % ./case.submit
+
+-------------------------------------------------------------------------------
+Other CAM compsets
+-------------------------------------------------------------------------------
+
+Another set of compsets which require a brief description are SPCAM.  There are four compsets related to SPCAM
+
+**SPCAM tested compsets**
+
+ - FSPCAMS: SPCAM using the single moment microphysics
+ - FSPCAMM: SPCAM using the double moment microphysics
+
+**SPCAM run-unsupported compsets**
+ - FSPCAMCLBS: SPCAM using the single moment microphysics and a custom version of CLUBB 
+ - FSPCAMCLBM: SPCAM using the double moment microphysics and a custom version of CLUBB 
+
+More details about SPCAM can be found at: **????????????????????**
+
+There are a number of other CAM compsets which have not been described. The complete listing of all compsets is found `here <http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html>`_
+
+-------------------------------------------------------------------------------
+CAM-chem compsets
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+WACCM compsets
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+WACCM-X compsets
+-------------------------------------------------------------------------------
 

@@ -30,10 +30,10 @@ If a user should encounter bugs in the code (i.e., it doesn't behave in a way in
 When writing a bug report the guiding principle should be to provide enough information so that the bug can be reproduced. 
 The following list suggests the minimal information that should be contained in the report:
 
-1. The version number of the CCSM or CESM release that CAM is part of.
+1. The version number of the CESM release that CAM is part of (or the CAM tag if it was a standalone checkout).
 2. The architecture on which the code was built. Include relevent information such as the Fortran compiler, MPI library, etc.
-3. The ``configure`` commandline. If it is this command that is failing, then report the output from this command. It can also be very useful to run this command with the ``-v`` option to turn on verbose output.
-4. The ``build-namelist`` commandline. If it is this command that is failing, then report the output from this command. It can also be very useful to run this command with the ``-v`` option to turn on verbose output.
+3. The ``create_newcase`` commandline. If it is this command that is failing, then report the output from this command. 
+4. Any  ``xmlchange`` commands.
 5. Model printout. Ideally this would contain a stack trace. But it should at least contain any error messages printed to the output log.
 
 Please note that CAM is a research tool, and not all features contained in the code base are supported.
