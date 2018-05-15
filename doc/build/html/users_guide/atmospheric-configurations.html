@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Input Datasets" href="input-datasets.html" />
+    <link rel="next" title="5. Customizing CAM runs" href="customizing-compsets.html" />
     <link rel="prev" title="3. Building and Running the atmospheric model within CESM" href="building-and-running-cam.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -39,7 +39,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="input-datasets.html" title="5. Input Datasets"
+          <a href="customizing-compsets.html" title="5. Customizing CAM runs"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="building-and-running-cam.html" title="3. Building and Running the atmospheric model within CESM"
@@ -53,33 +53,40 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. Atmospheric configurations (compsets)</a><ul>
-<li><a class="reference internal" href="#cam-compsets">4.1. CAM compsets</a></li>
-<li><a class="reference internal" href="#cam-chem-compsets">4.2. CAM-chem compsets</a></li>
-<li><a class="reference internal" href="#waccm-compsets">4.3. WACCM compsets</a></li>
-<li><a class="reference internal" href="#waccm-x-compsets">4.4. WACCM-X compsets</a></li>
-<li><a class="reference internal" href="#simple-models">4.5. Simple Models</a><ul>
-<li><a class="reference internal" href="#cam-aquaplanet-qp-and-qs-compsets">4.5.1. CAM aquaplanet (QP and QS compsets)</a><ul>
-<li><a class="reference internal" href="#example-running-an-aquaplanet-run">4.5.1.1. Example:  Running an aquaplanet run</a></li>
-<li><a class="reference internal" href="#example-modifying-an-aquaplanet-run">4.5.1.2. Example:  Modifying an aquaplanet run</a></li>
+<li><a class="reference internal" href="#cam-scientifically-supported-compsets">4.1. CAM scientifically supported compsets</a></li>
+<li><a class="reference internal" href="#cam-simple-models">4.2. CAM Simple Models</a><ul>
+<li><a class="reference internal" href="#cam-aquaplanet-qp-and-qs-compsets">4.2.1. CAM aquaplanet (QP and QS compsets)</a><ul>
+<li><a class="reference internal" href="#example-1-default-aquaplanet-with-prescribed-sst">4.2.1.1. Example 1: Default Aquaplanet with prescribed SST</a></li>
+<li><a class="reference internal" href="#example-2-default-aquaplanet-with-slab-ocean-model">4.2.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model</a></li>
+<li><a class="reference internal" href="#example-3-aquaplanet-with-alternate-prescribed-sst">4.2.1.3. Example 3: Aquaplanet with alternate prescribed SST</a></li>
+<li><a class="reference internal" href="#example-4-aquaplanet-with-user-specified-sst-dataset">4.2.1.4. Example 4: Aquaplanet with user-specified SST dataset</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cam-parallel-offline-radiation-tool-port-p-compsets">4.5.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
-<li><a class="reference internal" href="#still-being-edited-example-verifying-a-port-setup">4.5.2.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup</a></li>
-<li><a class="reference internal" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2">4.5.2.2. Example: Using PORT to study flux differences due to 4 x CO2</a><ul>
-<li><a class="reference internal" href="#step-1-extracting-cesm-state-for-use-in-port">4.5.2.2.1. Step 1:  Extracting CESM state for use in PORT.</a></li>
-<li><a class="reference internal" href="#step-2-compile-and-run-port-on-extracted-radiation-data">4.5.2.2.2. Step 2:  Compile and run PORT on extracted radiation data</a></li>
-<li><a class="reference internal" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file">4.5.2.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cam-single-column-fscam-compset">4.5.3. CAM single column (FSCAM compset)</a><ul>
-<li><a class="reference internal" href="#example-setting-up-a-scam-run">4.5.3.1. Example:  Setting up a SCAM run</a></li>
-<li><a class="reference internal" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.5.3.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
+<li><a class="reference internal" href="#cam-parallel-offline-radiation-tool-port-p-compsets">4.2.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
+<li><a class="reference internal" href="#still-being-edited-example-verifying-a-port-setup">4.2.2.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup</a></li>
+<li><a class="reference internal" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2">4.2.2.2. Example: Using PORT to study flux differences due to 4 x CO2</a><ul>
+<li><a class="reference internal" href="#step-1-extracting-cesm-state-for-use-in-port">4.2.2.2.1. Step 1:  Extracting CESM state for use in PORT.</a></li>
+<li><a class="reference internal" href="#step-2-compile-and-run-port-on-extracted-radiation-data">4.2.2.2.2. Step 2:  Compile and run PORT on extracted radiation data</a></li>
+<li><a class="reference internal" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file">4.2.2.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#cam-single-column-fscam-compset">4.2.3. CAM single column (FSCAM compset)</a><ul>
+<li><a class="reference internal" href="#example-setting-up-a-scam-run">4.2.3.1. Example:  Setting up a SCAM run</a></li>
+<li><a class="reference internal" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.2.3.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
+<li><a class="reference internal" href="#example-setting-up-user-defined-iop-for-scam">4.2.3.3. Example:  Setting up User Defined IOP for SCAM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-cam-compsets">4.3. Other CAM compsets</a><ul>
+<li><a class="reference internal" href="#super-parameterized-cam-spcam">4.3.1. Super-parameterized CAM (SPCAM)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cam-chem-compsets">4.4. CAM-chem compsets</a></li>
+<li><a class="reference internal" href="#waccm-compsets">4.5. WACCM compsets</a></li>
+<li><a class="reference internal" href="#waccm-x-compsets">4.6. WACCM-X compsets</a></li>
 </ul>
 </li>
 </ul>
@@ -88,8 +95,8 @@
   <p class="topless"><a href="building-and-running-cam.html"
                         title="previous chapter">3. Building and Running the atmospheric model within CESM</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="input-datasets.html"
-                        title="next chapter">5. Input Datasets</a></p>
+  <p class="topless"><a href="customizing-compsets.html"
+                        title="next chapter">5. Customizing CAM runs</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -131,16 +138,16 @@
 <li><strong>Tested</strong>: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of “Tested” simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.</li>
 <li><strong>Unsupported</strong>:  These compsets are setup as a “convenience” for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the –run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.</li>
 </ul>
-<p>A complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a></p>
-<p>This chapter will only discuss the <strong>scientifically supported</strong> compsets.</p>
-<div class="section" id="cam-compsets">
-<h2>4.1. CAM compsets<a class="headerlink" href="#cam-compsets" title="Permalink to this headline">¶</a></h2>
-<p>CAM compsets include the F, PORT and Q compsets.</p>
+<p>CAM compsets include the F, P and Q compsets.</p>
 <ul class="simple">
 <li><strong>F</strong>: CAM standalone runs, using an active Land and everything else is prognostic</li>
 <li><strong>P</strong>: Parallel offline radiation tool (PORT)</li>
 <li><strong>Q</strong>: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)</li>
 </ul>
+<p>This chapter will discuss some of the atmospheric compsets in more detail, but a complete listing of all compsets is found at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">CESM2 Component Configurations (compsets)</a>.  The complete listing of grid resolutions can be found at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/grids.html">CESM2 Grid Resolutions</a>.</p>
+<div class="section" id="cam-scientifically-supported-compsets">
+<h2>4.1. CAM scientifically supported compsets<a class="headerlink" href="#cam-scientifically-supported-compsets" title="Permalink to this headline">¶</a></h2>
+<p>CAM has a number of compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, that compset/resolution combination is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following tables.</p>
 <p><strong>Scientifically supported CAM compsets</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -159,31 +166,29 @@
 <tbody valign="top">
 <tr class="row-even"><td>FHIST</td>
 <td>f09_f09_mg17</td>
-<td>Historical current developer
-setup (CAM6) <em>[Note - this is similar
+<td>Historical CAM6 using 1 degree finite
+volume dycore <em>[Note - this is similar
 to the obsolete CAM5 FAMIP compset]</em></td>
 <td>1979 to 2015</td>
 </tr>
 <tr class="row-odd"><td>F2000climo</td>
 <td>f09_f09_mg17</td>
-<td>Climatological 21st century</td>
+<td>Climatological 21st century using 1
+degree fv dycore</td>
 <td>2000 to 2015</td>
+</tr>
+<tr class="row-even"><td>FKESSLER</td>
+<td>ne30_n30_mg17</td>
+<td>KESSLER model using ne30 spectral
+element dycore</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
 <p>It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.</p>
 </div>
-<div class="section" id="cam-chem-compsets">
-<h2>4.2. CAM-chem compsets<a class="headerlink" href="#cam-chem-compsets" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="waccm-compsets">
-<h2>4.3. WACCM compsets<a class="headerlink" href="#waccm-compsets" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="waccm-x-compsets">
-<h2>4.4. WACCM-X compsets<a class="headerlink" href="#waccm-x-compsets" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="simple-models">
-<h2>4.5. Simple Models<a class="headerlink" href="#simple-models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cam-simple-models">
+<h2>4.2. CAM Simple Models<a class="headerlink" href="#cam-simple-models" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>There are several simpler configurations in which CAM can be run.  These include:</dt>
 <dd><ul class="first last simple">
@@ -194,21 +199,133 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 </dd>
 </dl>
 <div class="section" id="cam-aquaplanet-qp-and-qs-compsets">
-<h3>4.5.1. CAM aquaplanet (QP and QS compsets)<a class="headerlink" href="#cam-aquaplanet-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h3>
-<p>(Describe what aquaplanet is and why it is useful)</p>
-<div class="section" id="example-running-an-aquaplanet-run">
-<h4>4.5.1.1. Example:  Running an aquaplanet run<a class="headerlink" href="#example-running-an-aquaplanet-run" title="Permalink to this headline">¶</a></h4>
+<h3>4.2.1. CAM aquaplanet (QP and QS compsets)<a class="headerlink" href="#cam-aquaplanet-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h3>
+<p>Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale &amp; Hoskins <a class="footnote-reference" href="#id6" id="id1">[2]</a>, Williamson et al. <a class="footnote-reference" href="#id7" id="id2">[3]</a>). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. <a class="footnote-reference" href="#id5" id="id3">[1]</a></p>
+<p><strong>Scientifically supported Aquaplanet compsets</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="19%" />
+<col width="58%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Compset Name</th>
+<th class="head">supported resolution</th>
+<th class="head">Description</th>
+<th class="head">Period</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>QPC6</td>
+<td>f09_f09_mg17</td>
+<td>Prescribed SST Aquaplanet using CAM6 (1 degree finite volume dycore)</td>
+<td>2000 to 2015</td>
+</tr>
+<tr class="row-odd"><td>QPC6</td>
+<td>ne30_ne30_mg17</td>
+<td>Prescribed SST Aquaplanet using CAM6 (ne30 spectral element dycore)</td>
+<td>2000 to 2015</td>
+</tr>
+<tr class="row-even"><td>QSC6</td>
+<td>f09_f09_mg17</td>
+<td>Slab-Ocean Aquaplanet using CAM6     (1 degree finite volume dycore)</td>
+<td>2000 to 2015</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Aquaplanet compsets which have not been throughly tested.  They require the <strong>–run-unsupported</strong> flag and are provided as a convenience:</dt>
+<dd><ul class="first last simple">
+<li>QPC5 – Prescribed SST Aquaplanet using CAM5</li>
+<li>QPC4 – Prescribed SST Aquaplanet using CAM4</li>
+<li>QSC5 – Slab-Ocean Aquaplanet for CAM5</li>
+<li>QSC4 – Slab-Ocean Aquaplanet for CAM4</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="example-1-default-aquaplanet-with-prescribed-sst">
+<h4>4.2.1.1. Example 1: Default Aquaplanet with prescribed SST<a class="headerlink" href="#example-1-default-aquaplanet-with-prescribed-sst" title="Permalink to this headline">¶</a></h4>
+<p>To run the standard CAM6 aquaplanet, simply supply the compset name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
 </div>
-<div class="section" id="example-modifying-an-aquaplanet-run">
-<h4>4.5.1.2. Example:  Modifying an aquaplanet run<a class="headerlink" href="#example-modifying-an-aquaplanet-run" title="Permalink to this headline">¶</a></h4>
+<p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE “QOBS” option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="footnote-reference" href="#id5" id="id4">[1]</a> for details.</p>
+</div>
+<div class="section" id="example-2-default-aquaplanet-with-slab-ocean-model">
+<h4>4.2.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model<a class="headerlink" href="#example-2-default-aquaplanet-with-slab-ocean-model" title="Permalink to this headline">¶</a></h4>
+<p>To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QSC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
+<p>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate “qflux” file. To specify such a file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_SOM_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">nc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-3-aquaplanet-with-alternate-prescribed-sst">
+<h4>4.2.1.3. Example 3: Aquaplanet with alternate prescribed SST<a class="headerlink" href="#example-3-aquaplanet-with-alternate-prescribed-sst" title="Permalink to this headline">¶</a></h4>
+<p>All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">cam5_3keq</span> <span class="o">--</span><span class="n">compset</span> <span class="mi">2000</span><span class="n">_CAM50_SLND_SICE_DOCN</span><span class="o">%</span><span class="n">AQP7_SROF_SGLC_SWAV</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">compset</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
+<span class="n">cd</span> <span class="n">cam5_3keq</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
+<p>The example uses the 3KEQ SST pattern, which is specified with “AQP7” in the compset name. The analytical SST profiles are defined in the source code (cime/src/components/data_comps/docn/docn_comp_mod.F90). Also note this example switched to CAM5 physics by specifying “CAM50” in the compset name. The run-unsupported flag is required.</p>
+</div>
+<div class="section" id="example-4-aquaplanet-with-user-specified-sst-dataset">
+<h4>4.2.1.4. Example 4: Aquaplanet with user-specified SST dataset<a class="headerlink" href="#example-4-aquaplanet-with-user-specified-sst-dataset" title="Permalink to this headline">¶</a></h4>
+<p>An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_sst_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC4</span> <span class="o">--</span><span class="n">res</span> <span class="n">f19_f19_mg17</span>  <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
+<span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_MODE</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst_aquapfile</span>
+<span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_AQP_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst</span><span class="o">.</span><span class="n">nc</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
+<p>Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.</p>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the community atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: <a class="reference external" href="http://dx.doi.org/10.1002/2015MS000593">http://dx.doi.org/10.1002/2015MS000593</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107. <a class="reference external" href="http://dx.doi.org/10.1006/asle.2000.0022">http://dx.doi.org/10.1006/asle.2000.0022</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td>Williamson, D. L., and Coauthors, 2012: The APE atlas. NCAR Technical Note NCAR/TN-484+STR, doi:10.5065/D6FF3QBR. http://dx.doi.org/10.5065/D6FF3QBR</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="cam-parallel-offline-radiation-tool-port-p-compsets">
-<h3>4.5.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)<a class="headerlink" href="#cam-parallel-offline-radiation-tool-port-p-compsets" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)<a class="headerlink" href="#cam-parallel-offline-radiation-tool-port-p-compsets" title="Permalink to this headline">¶</a></h3>
 <p>PORT is used as part of the process for computing radiative forcing and instantaneous radiative forcing.  For effective radiative forcing please see the documentation related to F-case runs.</p>
 <p>PORT uses instantaneous samples of the model state to compute the radiative fluxes and heating rates through the atmosphere.  This computation does not include middle and upper atmospheric radiative transfer as implemented in WACCM.  The only prognostic variable is temperature, in the specific PORT configuration to compute radiative forcing that includes the stratospheric adjustment (fixed dynamical heating).</p>
 <div class="section" id="still-being-edited-example-verifying-a-port-setup">
-<h4>4.5.2.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup<a class="headerlink" href="#still-being-edited-example-verifying-a-port-setup" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup<a class="headerlink" href="#still-being-edited-example-verifying-a-port-setup" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Run CESM 9 timesteps outputting in addition to rad, FLNT,FSNT, etc.</li>
 <li>Run PORT using the h1 file - need to output every timestep</li>
@@ -216,7 +333,7 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 </ul>
 </div>
 <div class="section" id="example-using-port-to-study-flux-differences-due-to-4-x-co2">
-<h4>4.5.2.2. Example: Using PORT to study flux differences due to 4 x CO2<a class="headerlink" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.2. Example: Using PORT to study flux differences due to 4 x CO2<a class="headerlink" href="#example-using-port-to-study-flux-differences-due-to-4-x-co2" title="Permalink to this headline">¶</a></h4>
 <p>There are typically three stages to computing radiative forcing</p>
 <p>Extracting samples of CESM state</p>
 <p>Set up the <strong>user_nl_cam</strong> file</p>
@@ -253,7 +370,7 @@ nhtfrq=1
 </div>
 <p>Radiative Forcing is defined as the difference between the top of atmosphere fluxes computed in stages 2 and 3 above.</p>
 <div class="section" id="step-1-extracting-cesm-state-for-use-in-port">
-<h5>4.5.2.2.1. Step 1:  Extracting CESM state for use in PORT.<a class="headerlink" href="#step-1-extracting-cesm-state-for-use-in-port" title="Permalink to this headline">¶</a></h5>
+<h5>4.2.2.2.1. Step 1:  Extracting CESM state for use in PORT.<a class="headerlink" href="#step-1-extracting-cesm-state-for-use-in-port" title="Permalink to this headline">¶</a></h5>
 <p>A user first needs to set up a run from which the radiation data will be extracted.  In this example, we will use the F2000_DEV compset, but any configuration of CAM may be used, dependent on what the user wishes to study.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_forPORT</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000_DEV</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_forPORT</span>
@@ -281,7 +398,7 @@ rad_data_avgflag=&#39;I&#39;
 <p>After your job completes, you will have a number of files, including ones with filenames containing “cam.h1”.  The “cam.h1” files contain the radiation history which was specified by the namelist and will be used in the next step.</p>
 </div>
 <div class="section" id="step-2-compile-and-run-port-on-extracted-radiation-data">
-<h5>4.5.2.2.2. Step 2:  Compile and run PORT on extracted radiation data<a class="headerlink" href="#step-2-compile-and-run-port-on-extracted-radiation-data" title="Permalink to this headline">¶</a></h5>
+<h5>4.2.2.2.2. Step 2:  Compile and run PORT on extracted radiation data<a class="headerlink" href="#step-2-compile-and-run-port-on-extracted-radiation-data" title="Permalink to this headline">¶</a></h5>
 <p>Configure CESM to construct the PORT executable by running the offline radiation tool.  A new case needs to be created for this step and it will use the special CAM6 PORT compset, PC6</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_run_orig</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_PORT_run_orig</span>
@@ -305,7 +422,7 @@ rad_data_fdh=.true.
 </div>
 </div>
 <div class="section" id="step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file">
-<h5>4.5.2.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file<a class="headerlink" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file" title="Permalink to this headline">¶</a></h5>
+<h5>4.2.2.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file<a class="headerlink" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file" title="Permalink to this headline">¶</a></h5>
 <p>Create a variation to the input files to study the effects the variation has on radiation.  In this case we are quadrupling the CO2 and modifying this via the netcdf utility, ncap for each file.  Further documentation on ncap can be found in the <a class="reference external" href="http://nco.sourceforge.net/nco.html">NCO User Guide</a>.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ncap</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;rad_co2=4*rad_co2&quot;</span> <span class="n">extracted_file</span><span class="o">.</span><span class="n">nc</span> <span class="n">extracted_file_with_quadrupled_co2</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
@@ -336,15 +453,23 @@ rad_data_fdh=.true.
 </div>
 </div>
 <div class="section" id="cam-single-column-fscam-compset">
-<h3>4.5.3. CAM single column (FSCAM compset)<a class="headerlink" href="#cam-single-column-fscam-compset" title="Permalink to this headline">¶</a></h3>
-<p>SCAM cases are set up for a small set of different locations/dates, called an Intensive Observing Period (IOP) (see XXXX for more information).  Each of these IOP’s have separate preconfigured settings which are referenced by create_new_case using the –user-mods-dir flag.</p>
+<h3>4.2.3. CAM single column (FSCAM compset)<a class="headerlink" href="#cam-single-column-fscam-compset" title="Permalink to this headline">¶</a></h3>
+<p>SCAM cases are set up for a small set of different locations/dates, called an Intensive Observing Period (IOP) (see XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX for more information).  Each of these IOP’s have separate preconfigured settings which are referenced by create_new_case using the –user-mods-dir flag.</p>
 <p>The list of the available configurations and the associated usermods_dirs directory are:</p>
 <blockquote>
 <div><ul class="simple">
 <li><strong>ARM95</strong>: scam_arm95</li>
 <li><strong>ARM97</strong>: scam_arm97 – <em>default</em></li>
+<li><strong>ATEX</strong>: scam_atex</li>
+<li><strong>BOMEX</strong>: scam_bomex</li>
+<li><strong>CGILSS11</strong>: scam_cgilsS11</li>
+<li><strong>CGILSS12</strong>: scam_cgilsS12</li>
+<li><strong>CGILSS6</strong>: scam_cgilsS6</li>
+<li><strong>DYCOMSRF01</strong>: scam_dycomsRF01</li>
+<li><strong>DYCOMSRF02</strong>: scam_dycomsRF02</li>
 <li><strong>GATEIII</strong>: scam_gateIII</li>
 <li><strong>MPACE</strong>: scam_mpace</li>
+<li><strong>RICO</strong>: scam_rico</li>
 <li><strong>SPARTICUS</strong>: scam_sparticus</li>
 <li><strong>TOGAII</strong>: scam_togaII</li>
 <li><strong>TWP06</strong>: scam_twp06</li>
@@ -352,7 +477,7 @@ rad_data_fdh=.true.
 </ul>
 </div></blockquote>
 <div class="section" id="example-setting-up-a-scam-run">
-<h4>4.5.3.1. Example:  Setting up a SCAM run<a class="headerlink" href="#example-setting-up-a-scam-run" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.3.1. Example:  Setting up a SCAM run<a class="headerlink" href="#example-setting-up-a-scam-run" title="Permalink to this headline">¶</a></h4>
 <p>Users specify the directory containing the specifications for running an IOP using the –user-mods-dir flag.  In this example we are using the MPACE IOP.  Note that the default settings are to run for all of the observations within the IOP, but a user may shorten that by issuing an xmlchange for the STOP_N setting.  In this example we will limit the run to 600 timesteps</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mpace</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mpace</span>
@@ -364,9 +489,10 @@ rad_data_fdh=.true.
 </pre></div>
 </div>
 <p>If user neglects to specify a –use-mods-dir, then it defaults to a shortened run of ARM97.</p>
+<p>The user may modify the sample script <strong>components/cam/bld/scripts/create_scam6_iop</strong>.</p>
 </div>
 <div class="section" id="example-efficient-way-to-cycle-over-several-scam-iop-locations">
-<h4>4.5.3.2. Example:  Efficient way to cycle over several SCAM IOP locations<a class="headerlink" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.3.2. Example:  Efficient way to cycle over several SCAM IOP locations<a class="headerlink" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations" title="Permalink to this headline">¶</a></h4>
 <p>While a user can use the above directions for running multiple IOP’s, rebuilding the executable for each IOP is time-consuming and unnecessary as the same executable may be used for multiple IOP’s.  A more efficient way to run over several IOP’s is to use create_newcase using the scam_mandatory setup and then using create_clone for all SCAM IOP’s.  This example, will make runs for TWP06 and SPARTICUS by running create_newcase using the setup in scam_mandatory and then using create_clone for test_scam_twp06 and test_scam_sparticus.  Note the addition of the flag –keepexe on the create_clone command to indicate that the executable will be used from the test_scam_mandatory case.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mandatory</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mandatory</span>
@@ -385,8 +511,79 @@ rad_data_fdh=.true.
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
+<p>The user may modify the sample script <strong>components/cam/bld/scripts/create_scam6_iop_multi</strong>.</p>
+</div>
+<div class="section" id="example-setting-up-user-defined-iop-for-scam">
+<h4>4.2.3.3. Example:  Setting up User Defined IOP for SCAM<a class="headerlink" href="#example-setting-up-user-defined-iop-for-scam" title="Permalink to this headline">¶</a></h4>
+<p>** STILL BEING WRITTEN**</p>
+<p>If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at (305 degrees E and 62 degrees N).  It is important to note that the user needs to have the NetCDF Command Language (NCL) installed on their machine as the generation scripts utilizes this library.</p>
+<blockquote>
+<div>% ./create_newcase –case</div></blockquote>
 </div>
 </div>
+</div>
+<div class="section" id="other-cam-compsets">
+<h2>4.3. Other CAM compsets<a class="headerlink" href="#other-cam-compsets" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of other CAM compsets which have not been described in this document. The complete listing of all compsets is found <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html">here</a>.  Users are cautioned about using compsets that are not scientifically supported or tested.  These compsets are not supported and users may encounter problems or get invalid results using them.</p>
+<div class="section" id="super-parameterized-cam-spcam">
+<h3>4.3.1. Super-parameterized CAM (SPCAM)<a class="headerlink" href="#super-parameterized-cam-spcam" title="Permalink to this headline">¶</a></h3>
+<p>Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.8.2) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation. Two different sets are provided. SAM1MOM use one moment SAM microphysics, and is based on Khairoutdinov and Randall <a class="footnote-reference" href="#id14" id="id8">[5]</a>. M2005 uses two moment microphysics from Morrison et al <a class="footnote-reference" href="#id15" id="id9">[6]</a>, and its implementation is based on Wang et al. <a class="footnote-reference" href="#id16" id="id10">[7]</a>; <a class="footnote-reference" href="#id17" id="id11">[8]</a>. In M2005, Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) <a class="footnote-reference" href="#id13" id="id12">[4]</a> . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.</p>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[4]</a></td><td>Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit-Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[5]</a></td><td>Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[6]</a></td><td>Morrison, H., Curry, J. A., &amp; Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[7]</a></td><td>Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id17" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[8]</a></td><td>Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.</td></tr>
+</tbody>
+</table>
+<p><strong>SPCAM tested compsets</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>FSPCAMS: SPCAM using the single moment microphysics</li>
+<li>FSPCAMM: SPCAM using the double moment microphysics</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt><strong>SPCAM run-unsupported compsets</strong></dt>
+<dd><ul class="first last simple">
+<li>FSPCAMCLBS: SPCAM using the single moment microphysics and a custom version of CLUBB</li>
+<li>FSPCAMCLBM: SPCAM using the double moment microphysics and a custom version of CLUBB</li>
+</ul>
+</dd>
+</dl>
+<p>More details about SPCAM can be found at: <strong>????????????????????</strong></p>
+</div>
+</div>
+<div class="section" id="cam-chem-compsets">
+<h2>4.4. CAM-chem compsets<a class="headerlink" href="#cam-chem-compsets" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="waccm-compsets">
+<h2>4.5. WACCM compsets<a class="headerlink" href="#waccm-compsets" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="waccm-x-compsets">
+<h2>4.6. WACCM-X compsets<a class="headerlink" href="#waccm-x-compsets" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -403,7 +600,7 @@ rad_data_fdh=.true.
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="input-datasets.html" title="5. Input Datasets"
+          <a href="customizing-compsets.html" title="5. Customizing CAM runs"
              >next</a> |</li>
         <li class="right" >
           <a href="building-and-running-cam.html" title="3. Building and Running the atmospheric model within CESM"

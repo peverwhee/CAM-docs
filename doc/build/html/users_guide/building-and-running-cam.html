@@ -53,11 +53,8 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">3. Building and Running the atmospheric model within CESM</a><ul>
-<li><a class="reference internal" href="#modifying-cam-s-configuration">3.1. Modifying CAM’s configuration</a></li>
-<li><a class="reference internal" href="#modifying-namelist-settings-in-cam-run">3.2. Modifying namelist settings in CAM run</a><ul>
-<li><a class="reference internal" href="#modifying-namelist-settings-detailed-example-using-cmip5-emissions">3.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#modifying-cam-s-compiled-code-base-configuration">3.1. Modifying CAM’s compiled code base (configuration)</a></li>
+<li><a class="reference internal" href="#modifying-namelist-settings-in-cam-run">3.2. Modifying namelist settings in CAM run</a></li>
 </ul>
 </li>
 </ul>
@@ -95,10 +92,15 @@
             
   <div class="section" id="building-and-running-the-atmospheric-model-within-cesm">
 <span id="building-and-running-cam"></span><h1>3. Building and Running the atmospheric model within CESM<a class="headerlink" href="#building-and-running-the-atmospheric-model-within-cesm" title="Permalink to this headline">¶</a></h1>
-<p>If you need to install CESM, please refer to <a class="reference external" href="http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html">downloading CESM</a>.</p>
+<p>If you need to install CESM, you will need to download it from a git repository.  Please refer to <a class="reference external" href="http://cesm-development.github.io/cime/doc/build/html/downloading_cesm.html">downloading CESM</a>.  If you have developer access to the CAM development repository, and if you are not going to run a fully coupled run and are only going to run F, Q or P compsets, you may save space by checking out a CAM standalone tag.  <em>This is only an option if you have developer access to the CAM development repository</em>  CAM is stored in a svn repository and the instructions for checking it out are in <a class="reference internal" href="checking-out-cam-standalone.html#checking-out-cam-standalone"><span class="std std-ref">Checking out CAM standalone</span></a></p>
 <p>CAM runs are setup, built and submitted via the cime scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using a named configuration known as a compset.  Compsets will be described in much more detail in <a class="reference internal" href="atmospheric-configurations.html#atmospheric-configurations"><span class="std std-ref">Atmospheric configurations</span></a>.  For this chapter, we will be using the compset FHIST.</p>
+<<<<<<< HEAD
 <p>A simple session to build the compset FHIST, 1 degree case and name the case test_FHIST is illustrated as follows:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+=======
+<p>A simple session to build the compset FHIST, 1 degree finite volume case and name the case test_FHIST is illustrated as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+>>>>>>> 0068e280ecc291e7b8f3570a33f4ba2d7649eee9
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -120,12 +122,11 @@
 <li><a class="reference external" href="http://esmci.github.io/cime/users_guide/building-a-case.html">case.build</a></li>
 <li><a class="reference external" href="http://esmci.github.io/cime/users_guide/running-a-case.html">case.submit</a></li>
 </ul>
-<p>In addtion, there is information for <a class="reference external" href="http://esmci.github.io/cime/users_guide/customizing-a-case.html">customizing a case</a>.</p>
 <p>It is encouraged for users to review these sections as they go into much more detail than is contained here.</p>
-<div class="section" id="modifying-cam-s-configuration">
-<h2>3.1. Modifying CAM’s configuration<a class="headerlink" href="#modifying-cam-s-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modifying-cam-s-compiled-code-base-configuration">
+<h2>3.1. Modifying CAM’s compiled code base (configuration)<a class="headerlink" href="#modifying-cam-s-compiled-code-base-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><strong>CAM_CONFIG_OPTS</strong>:  The settings in this variable are passed directly to CAM’s configure command.  The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to append flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.</li>
+<li><strong>CAM_CONFIG_OPTS</strong>:  The settings in this variable are passed directly to CAM’s configure command.  Modifications in this variable change the way CAM is compiled.  The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to append flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.  More details on changing CAM’s configuration can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing compsets</span></a>.</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
 <span class="o">%</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-nthreads 2&#39;</span>
@@ -139,6 +140,7 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_ppmv</span><span class="o">=</span><span class="mf">400.</span>
 </pre></div>
 </div>
+<<<<<<< HEAD
 <p>To see the result, call <strong>preview_namelists</strong> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.  The exception to this are variables within the <strong>camexp</strong> namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM’s build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.</p>
 <p>A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html">CAM’s namelist variables</a></p>
 <div class="section" id="modifying-namelist-settings-detailed-example-using-cmip5-emissions">
@@ -184,6 +186,10 @@
 </pre></div>
 </div>
 </div>
+=======
+<p>To see the result, call <code class="docutils literal"><span class="pre">preview_namelists</span></code> and verify that the new value appears in <strong>CaseDocs/atm_in</strong>.  The exception to this are variables within the <strong>camexp</strong> namelist group (as listed in the link immediately below).  Variables within this group are used internally by CAM’s build-namelist utility and modify the resulting namelist. They will not be written out to the the atm_in file.</p>
+<p>A complete listing of all of CAM’s namelists is available at <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html">CAM’s namelist variables</a>  More details on changing CAM’s namelist can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing compsets</span></a>.</p>
+>>>>>>> 0068e280ecc291e7b8f3570a33f4ba2d7649eee9
 </div>
 </div>
 

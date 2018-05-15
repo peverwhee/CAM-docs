@@ -12,10 +12,7 @@ The configure utility
 How configure is called from the CESM scripts
 ----------------------------------------------
 
-The CESM scripts access CAM's ``configure`` via the script
-``$CAM_ROOT/models/atm/cam/bld/cam.buildnml.csh``. The
-``cam.buildnml.csh`` script acts as the interface between the CESM
-scripts and CAM's ``configure`` and ``build-namelist`` utilities.
+The user is able to pass arguments to CAM's configure by issuing an ``xlmchange`` command for  **CAM_CONFIG_OPTS**.  It is important to use the ``--append`` option if a compset's settings are to be maintained.  The CESM scripts use the CAM  script ``components/cam/bld/configure``.   
 
 
 .. _arguments-to-configure:
@@ -32,8 +29,8 @@ over options specified any other way.
 At the next level of precedence a few options can be specified by
 setting environment variables. And finally, at the lowest precedence,
 many options have hard-coded defaults. Most of these are located in
-the files
-``$CAM_ROOT/models/atm/cam/bld/config_files/defaults_*.xml``. A few
+the file
+``components/cam/bld/config_files/definition.xml``. A few
 that depend on the values of other options are set by logic contained
 in the ``configure`` script (a Perl script). The hard-coded defaults
 are designed to produce the standard production configurations of CAM.
@@ -357,7 +354,7 @@ Options for building CAM via standalone scripts:
 ``-cam_bld <dir>``
   Directory where CAM will be built. This is where configure will write the output files it generates (Makefile, Filepath, etc...).
 
-  Default: ``./
+  Default: ``.``
 
 ``-cam_exe <name>``
   Name of the CAM executable. 
@@ -451,7 +448,7 @@ components it's running with in standalone mode. When executed from
 the CESM scripts it only produces a namelist file for the CAM
 component (in the file ``atm_in``), and a namelist file for control of
 dry deposition which is shared by CAM and CLM (in the file
-``drv_flds_in``).
+``drv_flds_in``).  
 
 The task of constructing a correct namelist has become extremely
 complex due to the large number of configurations supported by
@@ -507,9 +504,9 @@ Some of the important features of ``build-namelist`` are:
   dynamical core and horizontal resolution, that affect the default
   specifications for namelist variables. The default values themselves
   are specified in the file
-  ``$CAM_ROOT/models/atm/cam/bld/namelist_files/namelist_defaults_cam.xml``,
+  ``components/cam/bld/namelist_files/namelist_defaults_cam.xml``,
   and in the use case files located in the directory
-  ``$CAM_ROOT/models/atm/cam/bld/namelist_files/use_cases/``.
+  ``components/cam/bld/namelist_files/use_cases/``.
 
 * The other required input for ``build-namelist`` is the root
   directory for the input datasets. This is required since nearly all
@@ -622,14 +619,14 @@ CAM Namelist variables
 ----------------------------------------------
 
 A searchable (or browsable) page containing all CAM namelist variables
-is `here <http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html>`_.
+is `here <http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html>`_.
 
 
 =============================
 Sample Interactive Session
 =============================
 
-**Brian Eaton will review and amend this section**
+**Brian Eaton will review and amend this section to the end of the chapter**
 
 The following sections present an interactive C shell session to build
 and run a default version of CAM. Most often these steps will be
@@ -640,7 +637,7 @@ commands provides all the information needed to replicate a run.
 
 For the interactive session the shell variable ``camcfg`` is set to
 the directory in the source tree that contains the CAM ``configure``
-and ``build-namelist`` utilities (``$CAM_ROOT/models/atm/cam/bld``).
+and ``build-namelist`` utilities (``models/atm/cam/bld``).
 ::
 
    Much of the example code in this document is set off in sections like this.
@@ -1038,7 +1035,7 @@ file to ``build-namelist``. One of the responsibilities of
 namelist variables, and it can only do this if it knows how the CAM
 executable was configured. That information is present in the cache
 file. As in the previous section the shell variable ``camcfg`` is set
-to the CAM configuration directory (``$CAM_ROOT/models/atm/cam/bld``).
+to the CAM configuration directory (``components/cam/bld``).
 
 We begin by changing into the directory where CAM will be run. It is
 usually convenient to have the run directory be separate from the

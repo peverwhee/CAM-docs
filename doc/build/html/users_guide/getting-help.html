@@ -93,7 +93,7 @@
             
   <div class="section" id="getting-help">
 <span id="id1"></span><h1>2. Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h1>
-<p>The following describes the following ways to get help with using CAM.</p>
+<p>This chapter describes several ways in which a user may obtain help when using CAM.</p>
 <div class="section" id="the-cam-web-page">
 <h2>2.1. The CAM Web Page<a class="headerlink" href="#the-cam-web-page" title="Permalink to this headline">¶</a></h2>
 <p>The central source for information on CAM is the <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/atmosphere">CAM web page</a>.</p>
@@ -111,10 +111,10 @@ The primary motivation for the establishment of this forum is to facilitate and 
 When writing a bug report the guiding principle should be to provide enough information so that the bug can be reproduced.
 The following list suggests the minimal information that should be contained in the report:</p>
 <ol class="arabic simple">
-<li>The version number of the CCSM or CESM release that CAM is part of.</li>
+<li>The version number of the CESM release that CAM is part of (or the CAM tag if it was a standalone checkout).</li>
 <li>The architecture on which the code was built. Include relevent information such as the Fortran compiler, MPI library, etc.</li>
-<li>The <code class="docutils literal"><span class="pre">configure</span></code> commandline. If it is this command that is failing, then report the output from this command. It can also be very useful to run this command with the <code class="docutils literal"><span class="pre">-v</span></code> option to turn on verbose output.</li>
-<li>The <code class="docutils literal"><span class="pre">build-namelist</span></code> commandline. If it is this command that is failing, then report the output from this command. It can also be very useful to run this command with the <code class="docutils literal"><span class="pre">-v</span></code> option to turn on verbose output.</li>
+<li>The <code class="docutils literal"><span class="pre">create_newcase</span></code> commandline. If it is this command that is failing, then report the output from this command.</li>
+<li>Any  <code class="docutils literal"><span class="pre">xmlchange</span></code> commands.</li>
 <li>Model printout. Ideally this would contain a stack trace. But it should at least contain any error messages printed to the output log.</li>
 </ol>
 <p>Please note that CAM is a research tool, and not all features contained in the code base are supported.</p>

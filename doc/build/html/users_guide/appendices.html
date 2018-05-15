@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9. Appendices &#8212; camdoc  documentation</title>
+    <title>11. Appendices &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. References" href="references.html" />
-    <link rel="prev" title="8. CAM-chem mechanisms" href="CAM-chem-specifics.html" />
+    <link rel="next" title="12. References" href="references.html" />
+    <link rel="prev" title="10. Downloading CAM standalone" href="checking-out-cam-standalone.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="references.html" title="10. References"
+          <a href="references.html" title="12. References"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="CAM-chem-specifics.html" title="8. CAM-chem mechanisms"
+          <a href="checking-out-cam-standalone.html" title="10. Downloading CAM standalone"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6 User’s Guide</a> &#187;</li> 
@@ -52,41 +52,41 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">9. Appendices</a><ul>
-<li><a class="reference internal" href="#the-configure-utility">9.1. The configure utility</a><ul>
-<li><a class="reference internal" href="#how-configure-is-called-from-the-cesm-scripts">9.1.1. How configure is called from the CESM scripts</a></li>
-<li><a class="reference internal" href="#arguments-to-configure">9.1.2. Arguments to configure</a><ul>
-<li><a class="reference internal" href="#cam-configuration">9.1.2.1. CAM configuration</a></li>
-<li><a class="reference internal" href="#scam-configuration">9.1.2.2. SCAM configuration</a></li>
-<li><a class="reference internal" href="#cam-parallelization">9.1.2.3. CAM parallelization</a></li>
-<li><a class="reference internal" href="#general-options-to-configure">9.1.2.4. General options to configure</a></li>
-<li><a class="reference internal" href="#surface-components-used-in-standalone-cam">9.1.2.5. Surface components used in standalone CAM</a></li>
-<li><a class="reference internal" href="#cam-standalone-build">9.1.2.6. CAM standalone build</a></li>
+<li><a class="reference internal" href="#">11. Appendices</a><ul>
+<li><a class="reference internal" href="#the-configure-utility">11.1. The configure utility</a><ul>
+<li><a class="reference internal" href="#how-configure-is-called-from-the-cesm-scripts">11.1.1. How configure is called from the CESM scripts</a></li>
+<li><a class="reference internal" href="#arguments-to-configure">11.1.2. Arguments to configure</a><ul>
+<li><a class="reference internal" href="#cam-configuration">11.1.2.1. CAM configuration</a></li>
+<li><a class="reference internal" href="#scam-configuration">11.1.2.2. SCAM configuration</a></li>
+<li><a class="reference internal" href="#cam-parallelization">11.1.2.3. CAM parallelization</a></li>
+<li><a class="reference internal" href="#general-options-to-configure">11.1.2.4. General options to configure</a></li>
+<li><a class="reference internal" href="#surface-components-used-in-standalone-cam">11.1.2.5. Surface components used in standalone CAM</a></li>
+<li><a class="reference internal" href="#cam-standalone-build">11.1.2.6. CAM standalone build</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#the-build-namelist-utility">9.2. The build-namelist utility</a><ul>
-<li><a class="reference internal" href="#options-to-build-namelist">9.2.1. Options to build namelist</a></li>
-<li><a class="reference internal" href="#environment-variables-used-by-build-namelist">9.2.2. Environment variables used by build namelist</a></li>
-<li><a class="reference internal" href="#cam-namelist-variables">9.2.3. CAM Namelist variables</a></li>
+<li><a class="reference internal" href="#the-build-namelist-utility">11.2. The build-namelist utility</a><ul>
+<li><a class="reference internal" href="#options-to-build-namelist">11.2.1. Options to build namelist</a></li>
+<li><a class="reference internal" href="#environment-variables-used-by-build-namelist">11.2.2. Environment variables used by build namelist</a></li>
+<li><a class="reference internal" href="#cam-namelist-variables">11.2.3. CAM Namelist variables</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sample-interactive-session">9.3. Sample Interactive Session</a><ul>
-<li><a class="reference internal" href="#configuring-cam-for-serial-execution">9.3.1. Configuring CAM for serial execution</a></li>
-<li><a class="reference internal" href="#specifying-the-fortran-compiler">9.3.2. Specifying the Fortran compiler</a></li>
-<li><a class="reference internal" href="#dealing-with-compiler-wrappers">9.3.3. Dealing with compiler wrappers</a></li>
-<li><a class="reference internal" href="#configuring-cam-for-parallel-execution">9.3.4. Configuring CAM for parallel execution</a></li>
-<li><a class="reference internal" href="#building-cam">9.3.5. Building CAM</a></li>
-<li><a class="reference internal" href="#building-the-namelist">9.3.6. Building the Namelist</a></li>
+<li><a class="reference internal" href="#sample-interactive-session">11.3. Sample Interactive Session</a><ul>
+<li><a class="reference internal" href="#configuring-cam-for-serial-execution">11.3.1. Configuring CAM for serial execution</a></li>
+<li><a class="reference internal" href="#specifying-the-fortran-compiler">11.3.2. Specifying the Fortran compiler</a></li>
+<li><a class="reference internal" href="#dealing-with-compiler-wrappers">11.3.3. Dealing with compiler wrappers</a></li>
+<li><a class="reference internal" href="#configuring-cam-for-parallel-execution">11.3.4. Configuring CAM for parallel execution</a></li>
+<li><a class="reference internal" href="#building-cam">11.3.5. Building CAM</a></li>
+<li><a class="reference internal" href="#building-the-namelist">11.3.6. Building the Namelist</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">9.4. Example: Use build-namelist to specify a dataset in a non-default location.</a><ul>
-<li><a class="reference internal" href="#acquiring-input-datasets">9.4.1. Acquiring Input Datasets</a></li>
+<li><a class="reference internal" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">11.4. Example: Use build-namelist to specify a dataset in a non-default location.</a><ul>
+<li><a class="reference internal" href="#acquiring-input-datasets">11.4.1. Acquiring Input Datasets</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#acquire-missing-dataset">9.5. Acquire missing dataset</a><ul>
-<li><a class="reference internal" href="#running-cam">9.5.1. Running CAM</a></li>
+<li><a class="reference internal" href="#acquire-missing-dataset">11.5. Acquire missing dataset</a><ul>
+<li><a class="reference internal" href="#running-cam">11.5.1. Running CAM</a></li>
 </ul>
 </li>
 </ul>
@@ -94,11 +94,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="CAM-chem-specifics.html"
-                        title="previous chapter">8. CAM-chem mechanisms</a></p>
+  <p class="topless"><a href="checking-out-cam-standalone.html"
+                        title="previous chapter">10. Downloading CAM standalone</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="references.html"
-                        title="next chapter">10. References</a></p>
+                        title="next chapter">12. References</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -125,18 +125,15 @@
           <div class="body" role="main">
             
   <div class="section" id="appendices">
-<span id="id1"></span><h1>9. Appendices<a class="headerlink" href="#appendices" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>11. Appendices<a class="headerlink" href="#appendices" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="the-configure-utility">
-<h2>9.1. The configure utility<a class="headerlink" href="#the-configure-utility" title="Permalink to this headline">¶</a></h2>
+<h2>11.1. The configure utility<a class="headerlink" href="#the-configure-utility" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="how-configure-is-called-from-the-cesm-scripts">
-<h3>9.1.1. How configure is called from the CESM scripts<a class="headerlink" href="#how-configure-is-called-from-the-cesm-scripts" title="Permalink to this headline">¶</a></h3>
-<p>The CESM scripts access CAM’s <code class="docutils literal"><span class="pre">configure</span></code> via the script
-<code class="docutils literal"><span class="pre">$CAM_ROOT/models/atm/cam/bld/cam.buildnml.csh</span></code>. The
-<code class="docutils literal"><span class="pre">cam.buildnml.csh</span></code> script acts as the interface between the CESM
-scripts and CAM’s <code class="docutils literal"><span class="pre">configure</span></code> and <code class="docutils literal"><span class="pre">build-namelist</span></code> utilities.</p>
+<h3>11.1.1. How configure is called from the CESM scripts<a class="headerlink" href="#how-configure-is-called-from-the-cesm-scripts" title="Permalink to this headline">¶</a></h3>
+<p>The user is able to pass arguments to CAM’s configure by issuing an <code class="docutils literal"><span class="pre">xlmchange</span></code> command for  <strong>CAM_CONFIG_OPTS</strong>.  It is important to use the <code class="docutils literal"><span class="pre">--append</span></code> option if a compset’s settings are to be maintained.  The CESM scripts use the CAM  script <code class="docutils literal"><span class="pre">components/cam/bld/configure</span></code>.</p>
 </div>
 <div class="section" id="arguments-to-configure">
-<span id="id2"></span><h3>9.1.2. Arguments to configure<a class="headerlink" href="#arguments-to-configure" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>11.1.2. Arguments to configure<a class="headerlink" href="#arguments-to-configure" title="Permalink to this headline">¶</a></h3>
 <p>All configuration options can be specified using command line
 arguments to <code class="docutils literal"><span class="pre">configure</span></code> and this is the recommended
 practice. Options specified via command line arguments take precedence
@@ -144,8 +141,8 @@ over options specified any other way.</p>
 <p>At the next level of precedence a few options can be specified by
 setting environment variables. And finally, at the lowest precedence,
 many options have hard-coded defaults. Most of these are located in
-the files
-<code class="docutils literal"><span class="pre">$CAM_ROOT/models/atm/cam/bld/config_files/defaults_*.xml</span></code>. A few
+the file
+<code class="docutils literal"><span class="pre">components/cam/bld/config_files/definition.xml</span></code>. A few
 that depend on the values of other options are set by logic contained
 in the <code class="docutils literal"><span class="pre">configure</span></code> script (a Perl script). The hard-coded defaults
 are designed to produce the standard production configurations of CAM.</p>
@@ -159,7 +156,7 @@ expressed as single letter switches may not be clumped, e.g., <code class="docut
 <span class="pre">-v</span></code> may NOT be expressed as <code class="docutils literal"><span class="pre">-hsv</span></code>. When multiple options are
 listed separated by a vertical bar either version may be used.</p>
 <div class="section" id="cam-configuration">
-<h4>9.1.2.1. CAM configuration<a class="headerlink" href="#cam-configuration" title="Permalink to this headline">¶</a></h4>
+<h4>11.1.2.1. CAM configuration<a class="headerlink" href="#cam-configuration" title="Permalink to this headline">¶</a></h4>
 <p>These options will have an effect whether running CAM as part of CESM or running in a CAM standalone mode:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-[no]age_of_air_trcs</span></code></dt>
@@ -396,7 +393,7 @@ packages. Currently available: <code class="docutils literal"><span class="pre">
 </dl>
 </div>
 <div class="section" id="scam-configuration">
-<h4>9.1.2.2. SCAM configuration<a class="headerlink" href="#scam-configuration" title="Permalink to this headline">¶</a></h4>
+<h4>11.1.2.2. SCAM configuration<a class="headerlink" href="#scam-configuration" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-camiop</span></code></dt>
 <dd>Configure CAM to generate an IOP file that can be used to drive SCAM. This switch only works with the Eulerian dycore.</dd>
@@ -405,7 +402,7 @@ packages. Currently available: <code class="docutils literal"><span class="pre">
 </dl>
 </div>
 <div class="section" id="cam-parallelization">
-<h4>9.1.2.3. CAM parallelization<a class="headerlink" href="#cam-parallelization" title="Permalink to this headline">¶</a></h4>
+<h4>11.1.2.3. CAM parallelization<a class="headerlink" href="#cam-parallelization" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-[no]smp</span></code></dt>
 <dd>Switch on [off] SMP parallelism (OpenMP).</dd>
@@ -414,7 +411,7 @@ packages. Currently available: <code class="docutils literal"><span class="pre">
 </dl>
 </div>
 <div class="section" id="general-options-to-configure">
-<h4>9.1.2.4. General options to configure<a class="headerlink" href="#general-options-to-configure" title="Permalink to this headline">¶</a></h4>
+<h4>11.1.2.4. General options to configure<a class="headerlink" href="#general-options-to-configure" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-cache</span> <span class="pre">&lt;name&gt;</span></code></dt>
 <dd><p class="first">Name of output cache file.</p>
@@ -439,7 +436,7 @@ packages. Currently available: <code class="docutils literal"><span class="pre">
 </dl>
 </div>
 <div class="section" id="surface-components-used-in-standalone-cam">
-<h4>9.1.2.5. Surface components used in standalone CAM<a class="headerlink" href="#surface-components-used-in-standalone-cam" title="Permalink to this headline">¶</a></h4>
+<h4>11.1.2.5. Surface components used in standalone CAM<a class="headerlink" href="#surface-components-used-in-standalone-cam" title="Permalink to this headline">¶</a></h4>
 <p>Options for surface components used in standalone CAM mode:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-ocn</span></code> [ <code class="docutils literal"><span class="pre">docn</span></code> | <code class="docutils literal"><span class="pre">dom</span></code> | <code class="docutils literal"><span class="pre">som</span></code> | <code class="docutils literal"><span class="pre">socn</span></code> | <code class="docutils literal"><span class="pre">aquaplanet</span></code> ]</dt>
@@ -459,12 +456,12 @@ namelist defaults.  If ocn is set to <code class="docutils literal"><span class=
 </dl>
 </div>
 <div class="section" id="cam-standalone-build">
-<h4>9.1.2.6. CAM standalone build<a class="headerlink" href="#cam-standalone-build" title="Permalink to this headline">¶</a></h4>
+<h4>11.1.2.6. CAM standalone build<a class="headerlink" href="#cam-standalone-build" title="Permalink to this headline">¶</a></h4>
 <p>Options for building CAM via standalone scripts:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">-cam_bld</span> <span class="pre">&lt;dir&gt;</span></code></dt>
 <dd><p class="first">Directory where CAM will be built. This is where configure will write the output files it generates (Makefile, Filepath, etc…).</p>
-<p class="last">Default: <a href="#id3"><span class="problematic" id="id4">``</span></a>./</p>
+<p class="last">Default: <code class="docutils literal"><span class="pre">.</span></code></p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">-cam_exe</span> <span class="pre">&lt;name&gt;</span></code></dt>
 <dd><p class="first">Name of the CAM executable.</p>
@@ -529,7 +526,7 @@ namelist defaults.  If ocn is set to <code class="docutils literal"><span class=
 </div>
 </div>
 <div class="section" id="the-build-namelist-utility">
-<h2>9.2. The build-namelist utility<a class="headerlink" href="#the-build-namelist-utility" title="Permalink to this headline">¶</a></h2>
+<h2>11.2. The build-namelist utility<a class="headerlink" href="#the-build-namelist-utility" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal"><span class="pre">build-namelist</span></code> utility builds namelists (and on occasion other
 types of input files) which specify run-time details for CAM and the
 components it’s running with in standalone mode. When executed from
@@ -585,9 +582,9 @@ file to determine the features of the CAM executable, such as the
 dynamical core and horizontal resolution, that affect the default
 specifications for namelist variables. The default values themselves
 are specified in the file
-<code class="docutils literal"><span class="pre">$CAM_ROOT/models/atm/cam/bld/namelist_files/namelist_defaults_cam.xml</span></code>,
+<code class="docutils literal"><span class="pre">components/cam/bld/namelist_files/namelist_defaults_cam.xml</span></code>,
 and in the use case files located in the directory
-<code class="docutils literal"><span class="pre">$CAM_ROOT/models/atm/cam/bld/namelist_files/use_cases/</span></code>.</li>
+<code class="docutils literal"><span class="pre">components/cam/bld/namelist_files/use_cases/</span></code>.</li>
 <li>The other required input for <code class="docutils literal"><span class="pre">build-namelist</span></code> is the root
 directory for the input datasets. This is required since nearly all
 input files must be specified using absolute filepaths, but the
@@ -613,7 +610,7 @@ modified using method 2 or 3. The final two methods represent
 defaults that are hard coded as part of the code base.</li>
 </ul>
 <div class="section" id="options-to-build-namelist">
-<h3>9.2.1. Options to build namelist<a class="headerlink" href="#options-to-build-namelist" title="Permalink to this headline">¶</a></h3>
+<h3>11.2.1. Options to build namelist<a class="headerlink" href="#options-to-build-namelist" title="Permalink to this headline">¶</a></h3>
 <p>To get a list of all available options, type <code class="docutils literal"><span class="pre">build-namelist</span> <span class="pre">--help</span></code>. Available options are also listed just below.</p>
 <p>The following options may all be specified with either one or two leading dashes, e.g., <code class="docutils literal"><span class="pre">-help</span></code> or <code class="docutils literal"><span class="pre">--help</span></code>. The few options that can be expressed as single letter switches may not be clumped, e.g., <code class="docutils literal"><span class="pre">-h</span> <span class="pre">-s</span> <span class="pre">-v</span></code> may NOT be expressed as <code class="docutils literal"><span class="pre">-hsv</span></code>. When multiple options are listed separated by a vertical bar either version may be used.</p>
 <dl class="docutils">
@@ -654,7 +651,7 @@ defaults that are hard coded as part of the code base.</li>
 </dl>
 </div>
 <div class="section" id="environment-variables-used-by-build-namelist">
-<h3>9.2.2. Environment variables used by build namelist<a class="headerlink" href="#environment-variables-used-by-build-namelist" title="Permalink to this headline">¶</a></h3>
+<h3>11.2.2. Environment variables used by build namelist<a class="headerlink" href="#environment-variables-used-by-build-namelist" title="Permalink to this headline">¶</a></h3>
 <p>The environment variables recognized by <code class="docutils literal"><span class="pre">build-namelist</span></code> are presented below.</p>
 <p><code class="docutils literal"><span class="pre">CSMDATA</span></code></p>
 <p>Root directory of CESM input data. Note that the commandline argument
@@ -670,14 +667,14 @@ variables. Lowest precedence for setting these variables is the value
 of <code class="docutils literal"><span class="pre">nthreads</span></code> from the configure cache file.</p>
 </div>
 <div class="section" id="cam-namelist-variables">
-<h3>9.2.3. CAM Namelist variables<a class="headerlink" href="#cam-namelist-variables" title="Permalink to this headline">¶</a></h3>
+<h3>11.2.3. CAM Namelist variables<a class="headerlink" href="#cam-namelist-variables" title="Permalink to this headline">¶</a></h3>
 <p>A searchable (or browsable) page containing all CAM namelist variables
-is <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/namelists/cam_nml.html">here</a>.</p>
+is <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2.0/component_namelists/cam_nml.html">here</a>.</p>
 </div>
 </div>
 <div class="section" id="sample-interactive-session">
-<h2>9.3. Sample Interactive Session<a class="headerlink" href="#sample-interactive-session" title="Permalink to this headline">¶</a></h2>
-<p><strong>Brian Eaton will review and amend this section</strong></p>
+<h2>11.3. Sample Interactive Session<a class="headerlink" href="#sample-interactive-session" title="Permalink to this headline">¶</a></h2>
+<p><strong>Brian Eaton will review and amend this section to the end of the chapter</strong></p>
 <p>The following sections present an interactive C shell session to build
 and run a default version of CAM. Most often these steps will be
 encapsulated in shell scripts. An important advantage of using a
@@ -686,8 +683,13 @@ source code tree, and the <code class="docutils literal"><span class="pre">confi
 commands provides all the information needed to replicate a run.</p>
 <p>For the interactive session the shell variable <code class="docutils literal"><span class="pre">camcfg</span></code> is set to
 the directory in the source tree that contains the CAM <code class="docutils literal"><span class="pre">configure</span></code>
+<<<<<<< HEAD
 and <code class="docutils literal"><span class="pre">build-namelist</span></code> utilities (<code class="docutils literal"><span class="pre">$CAM_ROOT/models/atm/cam/bld</span></code>).</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>Much of the example code in this document is set off in sections like this.
+=======
+and <code class="docutils literal"><span class="pre">build-namelist</span></code> utilities (<code class="docutils literal"><span class="pre">models/atm/cam/bld</span></code>).</p>
+<div class="highlight-default"><div class="highlight"><pre>Much of the example code in this document is set off in sections like this.
+>>>>>>> 0068e280ecc291e7b8f3570a33f4ba2d7649eee9
 Many examples refer to files in the distribution source tree using
 filepaths that are relative to distribution root directory, which we
 denote, using a UNIX shell syntax, by $CAM_ROOT.  The notation indicates
@@ -698,7 +700,7 @@ which is contained within it.
 </pre></div>
 </div>
 <div class="section" id="configuring-cam-for-serial-execution">
-<h3>9.3.1. Configuring CAM for serial execution<a class="headerlink" href="#configuring-cam-for-serial-execution" title="Permalink to this headline">¶</a></h3>
+<h3>11.3.1. Configuring CAM for serial execution<a class="headerlink" href="#configuring-cam-for-serial-execution" title="Permalink to this headline">¶</a></h3>
 <p>We start by changing into the directory in which the CAM executable
 will be built, and then setting the environment variables INC_NETCDF
 and LIB_NETCDF which specify the locations of the NetCDF include files
@@ -781,7 +783,7 @@ the default compilers are specified. On Linux systems the default is
 linking to the MPI library was done.</p>
 </div>
 <div class="section" id="specifying-the-fortran-compiler">
-<h3>9.3.2. Specifying the Fortran compiler<a class="headerlink" href="#specifying-the-fortran-compiler" title="Permalink to this headline">¶</a></h3>
+<h3>11.3.2. Specifying the Fortran compiler<a class="headerlink" href="#specifying-the-fortran-compiler" title="Permalink to this headline">¶</a></h3>
 <p>In the previous section the <code class="docutils literal"><span class="pre">configure</span></code> command was issued without
 specifying which Fortran compiler to use. For that to work we were
 depending on the CAM <code class="docutils literal"><span class="pre">configure</span></code> script to select a default
@@ -858,7 +860,7 @@ environment variable.</p>
 <p><strong>NOTE:</strong>  We have made progress porting CAM to the <code class="docutils literal"><span class="pre">gfortran</span></code> compiler, but it is still not regularly tested or used for production work.</p>
 </div>
 <div class="section" id="dealing-with-compiler-wrappers">
-<h3>9.3.3. Dealing with compiler wrappers<a class="headerlink" href="#dealing-with-compiler-wrappers" title="Permalink to this headline">¶</a></h3>
+<h3>11.3.3. Dealing with compiler wrappers<a class="headerlink" href="#dealing-with-compiler-wrappers" title="Permalink to this headline">¶</a></h3>
 <p>Another instance where the user needs to supply information about the
 Fortran compiler type to configure is when the compiler is being
 invoked by a wrapper script. A common example of this is using the
@@ -885,7 +887,7 @@ of pgi). If the default is wrong then the user will need to manually
 override the default via setting the <code class="docutils literal"><span class="pre">-fc_type</span></code> argument.</p>
 </div>
 <div class="section" id="configuring-cam-for-parallel-execution">
-<h3>9.3.4. Configuring CAM for parallel execution<a class="headerlink" href="#configuring-cam-for-parallel-execution" title="Permalink to this headline">¶</a></h3>
+<h3>11.3.4. Configuring CAM for parallel execution<a class="headerlink" href="#configuring-cam-for-parallel-execution" title="Permalink to this headline">¶</a></h3>
 <p>Before moving on to building CAM we address configuring the executable
 for parallel execution. But before talking about configuration
 specifics let’s briefly discuss the parallel execution capabilities of
@@ -993,7 +995,7 @@ option and does not require a compiler that supports OpenMP.</dd>
 <p>Finally, to configure CAM for hybrid mode, simply specify both the <code class="docutils literal"><span class="pre">-ntasks</span></code> and <code class="docutils literal"><span class="pre">-nthreads</span></code> arguments to configure.</p>
 </div>
 <div class="section" id="building-cam">
-<h3>9.3.5. Building CAM<a class="headerlink" href="#building-cam" title="Permalink to this headline">¶</a></h3>
+<h3>11.3.5. Building CAM<a class="headerlink" href="#building-cam" title="Permalink to this headline">¶</a></h3>
 <p>Once <code class="docutils literal"><span class="pre">configure</span></code> is successful, build CAM by issuing the make command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>% gmake -j2  &gt;&amp;! make.out
 </pre></div>
@@ -1014,7 +1016,7 @@ executable file. Relevant information from this file should be
 included when posting a bug report concerning a build failure.</p>
 </div>
 <div class="section" id="building-the-namelist">
-<h3>9.3.6. Building the Namelist<a class="headerlink" href="#building-the-namelist" title="Permalink to this headline">¶</a></h3>
+<h3>11.3.6. Building the Namelist<a class="headerlink" href="#building-the-namelist" title="Permalink to this headline">¶</a></h3>
 <p>The first step in the run procedure is to generate the namelist
 files. The safest way to generate consistent namelist settings is via
 the <code class="docutils literal"><span class="pre">build-namelist</span></code> utility. Even in the case where only a slight
@@ -1046,7 +1048,7 @@ file to <code class="docutils literal"><span class="pre">build-namelist</span></
 namelist variables, and it can only do this if it knows how the CAM
 executable was configured. That information is present in the cache
 file. As in the previous section the shell variable <code class="docutils literal"><span class="pre">camcfg</span></code> is set
-to the CAM configuration directory (<code class="docutils literal"><span class="pre">$CAM_ROOT/models/atm/cam/bld</span></code>).</p>
+to the CAM configuration directory (<code class="docutils literal"><span class="pre">components/cam/bld</span></code>).</p>
 <p>We begin by changing into the directory where CAM will be run. It is
 usually convenient to have the run directory be separate from the
 build directory. Possibly a number of different runs will be done that
@@ -1184,7 +1186,7 @@ specific filepath.</li>
 </div>
 </div>
 <div class="section" id="example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">
-<h2>9.4. Example: Use build-namelist to specify a dataset in a non-default location.<a class="headerlink" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location" title="Permalink to this headline">¶</a></h2>
+<h2>11.4. Example: Use build-namelist to specify a dataset in a non-default location.<a class="headerlink" href="#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location" title="Permalink to this headline">¶</a></h2>
 <p>Suppose that the <code class="docutils literal"><span class="pre">-test</span></code> option informed you that the ncdata file
 cami_0000-01-01_10x15_L30_c081013.nc was not found. You acquire the
 file from the data repository, but don’t have permissions to write in
@@ -1196,7 +1198,7 @@ issue a <code class="docutils literal"><span class="pre">build-namelist</span></
 </div>
 <p>Now the namelist in <code class="docutils literal"><span class="pre">atm_in</span></code> will contain an initial file (specified by namelist variable <code class="docutils literal"><span class="pre">ncdata</span></code>) which will be found by the executing CAM model.</p>
 <div class="section" id="acquiring-input-datasets">
-<h3>9.4.1. Acquiring Input Datasets<a class="headerlink" href="#acquiring-input-datasets" title="Permalink to this headline">¶</a></h3>
+<h3>11.4.1. Acquiring Input Datasets<a class="headerlink" href="#acquiring-input-datasets" title="Permalink to this headline">¶</a></h3>
 <p>If you are doing a standard production run that is supported in the
 CESM scripts, then using those scripts will automatically invoke a
 utility to acquire needed input datasets. The information in this
@@ -1210,7 +1212,7 @@ register to acquire access to the CESM source code repository).</p>
 </div>
 </div>
 <div class="section" id="acquire-missing-dataset">
-<h2>9.5. Acquire missing dataset<a class="headerlink" href="#acquire-missing-dataset" title="Permalink to this headline">¶</a></h2>
+<h2>11.5. Acquire missing dataset<a class="headerlink" href="#acquire-missing-dataset" title="Permalink to this headline">¶</a></h2>
 <p>If you have a list of files that you need to acquire before running
 CAM, then you can either just issue commands interactively, or if your
 list is rather long then you may want to put the commands into a shell
@@ -1242,7 +1244,7 @@ fingerprint to validate the certificate manually!
 </div>
 <p>The messages about validating the server certificate will only occur for the first file that you export if you answer “p” to the question as in the example above.</p>
 <div class="section" id="running-cam">
-<h3>9.5.1. Running CAM<a class="headerlink" href="#running-cam" title="Permalink to this headline">¶</a></h3>
+<h3>11.5.1. Running CAM<a class="headerlink" href="#running-cam" title="Permalink to this headline">¶</a></h3>
 <p>Once the namelist files have successfully been produced, and the
 necessary input datasets are available, the model is ready to
 run. Usually CAM will be run with SPMD parallelization enabled, and
@@ -1279,10 +1281,10 @@ information from the logfile when submitting bug reports.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="references.html" title="10. References"
+          <a href="references.html" title="12. References"
              >next</a> |</li>
         <li class="right" >
-          <a href="CAM-chem-specifics.html" title="8. CAM-chem mechanisms"
+          <a href="checking-out-cam-standalone.html" title="10. Downloading CAM standalone"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >CAM6 User’s Guide</a> &#187;</li> 

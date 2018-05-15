@@ -17,9 +17,11 @@ CAM6 User's Guide
    getting-help.rst
    building-and-running-cam.rst
    atmospheric-configurations.rst
+   customizing-compsets.rst
    input-datasets.rst
    model-output.rst
    physics-modifications-via-the-namelist.rst
    CAM-chem-specifics.rst
+   checking-out-cam-standalone.rst
    appendices.rst
    references.rst

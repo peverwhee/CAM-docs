@@ -92,131 +92,153 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running the atmospheric model within CESM</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html#modifying-cam-s-configuration">3.1. Modifying CAM’s configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html#modifying-namelist-settings-in-cam-run">3.2. Modifying namelist settings in CAM run</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="building-and-running-cam.html#modifying-namelist-settings-detailed-example-using-cmip5-emissions">3.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html#modifying-cam-s-compiled-code-base-configuration">3.1. Modifying CAM’s compiled code base (configuration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html#modifying-namelist-settings-in-cam-run">3.2. Modifying namelist settings in CAM run</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-compsets">4.1. CAM compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-compsets">4.2. CAM-chem compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">4.3. WACCM compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.4. WACCM-X compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#simple-models">4.5. Simple Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-aquaplanet-qp-and-qs-compsets">4.5.1. CAM aquaplanet (QP and QS compsets)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-running-an-aquaplanet-run">4.5.1.1. Example:  Running an aquaplanet run</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-modifying-an-aquaplanet-run">4.5.1.2. Example:  Modifying an aquaplanet run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-scientifically-supported-compsets">4.1. CAM scientifically supported compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-simple-models">4.2. CAM Simple Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-aquaplanet-qp-and-qs-compsets">4.2.1. CAM aquaplanet (QP and QS compsets)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-1-default-aquaplanet-with-prescribed-sst">4.2.1.1. Example 1: Default Aquaplanet with prescribed SST</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-2-default-aquaplanet-with-slab-ocean-model">4.2.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-3-aquaplanet-with-alternate-prescribed-sst">4.2.1.3. Example 3: Aquaplanet with alternate prescribed SST</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-4-aquaplanet-with-user-specified-sst-dataset">4.2.1.4. Example 4: Aquaplanet with user-specified SST dataset</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-parallel-offline-radiation-tool-port-p-compsets">4.5.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#still-being-edited-example-verifying-a-port-setup">4.5.2.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-4-x-co2">4.5.2.2. Example: Using PORT to study flux differences due to 4 x CO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-parallel-offline-radiation-tool-port-p-compsets">4.2.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#still-being-edited-example-verifying-a-port-setup">4.2.2.1. <strong>STILL BEING EDITED</strong> Example: Verifying a PORT setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-4-x-co2">4.2.2.2. Example: Using PORT to study flux differences due to 4 x CO2</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-fscam-compset">4.5.3. CAM single column (FSCAM compset)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-a-scam-run">4.5.3.1. Example:  Setting up a SCAM run</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.5.3.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="input-datasets.html">5. Input Datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#emissions">5.1. Emissions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#list-of-species-with-emissions-cam">5.1.1. List of species with emissions (CAM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#list-of-species-with-emissions-camchem-waccm">5.1.2. List of species with emissions (CAMchem/WACCM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#list-of-available-emissions-datasets">5.1.3. List of available emissions datasets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#waccm">5.1.4. WACCM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#waccm-x">5.1.5. WACCM-X</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#lower-boundary-data-sets">5.2. Lower boundary data sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#soil-erodibility-files">5.3. Soil erodibility files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#topography-files">5.4. Topography files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#meteorological-data-sets">5.5. Meteorological data sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#solar-input-files">5.6. Solar input files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#id2">5.7. WACCM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#id3">5.8. WACCM-X</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="model-output.html">6. Model Output:</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="model-output.html#model-history-files">6.1. Model History Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model-output.html#general-features-of-history-files">6.2. General Features of History Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model-output.html#timestamps-and-time-intervals">6.3. Timestamps and time intervals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model-output.html#example-timestamps-for-a-year-of-monthly-averages">6.3.1. Example: Timestamps for a year of monthly averages</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="model-output.html#multiple-time-samples-in-a-single-file">6.4. Multiple time samples in a single file</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model-output.html#example-timestamps-for-five-daily-averages">6.4.1. Example: Timestamps for five daily averages</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="model-output.html#example-default-history-fields-and-master-field-lists">6.5. Example: Default History Fields and Master Field Lists</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="physics-modifications-via-the-namelist.html">7. Physics modifications via the namelist</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#radiative-constituents">7.1. Radiative Constituents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="physics-modifications-via-the-namelist.html#default-rad-climate-for-cam4-physics">7.1.1. Default rad_climate for cam4 physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="physics-modifications-via-the-namelist.html#default-rad-climate-for-cam5-physics">7.1.2. Default rad_climate for cam5 physics</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-modify-a-radiatively-active-gas">7.2. Example - Modify a radiatively active gas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-diagnostic-radiative-forcing">7.3. Example - Diagnostic radiative forcing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-aerosol-radiative-forcing">7.4. Example - Aerosol radiative forcing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-black-carbon-radiative-forcing">7.5. Example - Black carbon radiative forcing</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="CAM-chem-specifics.html">8. CAM-chem mechanisms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#chemical-mechanisms">8.1. Chemical mechanisms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#dry-and-wet-deposition-species">8.2. Dry and Wet deposition species</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#adding-species-and-changing-the-mechanism">8.3. Adding species and changing the mechanism</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#running-with-prognostic-fire-emissions">8.4. Running with prognostic fire emissions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#running-with-fixed-land-data">8.5. Running with fixed land data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#running-with-prescribed-biogenic-emissions">8.6. Running with prescribed biogenic emissions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="appendices.html">9. Appendices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-configure-utility">9.1. The configure utility</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#how-configure-is-called-from-the-cesm-scripts">9.1.1. How configure is called from the CESM scripts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#arguments-to-configure">9.1.2. Arguments to configure</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-configuration">9.1.2.1. CAM configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#scam-configuration">9.1.2.2. SCAM configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-parallelization">9.1.2.3. CAM parallelization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#general-options-to-configure">9.1.2.4. General options to configure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#surface-components-used-in-standalone-cam">9.1.2.5. Surface components used in standalone CAM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-standalone-build">9.1.2.6. CAM standalone build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-fscam-compset">4.2.3. CAM single column (FSCAM compset)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-a-scam-run">4.2.3.1. Example:  Setting up a SCAM run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.2.3.2. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-user-defined-iop-for-scam">4.2.3.3. Example:  Setting up User Defined IOP for SCAM</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-build-namelist-utility">9.2. The build-namelist utility</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#options-to-build-namelist">9.2.1. Options to build namelist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#environment-variables-used-by-build-namelist">9.2.2. Environment variables used by build namelist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#cam-namelist-variables">9.2.3. CAM Namelist variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.3. Other CAM compsets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#super-parameterized-cam-spcam">4.3.1. Super-parameterized CAM (SPCAM)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#sample-interactive-session">9.3. Sample Interactive Session</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-serial-execution">9.3.1. Configuring CAM for serial execution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#specifying-the-fortran-compiler">9.3.2. Specifying the Fortran compiler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#dealing-with-compiler-wrappers">9.3.3. Dealing with compiler wrappers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-parallel-execution">9.3.4. Configuring CAM for parallel execution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-cam">9.3.5. Building CAM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-the-namelist">9.3.6. Building the Namelist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-compsets">4.4. CAM-chem compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">4.5. WACCM compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.6. WACCM-X compsets</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">9.4. Example: Use build-namelist to specify a dataset in a non-default location.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#acquiring-input-datasets">9.4.1. Acquiring Input Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customizing-compsets.html">5. Customizing CAM runs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#changing-cam-configurations">5.1. Changing CAM configurations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#changing-the-physics">5.1.1. Changing the physics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="appendices.html#acquire-missing-dataset">9.5. Acquire missing dataset</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="appendices.html#running-cam">9.5.1. Running CAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#changing-cam-namelist-options">5.2. Changing CAM namelist options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#modifying-namelist-settings-detailed-example-using-cmip5-emissions">5.2.1. Modifying Namelist settings:  Detailed Example – Using CMIP5 emissions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#user-defined-compsets">5.3. User-Defined Compsets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input-datasets.html">6. Input Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#emissions">6.1. Emissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#list-of-species-with-emissions-cam">6.1.1. List of species with emissions (CAM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#list-of-species-with-emissions-camchem-waccm">6.1.2. List of species with emissions (CAMchem/WACCM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#list-of-available-emissions-datasets">6.1.3. List of available emissions datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#waccm">6.1.4. WACCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input-datasets.html#waccm-x">6.1.5. WACCM-X</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#lower-boundary-data-sets">6.2. Lower boundary data sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#soil-erodibility-files">6.3. Soil erodibility files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#topography-files">6.4. Topography files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#meteorological-data-sets">6.5. Meteorological data sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#solar-input-files">6.6. Solar input files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#id2">6.7. WACCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-datasets.html#id3">6.8. WACCM-X</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model-output.html">7. Model Output:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model-output.html#model-history-files">7.1. Model History Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model-output.html#general-features-of-history-files">7.2. General Features of History Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model-output.html#timestamps-and-time-intervals">7.3. Timestamps and time intervals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model-output.html#example-timestamps-for-a-year-of-monthly-averages">7.3.1. Example: Timestamps for a year of monthly averages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model-output.html#multiple-time-samples-in-a-single-file">7.4. Multiple time samples in a single file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model-output.html#example-timestamps-for-five-daily-averages">7.4.1. Example: Timestamps for five daily averages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model-output.html#example-default-history-fields-and-master-field-lists">7.5. Example: Default History Fields and Master Field Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="physics-modifications-via-the-namelist.html">8. Physics modifications via the namelist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#radiative-constituents">8.1. Radiative Constituents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="physics-modifications-via-the-namelist.html#default-rad-climate-for-cam4-physics">8.1.1. Default rad_climate for cam4 physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physics-modifications-via-the-namelist.html#default-rad-climate-for-cam5-physics">8.1.2. Default rad_climate for cam5 physics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-modify-a-radiatively-active-gas">8.2. Example - Modify a radiatively active gas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-diagnostic-radiative-forcing">8.3. Example - Diagnostic radiative forcing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-aerosol-radiative-forcing">8.4. Example - Aerosol radiative forcing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html#example-black-carbon-radiative-forcing">8.5. Example - Black carbon radiative forcing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CAM-chem-specifics.html">9. CAM-chem mechanisms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#chemical-mechanisms">9.1. Chemical mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#dry-and-wet-deposition-species">9.2. Dry and Wet deposition species</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#adding-species-and-changing-the-mechanism">9.3. Adding species and changing the mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#running-with-prognostic-fire-emissions">9.4. Running with prognostic fire emissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#running-with-fixed-land-data">9.5. Running with fixed land data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CAM-chem-specifics.html#running-with-prescribed-biogenic-emissions">9.6. Running with prescribed biogenic emissions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checking-out-cam-standalone.html">10. Downloading CAM standalone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html#downloading-the-cam-standalone-code">10.1. Downloading the CAM standalone code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html#checkout-out-the-externals">10.2. Checkout out the externals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checking-out-cam-standalone.html#useful-svn-commands">10.3. Useful svn commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendices.html">11. Appendices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-configure-utility">11.1. The configure utility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#how-configure-is-called-from-the-cesm-scripts">11.1.1. How configure is called from the CESM scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#arguments-to-configure">11.1.2. Arguments to configure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-configuration">11.1.2.1. CAM configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#scam-configuration">11.1.2.2. SCAM configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-parallelization">11.1.2.3. CAM parallelization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#general-options-to-configure">11.1.2.4. General options to configure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#surface-components-used-in-standalone-cam">11.1.2.5. Surface components used in standalone CAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="appendices.html#cam-standalone-build">11.1.2.6. CAM standalone build</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">10. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#the-build-namelist-utility">11.2. The build-namelist utility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#options-to-build-namelist">11.2.1. Options to build namelist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#environment-variables-used-by-build-namelist">11.2.2. Environment variables used by build namelist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#cam-namelist-variables">11.2.3. CAM Namelist variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#sample-interactive-session">11.3. Sample Interactive Session</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-serial-execution">11.3.1. Configuring CAM for serial execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#specifying-the-fortran-compiler">11.3.2. Specifying the Fortran compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#dealing-with-compiler-wrappers">11.3.3. Dealing with compiler wrappers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#configuring-cam-for-parallel-execution">11.3.4. Configuring CAM for parallel execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-cam">11.3.5. Building CAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#building-the-namelist">11.3.6. Building the Namelist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#example-use-build-namelist-to-specify-a-dataset-in-a-non-default-location">11.4. Example: Use build-namelist to specify a dataset in a non-default location.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#acquiring-input-datasets">11.4.1. Acquiring Input Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="appendices.html#acquire-missing-dataset">11.5. Acquire missing dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendices.html#running-cam">11.5.1. Running CAM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">12. References</a></li>
 </ul>
 </div>
 </div>
