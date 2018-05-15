@@ -220,7 +220,7 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 <p>There are typically three stages to computing radiative forcing</p>
 <p>Extracting samples of CESM state</p>
 <p>Set up the <strong>user_nl_cam</strong> file</p>
-<div class="highlight-default"><div class="highlight"><pre>! Output the radiation data
+<div class="highlight-default"><div class="highlight"><pre><span></span>! Output the radiation data
 rad_data_output=.true.
 
 ! Specify the radiation data be written to histfile number 2 (rad_data will be in files with cam.h1 in their name)
@@ -244,7 +244,7 @@ fincl2 = &#39;SOLIN&#39;, &#39;QRS&#39;, &#39;FSNS&#39;, &#39;FSNT&#39;,&#39;FSN
 nhtfrq=1
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_setup_orig</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST_DEV</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_setup_orig</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST_DEV</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_PORT_setup_orig</span>
 
 <span class="o">-</span> <span class="n">Using</span> <span class="n">PORT</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">fluxes</span> <span class="ow">and</span> <span class="n">heating</span> <span class="n">rates</span> <span class="n">on</span> <span class="n">the</span> <span class="n">extracted</span> <span class="n">samples</span>
@@ -255,12 +255,12 @@ nhtfrq=1
 <div class="section" id="step-1-extracting-cesm-state-for-use-in-port">
 <h5>4.5.2.2.1. Step 1:  Extracting CESM state for use in PORT.<a class="headerlink" href="#step-1-extracting-cesm-state-for-use-in-port" title="Permalink to this headline">¶</a></h5>
 <p>A user first needs to set up a run from which the radiation data will be extracted.  In this example, we will use the F2000_DEV compset, but any configuration of CAM may be used, dependent on what the user wishes to study.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_forPORT</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000_DEV</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_forPORT</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000_DEV</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_forPORT</span>
 </pre></div>
 </div>
 <p>To output the radiation data, the <strong>user_nl_cam</strong> needs to contain the following settings.</p>
-<div class="highlight-default"><div class="highlight"><pre>! Output the radiation data
+<div class="highlight-default"><div class="highlight"><pre><span></span>! Output the radiation data
 rad_data_output=.true.
 
 ! Specify the radiation data be written to histfile number 2 (rad_data will be in files with cam.h1 in their name)
@@ -271,7 +271,7 @@ rad_data_avgflag=&#39;I&#39;
 </pre></div>
 </div>
 <p>For this test, the user needs to complete the setup/build process and run for at least 16 months.  For a simple verification test, the times can be as short as 9 timesteps.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">nmonths</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
@@ -283,12 +283,12 @@ rad_data_avgflag=&#39;I&#39;
 <div class="section" id="step-2-compile-and-run-port-on-extracted-radiation-data">
 <h5>4.5.2.2.2. Step 2:  Compile and run PORT on extracted radiation data<a class="headerlink" href="#step-2-compile-and-run-port-on-extracted-radiation-data" title="Permalink to this headline">¶</a></h5>
 <p>Configure CESM to construct the PORT executable by running the offline radiation tool.  A new case needs to be created for this step and it will use the special CAM6 PORT compset, PC6</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_run_orig</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_run_orig</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_PORT_run_orig</span>
 </pre></div>
 </div>
 <p>Create a file that contains the full filepaths to all of the h1 files created in step 1.  Setup the namelist in <strong>user_nl_cam</strong> and have it use the fileslist</p>
-<div class="highlight-default"><div class="highlight"><pre>! Use the radiation with the latest date (has cam.h1 in the name)
+<div class="highlight-default"><div class="highlight"><pre><span></span>! Use the radiation with the latest date (has cam.h1 in the name)
 offline_driver_fileslist=&#39;/fullpath/fileslist_orig&#39;
 
 ! turn on Fixed Dynamical Heating in the offline radiation tool (PORT)
@@ -296,7 +296,7 @@ rad_data_fdh=.true.
 </pre></div>
 </div>
 <p>Compile and submit this run of the original data</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">nmonths</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
@@ -307,16 +307,16 @@ rad_data_fdh=.true.
 <div class="section" id="step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file">
 <h5>4.5.2.2.3. Step 3:  Create file with 4xCO2 and compile and run PORT using this new file<a class="headerlink" href="#step-3-create-file-with-4xco2-and-compile-and-run-port-using-this-new-file" title="Permalink to this headline">¶</a></h5>
 <p>Create a variation to the input files to study the effects the variation has on radiation.  In this case we are quadrupling the CO2 and modifying this via the netcdf utility, ncap for each file.  Further documentation on ncap can be found in the <a class="reference external" href="http://nco.sourceforge.net/nco.html">NCO User Guide</a>.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span><span class="n">ncap</span> <span class="o">-</span><span class="n">s</span> <span class="s">&quot;rad_co2=4*rad_co2&quot;</span> <span class="n">extracted_file</span><span class="o">.</span><span class="n">nc</span> <span class="n">extracted_file_with_quadrupled_co2</span><span class="o">.</span><span class="n">nc</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ncap</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;rad_co2=4*rad_co2&quot;</span> <span class="n">extracted_file</span><span class="o">.</span><span class="n">nc</span> <span class="n">extracted_file_with_quadrupled_co2</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
 </div>
 <p>Repeat the same setup that you did in Step 2 with a different case name, creating a new list with the modified files and putting this new fileslist in <strong>user_nl_cam</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_run_4xCO2</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_PORT_run_4xCO2</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">PC6</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_PORT_run_4xCO2</span>
 </pre></div>
 </div>
 <p>Setup the namelist in <strong>user_nl_cam</strong> and have it use the file generated in the previous example</p>
-<div class="highlight-default"><div class="highlight"><pre>! Use the radiation with the latest date (has cam.h1 in the name)
+<div class="highlight-default"><div class="highlight"><pre><span></span>! Use the radiation with the latest date (has cam.h1 in the name)
 offline_driver_fileslist=&#39;/fullpath/fileslist_4XCO2&#39;
 
 ! turn on Fixed Dynamical Heating in the offline radiation tool (PORT)
@@ -324,7 +324,7 @@ rad_data_fdh=.true.
 </pre></div>
 </div>
 <p>Compile and submit this run with the modified data</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">nmonths</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
@@ -354,7 +354,7 @@ rad_data_fdh=.true.
 <div class="section" id="example-setting-up-a-scam-run">
 <h4>4.5.3.1. Example:  Setting up a SCAM run<a class="headerlink" href="#example-setting-up-a-scam-run" title="Permalink to this headline">¶</a></h4>
 <p>Users specify the directory containing the specifications for running an IOP using the –user-mods-dir flag.  In this example we are using the MPACE IOP.  Note that the default settings are to run for all of the observations within the IOP, but a user may shorten that by issuing an xmlchange for the STOP_N setting.  In this example we will limit the run to 600 timesteps</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mpace</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mpace</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_scam_mpace</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
@@ -368,7 +368,7 @@ rad_data_fdh=.true.
 <div class="section" id="example-efficient-way-to-cycle-over-several-scam-iop-locations">
 <h4>4.5.3.2. Example:  Efficient way to cycle over several SCAM IOP locations<a class="headerlink" href="#example-efficient-way-to-cycle-over-several-scam-iop-locations" title="Permalink to this headline">¶</a></h4>
 <p>While a user can use the above directions for running multiple IOP’s, rebuilding the executable for each IOP is time-consuming and unnecessary as the same executable may be used for multiple IOP’s.  A more efficient way to run over several IOP’s is to use create_newcase using the scam_mandatory setup and then using create_clone for all SCAM IOP’s.  This example, will make runs for TWP06 and SPARTICUS by running create_newcase using the setup in scam_mandatory and then using create_clone for test_scam_twp06 and test_scam_sparticus.  Note the addition of the flag –keepexe on the create_clone command to indicate that the executable will be used from the test_scam_mandatory case.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">test_scam_mandatory</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FSCAM</span> <span class="o">--</span><span class="n">res</span> <span class="n">T42_T42</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">../../</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">cime_config</span><span class="o">/</span><span class="n">usermods_dirs</span><span class="o">/</span><span class="n">scam_mandatory</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">test_scam_mandatory</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>

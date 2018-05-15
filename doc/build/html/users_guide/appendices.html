@@ -442,7 +442,7 @@ packages. Currently available: <code class="docutils literal"><span class="pre">
 <h4>9.1.2.5. Surface components used in standalone CAM<a class="headerlink" href="#surface-components-used-in-standalone-cam" title="Permalink to this headline">¶</a></h4>
 <p>Options for surface components used in standalone CAM mode:</p>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">-ocn</span></code> [ <code class="docutils literal"><span class="pre">docn</span></code> | <code class="docutils literal"><span class="pre">dom</span></code> | <code class="docutils literal"><span class="pre">som</span></code> | <code class="docutils literal"><span class="pre">socn</span></code> | <code class="docutils literal"><span class="pre">aquaplanet</span></code> ]``</dt>
+<dt><code class="docutils literal"><span class="pre">-ocn</span></code> [ <code class="docutils literal"><span class="pre">docn</span></code> | <code class="docutils literal"><span class="pre">dom</span></code> | <code class="docutils literal"><span class="pre">som</span></code> | <code class="docutils literal"><span class="pre">socn</span></code> | <code class="docutils literal"><span class="pre">aquaplanet</span></code> ]</dt>
 <dd><p class="first">Specify ocean component.  Use data ocean model (<code class="docutils literal"><span class="pre">docn</span></code> or <code class="docutils literal"><span class="pre">dom</span></code>), stub ocean (<code class="docutils literal"><span class="pre">socn</span></code>), or aqua planet
 ocean (<code class="docutils literal"><span class="pre">aquaplanet</span></code>) in cam build.  When built from the CESM scripts the value of ocn may be set to
 pop.  This doesn’t impact how CAM is built, only how attributes are matched when searching for
@@ -687,7 +687,7 @@ commands provides all the information needed to replicate a run.</p>
 <p>For the interactive session the shell variable <code class="docutils literal"><span class="pre">camcfg</span></code> is set to
 the directory in the source tree that contains the CAM <code class="docutils literal"><span class="pre">configure</span></code>
 and <code class="docutils literal"><span class="pre">build-namelist</span></code> utilities (<code class="docutils literal"><span class="pre">$CAM_ROOT/models/atm/cam/bld</span></code>).</p>
-<div class="highlight-default"><div class="highlight"><pre>Much of the example code in this document is set off in sections like this.
+<div class="highlight-default"><div class="highlight"><pre><span></span>Much of the example code in this document is set off in sections like this.
 Many examples refer to files in the distribution source tree using
 filepaths that are relative to distribution root directory, which we
 denote, using a UNIX shell syntax, by $CAM_ROOT.  The notation indicates
@@ -715,7 +715,7 @@ compiler than the one used to build CAM. Consult your system’s
 documentation (or some other knowledgeable source) to find the
 location of the NetCDF library which was built with the Fortran
 compiler you intend to use.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">%</span> <span class="n">cd</span> <span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">cam_test</span><span class="o">/</span><span class="n">bld</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">cam_test</span><span class="o">/</span><span class="n">bld</span>
 <span class="o">%</span> <span class="n">setenv</span> <span class="n">INC_NETCDF</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span>
 <span class="o">%</span> <span class="n">setenv</span> <span class="n">LIB_NETCDF</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span>
 </pre></div>
@@ -743,7 +743,7 @@ runs must be submitted to a batch queue and are not enabled from
 interactive sessions. Also the method of launching an MPI job is
 system dependent. But the build and static linking will still be
 tested.</p>
-<div class="highlight-default"><div class="highlight"><pre>% $camcfg/configure -dyn fv -hgrid 10x15 -nospmd -nosmp -test
+<div class="highlight-default"><div class="highlight"><pre><span></span>% $camcfg/configure -dyn fv -hgrid 10x15 -nospmd -nosmp -test
 Issuing command to the CICE configure utility:
    $CAM_ROOT/models/ice/cice/bld/configure -hgrid 10x15 -cice_mode prescribed \
         -ntr_aero 0 -nx 24 -ny 19 -bsizex 6 -bsizey 19 -maxblocks 4 -decomptype blkrobin \
@@ -793,7 +793,7 @@ user to specify a specific machine (and compiler if the machine
 supports more than one) as an argument to the <code class="docutils literal"><span class="pre">create_newcase</span></code>
 command.</p>
 <p>The CAM makefile currently recognizes the following operating systems and compilers.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">AIX</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">AIX</span>
 <span class="n">xlf95_r</span><span class="p">,</span> <span class="n">mpxlf95_r</span>
 
 <span class="n">Linux</span>
@@ -833,7 +833,7 @@ local Linux system. The CAM makefile recognizes <code class="docutils literal"><
 of the Intel compiler. To invoke this compiler use the <code class="docutils literal"><span class="pre">-fc</span></code>
 argument to <code class="docutils literal"><span class="pre">configure</span></code>. The following example illustrates the
 output you get when the compiler you ask for isn’t in your PATH:</p>
-<div class="highlight-default"><div class="highlight"><pre>% $camcfg/configure -fc ifort -dyn fv -hgrid 10x15 -nospmd -nosmp -test
+<div class="highlight-default"><div class="highlight"><pre><span></span>% $camcfg/configure -fc ifort -dyn fv -hgrid 10x15 -nospmd -nosmp -test
 Issuing command to the CICE configure utility:
 $CAM_ROOT/models/ice/cice/bld/configure -hgrid 10x15 -cice_mode prescribed \
 -ntr_aero 0 -ntasks 1 -nthreads 1 -cache config_cache_cice.xml \
@@ -848,7 +848,7 @@ detected there. By default MCT will be build in a subdirectory of the
 build directory named <code class="docutils literal"><span class="pre">mct</span></code>. That directory will contain a file,
 <code class="docutils literal"><span class="pre">config.log</span></code>, which should be examined to track down the cause of
 the failure. In this case the file contains the message:</p>
-<div class="highlight-default"><div class="highlight"><pre>$CAM_ROOT/models/utils/mct/configure: line 3558: ifort: command not found
+<div class="highlight-default"><div class="highlight"><pre><span></span>$CAM_ROOT/models/utils/mct/configure: line 3558: ifort: command not found
 </pre></div>
 </div>
 <p>This means that the PATH environment variable has not been correctly
@@ -903,7 +903,7 @@ independent of the number of tasks and threads used.</p>
 <p>Now consider configuring CAM to run in pure SPMD mode. Prior to the
 introduction of CICE as the sea ice model SPMD was turned on using the
 <code class="docutils literal"><span class="pre">-spmd</span></code> option. But if we try that now we find the following:</p>
-<div class="highlight-default"><div class="highlight"><pre>% $camcfg/configure -dyn fv -hgrid 10x15 -spmd -nosmp
+<div class="highlight-default"><div class="highlight"><pre><span></span>% $camcfg/configure -dyn fv -hgrid 10x15 -spmd -nosmp
 **    ERROR: If CICE decomposition parameters are not specified, then
 **    -ntasks must be specified to determine a default decomposition
 **    for a pure MPI run.  The setting was:  ntasks=
@@ -928,7 +928,7 @@ compiler and linker. On Linux systems a common name for this script is
 <code class="docutils literal"><span class="pre">mpif90</span></code>. The CAM Makefile does not currently use this script by
 default on Linux platforms, so the user must explicitly specify it on
 the configure commandline using the <code class="docutils literal"><span class="pre">-fc</span></code> argument:</p>
-<div class="highlight-default"><div class="highlight"><pre>% $camcfg/configure -fc mpif90 -fc_type pgi -cc mpicc -dyn fv -hgrid 10x15 -ntasks 6 -nosmp -test
+<div class="highlight-default"><div class="highlight"><pre><span></span>% $camcfg/configure -fc mpif90 -fc_type pgi -cc mpicc -dyn fv -hgrid 10x15 -ntasks 6 -nosmp -test
 Issuing command to the CICE configure utility:
 $CAM_ROOT/models/ice/cice/bld/configure -hgrid 10x15 -cice_mode prescribed \
 -ntr_aero 0 -ntasks 6 -nthreads 1 -cache config_cache_cice.xml \
@@ -973,7 +973,7 @@ parallel, we need to specify up front how much parallelism will be
 used so that the CICE configure utility can set the CPP macros that
 determine the grid decomposition. We specify the amount of SMP
 parallelism by setting the <code class="docutils literal"><span class="pre">-nthreads</span></code> option as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre> % $camcfg/configure -dyn fv -hgrid 10x15 -nospmd -nthreads 6 -test
+<div class="highlight-default"><div class="highlight"><pre><span></span> % $camcfg/configure -dyn fv -hgrid 10x15 -nospmd -nthreads 6 -test
  Issuing command to the CICE configure utility:
  $CAM_ROOT/models/ice/cice/bld/configure -hgrid 10x15 -cice_mode prescribed \
  -ntr_aero 0 -ntasks 1 -nthreads 6 -cache config_cache_cice.xml \
@@ -995,7 +995,7 @@ option and does not require a compiler that supports OpenMP.</dd>
 <div class="section" id="building-cam">
 <h3>9.3.5. Building CAM<a class="headerlink" href="#building-cam" title="Permalink to this headline">¶</a></h3>
 <p>Once <code class="docutils literal"><span class="pre">configure</span></code> is successful, build CAM by issuing the make command:</p>
-<div class="highlight-default"><div class="highlight"><pre>% gmake -j2  &gt;&amp;! make.out
+<div class="highlight-default"><div class="highlight"><pre><span></span>% gmake -j2  &gt;&amp;! make.out
 </pre></div>
 </div>
 <p>The argument <code class="docutils literal"><span class="pre">-j2</span></code> is given to allow a parallel build using 2
@@ -1078,7 +1078,7 @@ the relative filepaths that are stored in the default values database.</p>
 which is used to point to the cache file which was produced in the
 build directory. It also contains the <code class="docutils literal"><span class="pre">-test</span></code> argument, explained
 further below.</p>
-<div class="highlight-default"><div class="highlight"><pre>% cd /work/user/cam_test
+<div class="highlight-default"><div class="highlight"><pre><span></span>% cd /work/user/cam_test
 % setenv CSMDATA /fs/cgd/csm/inputdata
 % $camcfg/build-namelist -test -config /work/user/cam_test/bld/config_cache.xml
 Writing CICE namelist to ./ice_in
@@ -1190,7 +1190,7 @@ cami_0000-01-01_10x15_L30_c081013.nc was not found. You acquire the
 file from the data repository, but don’t have permissions to write in
 the <code class="docutils literal"><span class="pre">$CSMDATA</span></code> tree. So you put the file in your run directory and
 issue a <code class="docutils literal"><span class="pre">build-namelist</span></code> command that looks like this:</p>
-<div class="highlight-default"><div class="highlight"><pre>% $camcfg/build-namelist -config /work/user/cam_test/bld/config_cache.xml \
+<div class="highlight-default"><div class="highlight"><pre><span></span>% $camcfg/build-namelist -config /work/user/cam_test/bld/config_cache.xml \
 -namelist &quot;&amp;atm ncdata=&#39;/work/user/cam_test/cami_0000-01-01_10x15_L30_c081013.nc&#39; /&quot;
 </pre></div>
 </div>
@@ -1222,7 +1222,7 @@ the inputdata tree, and that you have permissions to write there. If
 the subdirectory <em>atm/cam/inic/fv/</em> doesn’t already exist, then create
 it. Finally, issue the following commands at an interactive C shell
 prompt:</p>
-<div class="highlight-default"><div class="highlight"><pre>% set svnrepo=&#39;https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata&#39;
+<div class="highlight-default"><div class="highlight"><pre><span></span>% set svnrepo=&#39;https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata&#39;
 % cd /fs/cgd/csm/inputdata/atm/cam/inic/fv
 % svn export $svnrepo/atm/cam/inic/fv/cami_0000-01-01_10x15_L26_c030918.nc
 Error validating server certificate for &#39;https://svn-ccsm-inputdata.cgd.ucar.edu:443&#39;:
@@ -1251,7 +1251,7 @@ queues. These issues will be addressed briefly in <a class="reference external" 
 “Sample Run Scripts”</a>. But for a simple
 test in serial mode executed from an interactive shell, we only need
 to issue the following command:</p>
-<div class="highlight-default"><div class="highlight"><pre>% /work/user/cam_test/bld/cam &gt;&amp;! cam.log
+<div class="highlight-default"><div class="highlight"><pre><span></span>% /work/user/cam_test/bld/cam &gt;&amp;! cam.log
 </pre></div>
 </div>
 <p>The commandline above redirects STDOUT and STDERR to the file
