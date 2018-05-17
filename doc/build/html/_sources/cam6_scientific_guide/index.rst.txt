@@ -14,6 +14,7 @@ CAM6 Scientific Guide
    :numbered:
 
    cover.rst
+   acknowledgements.rst
    chapter1.rst
    chapter2.rst
    chapter3.rst

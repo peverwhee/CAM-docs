@@ -1,6 +1,6 @@
 .. _introduction1:
 
-.. |cam| replace:: CAM6.0
+.. |cam| replace:: CAM5.0
 
 Introduction
 ============
@@ -11,8 +11,8 @@ NCAR Community Atmosphere Model designated . The material provides an
 overview of the major model components, and the way in which they
 interact as the numerical integration proceeds. Details on the coding
 implementation, along with in-depth information on running the |cam| code, are
-given in a separate technical report entitled ‘ ‘User’s Guide to
-oCommunity Atmosphere Model |cam|’’ (:cite:`eaton10`). As before, it is our
+given in a separate technical report entitled ‘User’s Guide to
+Community Atmosphere Model |cam|’’ (:cite:`eaton10`). As before, it is our
 objective that this model provide NCAR and the university research
 community with a reliable, well documented atmospheric general
 circulation model. This version of the |cam| incorporates a number
@@ -102,7 +102,7 @@ a shape-preserving semi-Lagrangian transport scheme
 :cite:`williamson94a` for advecting water vapor, as well as an
 arbitrary number of other scalar fields (\eg cloud water variables,
 chemical constituents, etc.).  Principal changes to the physics
-included the use of a :math:`delta` -Eddington approximation to calculate
+included the use of a delta-Eddington approximation to calculate
 solar absorption :cite:`briegleb92`; the use of a Voigt line shape to
 more accurately treat infrared radiative cooling in the stratosphere;
 the inclusion of a diurnal cycle to properly account for the
