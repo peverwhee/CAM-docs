@@ -310,7 +310,7 @@ Differencing the resulting output files with those from Example 2 provides the f
 CAM single column (FSCAM compset)
 ===============================================================================
 
-SCAM cases are set up for a small set of different locations/dates, called an Intensive Observing Period (IOP) (see XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX for more information).  Each of these IOP's have separate preconfigured settings which are referenced by create_new_case using the --user-mods-dir flag. 
+SCAM cases are set up for a small set of different locations/dates, called an Intensive Observing Period (IOP).  Each of these IOP's have separate preconfigured settings which are referenced by create_new_case using the --user-mods-dir flag. 
 
 The list of the available configurations and the associated usermods_dirs directory are:
 
@@ -330,6 +330,29 @@ The list of the available configurations and the associated usermods_dirs direct
  -  **TOGAII**: scam_togaII
  -  **TWP06**: scam_twp06
  -  Mandatory settings: scam_mandatory (used by all SCAM runs, and not to be modified by the user)
+
+#########################################################################################
+SCAM Configuration Options
+#########################################################################################
+
+The default SCAM settings read in initial conditions for aerosols off of an initial condition file: typically a CAM initial condition file. The aerosols and the Temperature field are relaxed to the initial conditions with a variable timescale from 10 days at the bottom of the model to 2 days at the top of the model. U and V wind are taken from the IOP file. This ensures that aerosols and temperature do not drift too far in the upper troposphere and above: where advection for aerosols is important, and where non-represented dynamical forcing would dominate the temperature field. Any field can be relaxed using this method if the user desires it. 
+
+Emissions of constituients from the surface occur as in a standard CAM simulation, reading off climatological emissions files for the year 2000.
+
+Default Settings:
+::
+
+	scm_use_obs_uv         = .true.
+	scm_relaxation         = .true.
+	scm_relax_fincl = 'T', 'bc_a1', 'bc_a4', 'dst_a1', 'dst_a2', 'dst_a3', 'ncl_a1', 'ncl_a2',
+	                  'ncl_a3', 'num_a1', 'num_a2', 'num_a3',
+	                  'num_a4', 'pom_a1', 'pom_a4', 'so4_a1', 'so4_a2', 'so4_a3', 'soa_a1', 'soa_a2'
+	scm_relax_bot_p        = 105000.
+	scm_relax_top_p        = 200.
+	scm_relax_linear       = .true.
+	scm_relax_tau_bot_sec  = 864000.
+	scm_relax_tau_top_sec  = 172800.
+
 
 #########################################################################################
 Example:  Setting up a SCAM run 
@@ -377,29 +400,42 @@ The user may modify the sample script **components/cam/bld/scripts/create_scam6_
 Example:  Setting up User Defined IOP for SCAM  
 #########################################################################################
 
-** STILL BEING WRITTEN**
+If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at 305 degrees E and 62 degrees N over the Labrador Sea.  It is important to note that the user needs to have the NetCDF Command Language (NCL) and NetCDF Operators (NCO) installed on their machine as the generation scripts utilizes this library.
 
-If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at (305 degrees E and 62 degrees N).  It is important to note that the user needs to have the NetCDF Command Language (NCL) installed on their machine as the generation scripts utilizes this library.
+Generate the IOP File
+---------------------
 
-        % ./create_newcase --case 
+1. First, run CAM (in any desired configuration ) with following namelist, specifying fields at a point (305 degrees E, 62 degrees N)
+::
+   
+        fincl2=U, V, T, Q, OMEGA, TTEND_TOT, PTTEND, TAQ, TS,PS,PSL
+        fincl2lonlat = ‘305e_62n’
+        nhtfrq = 0,-3
+        avgflag_pertape = 'A','I'
 
-** INSTRUCTIONS FOR USER IOP GO HERE **
+Averaging can be either 'I'nstantaneous or 'A' average for fincl2
+This produces 3 hourly output at a point for fincl2 fields on an h1 file.
 
-** REFERENCE SCRIPT (and make sure it is checked in **
+2. Run following script on resulting h1 files: 
+::
+        ./components/cam/bld/scripts/camfv2iop.ncl
 
-** Running the USER IOP Case **
+This uses NCL and NCO to create a SCAM IOP file. See internal to the script for documentation on what needs to be changed for a particular case.
 
-To run the user iop with SCAM, follow the following steps (here it is a test case over the SGP site output from a CAM Run)
+3. Run the User IOP case.
 
-- Decide your iop name (e.g. usrsgp)
-- Add this to the script create_scam6_iop
+To run the user iop with SCAM, follow the following steps (here it is a test case over the Labrador Sea from a CAM Run)
+
+- Decide your iop name (e.g. usrLabSea)
+- Add this IOP to the script create_scam6_iop
 - In the tag you have downloaded, go to the 'usermods_dirs' directory
-	e.g. cam6_0_000/components/cam/cime_config/usermods_dirs
-- Copy one of the directories for the IOP cases, e.g. cp -r scam_arm97 scam_usrsgp
+	- cam6_0_000/components/cam/cime_config/usermods_dirs
+- Copy one of the directories for the IOP cases, e.g.
+        - cp -r scam_arm97 scam_usrLabSea
 - Change files in this directory
-	Shell commands: XML change commands: Typically the LAT, LON, STARTDATE, START_TOD, STOP_OPTION and STOP_N
-	User_nl_cam:  usually just iopfile. May also want to change mfilt (to keep all times on one file) 
-- Run create_sca6_iop script with apprpriate IOP (scam_usrsgp in this case)
+	- **shell_commands**: XML change commands: Typically the LAT, LON, STARTDATE, START_TOD, STOP_OPTION and STOP_N
+	- **sser_nl_cam**:  usually just iopfile. May also want to change mfilt (to keep all times on one file) 
+- Run create_scam6_iop script with apprpriate IOP (e.g. IOP=scam_usrLabSea in this case)
 
 	
 -------------------------------------------------------------------------------
