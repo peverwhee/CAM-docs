@@ -1,8 +1,10 @@
 .. _cam-chem-specifics:
 
 **********************************************************
-CAM-chem mechanisms 
+CAM-chem specific modifications 
 **********************************************************
+
+CESM2.0 supports one standard mechanism for CAM-chem, TS1, which includes  comprehensive chemistry for both troposphere and stratosphere. The 
 
 ----------------------------------------------------------------
 Chemical mechanisms

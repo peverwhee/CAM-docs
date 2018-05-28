@@ -3,7 +3,9 @@
 ***************************
 Input Datasets
 ***************************
+
 Input datasets are required to run the model and differ depending on the configuration used. All CAM, CAM-chem and WACCM configurations require surface emissions and external forcings (vertically distributed emissions). 
+
 ------------------------------
 Emissions
 ------------------------------
