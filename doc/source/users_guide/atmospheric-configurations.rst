@@ -230,7 +230,7 @@ Set up the **user_nl_cam** file for the base run::
 Note: It has been found that sampling every 73'rd time step is a good balance of computational cost
 and size of data for dtime = 1800 and a 2-degree horizontal resolution.
 
-.. [1] Conley, A. J., Lamarque, J.-F., Vitt, F., Collins, W. D., and Kiehl, J.: PORT, a CESM tool for the diagnosis of radiative forcing, Geosci. Model Dev., 6, 469-476, https://doi.org/10.5194/gmd-6-469-2013, 2013.
+.. [4] Conley, A. J., Lamarque, J.-F., Vitt, F., Collins, W. D., and Kiehl, J.: PORT, a CESM tool for the diagnosis of radiative forcing, Geosci. Model Dev., 6, 469-476, https://doi.org/10.5194/gmd-6-469-2013, 2013.
   
 
 Build and submit this sampling run data::
@@ -444,6 +444,7 @@ Example:  Setting up User Defined IOP for SCAM
 
 If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at 305 degrees E and 62 degrees N over the Labrador Sea.  It is important to note that the user needs to have the NetCDF Command Language (NCL) and NetCDF Operators (NCO) installed on their machine as the generation scripts utilizes this library.
 
+---------------------
 Generate the IOP File
 ---------------------
 
@@ -460,6 +461,7 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.
 
 2. Run following script on resulting h1 files: 
 ::
+
         ./components/cam/bld/scripts/camfv2iop.ncl
 
 This uses NCL and NCO to create a SCAM IOP file. See internal to the script for documentation on what needs to be changed for a particular case.
@@ -490,17 +492,17 @@ There are a number of other CAM compsets which have not been described in this d
 Super-parameterized CAM (SPCAM)
 ===============================================================================
 
-Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.8.2) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation. Two different sets are provided. SAM1MOM use one moment SAM microphysics, and is based on Khairoutdinov and Randall [5]_. M2005 uses two moment microphysics from Morrison et al [6]_, and its implementation is based on Wang et al. [7]_; [8]_. In M2005, Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) [4]_ . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.
+Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.8.2) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation. Two different sets are provided. SAM1MOM use one moment SAM microphysics, and is based on Khairoutdinov and Randall [6]_. M2005 uses two moment microphysics from Morrison et al [7]_, and its implementation is based on Wang et al. [8]_; [9]_. In M2005, Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) [5]_ . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.
 
-.. [4] Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit-Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.
+.. [5] Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit-Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.
 
-.. [5]  Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.
+.. [6]  Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.
 
-.. [6]  Morrison, H., Curry, J. A., & Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.
+.. [7]  Morrison, H., Curry, J. A., & Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.
 
-.. [7]  Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137--168, doi:10.5194/gmd-4-137-2011.
+.. [8]  Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137--168, doi:10.5194/gmd-4-137-2011.
 
-.. [8]  Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.
+.. [9]  Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.
 
 
 **SPCAM tested compsets**
@@ -541,6 +543,7 @@ All available compsets use observed SSTs and sea-ice values and CMIP6 emissions 
 
 
 
+-------------------------------------------------------------------------------
 WACCM compsets
 -------------------------------------------------------------------------------
 
