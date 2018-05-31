@@ -10,17 +10,28 @@ CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see detai
 Chemical mechanisms
 ----------------------------------------------------------------
 
-CESM2.0 supports 3 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/. 
+CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/. 
 
 +----------------+---------------------------------+----------+------------------+------------------------------+----------------------+
 | Mechanism      | Description                     | #Species | #Reactions       | Mechanism Name               | Pre-processor code   | 
 +================+=============+===================+==========+========+=========+==============================+======================+
 | TSMLT1         | Chemistry including troposphere,|  231     | 584 (434 kinetic,| MZ197_TSMLT1_20180423        | pp_waccm_tsmlt_mam4  |
 |                | stratosphere, mesosphere, and   |          | 150 photolysis)  |                              |                      |
-|                | ionosphere                      |          |                  |                              |                      |
+|                | lower thermosphere              |          |                  |                              |                      |
 +----------------+-------------+-------------------+----------+------------------+------------------------------+----------------------+
 | TS1            | Chemistry including troposphere,|  221     | 529 (406 kinetic,| MZ198_TS1-simpleVBS_20180423 |pp_trop_strat_mam4_vbs| 
 |                | and stratosphere                |          | 123 photolysis)  |                              |                      |
++----------------+-------------+-------------------+----------+------------------+------------------------------+----------------------+
+| MA             | Middle atmosphere chemistry     |   98     | 298 (207 kinetic,|                              | pp_waccm_ma_mam4     | 
+|                | including stratosphere,         |          | 91 photolysis)   |                              |                      |
+|                | mesosphere, and lower           |          |                  |                              |                      |
+|                | thermosphere                    |          |                  |                              |                      |
++----------------+-------------+-------------------+----------+------------------+------------------------------+----------------------+
+| MAD            | Middle atmosphere plus D-region |  135     | 593 (489 kinetic,|                              | pp_waccm_mad_mam4    | 
+|                | ion chemistry                   |          | 104 photolysis)  |                              |                      |
++----------------+-------------+-------------------+----------+------------------+------------------------------+----------------------+
+| SC             | Specified chemistry for WACCM   |   29     | 12 (11 kinetic,  |                              | pp_waccm_sc_mam4     | 
+|                |                                 |          | 1 photolysis)    |                              |                      |
 +----------------+-------------+-------------------+----------+------------------+------------------------------+----------------------+
 | CAM            | Simplified Chemistry for CAM to |   32     | 7 (6 kinetic), 1 |                              | modal_aero           |
 |                | to allow tropospheric aerosol   |          | photolysis)      |                              |                      |
