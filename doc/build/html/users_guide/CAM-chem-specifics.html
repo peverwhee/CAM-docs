@@ -96,78 +96,76 @@
 <p>CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (<a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf">http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf</a>). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="13%" />
-<col width="10%" />
-<col width="15%" />
+<col width="9%" />
+<col width="27%" />
 <col width="8%" />
-<col width="6%" />
-<col width="7%" />
+<col width="15%" />
 <col width="24%" />
-<col width="17%" />
+<col width="18%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Mechanism</th>
-<th class="head" colspan="2">Description</th>
+<th class="head">Description</th>
 <th class="head">#Species</th>
-<th class="head" colspan="2">#Reactions</th>
+<th class="head">#Reactions</th>
 <th class="head">Mechanism Name</th>
 <th class="head">Pre-processor code</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>TSMLT1</td>
-<td colspan="2">Chemistry including troposphere,
+<td>Chemistry including troposphere,
 stratosphere, mesosphere, and
 lower thermosphere</td>
 <td>231</td>
-<td colspan="2">584 (434 kinetic,
+<td>583 (433 kinetic,
 150 photolysis)</td>
 <td>MZ197_TSMLT1_20180423</td>
 <td>pp_waccm_tsmlt_mam4</td>
 </tr>
 <tr class="row-odd"><td>TS1</td>
-<td colspan="2">Chemistry including troposphere,
+<td>Chemistry including troposphere,
 and stratosphere</td>
 <td>221</td>
-<td colspan="2">529 (406 kinetic,
+<td>528 (405 kinetic,
 123 photolysis)</td>
 <td>MZ198_TS1-simpleVBS_20180423</td>
 <td>pp_trop_strat_mam4_vbs</td>
 </tr>
 <tr class="row-even"><td>MA</td>
-<td colspan="2">Middle atmosphere chemistry
+<td>Middle atmosphere chemistry
 including stratosphere,
 mesosphere, and lower
 thermosphere</td>
 <td>98</td>
-<td colspan="2">298 (207 kinetic,
+<td>298 (207 kinetic,
 91 photolysis)</td>
 <td>&#160;</td>
 <td>pp_waccm_ma_mam4</td>
 </tr>
 <tr class="row-odd"><td>MAD</td>
-<td colspan="2">Middle atmosphere plus D-region
+<td>Middle atmosphere plus D-region
 ion chemistry</td>
 <td>135</td>
-<td colspan="2">593 (489 kinetic,
+<td>593 (489 kinetic,
 104 photolysis)</td>
 <td>&#160;</td>
 <td>pp_waccm_mad_mam4</td>
 </tr>
 <tr class="row-even"><td>SC</td>
-<td colspan="2">Specified chemistry for WACCM</td>
+<td>Specified chemistry for WACCM</td>
 <td>29</td>
-<td colspan="2">12 (11 kinetic,
+<td>12 (11 kinetic,
 1 photolysis)</td>
 <td>&#160;</td>
 <td>pp_waccm_sc_mam4</td>
 </tr>
 <tr class="row-odd"><td>CAM</td>
-<td colspan="2">Simplified Chemistry for CAM to
+<td>Simplified Chemistry for CAM to
 to allow tropospheric aerosol
 formation</td>
 <td>32</td>
-<td colspan="2">7 (6 kinetic), 1
+<td>7 (6 kinetic), 1
 photolysis)</td>
 <td>&#160;</td>
 <td>modal_aero</td>

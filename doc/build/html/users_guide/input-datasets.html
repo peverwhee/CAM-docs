@@ -98,7 +98,9 @@
             
   <div class="section" id="input-datasets">
 <span id="id1"></span><h1>6. Input Datasets<a class="headerlink" href="#input-datasets" title="Permalink to this headline">¶</a></h1>
-<p>Input datasets are required to run the model and differ depending on the configuration used. All CAM, CAM-chem and WACCM configurations require surface emissions and external forcings (vertically distributed emissions).</p>
+<p>Input datasets are required to run the model and differ depending on the configuration
+used. All CAM, CAM-chem and WACCM configurations require surface emissions and external
+forcings (vertically distributed emissions).</p>
 <div class="section" id="emissions">
 <h2>6.1. Emissions<a class="headerlink" href="#emissions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="list-of-species-with-emissions-cam">
@@ -115,6 +117,10 @@
 </div>
 <div class="section" id="waccm-x">
 <h3>6.1.5. WACCM-X<a class="headerlink" href="#waccm-x" title="Permalink to this headline">¶</a></h3>
+<p>WACCM-X uses emissions relevant to middle atmosphere (MA) chemistry, consistent with those
+provided for the REF-C1 experiment of the <a class="reference external" href="http://www.sparc-climate.org/fileadmin/customer/6_Publications/Newsletter_PDF/40_SPARCnewsletter_Jan2013_web.pdf">IGAC/SPARC Chemistry-Climate Model Initiative
+(CCMI)</a>
+Community Simulations.</p>
 </div>
 </div>
 <div class="section" id="lower-boundary-data-sets">
@@ -132,6 +138,41 @@
 </div>
 <div class="section" id="solar-input-files">
 <h2>6.6. Solar input files<a class="headerlink" href="#solar-input-files" title="Permalink to this headline">¶</a></h2>
+<p>CESM2 uses <a class="reference external" href="http://solarisheppa.geomar.de/cmip6">CMIP6 solar input files</a>:</p>
+<p><em>solar_irrad_data_file</em>: provides spectral solar irradiance (SSI)</p>
+<p>WACCM and WACCM-X use 2 additional solar input files for upper-atmosphere processes:</p>
+<p><em>solar_parms_data_file</em>: geomagnetic parameters</p>
+<p><em>epp_all_filepath</em>: energetic particle precipitation, including solar proton events and
+medium energy electrons</p>
+<p><em>epp_spe_filepath</em>: used just for solar proton events</p>
+<p>The data for all three inputs have been combined into a single file for each time period,
+so that WACCM points to the same file for each.</p>
+<dl class="docutils">
+<dt>piControl:</dt>
+<dd><p class="first">solar_irrad_data_file = ‘$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6piControl_c160921.nc’</p>
+<p>solar_parms_data_file = ‘$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6piControl_c160921.nc’</p>
+<p class="last">epp_all_filepath      = ‘$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6piControl_c160921.nc’</p>
+</dd>
+<dt>Historical:</dt>
+<dd><p class="first">solar_irrad_data_file = ‘$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6_18491230-22991231_c171031.nc’</p>
+<p>solar_parms_data_file = ‘$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6_18491230-22991231_c171031.nc’</p>
+<p class="last">epp_all_filepath      = ‘$DIN_LOC_ROOT/atm/cam/solar/SolarForcingCMIP6_18491230-22991231_c171031.nc’</p>
+</dd>
+</dl>
+<p>WACCM-X uses the Naval Research Laboratory (NRL) Version 1 reconstruction for solar
+irradiance (Lean, ref), rather than CMIP6.</p>
+<dl class="docutils">
+<dt>Historical:</dt>
+<dd><p class="first">solar_irrad_data_file = ‘$DIN_LOC_ROOT/atm/cam/solar/spectral_irradiance_Lean_1950-2014_daily_GOME-Mg_Leap_c150623.nc’</p>
+<p>epp_spe_filepath      = ‘$DIN_LOC_ROOT/atm/waccm/solar/spes_1963-2014_c150717.nc’</p>
+<p class="last">solar_parms_data_file = ‘$DIN_LOC_ROOT/atm/waccm/solar/waxsolar_3hr_c170504.nc’</p>
+</dd>
+<dt>Constant year 2000:</dt>
+<dd><p class="first">solar_irrad_data_file = ‘$DIN_LOC_ROOT/atm/cam/solar/spectral_irradiance_Lean_1950-2014_daily_GOME-Mg_Leap_c150623.nc’</p>
+<p>epp_spe_filepath      = ‘$DIN_LOC_ROOT/atm/waccm/solar/spes_1963-2014_c150717.nc’</p>
+<p class="last">solar_parms_data_file = ‘$DIN_LOC_ROOT/atm/waccm/solar/wa_avg_c20170519.nc’</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="id2">
 <h2>6.7. WACCM<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
