@@ -57,16 +57,17 @@ Solar input files
 ------------------------------
 CESM2 uses `CMIP6 solar input files <http://solarisheppa.geomar.de/cmip6>`_:
 
-*solar_irrad_data_file*: provides spectral solar irradiance (SSI)
+**solar_irrad_data_file**: provides spectral solar irradiance (SSI)
 
 WACCM and WACCM-X use 2 additional solar input files for upper-atmosphere processes:
 
-*solar_parms_data_file*: geomagnetic parameters
+**solar_parms_data_file**: geomagnetic parameters
 
-*epp_all_filepath*: energetic particle precipitation, including solar proton events and
-medium energy electrons
+**epp_all_filepath**: Provides *epp_ion_rates* variable with ion pair production rate from
+energetic particle precipitation, including solar protons, cosmic rays, and
+medium energy electrons.
 
-*epp_spe_filepath*: used just for solar proton events
+**epp_spe_filepath**: Provides ion pair production rates just for solar proton events
 
 The data for all three inputs have been combined into a single file for each time period,
 so that WACCM points to the same file for each.
