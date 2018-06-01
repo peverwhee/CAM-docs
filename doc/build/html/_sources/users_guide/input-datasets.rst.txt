@@ -67,8 +67,6 @@ WACCM and WACCM-X use 2 additional solar input files for upper-atmosphere proces
 energetic particle precipitation, including solar protons, cosmic rays, and
 medium energy electrons.
 
-**epp_spe_filepath**: Provides ion pair production rates just for solar proton events
-
 The data for all three inputs have been combined into a single file for each time period,
 so that WACCM points to the same file for each.
 
@@ -88,7 +86,9 @@ Historical:
 
 
 WACCM-X uses the Naval Research Laboratory (NRL) Version 1 reconstruction for solar 
-irradiance (Lean, ref), rather than CMIP6.
+irradiance (Lean, ref), rather than CMIP6. Instead of the *epp_all_filepath*, WACCM-X uses
+the *epp_spe_filepath*, which provides ion pair production rates just for solar proton 
+events.
 
 Historical:
  solar_irrad_data_file = '$DIN_LOC_ROOT/atm/cam/solar/spectral_irradiance_Lean_1950-2014_daily_GOME-Mg_Leap_c150623.nc'

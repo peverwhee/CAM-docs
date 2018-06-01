@@ -145,7 +145,6 @@ Community Simulations.</p>
 <p><strong>epp_all_filepath</strong>: Provides <em>epp_ion_rates</em> variable with ion pair production rate from
 energetic particle precipitation, including solar protons, cosmic rays, and
 medium energy electrons.</p>
-<p><strong>epp_spe_filepath</strong>: Provides ion pair production rates just for solar proton events</p>
 <p>The data for all three inputs have been combined into a single file for each time period,
 so that WACCM points to the same file for each.</p>
 <dl class="docutils">
@@ -161,7 +160,9 @@ so that WACCM points to the same file for each.</p>
 </dd>
 </dl>
 <p>WACCM-X uses the Naval Research Laboratory (NRL) Version 1 reconstruction for solar
-irradiance (Lean, ref), rather than CMIP6.</p>
+irradiance (Lean, ref), rather than CMIP6. Instead of the <em>epp_all_filepath</em>, WACCM-X uses
+the <em>epp_spe_filepath</em>, which provides ion pair production rates just for solar proton
+events.</p>
 <dl class="docutils">
 <dt>Historical:</dt>
 <dd><p class="first">solar_irrad_data_file = ‘$DIN_LOC_ROOT/atm/cam/solar/spectral_irradiance_Lean_1950-2014_daily_GOME-Mg_Leap_c150623.nc’</p>
