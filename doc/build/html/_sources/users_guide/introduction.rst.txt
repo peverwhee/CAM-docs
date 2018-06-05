@@ -4,7 +4,7 @@
 Introduction 
 **************************
 
-The Community Atmosphere Model version CAM6 is released as the active atmosphere component of the Community Earth System Model version CESM-2.0. 
+The Community Atmosphere Model version 6 (CAM6) is released as the active atmosphere component of the Community Earth System Model version CESM-2.0. 
 It is the latest in a series of global atmosphere models whose development is guided by the `Atmosphere Model Working Group (AMWG) <http://www.cesm.ucar.edu/working_groups/Atmosphere/>`_ of the `Community Earth System Model (CESM) <http://www.cesm.ucar.edu//>`_ project. 
 CAM can be run in many configurations within the CESM; it is the atmosphere
 component in the B, E, F, Q, and P compsets.

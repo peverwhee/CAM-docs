@@ -208,24 +208,32 @@ Create the base sampling case::
   % cd base_run_case
 
 Set up the **user_nl_cam** file for the base run::
-  
+
   ! Output the radiation data
   rad_data_output=.true.
 
   ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
   rad_data_histfile_num=2
- 
+
+  ! Write out the instantaneous rad_data and radiation diagnostics
+  rad_data_avgflag = 'I'
+  avgflag_pertape = 'A','I'
+
   ! Make certain the radiation is called every time step
-  rad_always = .true.
- 
-  ! Write out the instantaneous rad_data
-  rad_data_avgflag='I'
- 
+  iradlw = 1
+  iradsw = 1
+
   ! Include radiation diagnostics
   fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
- 
+
   ! Output frequency
-  nhtfrq=0,73
+  nhtfrq = 0,73
+
+  ! number of time records per individual history file
+  mfilt = 1,5
+
+  ! double precision output
+  ndens = 1,1
 
 Note: It has been found that sampling every 73'rd time step is a good balance of computational cost
 and size of data for dtime = 1800 and a 2-degree horizontal resolution. [4]_
@@ -245,10 +253,6 @@ After your job completes, you will have a number of files, including ones with f
 The "cam.h1" files contain the radiation history which was specified by the namelist and will be used in the
 next step.  
 
-Prepare sequential list of input files for the PORT run::
-
-  % ls -1d /path/base_run_case.cam.h1.*nc > /path/samples.input
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 PORT validation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -259,32 +263,42 @@ Create the PORT validation run::
   % cd port_run_case
 
 Set up the **user_nl_cam** file for the PORT run::
-  
+
+  ! PORT input data
+  offline_driver_infile = '/path/base_run_case.cam.h1.0001-01-01-00000.nc'
+
   ! Output the radiation data
   rad_data_output=.true.
 
   ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
   rad_data_histfile_num=2
- 
-  ! Write out the instantaneous rad_data
-  rad_data_avgflag='I'
- 
+
+  ! Write out the instantaneous rad_data and radiation diagnostics
+  rad_data_avgflag = 'I'
+  avgflag_pertape = 'A','I'
+
+  ! Make certain the radiation is called every time step
+  iradlw = 1
+  iradsw = 1
+
   ! Include radiation diagnostics
   fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
-  
+
   ! Output frequency
-  nhtfrq=0,73
+  nhtfrq = 0,73
 
-  ! Sequential list of input files
-  offline_driver_fileslist = '/path/samples.input'
+  ! number of time records per individual history file
+  mfilt = 1,5
 
+  ! double precision output
+  ndens = 1,1
 
-For verification tests the run time length can be as short as a few time steps.
+For verification tests the run time length should be long enough to include at least a few sampling times.
 
 Build and submit this validation run data::
 
  % ./case.setup
- % ./xmlchange STOP_N=1
+ % ./xmlchange STOP_N=5
  % ./xmlchange STOP_OPTION=ndays
  % ./case.build
  % ./case.submit
@@ -301,12 +315,11 @@ Further documentation on ncap can be found in the `NCO User Guide <http://nco.so
 
 Modify the composition in the sample files.  For each file listed in /path/samples.inputs::
   
-  % ncap -s "rad_CO2=2.0*rad_CO2" original.h1.file[n].nc 2xCO2.file[n].nc
+  % for fin in base_run_case.cam.h1*nc; do fout="${fin/cam.h1/cam.h1-2xCO2}"; ncap2 -s "rad_CO2=2.0*rad_CO2" $fin $fout; done
 
-Create a new sequential list of input files for the PORT run::
-  
-  % ls -1d /path/2xCO2.file*nc > /path/samples2xCO2.inputs
+Prepare sequential list of input files for the PORT run::
 
+  % ls -1 /path/base_run_case.cam.h1-2xCO2.*nc > /path/samples2xCO2.inputs
 
 Prepare the PORT run::
   
@@ -315,26 +328,24 @@ Prepare the PORT run::
 
 Set up the **user_nl_cam** file for the PORT run::
 
-  ! Output the radiation data
-  rad_data_output=.true.
-
-  ! Specify the radiation data be written to history file number 2 (rad_data will be in files with cam.h1 in their name)
-  rad_data_histfile_num=2
- 
-  ! Write out the instantaneous rad_data
-  rad_data_avgflag='I'
- 
-  ! Include radiation diagnostics
-  fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
- 
-  ! Output frequency
-  nhtfrq=0,73
-
   ! Sequential list of input files
   offline_driver_fileslist = '/path/samples2xCO2.inputs'
 
   ! Allow temperatures above the tropopause to equilibrate under the assumption of fixed dynamical heating
   rad_data_fdh = .true.
+
+  ! Write out the instantaneous radiation diagnostics
+  avgflag_pertape = 'A','I'
+ 
+  ! Make certain the radiation is called every time step
+  iradlw = 1
+  iradsw = 1
+
+  ! Include radiation diagnostics
+  fincl2 = 'FLNT', 'FLNR','FLNS', 'FSNT','FSNR', 'FSNS'
+ 
+  ! Output frequency
+  nhtfrq = 0,73
 
 Build and submit::
 
