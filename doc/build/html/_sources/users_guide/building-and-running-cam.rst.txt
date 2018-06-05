@@ -4,7 +4,11 @@
 Building and Running the atmospheric model within CESM
 **********************************************************
 
-If you need to install CESM, you will need to download it from a git repository.  Please refer to `downloading CESM <http://escomp.github.io/cesm/release-cesm2/downloading_cesm.html>`_.  If you have developer access to the CAM development repository, and if you are not going to run a fully coupled run and are only going to run F, Q or P compsets, you may save space by checking out a CAM standalone tag.  *This is only an option if you have developer access to the CAM development repository.*  CAM is stored in a svn repository and the instructions for checking it out are in :ref:`Checking out CAM standalone <checking-out-cam-standalone>`
+If you need to install CESM, you will need to download it from a git
+repository.  Please refer to `downloading CESM
+<http://escomp.github.io/cesm/release-cesm2/downloading_cesm.html>`_.  If
+you have developer access to the CAM development repository, and if you are
+not going to run a fully coupled run and are only going to run E, F, Q, or P compsets, you may save space by checking out a CAM standalone tag.  *This is only an option if you have developer access to the CAM development repository.*  CAM is stored in a svn repository and the instructions for checking it out are in :ref:`Checking out CAM standalone <checking-out-cam-standalone>`
 
 CAM runs are setup, built and submitted via the cime scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using a named configuration known as a compset.  Compsets will be described in much more detail in :ref:`Atmospheric configurations <atmospheric-configurations>`.  For this chapter, we will be using the compset FHIST.
 

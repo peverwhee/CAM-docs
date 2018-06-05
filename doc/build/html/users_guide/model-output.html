@@ -102,7 +102,6 @@
             
   <div class="section" id="model-output">
 <span id="id1"></span><h1>7. Model Output:<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h1>
-<p><strong>Brian Eaton will review this chapter for accuracy</strong></p>
 <p>CAM produces a series of NetCDF format history files containing atmospheric gridpoint data generated during the course of a run. It also produces a series of NetCDF format restart files necessary to continue a run once it has terminated successfully and a series of initial conditions files that may be used to initialize new simulations. The contents of these datasets are described below.</p>
 <div class="section" id="model-history-files">
 <h2>7.1. Model History Files<a class="headerlink" href="#model-history-files" title="Permalink to this headline">¶</a></h2>
@@ -120,7 +119,7 @@
 <p>The following three namelist variables are arrays up to length 10 which specify characteristics for the output files.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">nhtfrq</span></code> - Array of write frequencies for each history file series.  If nhtfrq(1) = 0, the file will be a monthly average.  Only the first file series may be a monthly average.  If nhtfrq(i) &gt; 0, frequency is specified as number of timesteps.  If nhtfrq(i) &lt; 0, frequency is specified as number of hours.</li>
-<li><code class="docutils literal"><span class="pre">ndens</span></code> - set to 1 to output single precision reals, and 2 to output double precision</li>
+<li><code class="docutils literal"><span class="pre">ndens</span></code> - set to 1 to output double precision reals, and 2 to output single precision</li>
 <li><code class="docutils literal"><span class="pre">mfilt</span></code> - the maximum number of times to output into a file for each output stream</li>
 </ul>
 <p>There are also namelist settings which control output in a general way.</p>
@@ -161,7 +160,7 @@
 </div>
 <div class="section" id="timestamps-and-time-intervals">
 <h2>7.4. Timestamps and time intervals<a class="headerlink" href="#timestamps-and-time-intervals" title="Permalink to this headline">¶</a></h2>
-<p><em>The timestamp associated with each time sample in a history file is the model time at the end of the timestep during which the model writes data to the disk.</em> In the case of instantaneous data the meaning is clear. However when the data is representative of a time interval, the timestamp corresponds to <em>the end of the interval</em>.</p>
+<p><strong>The timestamp associated with each time sample in a history file is the model time at the end of the timestep during which the model writes data to the disk.</strong> In the case of instantaneous data the meaning is clear. However when the data is representative of a time interval, the timestamp corresponds to <strong>the end of the interval</strong>.</p>
 <p>This is often a point of confusion when looking at history files. Since the endpoint of one interval is the same as the beginning of the next interval, when looking at a monthly average for January, which has a timestamp of 0Z on Feb 01, at first glance the timestamp would seem to correspond to a February average. Hence it’s important for post processing tools to make use of the data in the <code class="docutils literal"><span class="pre">time_bnds</span></code> variable so that the time interval endpoints can be used to compute an interval midpoint which is the more appropriate timestamp to associate with the interval.</p>
 <div class="section" id="example-timestamps-for-a-year-of-monthly-averages">
 <h3>7.4.1. Example: Timestamps for a year of monthly averages<a class="headerlink" href="#example-timestamps-for-a-year-of-monthly-averages" title="Permalink to this headline">¶</a></h3>
@@ -241,7 +240,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

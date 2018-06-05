@@ -1,21 +1,23 @@
 .. _introduction:
 
- -**Need to verify what are active and data components in the text below and replace/remove the ?????**
-
 **************************
 Introduction 
 **************************
 
-The Community Atmosphere Model version CAM6 is released as the atmosphere component of the Community Earth System Model version CESM-2.0. 
+The Community Atmosphere Model version CAM6 is released as the active atmosphere component of the Community Earth System Model version CESM-2.0. 
 It is the latest in a series of global atmosphere models whose development is guided by the `Atmosphere Model Working Group (AMWG) <http://www.cesm.ucar.edu/working_groups/Atmosphere/>`_ of the `Community Earth System Model (CESM) <http://www.cesm.ucar.edu//>`_ project. 
-CAM can be run in a "standalone" configuration within CESM, by which we mean that the atmosphere is coupled to an active land model (CLM), a thermodynamic only sea ice model (a special configuration of CICE), and a data ocean model (DOCN) + ??????????????????????????. 
+CAM can be run in many configurations within the CESM; it is the atmosphere
+component in the B, E, F, Q, and P compsets.
+The term "standalone CAM" is often used to refer to a compset which does
+not include prognostic ocean and sea ice models.
 When one speaks of "doing CAM simulations" the implication is that it's a standalone configuration that is being used. 
-When CAM is coupled to CESM active ocean and sea ice models + ?????????????????? then we refer to it as a "fully coupled CESM simulation".
+When CAM is coupled to prognostic land, ocean, and sea ice models then we refer
+to it as a "fully coupled CESM simulation" which are implemented in the B compsets.
 
-Since the CAM standalone model is just a special configuration of CESM it can be run using the CESM scripts. 
-This is done by using one of the "F" compsets and details on using the scripts can be found in the :ref:`Building and Running CAM within CESM <building-and-running-cam>` section of this User's Guide or the `CESM2 Quick Start Guide <http://escomp.github.io/cesm/release-cesm2>`_. 
-The main advantage of running CAM via the CESM scripts is to leverage the high level of support that those scripts provide for doing production runs of predefined experiments on supported platforms. 
-The CESM scripts do things like: setting up reasonable runtime environments; automatically retrieving required input datasets from an SVN server; and archiving output files. 
+To get started running CAM refer to the `CESM2 Quick Start Guide
+<http://escomp.github.io/cesm/release-cesm2>`_ and the 
+:ref:`Building and Running CAM within CESM <building-and-running-cam>` section of this User's Guide.
+Running CAM using the CESM scripts provides a high level of support for doing production runs of predefined experiments on supported platforms. 
 The ability to customize a CAM build or runtime configuration depends on being able to use the utilities described in this document. 
 Any build configuration can be set up via appropriate commandline arguments to CAM's ``configure`` utility, and any runtime configuration can be set up with appropriate arguments to CAM's ``build-namelist`` utility. 
 

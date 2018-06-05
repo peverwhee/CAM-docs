@@ -92,7 +92,10 @@
             
   <div class="section" id="building-and-running-the-atmospheric-model-within-cesm">
 <span id="building-and-running-cam"></span><h1>3. Building and Running the atmospheric model within CESM<a class="headerlink" href="#building-and-running-the-atmospheric-model-within-cesm" title="Permalink to this headline">¶</a></h1>
-<p>If you need to install CESM, you will need to download it from a git repository.  Please refer to <a class="reference external" href="http://escomp.github.io/cesm/release-cesm2/downloading_cesm.html">downloading CESM</a>.  If you have developer access to the CAM development repository, and if you are not going to run a fully coupled run and are only going to run F, Q or P compsets, you may save space by checking out a CAM standalone tag.  <em>This is only an option if you have developer access to the CAM development repository.</em>  CAM is stored in a svn repository and the instructions for checking it out are in <a class="reference internal" href="checking-out-cam-standalone.html#checking-out-cam-standalone"><span class="std std-ref">Checking out CAM standalone</span></a></p>
+<p>If you need to install CESM, you will need to download it from a git
+repository.  Please refer to <a class="reference external" href="http://escomp.github.io/cesm/release-cesm2/downloading_cesm.html">downloading CESM</a>.  If
+you have developer access to the CAM development repository, and if you are
+not going to run a fully coupled run and are only going to run E, F, Q, or P compsets, you may save space by checking out a CAM standalone tag.  <em>This is only an option if you have developer access to the CAM development repository.</em>  CAM is stored in a svn repository and the instructions for checking it out are in <a class="reference internal" href="checking-out-cam-standalone.html#checking-out-cam-standalone"><span class="std std-ref">Checking out CAM standalone</span></a></p>
 <p>CAM runs are setup, built and submitted via the cime scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using a named configuration known as a compset.  Compsets will be described in much more detail in <a class="reference internal" href="atmospheric-configurations.html#atmospheric-configurations"><span class="std std-ref">Atmospheric configurations</span></a>.  For this chapter, we will be using the compset FHIST.</p>
 <p>A simple session to build the compset FHIST, 1 degree finite volume case and name the case test_FHIST is illustrated as follows:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
@@ -168,7 +171,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

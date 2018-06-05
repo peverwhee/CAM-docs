@@ -4,8 +4,6 @@
 Model Output:
 **************************
 
-**Brian Eaton will review this chapter for accuracy**
-
 CAM produces a series of NetCDF format history files containing atmospheric gridpoint data generated during the course of a run. It also produces a series of NetCDF format restart files necessary to continue a run once it has terminated successfully and a series of initial conditions files that may be used to initialize new simulations. The contents of these datasets are described below.
 
 ------------------------
@@ -30,7 +28,7 @@ The following namelist settings are specified to customize each output stream de
 The following three namelist variables are arrays up to length 10 which specify characteristics for the output files.  
 
 - ``nhtfrq`` - Array of write frequencies for each history file series.  If nhtfrq(1) = 0, the file will be a monthly average.  Only the first file series may be a monthly average.  If nhtfrq(i) > 0, frequency is specified as number of timesteps.  If nhtfrq(i) < 0, frequency is specified as number of hours.
-- ``ndens`` - set to 1 to output single precision reals, and 2 to output double precision
+- ``ndens`` - set to 1 to output double precision reals, and 2 to output single precision
 - ``mfilt`` - the maximum number of times to output into a file for each output stream
 
 There are also namelist settings which control output in a general way.  
@@ -80,7 +78,7 @@ The variables ``date`` and ``datesec`` are for convenience only; they don't play
 Timestamps and time intervals
 -----------------------------
 
-*The timestamp associated with each time sample in a history file is the model time at the end of the timestep during which the model writes data to the disk.* In the case of instantaneous data the meaning is clear. However when the data is representative of a time interval, the timestamp corresponds to *the end of the interval*.
+**The timestamp associated with each time sample in a history file is the model time at the end of the timestep during which the model writes data to the disk.** In the case of instantaneous data the meaning is clear. However when the data is representative of a time interval, the timestamp corresponds to **the end of the interval**.
 
 This is often a point of confusion when looking at history files. Since the endpoint of one interval is the same as the beginning of the next interval, when looking at a monthly average for January, which has a timestamp of 0Z on Feb 01, at first glance the timestamp would seem to correspond to a February average. Hence it's important for post processing tools to make use of the data in the ``time_bnds`` variable so that the time interval endpoints can be used to compute an interval midpoint which is the more appropriate timestamp to associate with the interval.
 
