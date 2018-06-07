@@ -107,23 +107,23 @@ To run the standard CAM6 aquaplanet, simply supply the compset name::
   ./case.build
   ./case.submit
 
-By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE "QOBS" option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. [1]_ for details.
+By default, initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE "QOBS" option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. [1]_ for details.
 
 ###############################################################
 Example 2: Default Aquaplanet with Slab-Ocean Model
 ###############################################################
 To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name::
 
-  cd cime/scripts
-  ./create_newcase --case aqua_case --compset QSC6 --res f09_f09_mg17
-  cd aqua_case
-  ./case.setup
-  ./case.build
-  ./case.submit
+  % cd cime/scripts
+  % ./create_newcase --case aqua_case --compset QSC6 --res f09_f09_mg17
+  % cd aqua_case
+  % ./case.setup
+  % ./case.build
+  % ./case.submit
 
 Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate "qflux" file. To specify such a file::
 
-  ./xmlchange --file env_run.xml --id DOCN_SOM_FILENAME --val path/to/file.nc
+  % ./xmlchange --file env_run.xml --id DOCN_SOM_FILENAME --val path/to/file.nc
 
 
 ###############################################################
@@ -131,12 +131,13 @@ Example 3: Aquaplanet with alternate prescribed SST
 ###############################################################
 All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option::
 
-  cd cime/scripts
-  ./create_newcase --case cam5_3keq --compset 2000_CAM50_SLND_SICE_DOCN%AQP7_SROF_SGLC_SWAV --user-compset --res f09_f09_mg17 --run-unsupported
-  cd cam5_3keq
-  ./case.setup
-  ./case.build
-  ./case.submit
+  % cd cime/scripts
+  % ./create_newcase --case cam5_3keq --compset 2000_CAM50_SLND_SICE_DOCN%AQP7_SROF_SGLC_SWAV --res f09_f09_mg17 --run-unsupported
+     (Note that you may see a message "Did not find an alias or longname compset match..."  This message may be ignored)
+  % cd cam5_3keq
+  % ./case.setup
+  % ./case.build
+  % ./case.submit
 
 The example uses the 3KEQ SST pattern, which is specified with "AQP7" in the compset name. The analytical SST profiles are defined in the source code (cime/src/components/data_comps/docn/docn_comp_mod.F90). Also note this example switched to CAM5 physics by specifying "CAM50" in the compset name. The run-unsupported flag is required.
 
@@ -145,14 +146,14 @@ Example 4: Aquaplanet with user-specified SST dataset
 ###############################################################
 An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file::
 
-  cd cime/scripts
-  ./create_newcase --case aqua_sst_case --compset QPC4 --res f19_f19_mg17  --run-unsupported
-  cd aqua_case
-  ./case.setup
-  ./xmlchange --file env_run.xml --id DOCN_MODE --val sst_aquapfile
-  ./xmlchange --file env_run.xml --id DOCN_AQP_FILENAME --val sst.nc
-  ./case.build
-  ./case.submit
+  % cd cime/scripts
+  % ./create_newcase --case aqua_sst_case --compset QPC4 --res f19_f19_mg17  --run-unsupported
+  % cd aqua_case
+  % ./case.setup
+  % ./xmlchange --file env_run.xml --id DOCN_MODE --val sst_aquapfile
+  % ./xmlchange --file env_run.xml --id DOCN_AQP_FILENAME --val sst.nc
+  % ./case.build
+  % ./case.submit
 
 Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.
 
@@ -390,7 +391,7 @@ SCAM Configuration Options
 
 The default SCAM settings read in initial conditions for aerosols off of an initial condition file: typically a CAM initial condition file. The aerosols and the Temperature field are relaxed to the initial conditions with a variable timescale from 10 days at the bottom of the model to 2 days at the top of the model. U and V wind are taken from the IOP file. This ensures that aerosols and temperature do not drift too far in the upper troposphere and above: where advection for aerosols is important, and where non-represented dynamical forcing would dominate the temperature field. Any field can be relaxed using this method if the user desires it. 
 
-Emissions of constituients from the surface occur as in a standard CAM simulation, reading off climatological emissions files for the year 2000.
+Emissions of constituents from the surface occur as in a standard CAM simulation, reading off climatological emissions files for the year 2000.
 
 Default Settings:
 ::
@@ -421,9 +422,9 @@ Users specify the directory containing the specifications for running an IOP usi
 	% ./case.build
 	% ./case.submit
 
-If user neglects to specify a --use-mods-dir, then it defaults to a shortened run of ARM97.
+If the user neglects to specify a --use-mods-dir, then it defaults to a shortened run of ARM97.
 
-The user may modify the sample script **components/cam/bld/scripts/create_scam6_iop**.
+The user may also find it useful to modify the sample script **components/cam/bld/scripts/create_scam6_iop**.
  
 #########################################################################################
 Example:  Efficient way to cycle over several SCAM IOP locations 
@@ -453,7 +454,7 @@ The user may modify the sample script **components/cam/bld/scripts/create_scam6_
 Example:  Setting up User Defined IOP for SCAM  
 #########################################################################################
 
-If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at 305 degrees E and 62 degrees N over the Labrador Sea.  It is important to note that the user needs to have the NetCDF Command Language (NCL) and NetCDF Operators (NCO) installed on their machine as the generation scripts utilizes this library.
+If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at 305 degrees E and 62 degrees N over the Labrador Sea.  It is important to note that the user needs to have the NetCDF Command Language (NCL) and NetCDF Operators (NCO) installed on their machine as the generation scripts utilize this library.
 
 ---------------------
 Generate the IOP File
@@ -470,7 +471,7 @@ Generate the IOP File
 Averaging can be either 'I'nstantaneous or 'A' average for fincl2
 This produces 3 hourly output at a point for fincl2 fields on an h1 file.
 
-2. Run following script on resulting h1 files: 
+2. Run the following script on the resulting h1 files: 
 ::
 
         ./components/cam/bld/scripts/camfv2iop.ncl
@@ -489,8 +490,8 @@ To run the user iop with SCAM, follow the following steps (here it is a test cas
         - cp -r scam_arm97 scam_usrLabSea
 - Change files in this directory
 	- **shell_commands**: XML change commands: Typically the LAT, LON, STARTDATE, START_TOD, STOP_OPTION and STOP_N
-	- **sser_nl_cam**:  usually just iopfile. May also want to change mfilt (to keep all times on one file) 
-- Run create_scam6_iop script with apprpriate IOP (e.g. IOP=scam_usrLabSea in this case)
+	- **user_nl_cam**:  usually just iopfile. May also want to change mfilt (to keep all times on one file) 
+- Run create_scam6_iop script with appropriate IOP (e.g. IOP=scam_usrLabSea in this case)
 
 	
 -------------------------------------------------------------------------------
@@ -572,7 +573,7 @@ Scientifically supported WACCM atmosphere compsets
 ========================================================
 
 Scientifically supported WACCM atmosphere configurations for CESM2.0 use TSMLT1 chemistry 
-(see `chemical mechanisms <http://./CAM-chem-specifics.html#chemical-mechanisms>`_ ) and 
+(see :ref:`chemical mechanisms <chemical-mechanisms>` ) and 
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17). 
 Additional scientifically validated configurations will be available in CESM2.1.
 
@@ -611,7 +612,7 @@ Tested WACCM atmosphere compsets
 
 Tested WACCM atmosphere configurations for CESM2.0 use middle atmosphere (MA) and 
 middle atmosphere plus D-region (MAD) chemistry (see 
-`chemical mechanisms <http://./CAM-chem-specifics.html#chemical-mechanisms>`_ ) and 
+:ref:`chemical mechanisms <chemical-mechanisms>` ) and 
 0.95° latitude x 1.25° longitude horizontal resolution (f09_f09_mg17).
 
 +---------+------------+-----------------------------------------+-------------+
@@ -639,37 +640,6 @@ middle atmosphere plus D-region (MAD) chemistry (see
 |         |            | historical SSTs, coupled to interactive |             |
 |         |            | land and MEGAN2.1                       |             |
 +---------+------------+-----------------------------------------+-------------+
-
-========================================================
-Scientifically supported coupled WACCM compsets
-========================================================
-**AUTHOR QUESTION:** Should coupled compsets be left out of the CAM user's guide?
-
-+---------+------------+-----------------------------------------+-------------+
-| Compset | Resolution | Description                             | Period      |
-+=========+============+=========================================+=============+
-| BW1850  | f09_g17    | Pre-industrial control WACCM6 using     | 1850        |
-|         |            | 1-degree FV dycore, TSMLT1, CMIP6       |             |
-|         |            | piControl emissions, coupled to         |             |
-|         |            | interactive ocean, sea ice, land, and   |             |
-|         |            | MEGAN2.1                                |             |
-+---------+------------+-----------------------------------------+-------------+
-
-========================================================
-Tested coupled WACCM compsets
-========================================================
-**AUTHOR QUESTION:** Should coupled compsets be left out of the CAM user's guide?
-
-+---------+------------+-----------------------------------------+-------------+
-| Compset | Resolution | Description                             | Period      |
-+=========+============+=========================================+=============+
-| BWma1850| f19_g17    | Pre-industrial control WACCM6 using     | 1850        |
-|         |            | 2-degree FV dycore, MA chemistry, CMIP6 |             |
-|         |            | piControl emissions, coupled to         |             |
-|         |            | interactive ocean, sea ice, land, and   |             |
-|         |            | MEGAN2.1                                |             |
-+---------+------------+-----------------------------------------+-------------+
-
 
 -------------------------------------------------------------------------------
 WACCM-X compsets

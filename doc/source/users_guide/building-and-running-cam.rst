@@ -55,7 +55,7 @@ Modifying CAM's compiled code base (configuration)
 ::
 
 	% cd test_FHIST
-	% xmlchange --append CAM_CONFIG_OPTS='-cosp'
+	% ./xmlchange --append CAM_CONFIG_OPTS='-cosp'
 
 --------------------------------------
 Modifying namelist settings in CAM run

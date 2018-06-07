@@ -29,7 +29,7 @@ following command:
 
 ::
 
-    > %svn list https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags
+     % svn list https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags
 
 Note that when you are contacting the Subversion server for the first time, you may need to accept an authentication certification.
 
@@ -50,13 +50,13 @@ The following example shows how to checkout CAM standalone tag cam6_0_002:
 
 ::
 
-    > %svn co https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags/cam6_0_002
+    % svn co https://svn-ccsm-models.cgd.ucar.edu/cam1/trunk_tags/cam6_0_002
 
 If a problem was encountered during checkout, which may happen with an older version of the client software, it may appear to have downloaded successfully, but in fact only a partial checkout has occurred. To ensure a successful download, make sure the last line of svn output has the following statement:
 
 ::
 
-    > Checked out revision XXXXX.
+    Checked out revision XXXXX.
 
 This will create a directory called ``cam6_0_002`` that can be used to
 modify, build, and run the model.
@@ -71,7 +71,7 @@ To get the externals, users need to cd to the main CAM directory and run:
 
 ::
 
-     > %manage_externals/checkout_externals
+     % manage_externals/checkout_externals
 
 This will create and populate all of the external directories.
 
@@ -86,17 +86,17 @@ For various information regarding the version checked out...
 
 ::
 
-    > svn info       
+     % svn info       
 
 For a listing of files that have changed since checkout...
 
 ::
 
-    > svn status 
+    % svn status 
 
 For a description of the changes made to the working copy...
 
 ::
 
-    > svn diff 
+    % svn diff 
 
