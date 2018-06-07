@@ -11,6 +11,7 @@ The CAM Web Page
 -----------------------
 
 The central source for information on CAM is the `CAM web page <http://www.cesm.ucar.edu/models/cesm2.0/atmosphere>`_.
+This webpage is a veritable goldmine of information about CAM.
 
 ------------------------------
 The CESM Bulletin Board
@@ -22,6 +23,8 @@ The primary motivation for the establishment of this forum is to facilitate and 
 
 The CESM Bulletin Board is here: `http://bb.cgd.ucar.edu/ <http://bb.cgd.ucar.edu/>`_.
 
+You will find specific sections about CAM, WACCM and CAM-chem.
+
 ---------------------
 Reporting bugs
 ---------------------
@@ -31,8 +34,8 @@ When writing a bug report the guiding principle should be to provide enough info
 The following list suggests the minimal information that should be contained in the report:
 
 1. The version number of the CESM release that CAM is part of (or the CAM tag if it was a standalone checkout).
-2. The architecture on which the code was built. Include relevent information such as the Fortran compiler, MPI library, etc.
-3. The ``create_newcase`` commandline. If it is this command that is failing, then report the output from this command. 
+2. The architecture on which the code was built. Include relevant information such as the Fortran compiler, MPI library, etc.
+3. The ``create_newcase`` command-line. If it is this command that is failing, then report the output from this command. 
 4. Any  ``xmlchange`` commands.
 5. Model printout. Ideally this would contain a stack trace. But it should at least contain any error messages printed to the output log.
 
