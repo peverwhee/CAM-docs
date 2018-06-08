@@ -100,12 +100,12 @@ Example 1: Default Aquaplanet with prescribed SST
 ###############################################################
 To run the standard CAM6 aquaplanet, simply supply the compset name::
 
-  cd cime/scripts
-  ./create_newcase --case aqua_case --compset QPC6 --res f09_f09_mg17  --run-unsupported 
-  cd aqua_case
-  ./case.setup
-  ./case.build
-  ./case.submit
+  % cd cime/scripts
+  % ./create_newcase --case aqua_case --compset QPC6 --res f09_f09_mg17 
+  % cd aqua_case
+  % ./case.setup
+  % ./case.build
+  % ./case.submit
 
 By default, initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE "QOBS" option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. [1]_ for details.
 
@@ -123,7 +123,7 @@ To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply suppl
 
 Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate "qflux" file. To specify such a file::
 
-  % ./xmlchange --file env_run.xml --id DOCN_SOM_FILENAME --val path/to/file.nc
+  % ./xmlchange DOCN_SOM_FILENAME="path/to/file.nc"
 
 
 ###############################################################

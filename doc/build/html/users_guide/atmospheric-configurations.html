@@ -265,12 +265,12 @@ f19_f19_mg17</td>
 <div class="section" id="example-1-default-aquaplanet-with-prescribed-sst">
 <h4>4.2.1.1. Example 1: Default Aquaplanet with prescribed SST<a class="headerlink" href="#example-1-default-aquaplanet-with-prescribed-sst" title="Permalink to this headline">¶</a></h4>
 <p>To run the standard CAM6 aquaplanet, simply supply the compset name:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>  <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
-<span class="n">cd</span> <span class="n">aqua_case</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
 <p>By default, initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE “QOBS” option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="footnote-reference" href="#id5" id="id4">[1]</a> for details.</p>
@@ -287,7 +287,7 @@ f19_f19_mg17</td>
 </pre></div>
 </div>
 <p>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate “qflux” file. To specify such a file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_SOM_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">nc</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">DOCN_SOM_FILENAME</span><span class="o">=</span><span class="s2">&quot;path/to/file.nc&quot;</span>
 </pre></div>
 </div>
 </div>
