@@ -179,12 +179,36 @@ to the obsolete CAM5 FAMIP compset]</em></td>
 </tr>
 <tr class="row-odd"><td>F2000climo</td>
 <td>f09_f09_mg17</td>
-<td>Climatological 21st century using 1
-degree fv dycore</td>
-<td>2000 to 2015</td>
+<td>Climatological present day climate
+(year 2000) with CAM6 physics
+using 1 degree fv dycore</td>
+<td><dl class="first last docutils">
+<dt>Climos over</dt>
+<dd>1995-2005
+1995-2005</dd>
+</dl>
+</td>
 </tr>
 </tbody>
 </table>
+<p>To run the FHIST compset, and create a case called fhist, simply supply the compset name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">fhist</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">fhist</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
+<p>To run the F2000climo compset, and create a case called f_present_day, simply supply the compset name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">f_present_day</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">f_present_day</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
 <p>It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.</p>
 </div>
 <div class="section" id="cam-simple-models">
@@ -290,6 +314,7 @@ f19_f19_mg17</td>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">DOCN_SOM_FILENAME</span><span class="o">=</span><span class="s2">&quot;path/to/file.nc&quot;</span>
 </pre></div>
 </div>
+<p>where path/to/file.nc is the path to the ppropriate “qflux” file.</p>
 </div>
 <div class="section" id="example-3-aquaplanet-with-alternate-prescribed-sst">
 <h4>4.2.1.3. Example 3: Aquaplanet with alternate prescribed SST<a class="headerlink" href="#example-3-aquaplanet-with-alternate-prescribed-sst" title="Permalink to this headline">¶</a></h4>
@@ -310,15 +335,15 @@ f19_f19_mg17</td>
 <p>An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_sst_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC4</span> <span class="o">--</span><span class="n">res</span> <span class="n">f19_f19_mg17</span>  <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
-<span class="o">%</span> <span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">aqua_sst_case</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_MODE</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst_aquapfile</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_AQP_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst</span><span class="o">.</span><span class="n">nc</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">DOCN_MODE</span><span class="o">=</span><span class="n">sst_aquapfile</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">DOCN_AQP_FILENAME</span><span class="o">=</span><span class="n">sst</span><span class="o">.</span><span class="n">nc</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.</p>
+<p>Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example switches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.</p>
 <table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -383,8 +408,10 @@ configuration to compute radiative forcing that includes the stratospheric adjus
 <div class="section" id="sample-the-base-run">
 <h5>4.2.2.2.1. Sample the base run<a class="headerlink" href="#sample-the-base-run" title="Permalink to this headline">¶</a></h5>
 <p>Create the base sampling case:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">base_run_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000climo</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">base_run_case</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000climo</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">base_run_case</span>
+<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
 </pre></div>
 </div>
 <p>Set up the <strong>user_nl_cam</strong> file for the base run:</p>
@@ -424,8 +451,7 @@ and size of data for dtime = 1800 and a 2-degree horizontal resolution. <a class
 </tbody>
 </table>
 <p>Build and submit this sampling run data:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_N</span><span class="o">=</span><span class="mi">16</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="n">STOP_OPTION</span><span class="o">=</span><span class="n">nmonths</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>

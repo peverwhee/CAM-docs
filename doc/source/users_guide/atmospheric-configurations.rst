@@ -42,9 +42,28 @@ CAM has a number of compsets/resolutions which are supported scientifically.  Th
 |              |                      | volume dycore *[Note - this is similar  |             |
 |              |                      | to the obsolete CAM5 FAMIP compset]*    |             |
 +--------------+----------------------+-----------------------------------------+-------------+
-| F2000climo   | f09_f09_mg17         | Climatological 21st century using 1     | 2000 to 2015|
-|              |                      | degree fv dycore                        |             |
+| F2000climo   | f09_f09_mg17         | Climatological present day climate      | Climos over |
+|              |                      | (year 2000) with CAM6 physics           |  1995-2005  |
+|              |                      | using 1 degree fv dycore                |  1995-2005  |
 +--------------+----------------------+-----------------------------------------+-------------+
+
+To run the FHIST compset, and create a case called fhist, simply supply the compset name::
+
+  % cd cime/scripts
+  % ./create_newcase --case fhist --compset FHIST --res f09_f09_mg17 
+  % cd fhist
+  % ./case.setup
+  % ./case.build
+  % ./case.submit
+
+To run the F2000climo compset, and create a case called f_present_day, simply supply the compset name::
+
+  % cd cime/scripts
+  % ./create_newcase --case f_present_day --compset FHIST --res f09_f09_mg17 
+  % cd f_present_day
+  % ./case.setup
+  % ./case.build
+  % ./case.submit
 
 It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.  The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2. It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
 
@@ -125,6 +144,7 @@ Note that the slab-ocean model has no ocean heat transport by default; the user 
 
   % ./xmlchange DOCN_SOM_FILENAME="path/to/file.nc"
 
+where path/to/file.nc is the path to the ppropriate "qflux" file.
 
 ###############################################################
 Example 3: Aquaplanet with alternate prescribed SST
@@ -148,14 +168,14 @@ An arbitrary SST dataset can be specified instead of the default APE SST. To do 
 
   % cd cime/scripts
   % ./create_newcase --case aqua_sst_case --compset QPC4 --res f19_f19_mg17  --run-unsupported
-  % cd aqua_case
+  % cd aqua_sst_case
   % ./case.setup
-  % ./xmlchange --file env_run.xml --id DOCN_MODE --val sst_aquapfile
-  % ./xmlchange --file env_run.xml --id DOCN_AQP_FILENAME --val sst.nc
+  % ./xmlchange DOCN_MODE=sst_aquapfile 
+  % ./xmlchange DOCN_AQP_FILENAME=sst.nc
   % ./case.build
   % ./case.submit
 
-Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.
+Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example switches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.
 
 .. [1] Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the community atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: http://dx.doi.org/10.1002/2015MS000593
 
@@ -205,8 +225,10 @@ Sample the base run
 
 Create the base sampling case::
   
+  % cd cime/scripts
   % ./create_newcase --case base_run_case --res f09_f09_mg17 --compset F2000climo
   % cd base_run_case
+  % ./case.setup
 
 Set up the **user_nl_cam** file for the base run::
 
@@ -244,7 +266,6 @@ and size of data for dtime = 1800 and a 2-degree horizontal resolution. [4]_
 
 Build and submit this sampling run data::
 
- % ./case.setup
  % ./xmlchange STOP_N=16
  % ./xmlchange STOP_OPTION=nmonths
  % ./case.build
