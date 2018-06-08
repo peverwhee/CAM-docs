@@ -120,7 +120,7 @@ To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply suppl
   % ./case.setup
   % ./case.build
   % ./case.submit
-
+ 
 Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate "qflux" file. To specify such a file::
 
   % ./xmlchange DOCN_SOM_FILENAME="path/to/file.nc"
