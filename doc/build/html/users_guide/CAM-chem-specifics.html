@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>9. Chemistry specific modifications &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -30,8 +22,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -59,7 +50,7 @@
 <li><a class="reference internal" href="#adding-species-and-changing-the-mechanism">9.4. Adding species and changing the mechanism</a></li>
 <li><a class="reference internal" href="#running-with-prognostic-fire-emissions">9.5. Running with prognostic fire emissions</a></li>
 <li><a class="reference internal" href="#running-with-fixed-land-data">9.6. Running with fixed land data</a></li>
-<li><a class="reference internal" href="#running-with-interactiv-prescribed-biogenic-emissions">9.7. Running with interactiv / prescribed biogenic emissions</a></li>
+<li><a class="reference internal" href="#running-with-interactive-or-prescribed-biogenic-emissions">9.7. Running with interactive or prescribed biogenic emissions</a></li>
 </ul>
 </li>
 </ul>
@@ -79,12 +70,14 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -103,40 +96,39 @@
 <p>CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (<a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf">http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf</a>). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="9%" />
-<col width="27%" />
-<col width="8%" />
-<col width="15%" />
-<col width="24%" />
-<col width="18%" />
+<col width="12%" />
+<col width="26%" />
+<col width="17%" />
+<col width="20%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Mechanism</th>
 <th class="head">Description</th>
 <th class="head">#Species</th>
 <th class="head">#Reactions</th>
-<th class="head">Mechanism Name</th>
 <th class="head">Pre-processor code</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>TSMLT1</td>
 <td>Troposphere,
-stratosphere, mesosphere, and
+stratosphere,
+mesosphere, and
 lower thermosphere</td>
-<td>231</td>
+<td>231 solution,
+2 invariant</td>
 <td>583 (433 kinetic,
 150 photolysis)</td>
-<td>MZ197_TSMLT1_20180423</td>
 <td>pp_waccm_tsmlt_mam4</td>
 </tr>
 <tr class="row-odd"><td>TS1</td>
 <td>Troposphere
 and stratosphere</td>
-<td>221</td>
+<td>221 solution,
+3 invariant</td>
 <td>528 (405 kinetic,
 123 photolysis)</td>
-<td>MZ198_TS1-simpleVBS_20180423</td>
 <td>pp_trop_strat_mam4_vbs</td>
 </tr>
 <tr class="row-even"><td>MA</td>
@@ -144,38 +136,38 @@ and stratosphere</td>
 stratosphere,
 mesosphere, and lower
 thermosphere</td>
-<td>98</td>
+<td>98 solution,
+2 invariant</td>
 <td>298 (207 kinetic,
 91 photolysis)</td>
-<td>&#160;</td>
 <td>pp_waccm_ma_mam4</td>
 </tr>
 <tr class="row-odd"><td>MAD</td>
-<td>Middle atmosphere plus D-region
-ion chemistry</td>
-<td>135</td>
+<td>Middle atmosphere plus
+D-region ion chemistry</td>
+<td>135 solution,
+2 invariant</td>
 <td>593 (489 kinetic,
 104 photolysis)</td>
-<td>&#160;</td>
 <td>pp_waccm_mad_mam4</td>
 </tr>
 <tr class="row-even"><td>SC</td>
-<td>Specified chemistry for WACCM</td>
-<td>29</td>
+<td>Specified chemistry
+for WACCM</td>
+<td>29 solution,
+8 invariant</td>
 <td>12 (11 kinetic,
 1 photolysis)</td>
-<td>&#160;</td>
 <td>pp_waccm_sc_mam4</td>
 </tr>
 <tr class="row-odd"><td>CAM</td>
-<td>Simplified chemistry for CAM to
-to allow tropospheric aerosol
-formation</td>
-<td>32</td>
+<td>Simplified chemistry
+for CAM aerosols</td>
+<td>25 solution,
+7 invariant</td>
 <td>7 (6 kinetic), 1
 photolysis)</td>
 <td>&#160;</td>
-<td>modal_aero</td>
 </tr>
 </tbody>
 </table>
@@ -243,8 +235,8 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 <div class="section" id="running-with-fixed-land-data">
 <h2>9.6. Running with fixed land data<a class="headerlink" href="#running-with-fixed-land-data" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="running-with-interactiv-prescribed-biogenic-emissions">
-<h2>9.7. Running with interactiv / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactiv-prescribed-biogenic-emissions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="running-with-interactive-or-prescribed-biogenic-emissions">
+<h2>9.7. Running with interactive or prescribed biogenic emissions<a class="headerlink" href="#running-with-interactive-or-prescribed-biogenic-emissions" title="Permalink to this headline">¶</a></h2>
 <p>Running with interactive biogenic emissions:</p>
 <ul class="simple">
 <li>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</li>
@@ -255,10 +247,12 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
 <li>CLM/MEGAN-v2.1 includes an option for using a map of emission factors for isoprene. The map in the current release is out of date and SHOULD NOT BE USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam: megan_mapped_emisfctrs = .false.</li>
 </ul>
 <p>Running with prescribed biogenic emissions:</p>
-<p>To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not indluced in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
- <span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s">&#39; &#39;</span>
- <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s">&#39; &#39;</span>
+<p>To run with prescribed biogenic emissions requires specifying emissions files for them in
+the namelist (user_nl_cam), and one needs to turn off interactive biogenic emissions,
+if using a CAMchem or WACCM compset:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
+ <span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+ <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
 <span class="o">&amp;</span>
 </pre></div>
 </div>
@@ -293,7 +287,7 @@ flbc_list              = ‘CCL4’, ‘CF2CLBR’, ‘CF3BR’, ‘CFC11’, �
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
     </div>
   </body>
 </html>

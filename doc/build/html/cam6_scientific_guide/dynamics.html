@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>5. Dynamics &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -28,8 +20,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -130,12 +121,14 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -305,7 +298,7 @@ LR96) back to time <img class="math" src="../_images/math/5ec053cf70dc1c98cc2973
 Fig. 3 of LR96). The very essence of the 1D finite-volume algorithm is
 to construct, based on the given initial cell-mean values of :math:`
 widetilde{pi }`, an approximated subgrid distribution of the true
-<img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/> field, to enable an analytic integration of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi-">(11)</a>.
+<img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/> field, to enable an analytic integration of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi">(11)</a>.
 Assuming there is no error in obtaining the time-mean wind
 <img class="math" src="../_images/math/c0920f8d03f9be255bf6180e6d4571d34355db16.png" alt="(u^{\*})"/>, the only error produced by the 1D transport scheme
 would be solely due to the approximation to the continuous distribution
@@ -314,9 +307,9 @@ case in 2D; Lauritzen, Ullrich, and Nair (2010)). From this perspective,
 it can be said that the 1D finite-volume transport algorithm combines
 the time-space discretization in the approximation of the time-mean
 cell-edge values <img class="math" src="../_images/math/96c92166a8253677a489d76aa07ca4543dd1a9c3.png" alt="\pi ^{*}"/>. The physically correct way of
-approximating the integral <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi-">(11)</a> must be “upwind”, in the sense that
+approximating the integral <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi">(11)</a> must be “upwind”, in the sense that
 it is integrated along the backward trajectory of the cell edges. For
-example, a center difference approximation to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi-">(11)</a> would be
+example, a center difference approximation to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi">(11)</a> would be
 physically incorrect, and consequently numerically unstable unless
 artificial numerical diffusion is added.</p>
 <p>Central to the accuracy and computational efficiency of the
@@ -327,7 +320,7 @@ subgrid distribution is piecewise constant having the same value as the
 given volume-mean. The second order finite-volume scheme (<em>e.g</em>., <a class="reference internal" href="chapter8.html#lin94" id="id6">[LCSW94]</a>)
 assumes a piece-wise linear subgrid distribution, which
 allows one degree of freedom for the specification of the “slope” of the
-linear distribution to improve the accuracy of integrating <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi-">(11)</a>.
+linear distribution to improve the accuracy of integrating <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-pi">(11)</a>.
 The Piecewise Parabolic Method (PPM, <a class="reference internal" href="chapter8.html#colella84" id="id7">[CW84]</a>) has
 two degrees of freedom in the construction of the second order
 polynomial within the volume, and as a result, the accuracy is
@@ -521,7 +514,7 @@ layer to <img class="math" src="../_images/math/f4170ed8938b79490d89238579626955
 Lagrangian surfaces to define a total number of <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/> Lagrangian
 layers. The surface pressure, which is the pressure at the lowest
 Lagrangian surface, is easily computed as <img class="math" src="../_images/math/845d154678415a42a4e9933cf7285846649484fb.png" alt="P_{N}"/> using
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-L-coord">(28)</a>. The surface pressure is needed for the physical
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-l-coord">(28)</a>. The surface pressure is needed for the physical
 parameterizations and to define the reference Eulerian coordinate for
 the mapping procedure (to be described in section <a class="reference internal" href="#fvmap"><span class="std std-ref">A mass, momentum, and total energy conserving mapping algorithm</span></a>).</p>
 <p>With the exception of the pressure-gradient terms and the addition of a
@@ -530,10 +523,10 @@ same as the shallow water system described in LR97. The conservation law
 for the depth of fluid <img class="math" src="../_images/math/293fb39e1b93282c804a86186e721b32f829f1b2.png" alt="h"/> in the shallow water system of LR97
 is replaced by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-mass-lcv">(23)</a> for the pressure thickness <img class="math" src="../_images/math/b9b3054e0caac87844767ff5b7173783fe4d49d1.png" alt="\delta p"/>.
 The ideal gas law, the mass conservation law for air mass,
-the conservation law for the potential temperature <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-Thermo-lcv">(25)</a>,
+the conservation law for the potential temperature <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-thermo-lcv">(25)</a>,
 together with the modified momentum equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-u-lcv">(26)</a> and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-v-lcv">(27)</a>
 close the 2D Lagrangian dynamical system, which are vertically coupled
-only by the hydrostatic relation (see <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-hydro-PT">(51)</a>), section [FVmap].</p>
+only by the hydrostatic relation (see <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-hydro-pt">(51)</a>), section [FVmap].</p>
 <p>The time marching procedure for the 2D Lagrangian dynamics follows
 closely that of the shallow water dynamics fully described in LR97. For
 computational efficiency, we shall take advantage of the stability of
@@ -1413,7 +1406,7 @@ a point on the surface of the sphere, denoted by <img class="math" src="../_imag
 The faces of the cubed sphere are further subdivided to form a quadrilateral grid of the desired resolution. Coordinate lines from the
 gnomonic equal-angle projection are shown.</span></a>) first used
 in <a class="reference internal" href="chapter8.html#sadourny72" id="id26">[Sad72]</a>. Each cube face is mapped to the surface of the
-sphere with the equal-angle gnomonic projection (<a class="reference internal" href="chapter8.html#rancic96" id="id27">[RancicPM96]</a>).
+sphere with the equal-angle gnomonic projection (<a class="reference internal" href="chapter8.html#rancic96" id="id27">[RanvcicPM96]</a>).
 The map from the reference element <img class="math" src="../_images/math/dead02c0dd80548fa64600e06e6d9a0412ee41d1.png" alt="[-1,1]^2"/> to
 the cube face is a translation and scaling. The composition of these two
 maps defines a <img class="math" src="../_images/math/e0bb42e364def125ef0348323fe215b3d34e838b.png" alt="{\mathcal C^{1}}"/> map from the spherical elements
@@ -2227,7 +2220,7 @@ of <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b4603
 </div>
 <div class="section" id="conversion-to-final-form">
 <h3>5.3.2. Conversion to final form<a class="headerlink" href="#conversion-to-final-form" title="Permalink to this headline">¶</a></h3>
-<p>Equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.1">(91)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.16">(106)</a> are the complete set which must be solved
+<p>Equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-1">(91)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-16">(106)</a> are the complete set which must be solved
 by a GCM. However, in order to solve them, the function
 <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> must be specified. In advance of actually specifying
 <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/>, the equations will be cast in a more convenient
@@ -2238,27 +2231,27 @@ example, terms involving horizontal derivatives of <img class="math" src="../_im
 converted to terms involving only <img class="math" src="../_images/math/5bb60b877e7c79145f8e69c022ec07550aac3204.png" alt="\partial p/\partial\pi"/> and
 horizontal derivatives of <img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/>. The former can be evaluated once
 the function <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> is specified.</p>
-<p>The vertical advection terms in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.5">(95)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.6">(96)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.8">(98)</a>, and
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.9">(99)</a> may be rewritten as:</p>
+<p>The vertical advection terms in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-5">(95)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-6">(96)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-8">(98)</a>, and
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-9">(99)</a> may be rewritten as:</p>
 <div class="math">
 <p><img src="../_images/math/205936b9f81a395173e82c6cd1436c8b0cab5067.png" alt="\dot\eta \frac{\partial \psi}{\partial\eta} = \dot\eta \frac{\partial
  p}{\partial\eta}
 \frac{\partial\psi}{\partial p}\, ,"/></p>
-</div><p>since <img class="math" src="../_images/math/2eb22b333a818677cbcb0dcf66bacc9960adb5fe.png" alt="\dot\eta {\partial p/\partial\eta}"/> is given by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.15">(105)</a> .
-Similarly, the first term on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.15">(105)</a>  can be
+</div><p>since <img class="math" src="../_images/math/2eb22b333a818677cbcb0dcf66bacc9960adb5fe.png" alt="\dot\eta {\partial p/\partial\eta}"/> is given by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-15">(105)</a> .
+Similarly, the first term on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-15">(105)</a>  can be
 expanded as</p>
 <div class="math">
 <p><img src="../_images/math/d3781490f203cecbc97ab7d705732ca323e9bebf.png" alt="\frac{\partial p}{\partial t} = \frac{\partial p}{\partial\pi}
  \frac{\partial\pi}{\partial t} ,"/></p>
-</div><p>and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.7">(97)</a>  invoked to specify <img class="math" src="../_images/math/67e970ca0228d7673d31222b859cd1594b1625c0.png" alt="\partial\pi/\partial t"/>.</p>
-<p>The integrals which appear in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.7">(97)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.15">(105)</a> , and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.16">(106)</a>  can
+</div><p>and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-7">(97)</a>  invoked to specify <img class="math" src="../_images/math/67e970ca0228d7673d31222b859cd1594b1625c0.png" alt="\partial\pi/\partial t"/>.</p>
+<p>The integrals which appear in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-7">(97)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-15">(105)</a> , and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-16">(106)</a>  can
 be written more conveniently by expanding the kernel as</p>
 <div class="math">
 <p><img src="../_images/math/a9da17022f9f0d019962e4a95b899a9e7fedc3be.png" alt="{\mathbf{\nabla}\cdot} \left( \frac{\partial p}{\partial\eta}
  {\boldsymbol{V}} \right) = {\boldsymbol{V}\cdot\nabla} \left(\frac{\partial
  p}{\partial\eta}\right) + \frac{\partial p}{\partial\eta}
  {\mathbf{\nabla}\cdot\boldsymbol{V}} \ ."/></p>
-</div><p>The second term in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.19">(109)</a>  is easily treated in vertical integrals,
+</div><p>The second term in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-19">(109)</a>  is easily treated in vertical integrals,
 since it reduces to an integral in pressure. The first term is expanded
 to:</p>
 <div class="math">
@@ -2274,10 +2267,10 @@ p\right) \nonumber \\
  + {\boldsymbol{V}\cdot}\frac{\partial p}{\partial\pi}
      \nabla\left(\frac{\partial\pi}{\partial\eta}\right)\,
      . \end{aligned}"/></p>
-</div><p>The second term in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.20">(110)</a>  vanishes because
+</div><p>The second term in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-20">(110)</a>  vanishes because
 <img class="math" src="../_images/math/b766d494bd74f8af965dc48e065f4a1f22ecde19.png" alt="\partial\pi/\partial\eta=0"/>, while the first term is easily
-treated once <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> is specified. Substituting <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.20">(110)</a>
-into <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.19">(109)</a> , one obtains:</p>
+treated once <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> is specified. Substituting <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-20">(110)</a>
+into <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-19">(109)</a> , one obtains:</p>
 <div class="math">
 <p><img src="../_images/math/5b704ec9ce41e128065a1454d76b4d57c8c3f2cb.png" alt="{\mathbf{\nabla}\cdot} \left( \frac{\partial p}{\partial\eta}
  {\boldsymbol{V}} \right)
@@ -2285,8 +2278,8 @@ into <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#
       p}{\partial\pi}\right) {\boldsymbol{V}\cdot\nabla}\pi
  + \frac{\partial p}{\partial\eta} {\mathbf{\nabla}\cdot V} \,
  ."/></p>
-</div><p>Using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.21">(111)</a>  as the kernel of the integral in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.7">(97)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.15">(105)</a>,
-and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.16">(106)</a>, one obtains integrals of the form</p>
+</div><p>Using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-21">(111)</a>  as the kernel of the integral in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-7">(97)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-15">(105)</a>,
+and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-16">(106)</a>, one obtains integrals of the form</p>
 <div class="math">
 <p><img src="../_images/math/440b2be85e8d9c76783fd207057ff5406ab9fd0e.png" alt="\begin{aligned}
 \int {\mathbf{\nabla}\cdot} \left( \frac{\partial p}{\partial\eta}
@@ -2298,9 +2291,9 @@ and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#e
    \right] d\eta \nonumber \\
 &amp; = \int {\boldsymbol{V}\cdot\nabla}\pi d\left(\frac{\partial
  p}{\partial\pi}\right) + \int \delta dp. \end{aligned}"/></p>
-</div><p>The original primitive equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.3">(93)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.7">(97)</a>, together with
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.8">(98)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.9">(99)</a>, and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.14">(104)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.16">(106)</a>  can now be rewritten
-with the aid of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.17">(107)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.18">(108)</a>, and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.22">(112)</a>.</p>
+</div><p>The original primitive equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-3">(93)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-7">(97)</a>, together with
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-8">(98)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-9">(99)</a>, and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-14">(104)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-16">(106)</a>  can now be rewritten
+with the aid of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-17">(107)</a>, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-18">(108)</a>, and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-22">(112)</a>.</p>
 <div class="math">
 <p><img src="../_images/math/eb62fd3a8e938a43ab249b4e43a6e46486a1c9ba.png" alt="\frac{\partial\zeta}{\partial t} = {\boldsymbol{k}}\cdot\nabla\times
 ({\boldsymbol{n}}/\cos\phi) + F_{\zeta_H} \ ,"/></p>
@@ -2359,24 +2352,24 @@ d\left( \frac{\partial p}{\partial\pi}\right)
 - \int_{p(\eta_t)}^{p(\eta)} \delta dp ."/></p>
 </div><p>Once <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> is specified, then
 <img class="math" src="../_images/math/5bb60b877e7c79145f8e69c022ec07550aac3204.png" alt="\partial p/\partial\pi"/> can be determined and
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.23">(113)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.32">(122)</a> can be solved in a GCM.</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-23">(113)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-32">(122)</a> can be solved in a GCM.</p>
 <p>In the actual definition of the hybrid coordinate, it is not necessary
-to specify <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> explicitly, since <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.23">(113)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.32">(122)</a>
+to specify <img class="math" src="../_images/math/124738581dc128dc9836a52b3fbd34e2dc17017c.png" alt="\eta(p,\pi)"/> explicitly, since <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-23">(113)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-32">(122)</a>
 only requires that <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> and <img class="math" src="../_images/math/e9faa09c826e443b398c62a5a3d77b218475943a.png" alt="\partial
 p/\partial\pi"/> be determined. It is sufficient to specify
 <img class="math" src="../_images/math/af36d08119202bc000a407a6b9276637ddebc15c.png" alt="p(\eta,\pi)"/> and to let <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> be defined implicitly. This
 will be done in section [ssec:finitediffeqs]. In the case that
 <img class="math" src="../_images/math/95ee65cdffcc8f7f0c3fe9723696609b79b62dce.png" alt="p(\eta,\pi)=\sigma\pi"/> and <img class="math" src="../_images/math/ffdfe3760154a2fe3d06da85ba36f18fa5307394.png" alt="\eta_t=0"/>,
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.23">(113)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.32">(122)</a> can be reduced to the set of equations solved by
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-23">(113)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-32">(122)</a> can be reduced to the set of equations solved by
 CCM1.</p>
 </div>
 <div class="section" id="continuous-equations-using">
 <h3>5.3.3. Continuous equations using <img class="math" src="../_images/math/fe97902b4016e484299911cff59e358104446bbd.png" alt="\partial\ln(\pi)/\partial t"/><a class="headerlink" href="#continuous-equations-using" title="Permalink to this headline">¶</a></h3>
 <p>In practice, the solutions generated by solving the above equations are
 excessively noisy. This problem appears to arise from aliasing problems
-in the hydrostatic equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.30">(120)</a>. The <img class="math" src="../_images/math/a1015909871cfc6e5391294e07770a374880437f.png" alt="\ln p"/> integral
+in the hydrostatic equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-30">(120)</a>. The <img class="math" src="../_images/math/a1015909871cfc6e5391294e07770a374880437f.png" alt="\ln p"/> integral
 introduces a high order nonlinearity which enters directly into the
-divergence equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.24">(114)</a>. Large gravity waves are generated in the
+divergence equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-24">(114)</a>. Large gravity waves are generated in the
 vicinity of steep orography, such as in the Pacific Ocean west of the
 Andes.</p>
 <p>The noise problem is solved by converting the equations given above,
@@ -2388,7 +2381,7 @@ solve the equations, gradients will be obtained during the transform
 from wave to grid space. Outside of the prognostic equation for
 <img class="math" src="../_images/math/48df4c3c7ccc8857bb1a8690c2b1207275b0a626.png" alt="\Pi"/>, all terms involving <img class="math" src="../_images/math/e46dd009e9407dea259da96c47ef3625806bd772.png" alt="\nabla\pi"/> will then appear as
 <img class="math" src="../_images/math/cbc9aa9659517bfa06e82fe1f68db261dc8e5e29.png" alt="\pi\nabla\Pi"/>.</p>
-<p>Equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.23">(113)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.32">(122)</a>  become:</p>
+<p>Equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-23">(113)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-32">(122)</a>  become:</p>
 <div class="math">
 <p><img src="../_images/math/ca70091d4e2e4526c4e5e7cd1f06e2e52ea47fb5.png" alt="\frac{\partial\zeta}{\partial t} = {\boldsymbol{k}\cdot\nabla\times
 (\boldsymbol{n}/\cos\phi)} + F_{\zeta_H} ,"/></p>
@@ -2452,15 +2445,15 @@ case <img class="math" src="../_images/math/fe393d291c5cf7e2c369afa7e600686b03ca
 </div>
 <div class="section" id="semi-implicit-formulation">
 <span id="eulsemiimplicit"></span><h3>5.3.4. Semi-implicit formulation<a class="headerlink" href="#semi-implicit-formulation" title="Permalink to this headline">¶</a></h3>
-<p>The model described by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.42">(132)</a> , without the horizontal
-diffusion terms, together with boundary conditions <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.1">(91)</a>  and
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.2">(92)</a> , is integrated in time using the semi-implicit leapfrog scheme
+<p>The model described by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-42">(132)</a> , without the horizontal
+diffusion terms, together with boundary conditions <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-1">(91)</a>  and
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-2">(92)</a> , is integrated in time using the semi-implicit leapfrog scheme
 described below. The semi-implicit form of the time differencing will be
-applied to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.34">(124)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.35">(125)</a>  without the horizontal diffusion
-sources, and to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.37">(127)</a> . In order to derive the semi-implicit form,
+applied to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-34">(124)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-35">(125)</a>  without the horizontal diffusion
+sources, and to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-37">(127)</a> . In order to derive the semi-implicit form,
 one must linearize these equations about a reference state. Isolating
 the terms that will have their linear parts treated implicitly, the
-prognostic equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.33">(123)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.34">(124)</a> , and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.37">(127)</a>  may be
+prognostic equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-33">(123)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-34">(124)</a> , and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-37">(127)</a>  may be
 rewritten as:</p>
 <div class="math">
 <p><img src="../_images/math/f11a503ba7f5c7b2535a5f375131c2a1f269f3ba.png" alt="\frac{\partial\delta}{\partial t} = - {R{T_v}} \nabla^2 \ln p
@@ -2474,9 +2467,9 @@ rewritten as:</p>
 <p><img src="../_images/math/f467f8253156d035eca6af570cb2424c87839143.png" alt="\frac{\partial\Pi}{\partial t}  = -
 \frac{1}{\pi}\int_{p(\eta_t)}^{p(1)} \delta dp + Z_1 ,"/></p>
 </div><p>where <img class="math" src="../_images/math/d5f18a6c25d2902a18db145b09f920ee9150970a.png" alt="X_1, Y_1, Z_1"/> are the remaining nonlinear terms not
-explicitly written in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.43">(133)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.45">(135)</a> . The terms involving
+explicitly written in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-43">(133)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-45">(135)</a> . The terms involving
 <img class="math" src="../_images/math/e486de19dbb61c9a63584f6e4ddd6e92ef03d665.png" alt="\Phi"/> and <img class="math" src="../_images/math/b51aa99e0bc8cc8c3d17c0b9cf822db73e13293e.png" alt="\omega"/> may be expanded into vertical integrals
-using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.40">(130)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.42">(132)</a> , while the <img class="math" src="../_images/math/f4d03857e2adee8202a622b84780e9718e0de420.png" alt="\nabla^2 \ln p"/> term
+using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-40">(130)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-42">(132)</a> , while the <img class="math" src="../_images/math/f4d03857e2adee8202a622b84780e9718e0de420.png" alt="\nabla^2 \ln p"/> term
 can be converted to <img class="math" src="../_images/math/113c16addc604a088167f044e2aab79f82d060cf.png" alt="\nabla^2\Pi"/>, giving:</p>
 <div class="math">
 <p><img src="../_images/math/274b0c2a33a6137920a5e43e4da92e443870f1f7.png" alt="\frac{\partial\delta}{\partial t} = -{RT}
@@ -2495,13 +2488,13 @@ can be converted to <img class="math" src="../_images/math/113c16addc604a088167f
 <p><img src="../_images/math/ffc03d3585425ffdd9ebabade83baf85e3f2f4cf.png" alt="\frac{\partial\Pi}{\partial t}  = -
 \frac{1}{pi}\int_{p(\eta_t)}^{p(1)} \delta dp + Z_2 ."/></p>
 </div><p>Once again, only terms that will be linearized have been explicitly
-represented in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.46">(136)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.48">(138)</a> , and the remaining terms are
+represented in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-46">(136)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-48">(138)</a> , and the remaining terms are
 included in <img class="math" src="../_images/math/6a2b7e3a7c036f38cbe76c1b4617c7687f4eafcc.png" alt="X_2"/>, <img class="math" src="../_images/math/2249792d331a4009b7c6687e34694aeae825d821.png" alt="Y_2"/>, and <img class="math" src="../_images/math/8ad271bb0046731e908fcfd0bba627bba3d16427.png" alt="Z_2"/>. Anticipating the
 linearization, <img class="math" src="../_images/math/aab999ec1b2a7c55baae697a51624a7a1bb84700.png" alt="T_v"/> and <img class="math" src="../_images/math/503cb9cb6a3fca5a6b0a18c96a7ecb2a7195144c.png" alt="c_p^*"/> have been replaced by
-<img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> and <img class="math" src="../_images/math/bdf930cd3af636fb27411ce02123dd469624494d.png" alt="c_p"/> in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.46">(136)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.47">(137)</a>. Furthermore, the
+<img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> and <img class="math" src="../_images/math/bdf930cd3af636fb27411ce02123dd469624494d.png" alt="c_p"/> in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-46">(136)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-47">(137)</a>. Furthermore, the
 virtual temperature corrections are included with the other nonlinear
 terms.</p>
-<p>In order to linearize <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.46">(136)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.48">(138)</a>, one specifies a reference
+<p>In order to linearize <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-46">(136)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-48">(138)</a>, one specifies a reference
 state for temperature and pressure, then expands the equations about the
 reference state:</p>
 <div class="math">
@@ -2511,13 +2504,13 @@ reference state:</p>
 </div><div class="math">
 <p><img src="../_images/math/7d122987aefa465fac4e880477959bda494916c5.png" alt="p  = p^r(\eta,\pi^r) + p^\prime ."/></p>
 </div><p>In the special case that <img class="math" src="../_images/math/95ee65cdffcc8f7f0c3fe9723696609b79b62dce.png" alt="p(\eta,\pi)=\sigma\pi"/>,
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.46">(136)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.48">(138)</a>  can be converted into equations involving only
-<img class="math" src="../_images/math/2da5ef67e473e0a16f5465f8cd449e1e054ef486.png" alt="\Pi=\ln\pi"/> instead of <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/>, and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.50">(140)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.51">(141)</a>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-46">(136)</a> - <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-48">(138)</a>  can be converted into equations involving only
+<img class="math" src="../_images/math/2da5ef67e473e0a16f5465f8cd449e1e054ef486.png" alt="\Pi=\ln\pi"/> instead of <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/>, and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-50">(140)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-51">(141)</a>
 are not required. This is a major difference between the hybrid
 coordinate scheme being developed here and the <img class="math" src="../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> coordinate
 scheme in CCM1.</p>
-<p>Expanding <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.46">(136)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.48">(138)</a>  about the reference state
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.49">(139)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.51">(141)</a>  and retaining only the linear terms explicitly,
+<p>Expanding <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-46">(136)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-48">(138)</a>  about the reference state
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-49">(139)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-51">(141)</a>  and retaining only the linear terms explicitly,
 one obtains:</p>
 <div class="math">
 <p><img src="../_images/math/7e3495cb40332ac902bf2de05e51b8f3ce2e9a1a.png" alt="\frac{\partial\delta}{\partial t}
@@ -2541,8 +2534,8 @@ one obtains:</p>
 \frac{1}{\pi^r}\int_{p^r(\eta_t)}^{p^r(1)} \delta dp^r + Z_3
 ."/></p>
 </div><p>The semi-implicit time differencing scheme treats the linear terms in
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.52">(142)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.54">(144)</a>  by averaging in time. The last integral in
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.52">(142)</a>  is reduced to purely linear form by the relation</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-52">(142)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-54">(144)</a>  by averaging in time. The last integral in
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-52">(142)</a>  is reduced to purely linear form by the relation</p>
 <div class="math">
 <p><img src="../_images/math/16b1058e0212b0dff47980e699ca08e2151476b8.png" alt="dp^\prime = \pi^\prime d \left(\frac{\partial p}{\partial\pi}\right)^r
 + x \, ."/></p>
@@ -2570,7 +2563,7 @@ vector transpose.</p>
 <img alt="../_images/figure3-11.jpg" src="../_images/figure3-11.jpg" />
 <p class="caption"><span class="caption-text">Vertical structure of CAM6.0</span></p>
 </div>
-<p>The finite difference forms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.52">(142)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.54">(144)</a>  may then be written
+<p>The finite difference forms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-52">(142)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-54">(144)</a>  may then be written
 down as:</p>
 <div class="math">
 <p><img src="../_images/math/dd097c321df23addf90eb3034621369d79469fb9.png" alt="\begin{aligned}
@@ -2599,7 +2592,7 @@ down as:</p>
 </div><p>where <img class="math" src="../_images/math/4e9048fa1d3de90ebab4a2e88cd89d3c68958cc1.png" alt="()^n"/> denotes a time varying value at time step <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/>.
 The quantities <img class="math" src="../_images/math/cf021ebccd1e69efd5eafa5c29670256f9db4984.png" alt="\underline{X}^n, \underline{Y}^n,"/> and <img class="math" src="../_images/math/781b67efd54c78cc0a0590996d625d2b48055f66.png" alt="Z^n"/>
 are defined so as to complete the right-hand sides of
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.43">(133)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.45">(135)</a>. The components of <img class="math" src="../_images/math/30f0a9646ea68e00dbeba72f75111f083f2b7cf7.png" alt="\underline{\Delta
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-43">(133)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-45">(135)</a>. The components of <img class="math" src="../_images/math/30f0a9646ea68e00dbeba72f75111f083f2b7cf7.png" alt="\underline{\Delta
 p}^r"/> are given by
 <img class="math" src="../_images/math/49d6cd2f113ec35208cc105b5a10c769c2920e90.png" alt="\Delta p^r_k = p^r_{k + \frac{1}{2}} - p^r_{k -
 \frac{1}{2}}"/>. This definition of the vertical difference operator
@@ -2639,27 +2632,27 @@ contributions, can be combined with the continuity equation</p>
 {\boldsymbol{V}}\cdot\nabla p
  - \frac{\partial p}{\partial\eta} {\boldsymbol{V}}\cdot\nabla\Phi \,
  - . \end{aligned}"/></p>
-</div><p>The first two terms on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.60">(148)</a>  are transport
+</div><p>The first two terms on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-60">(148)</a>  are transport
 terms. The horizontal integral of the first (horizontal) transport term
 should be zero, and it is relatively straightforward to construct
 horizontal finite difference schemes that ensure this. For spectral
 models, the integral of the horizontal transport term will not vanish in
 general, but we shall ignore this problem.</p>
 <p>The vertical integral of the second (vertical) transport term on the
-right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.60">(148)</a>  should vanish. Since this term is obtained
+right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-60">(148)</a>  should vanish. Since this term is obtained
 from the vertical advection terms for momentum, which will be finite
 differenced, we can construct a finite difference operator that will
 ensure that the vertical integral vanishes.</p>
 <p>The vertical advection terms are the product of a vertical velocity
 (<img class="math" src="../_images/math/850a1112dfd6c9c9f8852b06c1c30c949e4a0c18.png" alt="\dot\eta \partial p/\partial\eta"/>) and the vertical derivative
 of a field (<img class="math" src="../_images/math/0f55c17178db9087682742c496716db0e6bcd8a5.png" alt="\partial\psi/\partial p"/>). The vertical velocity is
-defined in terms of vertical integrals of fields <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.41">(131)</a> , which are
+defined in terms of vertical integrals of fields <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-41">(131)</a> , which are
 naturally taken to interfaces. The vertical derivatives are also
 naturally taken to interfaces, so the product is formed there, and then
 adjacent interface values of the products are averaged to give a
 midpoint value. It is the definition of the average that must be correct
 in order to conserve kinetic energy under vertical advection in
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.60">(148)</a> . The derivation will be omitted here, the resulting vertical
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-60">(148)</a> . The derivation will be omitted here, the resulting vertical
 advection terms are of the form:</p>
 <div class="math">
 <p><img src="../_images/math/9539aa4a0aeb5097f90bad55b1df08b619e73d93.png" alt="\left( \dot\eta \frac{\partial p}{\partial\eta} \frac{\partial
@@ -2676,16 +2669,16 @@ advection terms are of the form:</p>
 </div><p>The choice of definitions for the vertical velocity at interfaces is not
 crucial to the energy conservation (although not completely arbitrary),
 and we shall defer its definition until later. The vertical advection of
-temperature is not required to use <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.61">(149)</a>  in order to conserve mass
+temperature is not required to use <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-61">(149)</a>  in order to conserve mass
 or energy. Other constraints can be imposed that result in different
-forms for temperature advection, but we will simply use <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.61">(149)</a>  in
+forms for temperature advection, but we will simply use <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-61">(149)</a>  in
 the system described below.</p>
-<p>The last two terms in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.60">(148)</a>  contain the conversion between kinetic
+<p>The last two terms in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-60">(148)</a>  contain the conversion between kinetic
 and internal (potential) energy and the form drag. Neglecting the
 transport terms, under assumption that global integrals will be taken,
 noting that <img class="math" src="../_images/math/872cd841465a072ec3256dbb25a8bf8145251228.png" alt="\nabla p/p = \frac{\pi}{p} \frac{\partial
 p}{\partial\pi} \nabla \Pi"/>, and substituting for the geopotential using
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.40">(130)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.60">(148)</a>  can be written as:</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-40">(130)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-60">(148)</a>  can be written as:</p>
 <div class="math">
 <p><img src="../_images/math/13e331a960ce22a4b908b9f9e444a558c3a0a2d0.png" alt="\begin{aligned}
 \frac{\partial}{\partial t} \left( \frac{\partial p}{\partial\eta} E
@@ -2698,10 +2691,10 @@ p}{\partial\pi} \nabla \Pi"/>, and substituting for the geopotential using
  - \frac{\partial p}{\partial\eta} {\boldsymbol{V}}\cdot\nabla
       \int_{p(\eta)}^{p(1)}R{T_v} d\ln p
  + \, \ldots \end{aligned}"/></p>
-</div><p>The second term on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.63">(151)</a>  is a source (form
+</div><p>The second term on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-63">(151)</a>  is a source (form
 drag) term that can be neglected as we are only interested in internal
 conservation properties. The last term on the right-hand side of
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.63">(151)</a>  can be rewritten as</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-63">(151)</a>  can be rewritten as</p>
 <div class="math">
 <p><img src="../_images/math/af8bda3fe3410e2c873df34b45d0f4dcd9abf5fd.png" alt="\frac{\partial p}{\partial\eta} {\boldsymbol{V}}\cdot\nabla
       \int_{p(\eta)}^{p(1)}R{T_v} d\ln p
@@ -2713,7 +2706,7 @@ conservation properties. The last term on the right-hand side of
      \left( \frac{\partial p}{\partial\eta} {\boldsymbol{V}}
      \right) \int_{p(\eta)}^{p(1)}R{T_v} d\ln p \, ."/></p>
 </div><p>The global integral of the first term on the right-hand side of
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.64">(152)</a>  is obviously zero, so that <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.63">(151)</a>  can now be written as:</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-64">(152)</a>  is obviously zero, so that <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-63">(151)</a>  can now be written as:</p>
 <div class="math">
 <p><img src="../_images/math/155c194a8c1f7fcc44e0d6b8e08d05910d4ad22a.png" alt="\frac{\partial}{\partial t} \left( \frac{\partial p}{\partial\eta} E
       \right)
@@ -2723,9 +2716,9 @@ conservation properties. The last term on the right-hand side of
      \right) \int_{p(\eta)}^{p(1)}R{T_v} d\ln p
  + ..."/></p>
 </div><p>We now turn to the internal energy equation, obtained by combining the
-thermodynamic equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.35">(125)</a> , without the <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/>,
+thermodynamic equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-35">(125)</a> , without the <img class="math" src="../_images/math/331157c6afbd113256867fd408d80277d1a24756.png" alt="Q"/>,
 <img class="math" src="../_images/math/6dd65a08a011c46c267e14d3eea51ddc5ddb811d.png" alt="F_{T_H}"/>, and <img class="math" src="../_images/math/739fa3a945070a120bbcb8d1f1cb60b51967fb02.png" alt="F_{F_H}"/> terms, and the continuity equation
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.59">(147)</a> :</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-59">(147)</a> :</p>
 <div class="math">
 <p><img src="../_images/math/6221b84face372d54853f32e81ea548dcf76faeb.png" alt="\frac{\partial}{\partial t} \left( \frac{\partial p}{\partial\eta}
       c_p^* T \right)
@@ -2734,9 +2727,9 @@ thermodynamic equation <a class="reference internal" href="../cam5_scientific_gu
  - \frac{\partial}{\partial \eta} \left( \frac{\partial
       p}{\partial\eta} c_p^* T \dot\eta \right)
 + {R{T_v}} \frac{\partial p}{\partial\eta} \frac{\omega}{p} \, ."/></p>
-</div><p>As in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.60">(148)</a> , the first two terms on the right-hand side are
+</div><p>As in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-60">(148)</a> , the first two terms on the right-hand side are
 advection terms that can be neglected under global integrals. Using
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.16">(106)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.66">(154)</a>  can be written as:</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-16">(106)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-66">(154)</a>  can be written as:</p>
 <div class="math">
 <p><img src="../_images/math/e3612990318d954af4db2fdf3e2757bfb0904c41.png" alt="\frac{\partial}{\partial t} \left( \frac{\partial p}{\partial\eta}
       c_p^* T \right)
@@ -2747,17 +2740,17 @@ advection terms that can be neglected under global integrals. Using
      \left( \frac{\partial p}{\partial\eta} {\boldsymbol{V}}
      \right) d\eta + ..."/></p>
 </div><p>The rate of change of total energy due to internal processes is obtained
-by adding <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.65">(153)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.67">(155)</a>  and must vanish. The first terms on
-the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.65">(153)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.67">(155)</a>  obviously cancel in the
+by adding <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-65">(153)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-67">(155)</a>  and must vanish. The first terms on
+the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-65">(153)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-67">(155)</a>  obviously cancel in the
 continuous form. When the equations are discretized in the vertical, the
 terms will still cancel, providing that the same definition is used for
 <img class="math" src="../_images/math/62ef4fb2e87f0840f40d664c41dfe5925d0f98f8.png" alt="(1/p\,\,\partial p/\partial\pi)_k"/> in the nonlinear terms of the
-vorticity and divergence equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.38">(128)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.39">(129)</a> , and in the
-<img class="math" src="../_images/math/b51aa99e0bc8cc8c3d17c0b9cf822db73e13293e.png" alt="\omega"/> term of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.35">(125)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.42">(132)</a> .</p>
-<p>The second terms on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.65">(153)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.67">(155)</a>
+vorticity and divergence equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-38">(128)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-39">(129)</a> , and in the
+<img class="math" src="../_images/math/b51aa99e0bc8cc8c3d17c0b9cf822db73e13293e.png" alt="\omega"/> term of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-35">(125)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-42">(132)</a> .</p>
+<p>The second terms on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-65">(153)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-67">(155)</a>
 must also cancel in the global mean. This cancellation is enforced
-locally in the horizontal on the column integrals of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.65">(153)</a>  and
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.67">(155)</a> , so that we require:</p>
+locally in the horizontal on the column integrals of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-65">(153)</a>  and
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-67">(155)</a> , so that we require:</p>
 <div class="math">
 <p><img src="../_images/math/621c007c458999806580bef2fa24d0a1cf12ceaf.png" alt="\int^1_{\eta_t} \left\{ \nabla\cdot
      \left( \frac{\partial p}{\partial\eta} {\boldsymbol{V}}
@@ -2767,8 +2760,8 @@ locally in the horizontal on the column integrals of <a class="reference interna
      \frac{1}{p} \int_{\eta_t}^{\eta} \nabla\cdot
      \left( \frac{\partial p}{\partial\eta^\prime} {\boldsymbol{V}}
      \right) d\eta^\prime \right\} d\eta ."/></p>
-</div><p>The inner integral on the left-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.68">(156)</a>  is derived from
-the hydrostatic equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.40">(130)</a> , which we shall approximate as</p>
+</div><p>The inner integral on the left-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-68">(156)</a>  is derived from
+the hydrostatic equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-40">(130)</a> , which we shall approximate as</p>
 <div class="math">
 <p><img src="../_images/math/10f8d5f48f2bf25e22844008db82d2ecc52e2a35.png" alt="\Phi_k = \Phi_s + R\sum_{\ell=k}^K H_{k\ell}{T_v}_\ell , \nonumber
 \\  = \Phi_s + R\sum_{\ell=1}^K H_{k\ell}{T_v}_\ell ,"/></p>
@@ -2777,8 +2770,8 @@ the hydrostatic equation <a class="reference internal" href="../cam5_scientific_
 \underline {T_v} ,"/></p>
 </div><p>where <img class="math" src="../_images/math/451e07f8ea8c7f935247c37cdfbe7f2f0b517b84.png" alt="H_{k\ell}=0"/> for <img class="math" src="../_images/math/371a1e2d473cc651cc85df32a964be8d35e838b6.png" alt="\ell&lt;k"/>. The quantity
 <img class="math" src="../_images/math/fec399c4b965a093bc7d7ce238ad69d90ea4add9.png" alt="\underline{1}"/> is defined to be the unit vector. The inner
-integral on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.68">(156)</a>  is derived from the
-vertical velocity equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.42">(132)</a> , which we shall approximate as</p>
+integral on the right-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-68">(156)</a>  is derived from the
+vertical velocity equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-42">(132)</a> , which we shall approximate as</p>
 <div class="math">
 <p><img src="../_images/math/36e37b82843a87687a4646862ed2f9977a6c31bb.png" alt="\left( \frac{\omega}{p} \right)_k
 = \left( \frac{\pi}{p} \frac{\partial p}{\partial\pi} \right)_k
@@ -2790,11 +2783,11 @@ vertical velocity equation <a class="reference internal" href="../cam5_scientifi
       \right] ,"/></p>
 </div><p>where <img class="math" src="../_images/math/1353e2a4a0c6bbec501e13e95b2ec8cb39399619.png" alt="C_{k\ell}=0"/> for <img class="math" src="../_images/math/854183bb923abd27d328cee745333215dacd94e4.png" alt="\ell&gt;k"/>, and <img class="math" src="../_images/math/39d890d9ddce7a0448aa01befd33ee86936a261f.png" alt="C_{k\ell}"/> is
 included as an approximation to <img class="math" src="../_images/math/12d60334781246fcda6818b3a7e21b6fca3efe40.png" alt="1/p_k"/> for <img class="math" src="../_images/math/2169fe431217ea2a1f5a58d89de26ebf1b9207b8.png" alt="\ell \leq k"/>
-and the symbol <img class="math" src="../_images/math/4d26a3c646f81ab56cceb818c7801dd1f3cfaaf3.png" alt="\Delta"/> is similarly defined as in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.62">(150)</a> .
+and the symbol <img class="math" src="../_images/math/4d26a3c646f81ab56cceb818c7801dd1f3cfaaf3.png" alt="\Delta"/> is similarly defined as in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-62">(150)</a> .
 <img class="math" src="../_images/math/39d890d9ddce7a0448aa01befd33ee86936a261f.png" alt="C_{k\ell}"/> will be determined so that <img class="math" src="../_images/math/b51aa99e0bc8cc8c3d17c0b9cf822db73e13293e.png" alt="\omega"/> is
 consistent with the discrete continuity equation following
-<a class="reference internal" href="chapter8.html#williamson94a" id="id60">[WO94a]</a>. Using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.69">(157)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.71">(159)</a> , the
-finite difference analog of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.68">(156)</a>  is</p>
+<a class="reference internal" href="chapter8.html#williamson94a" id="id60">[WO94a]</a>. Using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-69">(157)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-71">(159)</a> , the
+finite difference analog of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-68">(156)</a>  is</p>
 <div class="math">
 <p><img src="../_images/math/51857787bd5568efd0fc88ff66125784cb898dfc.png" alt="\begin{aligned}
 \nonumber\lefteqn{\sum_{k=1}^K
@@ -2818,7 +2811,7 @@ finite difference analog of <a class="reference internal" href="../cam5_scientif
 p_k + \\
 \pi\left( {\boldsymbol{V}}_k\cdot\nabla\Pi \right) \Delta \left(\partial
     p/\partial\pi\right)_k ]/\Delta\eta_k"/></p>
-</div><p>(see [3.a.22]). We can now combine the sums in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.72">(160)</a>  and simplify
+</div><p>(see [3.a.22]). We can now combine the sums in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-72">(160)</a>  and simplify
 to give</p>
 <div class="math">
 <p><img src="../_images/math/9d919661191c4c3a41144c054911f8c99ad1d06d.png" alt="\begin{aligned}
@@ -2836,14 +2829,14 @@ to give</p>
            \Delta \left( \frac{\partial p}{\partial\pi} \right)_\ell
       \right] \Delta p_k C_{k\ell}{T_v}_k
   \right\} . \end{aligned}"/></p>
-</div><p>Interchanging the indexes on the left-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.73">(161)</a>  will
+</div><p>Interchanging the indexes on the left-hand side of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-73">(161)</a>  will
 obviously result in identical expressions if we require that</p>
 <div class="math">
 <p><img src="../_images/math/50890f35c4be018b1c36301b2131210cf0de3788.png" alt="H_{k\ell} = C_{\ell k} \Delta p_\ell ."/></p>
-</div><p>Given the definitions of vertical integrals in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.70">(158)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.71">(159)</a>
-and of vertical advection in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.61">(149)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.62">(150)</a>  the model will
+</div><p>Given the definitions of vertical integrals in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-70">(158)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-71">(159)</a>
+and of vertical advection in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-61">(149)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-62">(150)</a>  the model will
 conserve energy as long as we require that <img class="math" src="../_images/math/7baef4107976bca8c2073a9367b1f08ff5a8be00.png" alt="\boldsymbol{C}"/> and
-<img class="math" src="../_images/math/512f555e8c6d9fe89f21502a018c7e6cccb07a3a.png" alt="\boldsymbol{H}"/> satisfy <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.74">(162)</a> . We are, of course, still
+<img class="math" src="../_images/math/512f555e8c6d9fe89f21502a018c7e6cccb07a3a.png" alt="\boldsymbol{H}"/> satisfy <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-74">(162)</a> . We are, of course, still
 neglecting lack of conservation due to the truncation of the horizontal
 spherical harmonic expansions.</p>
 </div>
@@ -2971,7 +2964,7 @@ T^{n-1} \right) \,"/></p>
 \right)^i K^{(2i)} \pi \, \frac{\partial T^*}{\partial p} \,
 \frac{\partial p}{\partial \pi} \, \nabla^{2i} \, \Pi \ ,"/></p>
 </div><p>for <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/>, where in the standard model <img class="math" src="../_images/math/df0deb143e5ac127f00bd248ee8001ecae572adc.png" alt="i"/> only takes the
-value&nbsp;2 in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.91">(179)</a> . The first step from
+value&nbsp;2 in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-91">(179)</a> . The first step from
 <img class="math" src="../_images/math/c4f976dfdb6b7e53601bad089835517a0d3f4a7c.png" alt="\left( \hskip 5pt \right)^{n-1}"/> to
 <img class="math" src="../_images/math/2759e22f7647cf6c84f4195b552176090baa3931.png" alt="\left( \hskip 5pt \right)^{n+1}"/> includes the transformation to
 spectral coefficients. The second step from <img class="math" src="../_images/math/9bb0a436cd6a7814bbddfb21a9695aa49db84af8.png" alt="\left( \hskip 5pt
@@ -2984,7 +2977,7 @@ the final step from <img class="math" src="../_images/math/c0e5b264fb819ca1646d9
 5pt} \right)^{n+1}"/> for <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> is done after the inverse transform to
 the grid point representation.</p>
 <p>The following finite-difference description details only the forecast
-given by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.86">(174)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.89">(177)</a> . The finite-difference form of the
+given by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-86">(174)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-89">(177)</a> . The finite-difference form of the
 forecast equation for water vapor will be presented later in Section&nbsp;3c.
 The general structure of the complete finite difference equations is
 determined by the semi-implicit time differencing and the energy
@@ -2992,7 +2985,7 @@ conservation properties described above. In order to complete the
 specification of the finite differencing, we require a definition of the
 vertical coordinate. The actual specification of the generalized
 vertical coordinate takes advantage of the structure of the equations
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.42">(132)</a> . The equations can be finite-differenced in the
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-42">(132)</a> . The equations can be finite-differenced in the
 vertical and, in time, without having to know the value of <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/>
 anywhere. The quantities that must be known are <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> and
 <img class="math" src="../_images/math/5bb60b877e7c79145f8e69c022ec07550aac3204.png" alt="\partial p/\partial\pi"/> at the grid points. Therefore the
@@ -3004,8 +2997,8 @@ coordinate is defined implicitly through the relation:</p>
 <p><img src="../_images/math/6468fff158d4c7adf8c6ac875b598572ffd250b6.png" alt="\frac{\partial p}{\partial\pi} = B(\eta) \, ."/></p>
 </div><p>A set of levels <img class="math" src="../_images/math/482d617de367c71377b90996cde58aa20d7b8735.png" alt="\eta_k"/> may be specified by specifying
 <img class="math" src="../_images/math/8e2461af925612a4f831309f822dda95e84803d3.png" alt="A_k"/> and <img class="math" src="../_images/math/95016e3d6008c2baefb1438beda86c4566e29388.png" alt="B_k"/>, such that <img class="math" src="../_images/math/a64e646b794132ea07210749da8286bb83eeedc6.png" alt="\eta_k \equiv A_k + B_k"/>,
-and difference forms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.42">(132)</a>  may be derived.</p>
-<p>The finite difference forms of the Dyn operator <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.42">(132)</a> ,
+and difference forms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-42">(132)</a>  may be derived.</p>
+<p>The finite difference forms of the Dyn operator <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-33">(123)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-42">(132)</a> ,
 including semi-implicit time integration are:</p>
 <div class="math">
 <p><img src="../_images/math/ecb7c5f3bea8efdadf16c0493a66d84e4a192665.png" alt="\underline{\zeta}^{n+1}
@@ -3165,12 +3158,12 @@ terms and also appears in the semi-implicit reference vector
 <img class="math" src="../_images/math/af4b4061cd20bf324045b354b2266fd47434bb6c.png" alt="{\boldsymbol{H}}^n"/> (&nbsp;with components <img class="math" src="../_images/math/39d890d9ddce7a0448aa01befd33ee86936a261f.png" alt="C_{k\ell}"/> and
 <img class="math" src="../_images/math/1b49c95be8cc883480825af83e0654516e99973e.png" alt="H_{k \ell}"/>) must be evaluated at each time step and each point
 in the horizontal. It is more efficient computationally to substitute
-the definitions of these matrices into <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.95">(183)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.104">(192)</a>  at the
+the definitions of these matrices into <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-95">(183)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-104">(192)</a>  at the
 cost of some loss of generality in the code. The finite difference
-equations have been written in the form <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.94">(182)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.111">(199)</a>  because
+equations have been written in the form <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-94">(182)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-111">(199)</a>  because
 this form is quite general. For example, the equations solved by <a class="reference internal" href="chapter8.html#simmons81a" id="id63">[SStrufing81]</a>
 at ECMWF can be obtained by changing only the
-vectors and hydrostatic matrix defined by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.108">(196)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.111">(199)</a> .</p>
+vectors and hydrostatic matrix defined by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-108">(196)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-111">(199)</a> .</p>
 </div>
 <div class="section" id="time-filter">
 <h3>5.3.8. Time filter<a class="headerlink" href="#time-filter" title="Permalink to this headline">¶</a></h3>
@@ -3233,7 +3226,7 @@ subsets of this pentagonal case:</p>
 \mathrm{Triangular:} \; &amp;M = N = K , \nonumber \\ \mathrm{Rhomboidal:}
 \; &amp;K = N + M ,  \\ \mathrm{Trapezoidal:} \; &amp;N = K &gt; M
 . \nonumber\end{aligned}"/></p>
-</div><p>The quantity <img class="math" src="../_images/math/d3c3ad98fd487f57a02914c3e6c70e2915536da2.png" alt="{\mathcal N} \left( m \right)"/> in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.1">(200)</a>
+</div><p>The quantity <img class="math" src="../_images/math/d3c3ad98fd487f57a02914c3e6c70e2915536da2.png" alt="{\mathcal N} \left( m \right)"/> in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-1">(200)</a>
 represents an arbitrary limit on the two-dimensional wavenumber
 <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/>, and for the pentagonal truncation described above is
 simply given by</p>
@@ -3247,7 +3240,7 @@ such that</p>
 <div class="math">
 <p><img src="../_images/math/bf72d2050d48d9b9620e9c9bd5f211b7b82af4c5.png" alt="f = \frac{\Omega}{\sqrt {0.375}} P^o_1 ,"/></p>
 </div><p>which is required for the absolute vorticity.</p>
-<p>The coefficients of the spectral representation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.1">(200)</a>  are given by</p>
+<p>The coefficients of the spectral representation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-1">(200)</a>  are given by</p>
 <div class="math">
 <p><img src="../_images/math/04d7c954804a48267fe1443af32614cabbb8d573.png" alt="\psi^m_n = \int^1_{-1} \frac{1}{2 \pi} \int^{2 \pi}_0 \psi (\lambda,
 \mu) e^{-im\lambda} d \lambda P^m_n (\mu) d \mu ."/></p>
@@ -3305,7 +3298,7 @@ north pole and not including 0 (there are no points at the equator or
 pole in the Gaussian grid), <em>i.e.,</em> let <img class="math" src="../_images/math/259bae27ff3c2e4ec988a04d86235cd4886efcb6.png" alt="I = J/2"/> and
 <img class="math" src="../_images/math/ad9ccadcc88b2ecbcf06b91ca9b655ee60d10701.png" alt="i = j - J/2"/> for <img class="math" src="../_images/math/fffa5cd6de5f4b203625e00931713cdcb7e6cd82.png" alt="j
 \geq J/2+1"/> and <img class="math" src="../_images/math/d928559f4beb3e640318994db58f3b2eaa347a41.png" alt="i = j - J/2 - 1"/> for <img class="math" src="../_images/math/7e9ab45754aac64e59443a6a067999f8f53d78f8.png" alt="j \leq J/2"/>; then the
-summation in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.7">(206)</a>  can be rewritten as</p>
+summation in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-7">(206)</a>  can be rewritten as</p>
 <div class="math">
 <p><img src="../_images/math/8697c6b3cfc4eb18228524951ddfb40726618aff.png" alt="\psi^m_n = \sum \limits^{I}_{i = -I, \;i \neq 0} \psi^m (\mu_i) P^m_n
 (\mu_i) w_i ."/></p>
@@ -3317,7 +3310,7 @@ summation in <a class="reference internal" href="../cam5_scientific_guide/dynami
 </div><div class="math">
 <p><img src="../_images/math/5b669d6980e3b0c54edd51496b5a47d0620ade9d.png" alt="\left(\psi_O\right)^m_i = \frac{1}{2} \left(\psi^m_i - \psi^m_{-i}
 \right) ."/></p>
-</div><p>Since <img class="math" src="../_images/math/1caac5f874f508b298a9b1dcf65af7fe3823f9cc.png" alt="w_i"/> is symmetric about the equator, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.15">(214)</a>  can be
+</div><p>Since <img class="math" src="../_images/math/1caac5f874f508b298a9b1dcf65af7fe3823f9cc.png" alt="w_i"/> is symmetric about the equator, <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-15">(214)</a>  can be
 rewritten to give formulas for the coefficients of even and odd
 spherical harmonics:</p>
 <div class="math">
@@ -3348,7 +3341,7 @@ involved in the various transformations are given in the next section.</p>
 equation we first group together all undifferentiated explicit terms,
 all explicit terms with longitudinal derivatives, and all explicit terms
 with meridional derivatives appearing in the Dyn operator. Thus, the
-vorticity equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.94">(182)</a>  is rewritten</p>
+vorticity equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-94">(182)</a>  is rewritten</p>
 <div class="math">
 <p><img src="../_images/math/e062f5182840ae35932c1583a67c5611abf14731.png" alt="\underline{\left(\zeta + f \right)}^{n+1} = \underline{{\hbox{\sffamily\slshape V}}} +
 \frac{1} {a(1 - \mu^2)} \left[ \frac{\partial}{\partial \lambda}
@@ -3364,7 +3357,7 @@ vorticity equation <a class="reference internal" href="../cam5_scientific_guide/
 <p><img src="../_images/math/b79f68c2f62e0124d9c80f2b6f693dabe3ba4853.png" alt="\underline{{\hbox{\sffamily\slshape V}}}_\lambda = 2 \Delta t\, \underline{n}^{n}_{V} ,"/></p>
 </div><div class="math">
 <p><img src="../_images/math/be7a3cfe1a35b1407b6afca0b2b26f7ed50b748a.png" alt="\underline{{\hbox{\sffamily\slshape V}}}_{\mu} = 2 \Delta t\,\underline{n}^{n}_{U}."/></p>
-</div><p>The divergence equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.95">(183)</a>  is</p>
+</div><p>The divergence equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-95">(183)</a>  is</p>
 <div class="math">
 <p><img src="../_images/math/8869bac93105d876977cf3952e7a1e1c31a93c7e.png" alt="\begin{aligned}
 \underline{\delta}^{n+1} &amp;=&amp; \underline{{\hbox{\sffamily\slshape D}}} + \frac{1}{a(1 -
@@ -3377,7 +3370,7 @@ vorticity equation <a class="reference internal" href="../cam5_scientific_guide/
 \end{aligned}"/></p>
 </div><p>The mean component of the temperature is not included in the
 next–to–last term since the Laplacian of it is zero. The thermodynamic
-equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.96">(184)</a>  is</p>
+equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-96">(184)</a>  is</p>
 <div class="math">
 <p><img src="../_images/math/ab647ceccba8fa930b321c15cde5609f66812340.png" alt="\underline{T}^{\prime \, n+1} = \underline{{\hbox{\sffamily\slshape T}}} - \frac{1}{a (1 -
 \mu^2)} \left[ \frac{\partial}{\partial \lambda}
@@ -3385,13 +3378,13 @@ equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.h
 - \mu^2) \frac{\partial}{\partial \mu} (\underline{{\hbox{\sffamily\slshape T}}}_\mu)
 - \right] -
 \Delta t {\boldsymbol{D}}^r \; \underline{\delta}^{n+1} ."/></p>
-</div><p>The surface–pressure tendency <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.97">(185)</a>  is</p>
+</div><p>The surface–pressure tendency <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-97">(185)</a>  is</p>
 <div class="math">
 <p><img src="../_images/math/f1d8f66f16b14612a87206dad98424ab1ca48ed3.png" alt="\Pi^{n+1} = {{\hbox{\sffamily\slshape P}}{\hbox{\sffamily\slshape S}}} - \frac{\Delta t}{\pi^r} \left(
 \underline{\Delta p}^r \right)^T \underline{\delta}^{n+1}
 ."/></p>
-</div><p>The grouped explicit terms in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.19">(221)</a> –<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.21">(223)</a>  are given as
-follows. The terms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.19">(221)</a>  are</p>
+</div><p>The grouped explicit terms in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-19">(221)</a> –<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-21">(223)</a>  are given as
+follows. The terms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-19">(221)</a>  are</p>
 <div class="math">
 <p><img src="../_images/math/f0ef75cffc2518eb14ed75759946f5148289faaf.png" alt="\underline{{\hbox{\sffamily\slshape D}}} = \underline{\delta}^{n-1} ,"/></p>
 </div><div class="math">
@@ -3406,7 +3399,7 @@ follows. The terms of <a class="reference internal" href="../cam5_scientific_gui
 - 2 {(\underline{T}^\prime)}^n \right)
 + R \left( \underline{b}^{r} + \underline{h}^{r}
 \right) \left( {\Pi}^{n-1} - 2 {\Pi}^{n} \right) \right] \ . \end{aligned}"/></p>
-</div><p>The terms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.20">(222)</a>  are</p>
+</div><p>The terms of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-20">(222)</a>  are</p>
 <div class="math">
 <p><img src="../_images/math/95cb73b47108ef6cbce3e3e40097a1ad757bc02f.png" alt="\underline{{\hbox{\sffamily\slshape T}}} = \left(\underline{T}'\right)^{n-1} + 2 \Delta t \,
 \underline{\Gamma}^{n} \, - \Delta t {\boldsymbol{D}}^{r}
@@ -3415,7 +3408,7 @@ follows. The terms of <a class="reference internal" href="../cam5_scientific_gui
 <p><img src="../_images/math/efbb76c908d3120f5aaf59ac069108c4a55ecb4c.png" alt="\underline{{\hbox{\sffamily\slshape T}}}_{\lambda} = 2 \Delta t \underline{\left(UT'\right)}^n ,"/></p>
 </div><div class="math">
 <p><img src="../_images/math/ccd8d8f481af78930bf142f9f7bf090fb5fd65f2.png" alt="\underline{{\hbox{\sffamily\slshape T}}}_\mu = 2 \Delta t  \underline{\left(VT'\right)}^n ."/></p>
-</div><p>The nonlinear term in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.21">(223)</a>  is</p>
+</div><p>The nonlinear term in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-21">(223)</a>  is</p>
 <div class="math">
 <p><img src="../_images/math/4181a8df5620460770c0f46cfffb573ad4bf7331.png" alt="\begin{aligned}
 &amp;\nonumber {{\hbox{\sffamily\slshape P}}{\hbox{\sffamily\slshape S}}} = \Pi^{n-1} - 2 \Delta t \frac{1}{\pi^n} \left[ \left(
@@ -3429,8 +3422,8 @@ follows. The terms of <a class="reference internal" href="../cam5_scientific_gui
 </div></div>
 <div class="section" id="transformation-to-spectral-space">
 <h3>5.3.12. Transformation to spectral space<a class="headerlink" href="#transformation-to-spectral-space" title="Permalink to this headline">¶</a></h3>
-<p>Formally, Equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.18">(217)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.21">(223)</a>  are transformed to spectral
-space by performing the operations indicated in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.22">(232)</a>  to each term.
+<p>Formally, Equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-18">(217)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-21">(223)</a>  are transformed to spectral
+space by performing the operations indicated in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-22">(232)</a>  to each term.
 We see that the equations basically contain three types of terms, for
 example, in the vorticity equation the undifferentiated term
 <img class="math" src="../_images/math/83b9cfca4b6e05ace465701e9aa0ca317850c991.png" alt="\underline{{\hbox{\sffamily\slshape V}}}"/>, the longitudinally
@@ -3441,7 +3434,7 @@ meridionally differentiated term
 original equations were grouped into one of these terms on the Gaussian
 grid so that they could be transformed at once.</p>
 <p>Transformation of the undifferentiated term is obtained by
-straightforward application of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.5">(204)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.7">(206)</a> ,</p>
+straightforward application of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-5">(204)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-7">(206)</a> ,</p>
 <div class="math">
 <p><img src="../_images/math/50ada0374aa891df7e6ff33c79d866c7d94df2dc.png" alt="\left\{ \underline{{\hbox{\sffamily\slshape V}}} \right\}^m_n = \sum^J_{j=1}
 \underline{{\hbox{\sffamily\slshape V}}}^m(\mu_j) P^m_n(\mu_j) w_j ,"/></p>
@@ -3460,7 +3453,7 @@ using the cyclic boundary conditions,</p>
 \end{aligned}"/></p>
 </div><p>so that the Fourier transform is performed first, then the
 differentiation is carried out in spectral space. The transformation to
-spherical harmonic space then follows <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.25">(235)</a> :</p>
+spherical harmonic space then follows <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-25">(235)</a> :</p>
 <div class="math">
 <p><img src="../_images/math/4878e5c033443aeb642e3ea7e9c7253aa237808f.png" alt="\left \{ \frac{1}{a(1 - \mu^2)} \frac{\partial}{\partial \lambda}
 (\underline{{\hbox{\sffamily\slshape V}}}_\lambda) \right \}^m_n = im \sum^J_{j=1}
@@ -3485,7 +3478,7 @@ using zero boundary conditions at the poles:</p>
 </div><p>Defining the derivative of the associated Legendre polynomial by</p>
 <div class="math">
 <p><img src="../_images/math/87853e0397540e8f7fbed1d0f88a1450c01d969e.png" alt="H^m_n = (1 - \mu^2) \frac{dP^m_n}{d\mu} ,"/></p>
-</div><p><a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.28">(238)</a>  can be written</p>
+</div><p><a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-28">(238)</a>  can be written</p>
 <div class="math">
 <p><img src="../_images/math/751137b69cc187c3c664cffa0ca1d23b8b9f84e9.png" alt="\left \{ \frac{1}{a(1 - \mu^2)} (1 - \mu^2) \frac{\partial}{\partial
 \mu} (\underline{{\hbox{\sffamily\slshape V}}}_\mu) \right \}^m_n = - \sum^J_{j=1}
@@ -3509,7 +3502,7 @@ is the Fourier coefficient of the original grid variable
 <div class="section" id="solution-of-semi-implicit-equations">
 <h3>5.3.13. Solution of semi-implicit equations<a class="headerlink" href="#solution-of-semi-implicit-equations" title="Permalink to this headline">¶</a></h3>
 <p>The prognostic equations can be converted to spectral form by summation
-over the Gaussian grid using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.22">(232)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.24">(234)</a> , and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.27">(237)</a> . The
+over the Gaussian grid using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-22">(232)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-24">(234)</a> , and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-27">(237)</a> . The
 resulting equation for absolute vorticity is</p>
 <div class="math">
 <p><img src="../_images/math/047fe2e70dc25afb29d52089dd444d43282ca784.png" alt="\underline{\left(\zeta + f \right)}^m_n = \underline
@@ -3524,7 +3517,7 @@ as a summation over the Gaussian grid, is given as</p>
 (\mu_j) + im \underline{{\hbox{\sffamily\slshape V}}}^m_\lambda (\mu_j) \frac{P^m_n (\mu_j)}{a(1 -
 \mu^2_j)} + \underline{{\hbox{\sffamily\slshape V}}}^m_\mu (\mu_j) \frac{H^m_n (\mu_j)}{a(1 - \mu^2_j)}
 \right] w_j ."/></p>
-</div><p>The spectral form of the divergence equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.19">(221)</a>  becomes</p>
+</div><p>The spectral form of the divergence equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-19">(221)</a>  becomes</p>
 <div class="math">
 <p><img src="../_images/math/1697180dbbf14ac1f1e7f4e531fb009da63d3204.png" alt="\underline{\delta}^m_n = \underline{{\hbox{\sffamily\slshape D}}{\hbox{\sffamily\slshape S}}}^m_n + \Delta t
 \frac{n(n+1)} {a^2} \left[ R {\boldsymbol{H}}^r \underline{T}^{\prime \,
@@ -3534,8 +3527,8 @@ m}_n + R \left( \underline{b}^r + \underline{h}^r \right) \Pi^m_n
 <img class="math" src="../_images/math/fe0e2026df299b07ddfa96ef630bd85a318bf546.png" alt="\Pi^m_n"/> are spectral coefficients of
 <img class="math" src="../_images/math/c90e930a2f8d77d5f1e21e090013783a849095a3.png" alt="\underline{\delta}^{n+1}, \;
 \underline{T}^{\prime \, n+1}"/>, and <img class="math" src="../_images/math/5d7db2ffa13f9869f1b710934f65f96386cd0824.png" alt="\Pi^{n+1}"/>. The Laplacian of
-the total temperature in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.19">(221)</a>  is replaced by the equivalent
-Laplacian of the perturbation temperature in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.31">(242)</a> .
+the total temperature in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-19">(221)</a>  is replaced by the equivalent
+Laplacian of the perturbation temperature in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-31">(242)</a> .
 <img class="math" src="../_images/math/8cc3f0cbcf5cd012691a21919d9731e66b57cba3.png" alt="\underline{{\hbox{\sffamily\slshape D}}{\hbox{\sffamily\slshape S}}}^m_n"/>
 is given by</p>
 <div class="math">
@@ -3567,8 +3560,8 @@ defined as</p>
 is given by</p>
 <div class="math">
 <p><img src="../_images/math/024f219129614eb406df8e8779bde4977eea1f23.png" alt="{{\hbox{\sffamily\slshape P}}{\hbox{\sffamily\slshape S}}}^m_n = \sum^J_{j=1} {{\hbox{\sffamily\slshape P}}{\hbox{\sffamily\slshape S}}}^m (\mu_j) P^m_n (\mu_j) w_j ."/></p>
-</div><p>Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.30">(240)</a>  for vorticity is explicit and complete at this
-point. However, the remaining equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.31">(242)</a> –<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.33">(246)</a>  are
+</div><p>Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-30">(240)</a>  for vorticity is explicit and complete at this
+point. However, the remaining equations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-31">(242)</a> –<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-33">(246)</a>  are
 coupled. They are solved by eliminating all variables except
 <img class="math" src="../_images/math/b1fd0fadde7b22c60d8c44a3ab395aeb707d4d55.png" alt="\underline{\delta}^m_n"/>:</p>
 <div class="math">
@@ -3589,10 +3582,10 @@ solved by inverting <img class="math" src="../_images/math/ecd7fb57998ea489e96b6
 the accumulation of round–off error in the global mean divergence (which
 if exactly zero initially, should remain exactly zero)
 <img class="math" src="../_images/math/cc8cc37dfc24a8d89b08ab03eec0ebdd5c924d39.png" alt="\left({\boldsymbol{A}}_o\right)^{-1}"/> is set to the null matrix
-rather than the identity, and the formal application of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.34">(248)</a>  then
+rather than the identity, and the formal application of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-34">(248)</a>  then
 always guarantees <img class="math" src="../_images/math/7e53934c231918c6458e97424cd3c849c2e535ac.png" alt="\underline{\delta}^o_o = 0"/>. Once
 <img class="math" src="../_images/math/07d64f7c3ce6ce3b6a259f6af99916a208b6536f.png" alt="\delta^m_n"/> is known, <img class="math" src="../_images/math/1f4c0b12451be9a5832d300c3e7b575ecfc4cfc6.png" alt="\underline{T}'^m_n"/> and
-<img class="math" src="../_images/math/fe0e2026df299b07ddfa96ef630bd85a318bf546.png" alt="\Pi^m_n"/> can be computed from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.32">(244)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.33">(246)</a> ,
+<img class="math" src="../_images/math/fe0e2026df299b07ddfa96ef630bd85a318bf546.png" alt="\Pi^m_n"/> can be computed from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-32">(244)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-33">(246)</a> ,
 respectively, and all prognostic variables are known at time
 <img class="math" src="../_images/math/52bcc2a489cf9973da976e092da40c439061aa01.png" alt="n\!+\!1"/> as spherical harmonic coefficients. Note that the mean
 component <img class="math" src="../_images/math/c91c0b51017ab441b8ef682be7b6ccb38d35620d.png" alt="\underline{T}'^o_o"/> is not necessarily zero since the
@@ -3601,8 +3594,8 @@ perturbations are taken with respect to a specified
 </div>
 <div class="section" id="id70">
 <h3>5.3.14. Horizontal diffusion<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h3>
-<p>As mentioned earlier, the horizontal diffusion in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.87">(175)</a>  and
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.90">(178)</a>  is computed implicitly via time splitting after the
+<p>As mentioned earlier, the horizontal diffusion in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-87">(175)</a>  and
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-90">(178)</a>  is computed implicitly via time splitting after the
 transformations into spectral space and solution of the semi-implicit
 equations. In the following, the <img class="math" src="../_images/math/1bed834b3e718b4086e9b3c32284be47445d0c27.png" alt="\zeta"/> and <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/>
 equations have a similar form, so we write only the <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/>
@@ -3620,7 +3613,7 @@ equation:</p>
 <p><img src="../_images/math/3480907acf5daa02503e2aa6724261b5a006a516.png" alt="\left(T^*\right)^m_n &amp; = \left(T^{n+1}\right)^m_n - \left( -1\right)^i
 2 \Delta t K^{(2i)} \left[ \nabla^{2i} \left(T^*\right)^m_n \right] \
 ."/></p>
-</div><p>The extra term is present in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.36">(250)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.40">(254)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.42">(256)</a>  to
+</div><p>The extra term is present in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-36">(250)</a> , <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-40">(254)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-42">(256)</a>  to
 prevent damping of uniform rotations. The solutions are just</p>
 <div class="math">
 <p><img src="../_images/math/6b22360b344629441b2c11b58bdbddcae14d7319.png" alt="\left(\delta^*\right)^m_n  = K^{(2i)}_n \left(\delta\right)
@@ -3652,12 +3645,12 @@ the maximum wind speed in any of these upper levels is sufficiently
 large, then <img class="math" src="../_images/math/bbb95707cc905f917eacf71826b5426ba79bccb8.png" alt="D_n = 1000"/> in that level for all <img class="math" src="../_images/math/78f9569562729172fda4ef10eb1f7461aade2a5f.png" alt="n &gt; n_c"/>,
 where <img class="math" src="../_images/math/0a752d7cf0acc3104e2ea45a01fa5590a5b95f28.png" alt="n_c = a \Delta t \big/ \max \vert {\boldsymbol{V}} \vert"/>. This condition is applied whenever the wind
 speed is large enough that <img class="math" src="../_images/math/84a617d119e63fb1e9b600f6fc527548bdeac7d9.png" alt="n_c &lt; K"/>, the truncation parameter in
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.2">(201)</a> , and temporarily reduces the effective resolution of the model
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-2">(201)</a> , and temporarily reduces the effective resolution of the model
 in the affected levels. The number of levels at which this “Courant
 number limiter” may be applied is user-selectable, but it is only used
 in the top level of the 26&nbsp;level CAM6.0 control runs.</p>
 <p>The diffusion of <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> is not complete at this stage. In order to
-make the partial correction from <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> to <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.81">(169)</a>
+make the partial correction from <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> to <img class="math" src="../_images/math/27d463da4622be5b3ef1d4176ced7d7a323c6425.png" alt="p"/> in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-81">(169)</a>
 local, it is not included until grid–point values are available. This
 requires that <img class="math" src="../_images/math/27754744985b9a9dea2eea6e072206634f500c40.png" alt="\nabla^4 \Pi"/> also be transformed from spectral to
 grid–point space. The values of the coefficients <img class="math" src="../_images/math/6bc48945756f62325f5678209bb1705721f38afd.png" alt="K^{(2)}"/> and
@@ -3716,7 +3709,7 @@ e^{im\lambda} ,"/></p>
 }\nonumber\\[-2.0em] (1 - \mu^2) \frac{\partial \Pi}{\partial \mu} =
 \sum^M_{m=-M} \left [ \sum^{{\mathcal N}(m)}_{n=\vert m \vert} \Pi^m_n
 H^m_n (\mu) \right ] e^{im \lambda} ,"/></p>
-</div><p>which involve basically the same operations as <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.47">(261)</a> . The other
+</div><p>which involve basically the same operations as <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-47">(261)</a> . The other
 variables needed on the grid are <img class="math" src="../_images/math/169c982b5e649cd1bd6445df5583affe427ea269.png" alt="U"/> and <img class="math" src="../_images/math/fae0e7a73748991e5540d874416000583f64f58e.png" alt="V"/>. These can be
 computed directly from the absolute vorticity and divergence
 coefficients using the relations</p>
@@ -3746,7 +3739,7 @@ H^m_n (\mu) \right] e^{im \lambda} \nonumber \\ &amp;\phantom{=}&amp; -
 \delta^m_n H^m_n (\mu) \bigg ] e^{im\lambda}."/></p>
 </div><p>The horizontal diffusion tendencies are also transformed back to grid
 space. The spectral coefficients for the horizontal diffusion tendencies
-follow from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.36">(250)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.37">(251)</a> :</p>
+follow from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-36">(250)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-37">(251)</a> :</p>
 <div class="math">
 <p><img src="../_images/math/a75c044cd22ae6136f9e7c8289263936ed587ca5.png" alt="F_{T_H}\left(T^*\right)^m_n  = \left(-1\right)^{i+1} K^{2i} \left[
      \nabla^{2i} \left(T^*\right) \right]^m_n ,"/></p>
@@ -3762,7 +3755,7 @@ f\right)^* - \left(-1\right)^i \left(\zeta + f \right)^* \left(2/a^2
 \left(2/a^2 \right)^i \right\},"/></p>
 </div><p>using <img class="math" src="../_images/math/2c5c215231488e7c5ce198677103f8bc37553bdc.png" alt="i = 1"/> or 2 as appropriate for the <img class="math" src="../_images/math/ef44dc819887d16dff3e77fffb9cb6ce4c9c7362.png" alt="\nabla^2"/> or
 <img class="math" src="../_images/math/1ca9cf69f082c5af6e6cffa9ea1a60eddd4efeb1.png" alt="\nabla^4"/> forms. These coefficients are transformed to grid space
-following <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.1">(200)</a>  for the <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> term and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.55">(268)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.56">(269)</a>
+following <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-1">(200)</a>  for the <img class="math" src="../_images/math/f2d283a2071f9d043c9e0b0f794a8880fa0d3ce9.png" alt="T"/> term and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-55">(268)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-56">(269)</a>
 for vorticity and divergence. Thus, the vorticity and divergence
 diffusion tendencies are converted to equivalent <img class="math" src="../_images/math/169c982b5e649cd1bd6445df5583affe427ea269.png" alt="U"/> and <img class="math" src="../_images/math/fae0e7a73748991e5540d874416000583f64f58e.png" alt="V"/>
 diffusion tendencies.</p>
@@ -3804,7 +3797,7 @@ is dropped for convenience) are defined by</p>
      {2\Delta p_K} \left[ B_{K - \frac{1}{2}} \left( T_K - T_{K-1}
      \right) \right] .  \end{aligned}"/></p>
 </div><p>The corrections are added to the diffusion tendencies calculated earlier
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.b.57">(270)</a>  to give the total temperature tendency for diagnostic
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-b-57">(270)</a>  to give the total temperature tendency for diagnostic
 purposes:</p>
 <div class="math">
 <p><img src="../_images/math/71441dd95ac841928c6f8f0ee10afa6b6681be4b.png" alt="\hat{F}_{T_H}(T^*)_k = F_{T_H}(T^*)_k + \left( 2 \Delta t F_{F_H}
@@ -3814,7 +3807,7 @@ purposes:</p>
 <div class="section" id="semi-lagrangian-tracer-transport">
 <h3>5.3.18. Semi-Lagrangian Tracer Transport<a class="headerlink" href="#semi-lagrangian-tracer-transport" title="Permalink to this headline">¶</a></h3>
 <p>The forecast equation for water vapor specific humidity and constituent
-mixing ratio in the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> system is from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.36">(126)</a>  excluding
+mixing ratio in the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> system is from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-36">(126)</a>  excluding
 sources and sinks.</p>
 <div class="math">
 <p><img src="../_images/math/75726bcd386e25af701a01aba2185b4c440bb613.png" alt="\frac{dq}{dt} = \frac{\partial q}{\partial t} + {\boldsymbol{V}} \cdot
@@ -3825,7 +3818,7 @@ sources and sinks.</p>
 <p><img src="../_images/math/1617018b8c4bfa8345a86eb1a6c1c54b20cfcbd9.png" alt="[-2.0em] \frac{dq}{dt} = \frac{\partial
 q}{\partial t} + {\boldsymbol{V}} \cdot \nabla q + \dot\eta \,
 \frac{\partial q}{\partial \eta} = 0 ."/></p>
-</div><p>Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.2">(279)</a>  is more economical for the semi-Lagrangian vertical
+</div><p>Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-2">(279)</a>  is more economical for the semi-Lagrangian vertical
 advection, as <img class="math" src="../_images/math/cf6e18f90e60bbdb3696c92f8bc3438e58ebbf79.png" alt="\Delta \eta"/> does not vary in the horizontal, while
 <img class="math" src="../_images/math/6f2bb6afee4bf4c61f432c2741cfd43a5b855963.png" alt="\Delta p"/> does. Written in this form, the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> advection
 equations look exactly like the <img class="math" src="../_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> equations.</p>
@@ -3848,9 +3841,9 @@ would be written</p>
 <p><img src="../_images/math/407522832a0174f857864f1fe0292d49d9b90648.png" alt="q^*  = {\rm L}_{\lambda \varphi} \left( q^{n-1} \right) ,"/></p>
 </div><div class="math">
 <p><img src="../_images/math/96c110549f9d65850e5abde3f689b7b63d478ff8.png" alt="q^{n+1}  = {\rm L}_\eta \left( q^* \right) ."/></p>
-</div><p>Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.5">(282)</a>  represents the horizontal interpolation of
+</div><p>Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-5">(282)</a>  represents the horizontal interpolation of
 <img class="math" src="../_images/math/a7a605f8f2d168e628dd99972781cae42d84f564.png" alt="q^{n-1}"/> at the departure point calculated assuming
-<img class="math" src="../_images/math/5b068e33dc4e3be5a416d82ad168f6d9ce6dcd6b.png" alt="\dot\eta = 0"/>. Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.6">(283)</a>  represents the vertical
+<img class="math" src="../_images/math/5b068e33dc4e3be5a416d82ad168f6d9ce6dcd6b.png" alt="\dot\eta = 0"/>. Equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-6">(283)</a>  represents the vertical
 interpolation of <img class="math" src="../_images/math/6c28355d327e42324ac6779de9939a85d4561127.png" alt="q^*"/> at the departure point, assuming
 <img class="math" src="../_images/math/4973cd253fe931fd0fe8e95605423ad99118b2b7.png" alt="{\boldsymbol{V}} = 0"/>.</p>
 <p>The horizontal departure points are found by first iterating for the
@@ -3868,7 +3861,7 @@ components at <img class="math" src="../_images/math/88040e74e8da080092a3e545e2d
 determined by Lagrange cubic interpolation. For economic reasons, the
 equivalent Hermite cubic interpolant with cubic derivative estimates is
 used at some places in this code. The equations will be presented later.</p>
-<p>Once the iteration of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.7">(284)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.8">(285)</a>  is complete, the departure
+<p>Once the iteration of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-7">(284)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-8">(285)</a>  is complete, the departure
 point is given by</p>
 <div class="math">
 <p><img src="../_images/math/81f571d85e66ea85e5fa4323c1ca67107a65c6d5.png" alt="\lambda_D  = \lambda_A - 2 \Delta t u^n \left( \lambda_M, \varphi_M
@@ -3877,7 +3870,7 @@ point is given by</p>
 <p><img src="../_images/math/55df7dcd4e0b8a2b4d6e4cf98cc6c02ff08e483f.png" alt="\varphi_D  = \lambda_A - 2 \Delta t v^n \left( \lambda_M, \varphi_M
      \right)/a ,"/></p>
 </div><p>where the subscript <img class="math" src="../_images/math/3cf5aa5abe312e6fd4996975341a43aa566e8d8d.png" alt="D"/> denotes the departure point.</p>
-<p>The form given by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.7">(284)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.10">(287)</a>  is inaccurate near the poles and
+<p>The form given by <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-7">(284)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-10">(287)</a>  is inaccurate near the poles and
 thus is only used for arrival points equatorward of 70<img class="math" src="../_images/math/416949279b3505b72d9f643b9c648a648ba2e17c.png" alt="^\circ"/>
 latitude. Poleward of 70<img class="math" src="../_images/math/416949279b3505b72d9f643b9c648a648ba2e17c.png" alt="^\circ"/> we transform to a local
 geodesic coordinate for the calculation at each arrival point. The local
@@ -3916,7 +3909,7 @@ v^\prime \sin \lambda^\prime \sin \phi^\prime  =  u \cos \left(
 \lambda_A - \lambda \right) + v \sin \phi \sin \left( \lambda_A -
 \lambda \right) \ ."/></p>
 </div><p>The calculation of the departure point in the local geodesic system is
-identical to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.7">(284)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.10">(287)</a>  with all variables carrying a prime.
+identical to <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-7">(284)</a> -<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-10">(287)</a>  with all variables carrying a prime.
 The equations can be simplified by noting that
 <img class="math" src="../_images/math/b74f87e77247c7092360e201a63f4bda10e88704.png" alt="\left( \lambda^\prime_A, \varphi_A^\prime \right) = \left( 0, 0 \right)"/> by
 design and</p>
@@ -3966,12 +3959,12 @@ f_{i+j}"/></p>
            \left( x_{i+j} - x_{i+2} \right) }"/></p>
 </div><p>where <img class="math" src="../_images/math/875eb40014526135383caa89fd500ae40a835f56.png" alt="f"/> can represent either <img class="math" src="../_images/math/92e3f44c99a016c5238a790c96f12fd46aa93c4a.png" alt="u"/> or <img class="math" src="../_images/math/8d230554a01423c4c6560104b2918b65607c9406.png" alt="v"/>, or their
 counterparts in the geodesic coordinate system.</p>
-<p>The derivative approximations used in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.17">(294)</a>  for <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> are
-obtained by differentiating <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.18">(295)</a>  with respect to <img class="math" src="../_images/math/fd14d21c110d79d392f6fb535524f723852f2c82.png" alt="x_D"/>,
+<p>The derivative approximations used in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-17">(294)</a>  for <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> are
+obtained by differentiating <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-18">(295)</a>  with respect to <img class="math" src="../_images/math/fd14d21c110d79d392f6fb535524f723852f2c82.png" alt="x_D"/>,
 replacing <img class="math" src="../_images/math/875eb40014526135383caa89fd500ae40a835f56.png" alt="f"/> by <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> and evaluating the result at
 <img class="math" src="../_images/math/fd14d21c110d79d392f6fb535524f723852f2c82.png" alt="x_D"/> equal <img class="math" src="../_images/math/cbbcd3b143286162aaf4d862782b6eefdcb23a3c.png" alt="x_{i}"/> and <img class="math" src="../_images/math/017a12a927cbddb789b90ae0938b843ba2da7702.png" alt="x_{i+1}"/>. With these
-derivative estimates, the Hermite cubic interpolant <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.17">(294)</a>  is
-equivalent to the Lagrangian <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.18">(295)</a> . If we denote the four point
+derivative estimates, the Hermite cubic interpolant <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-17">(294)</a>  is
+equivalent to the Lagrangian <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-18">(295)</a> . If we denote the four point
 stencil <img class="math" src="../_images/math/866fdbda15bb0b398d88a0df94959e1371bc9e42.png" alt="\left(
 x_{i-1},x_{i},x_{i+1},x_{i+2} \right)"/> by <img class="math" src="../_images/math/6d4ab69fc0cc22d208c8702e462c78bdb1335852.png" alt="\left( x_1,x_2,x_3,x_4,
 \right)"/> the cubic derivative estimates are</p>
@@ -4019,9 +4012,9 @@ first row below the pole shifted <img class="math" src="../_images/math/b7793e4f
 and minus the value shifted by <img class="math" src="../_images/math/b7793e4f08d00aca47e272dcdfeb70f933dac222.png" alt="\pi"/> in longitude for <img class="math" src="../_images/math/92e3f44c99a016c5238a790c96f12fd46aa93c4a.png" alt="u"/>
 and <img class="math" src="../_images/math/8d230554a01423c4c6560104b2918b65607c9406.png" alt="v"/>.</p>
 <p>Once the departure point is known, the constituent value of <img class="math" src="../_images/math/77ed4a996f21ee07126bae832a026cd2c3b41747.png" alt="q^* = q^{n-1}_D"/>
-is obtained as indicated in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.5">(282)</a>  by Hermite cubic
-interpolation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.17">(294)</a> , with cubic derivative estimates <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.18">(295)</a>  and
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.19">(296)</a>  modified to satisfy the Sufficient Condition for Monotonicity
+is obtained as indicated in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-5">(282)</a>  by Hermite cubic
+interpolation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-17">(294)</a> , with cubic derivative estimates <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-18">(295)</a>  and
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-19">(296)</a>  modified to satisfy the Sufficient Condition for Monotonicity
 with C<img class="math" src="../_images/math/416949279b3505b72d9f643b9c648a648ba2e17c.png" alt="^\circ"/> continuity (SCMO) described below. Define
 <img class="math" src="../_images/math/2a1f689c110cd544b2c5fa8cb5168ff8a42b797c.png" alt="\Delta_i q"/> by</p>
 <div class="math">
@@ -4039,9 +4032,9 @@ with C<img class="math" src="../_images/math/416949279b3505b72d9f643b9c648a648ba
 appropriate bound of the relationship. These conditions ensure that the
 Hermite cubic interpolant is monotonic in the interval
 <img class="math" src="../_images/math/74e08b74ebb42a6fc318a9d8455ec9bc08f98c5e.png" alt="\left[ x_i, x_{i+1} \right]"/>.</p>
-<p>The horizontal semi-Lagrangian sub-step <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.5">(282)</a>  is followed by the
-vertical step <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.6">(283)</a> . The vertical velocity <img class="math" src="../_images/math/4273477d6c2fd15c67efd9df2ed46c73f82a218f.png" alt="\dot \eta"/> is
-obtained from that diagnosed in the dynamical calculations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.a.93">(181)</a>  by</p>
+<p>The horizontal semi-Lagrangian sub-step <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-5">(282)</a>  is followed by the
+vertical step <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-6">(283)</a> . The vertical velocity <img class="math" src="../_images/math/4273477d6c2fd15c67efd9df2ed46c73f82a218f.png" alt="\dot \eta"/> is
+obtained from that diagnosed in the dynamical calculations <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-a-93">(181)</a>  by</p>
 <div class="math">
 <p><img src="../_images/math/077406e5fea7312a6f2bd6e895ef45047e9079fd.png" alt="\left( \dot\eta \right)_{k+\frac{1}{2}} = \left( \dot\eta \,
 \frac{\partial p}{\partial \eta} \right)_{k+\frac{1}{2}} \Bigg/
@@ -4067,18 +4060,18 @@ the mid-point is determined, the departure point is calculated from</p>
 <div class="math">
 <p><img src="../_images/math/544e456432c24bac7dc0f250eb3517651f89f9b6.png" alt="\eta_1 \leq \eta_D \leq \eta_K ."/></p>
 </div><p>The appropriate values of <img class="math" src="../_images/math/bc0981dec0070aea0c264f3da13c2764d2e90c37.png" alt="\dot\eta"/> and <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> are determined
-by interpolation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.17">(294)</a> , with the derivative estimates given by
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.18">(295)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.19">(296)</a>  for <img class="math" src="../_images/math/e95fa2c7de43faf76baedfd7fac319a7f2976652.png" alt="i = 2"/> to <img class="math" src="../_images/math/f9222515c4616fe375b98790408240c1937e9352.png" alt="K - 1"/>. At the top
+by interpolation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-17">(294)</a> , with the derivative estimates given by
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-18">(295)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-19">(296)</a>  for <img class="math" src="../_images/math/e95fa2c7de43faf76baedfd7fac319a7f2976652.png" alt="i = 2"/> to <img class="math" src="../_images/math/f9222515c4616fe375b98790408240c1937e9352.png" alt="K - 1"/>. At the top
 and bottom we assume a zero derivative (which is consistent with
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.34">(305)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.36">(307)</a> ), <img class="math" src="../_images/math/447cf3676a6660bbe18078255bdedffe0c8bf85e.png" alt="d_i = 0"/> for the interval
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-34">(305)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-36">(307)</a> ), <img class="math" src="../_images/math/447cf3676a6660bbe18078255bdedffe0c8bf85e.png" alt="d_i = 0"/> for the interval
 <img class="math" src="../_images/math/e0c697f0cf4a4c09fb151f725bdc6e65c3be447c.png" alt="k=1"/>, and <img class="math" src="../_images/math/4f16f00ea87f7ce6ca0e90ec7e26ea2d76e86b74.png" alt="\delta_{i+1} = 0"/> for the interval
 <img class="math" src="../_images/math/74f4220ef81971abf718efc8db1fa9c34de8d948.png" alt="k = K - 1"/>. The estimate at the interior end of the first and
 last grid intervals is determined from an uncentered cubic
 approximation; that is <img class="math" src="../_images/math/871302179176b3fc0e8a6aa4ac1c5ea5e6d8af7b.png" alt="d_{i+1}"/> at the <img class="math" src="../_images/math/e0c697f0cf4a4c09fb151f725bdc6e65c3be447c.png" alt="k=1"/> interval is
 equal to <img class="math" src="../_images/math/93f9b5333c1aa73b70b1a61bf3bfbb88be44ecf2.png" alt="d_i"/> from the <img class="math" src="../_images/math/263c32d3889f456b638309da71bc3eb73a9156ed.png" alt="k=2"/> interval, and <img class="math" src="../_images/math/93f9b5333c1aa73b70b1a61bf3bfbb88be44ecf2.png" alt="d_i"/> at
 the <img class="math" src="../_images/math/fa977e968522cc27719b24b2da6fceb3b1ace9fa.png" alt="k=K-1"/> interval is equal to <img class="math" src="../_images/math/871302179176b3fc0e8a6aa4ac1c5ea5e6d8af7b.png" alt="d_{i+1}"/> at the
-<img class="math" src="../_images/math/d5e7e7bc8fe4b8db51057c49e2de0423f1b313af.png" alt="k = K -2"/> interval. The monotonic conditions <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.30">(301)</a>  to
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.c.31">(302)</a>  are applied to the <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> derivative estimates.</p>
+<img class="math" src="../_images/math/d5e7e7bc8fe4b8db51057c49e2de0423f1b313af.png" alt="k = K -2"/> interval. The monotonic conditions <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-30">(301)</a>  to
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-c-31">(302)</a>  are applied to the <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> derivative estimates.</p>
 </div>
 <div class="section" id="mass-fixers">
 <h3>5.3.19. Mass fixers<a class="headerlink" href="#mass-fixers" title="Permalink to this headline">¶</a></h3>
@@ -4120,13 +4113,13 @@ earlier during the inverse spectral transform, and</p>
 <div class="math">
 <p><img src="../_images/math/f509621aa8a6502332df6941fb2d9861a49bc6fc.png" alt="q^+ \left( \lambda, \varphi, \eta \right) = \hat q^+ + \alpha\eta \hat
 q^+ \vert \hat q^+ - q^- \vert ."/></p>
-</div><p>In <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.4">(311)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.5">(312)</a>  the <img class="math" src="../_images/math/dd76e85af32a1de7f126c44692864e44ddfc3253.png" alt="\hat{\left(\hskip 10pt \right)}"/>
+</div><p>In <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-4">(311)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-5">(312)</a>  the <img class="math" src="../_images/math/dd76e85af32a1de7f126c44692864e44ddfc3253.png" alt="\hat{\left(\hskip 10pt \right)}"/>
 denotes the provisional value before adjustment. The form
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.5">(312)</a>  forces the arbitrary corrections to be small when the mixing
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-5">(312)</a>  forces the arbitrary corrections to be small when the mixing
 ratio is small and when the change made to the mixing ratio by the
 advection is small. In addition, the <img class="math" src="../_images/math/5635a7c34414599c2452d72430811e816b460335.png" alt="\eta"/> factor is included to
 make the changes approximately proportional to mass per unit volume
-(<a class="reference internal" href="chapter8.html#rasch95" id="id75">[RBB95]</a>). Satisfying <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.1">(308)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.2">(309)</a>
+(<a class="reference internal" href="chapter8.html#rasch95" id="id75">[RBB95]</a>). Satisfying <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-1">(308)</a>  and <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-2">(309)</a>
 gives</p>
 <div class="math">
 <p><img src="../_images/math/b367fdf1894e5beeb54baf8249ec9424ff3557cd.png" alt="\alpha = \frac{\int\limits_3 \, q^- \Delta p^- - \int\limits_3 \, \hat
@@ -4152,13 +4145,13 @@ conservation:</p>
 (1-q^-)\Delta p^- \ ."/></p>
 </div><p>The term <img class="math" src="../_images/math/f54d04afafe3b2e1f03c59afdac190259324fae0.png" alt="(1-q)\Delta p"/> defines the dry air mass in a layer.
 Following <a class="reference internal" href="chapter8.html#rasch95" id="id76">[RBB95]</a> the change made by the
-fixer has the same form as <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.5">(312)</a></p>
+fixer has the same form as <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-5">(312)</a></p>
 <div class="math">
 <p><img src="../_images/math/1af4281d13e6ea3c0f7660abc4c1e7efc78ef4a5.png" alt="\chi^+ \left( \lambda, \varphi, \eta \right) = \hat \chi^+ +
 \alpha_\chi \eta \hat \chi^+ \vert \hat \chi^+ - \chi^- \vert
 \ ."/></p>
-</div><p>Substituting <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.9">(316)</a>  into <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.8">(315)</a>  and using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.4">(311)</a>  through
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.7">(314)</a>  gives</p>
+</div><p>Substituting <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-9">(316)</a>  into <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-8">(315)</a>  and using <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-4">(311)</a>  through
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-7">(314)</a>  gives</p>
 <div class="math">
 <p><img src="../_images/math/4631ac806280e793220969ef6c28b31e204537e4.png" alt="\alpha_\chi = \frac{ \int\limits_3 \chi^- (1-q^-) \Delta p^- -
              \int\limits_{A,B}\hat\chi^+ (1-\hat q^+)\Delta\hat p^+
@@ -4175,7 +4168,7 @@ fixer has the same form as <a class="reference internal" href="../cam5_scientifi
 <p><img src="../_images/math/e1815edfc96e743439636d9155eb1e0035c31311.png" alt="\int\limits_{A,B} (~~)\Delta p = \int\limits_3 (~~) p_0 \Delta A +
 M\int\limits_3 (~~) p_s \Delta B
  \ ."/></p>
-</div><p>We note that there is a small error in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.8">(315)</a> . Consider a situation
+</div><p>We note that there is a small error in <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-8">(315)</a> . Consider a situation
 in which moisture is transported by a physical parameterization, but
 there is no source or sink of moisture. Under this circumstance
 <img class="math" src="../_images/math/a1996e2a9ce40fa7369a704b1360e9ab7a930ea9.png" alt="q^- \ne q^0"/>, but the surface pressure is not allowed to change.
@@ -4188,16 +4181,16 @@ mass <em>only once</em> within the model time step, and use it consistently
 throughout the model. In this revision, we have chosen to fix the dry
 air mass in the model time step where the surface pressure is updated,
 e.g. at the end of the model time step. Therefore, we now replace
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.8">(315)</a>  with</p>
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-8">(315)</a>  with</p>
 <div class="math">
 <p><img src="../_images/math/0c3fdfeaa3dd3dfdf79f3560af831476d8b36db8.png" alt="\int\limits_3\chi^+ (1-q^+) \Delta p^+ = \int\limits_3 \chi^-
 (1-q^0)\Delta p^0
  \ ."/></p>
 </div><p>There is a corresponding change in the first term of the numerator of
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.10">(317)</a>  in which <img class="math" src="../_images/math/5fd8b9e3ff20b3f2cddef7bc21a3ed43365cdd4d.png" alt="q^-"/> is replace by <img class="math" src="../_images/math/523c6afabb2220102ab6e6369bbd2b0d150d79e0.png" alt="q^0"/>. CAM6.0 uses
-<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.10">(317)</a>  for water substances and constituents affecting the
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-10">(317)</a>  in which <img class="math" src="../_images/math/5fd8b9e3ff20b3f2cddef7bc21a3ed43365cdd4d.png" alt="q^-"/> is replace by <img class="math" src="../_images/math/523c6afabb2220102ab6e6369bbd2b0d150d79e0.png" alt="q^0"/>. CAM6.0 uses
+<a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-10">(317)</a>  for water substances and constituents affecting the
 temperature field to prevent changes to the IPCC simulations. In the
-future, constituent fields may use a <em>corrected</em> version of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.10">(317)</a> .</p>
+future, constituent fields may use a <em>corrected</em> version of <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-10">(317)</a> .</p>
 </div>
 <div class="section" id="energy-fixer">
 <span id="energyfixer"></span><h3>5.3.20. Energy Fixer<a class="headerlink" href="#energy-fixer" title="Permalink to this headline">¶</a></h3>
@@ -4229,11 +4222,11 @@ model top, <img class="math" src="../_images/math/c520101b2e98e026ddfa1698a82c68
 top, <img class="math" src="../_images/math/005576d0c39d6c6b3b885f5927e3068d0db6fd74.png" alt="FSNS"/> is the net downward solar flux at the surface,
 <img class="math" src="../_images/math/35c32e72de6c079f31815ee389d9a0b0236e4b05.png" alt="FLNS"/> is the net upward longwave flux at the surface,
 <img class="math" src="../_images/math/20dfa8d628647d07e2edadc5600b4e7ad01e1050.png" alt="SHFLX"/> is the surface sensible heat flux, and <img class="math" src="../_images/math/80facae2120cb0202ef257b718959ae90c4a9cdd.png" alt="PRECT"/> is
-the total precipitation during the time step. From equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.4">(311)</a></p>
+the total precipitation during the time step. From equation <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-4">(311)</a></p>
 <div class="math">
 <p><img src="../_images/math/b862b0f3631dd7c20a2cf930fcf4741f3b0cd6ba.png" alt="\pi^+ \left( \lambda, \varphi \right) = {\boldsymbol{M}} \hat \pi^+
 \left( \lambda, \varphi \right)"/></p>
-</div><p>and from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3.d.3">(310)</a></p>
+</div><p>and from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-3-d-3">(310)</a></p>
 <div class="math">
 <p><img src="../_images/math/0b52e74f3a10fedbb9c494254cc1e9627f21b3b7.png" alt="\Delta p = p_0 \Delta A + \pi \Delta B"/></p>
 </div><p>The energy fixer is chosen to have the form</p>
@@ -4532,7 +4525,7 @@ divergence at time (<img class="math" src="../_images/math/b700b57c3b9fcd19ef715
 <p><img src="../_images/math/c69c2bfbba6b00016241300d207fbc01be4ffbad.png" alt="\left[ \left({\rm ln}\,p_{s{_{l}}} \right)^{n} +
 { \Phi_s \over RT^r} + {1 \over 2} {\Delta t \over RT^r} \left( {\boldsymbol{V}} \cdot \nabla \;\Phi_s \right)^{n+{1\over 2}}
 \right] _{D_{2}}"/></p>
-</div><p>is treated as a unit, and follows from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-sld.3">(326)</a> .</p>
+</div><p>is treated as a unit, and follows from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-sld-3">(326)</a> .</p>
 </div>
 <div class="section" id="thermodynamic-equation">
 <h3>5.4.8. Thermodynamic Equation<a class="headerlink" href="#thermodynamic-equation" title="Permalink to this headline">¶</a></h3>
@@ -4605,7 +4598,7 @@ T_0\left({(p_k)_{ref} \over (p_s)_{ref} }\right)^{R \gamma / g} \\
 <h3>5.4.9. Momentum equations<a class="headerlink" href="#momentum-equations" title="Permalink to this headline">¶</a></h3>
 <p>The momentum equations follow from (3) of W&amp;O94 modified to be spatially
 uncentered, to use <img class="math" src="../_images/math/0c5ed2d3305c082f9bd4fb9967197b6ca255405f.png" alt="{\rm ln}\,p_{s}'"/>, and with the Coriolis term
-implicit following <a class="reference internal" href="chapter8.html#cote-staniforth88" id="id83">[CS88]</a> and <a class="reference internal" href="chapter8.html#temperton97" id="id84">[Tem97]</a>. The
+implicit following <a class="reference internal" href="chapter8.html#cote-staniforth88" id="id83">[CoteS88]</a> and <a class="reference internal" href="chapter8.html#temperton97" id="id84">[Tem97]</a>. The
 semi-implicit, semi-Lagrangian momentum equation at level <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> (but
 with the level subscript <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> suppressed) is</p>
 <div class="math">
@@ -4672,7 +4665,7 @@ model levels</p>
 <div class="math">
 <p><img src="../_images/math/d0d1c2ed78cdf234b13fc4508d128e81880d2972.png" alt="\nabla H_{kl} = g_{kl}(p_{_{l+1/2}},\; p_{_{l}},\; p_{_{l-1/2}},
       \nabla p_{_{l+1/2}}, \nabla p_{_{l}}, \nabla p_{_{l-1/2}})"/></p>
-</div><p>The pressure gradient is available from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-sld.1">(324)</a>  and the surface
+</div><p>The pressure gradient is available from <a class="reference internal" href="../cam5_scientific_guide/dynamics.html#equation-sld-1">(324)</a>  and the surface
 pressure gradient calculated from the spectral representation</p>
 <div class="math">
 <p><img src="../_images/math/1f3c572cb66c9604d5046cb60cfb8be5f7680880.png" alt="\nabla p_{_{l}} = B_l\nabla p_s = B_l p_s \nabla\,{\rm ln}\,p_s"/></p>
@@ -5124,7 +5117,7 @@ These are described in sections [massfixers], [energyfixer], and
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
     </div>
   </body>
 </html>

@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7. Extensions to CAM &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -28,8 +20,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -139,12 +130,14 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -183,7 +176,7 @@ chemical mechanisms. In particular, the generated code provides two
 chemical solvers, one explicit and one semi-implicit, which the user
 specifies based on the chemical lifetime of each species. For all
 supported compsets, this generated code is available in a sub-directory
-of <code class="docutils literal"><span class="pre">atm/src/chemistry</span></code>.</p>
+of <code class="docutils literal notranslate"><span class="pre">atm/src/chemistry</span></code>.</p>
 <div class="section" id="the-bulk-aerosol-model">
 <h4>7.2.1.1. The Bulk Aerosol Model<a class="headerlink" href="#the-bulk-aerosol-model" title="Permalink to this headline">¶</a></h4>
 <p>CAM4-chem uses the bulk aerosol model discussed in <a class="reference internal" href="chapter8.html#lamarque-05" id="id2">[LHE+05]</a>
@@ -725,7 +718,7 @@ finite volume dynamical core uses locally material surfaces for its
 internal vertical coordinate and remaps (conservatively interpolates) to
 the hybrid surfaces after each time step.</p>
 <p>Within the physical and chemical parameterizations, a local pressure
-coordinate is used, as described by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:p">(6)</a> . However, in the remainder
+coordinate is used, as described by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-p">(6)</a> . However, in the remainder
 of this note we refer to the vertical coordinate in terms of
 log-pressure altitude</p>
 <div class="math">
@@ -841,7 +834,7 @@ usual dry air mixture used in the lower atmosphere
 </div>
 <div class="section" id="discretization-of-the-vertical-diffusion-equations">
 <h4>7.6.2.3. Discretization of the vertical diffusion equations<a class="headerlink" href="#discretization-of-the-vertical-diffusion-equations" title="Permalink to this headline">¶</a></h4>
-<p>In CAM4, as in previous version of the CCM, <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:contz1">(7)</a> [eq:fluxz2])
+<p>In CAM4, as in previous version of the CCM, <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-contz1">(7)</a> [eq:fluxz2])
 are cast in pressure coordinates, using</p>
 <div class="math">
 <p><img src="../_images/math/b814ecaf40446a9fd08fa4dd6212c672a184da39.png" alt="dp = -\rho g dz,"/></p>
@@ -869,7 +862,7 @@ let <img class="math" src="../_images/math/57492f7df33ce09c19e3bbf1b00642ba0b797
 </div><p>Like the continuous equations, the discrete equations are required to
 conserve momentum, total energy and constituents. Neglecting the
 nonlocal transport terms, the discrete forms of
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:contz1">(7)</a> [eq:contz3]) are:</p>
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-contz1">(7)</a> [eq:contz3]) are:</p>
 <div class="math">
 <p><img src="../_images/math/2a818847d193ee9bbf340304e73356fe278d19af.png" alt="\frac{\delta_n (u,v,q)^k}{\delta t} = g \frac{\delta^k F_{u,v,q}}{\delta^k p}"/></p>
 </div><div class="math">
@@ -885,29 +878,29 @@ the top boundary fluxes are usually <img class="math" src="../_images/math/327b1
 turbulent diffusion coefficients <img class="math" src="../_images/math/ab4ad6b763fff7cb5bef7ef4ea6023701dae8d23.png" alt="K_{m,q,H}^{t}"/> and non-local
 transport terms <img class="math" src="../_images/math/9e052a41e960c437f8cd39d1265c0559c7b90539.png" alt="\gamma_{q,H}"/> are calculated for time <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/>
 by the turbulence model (identical to CAM4). The molecular diffusion
-coefficients, given by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-Kmm">(13)</a> [Kmq]) are also evaluated at time
+coefficients, given by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-kmm">(13)</a> [Kmq]) are also evaluated at time
 <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/>.</p>
 </div>
 <div class="section" id="solution-of-the-vertical-diffusion-equations">
 <h4>7.6.2.4. Solution of the vertical diffusion equations<a class="headerlink" href="#solution-of-the-vertical-diffusion-equations" title="Permalink to this headline">¶</a></h4>
 <p>Neglecting the discretization of <img class="math" src="../_images/math/f6ea28a2124fce88394218f2f0fea69ddceae32c.png" alt="K_{m,q,H}^t"/>, <img class="math" src="../_images/math/3cf5aa5abe312e6fd4996975341a43aa566e8d8d.png" alt="D"/> and
 <img class="math" src="../_images/math/9e052a41e960c437f8cd39d1265c0559c7b90539.png" alt="\gamma_{q,H}"/>, a series of time-split operators is defined by
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:vduvq">(17)</a> [eq:vdfqs]). Once the diffusivities (<img class="math" src="../_images/math/1bed79a742c630c905571edab070a7032fd9cc13.png" alt="K_{m,q,H}"/>) and
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-vduvq">(17)</a> [eq:vdfqs]). Once the diffusivities (<img class="math" src="../_images/math/1bed79a742c630c905571edab070a7032fd9cc13.png" alt="K_{m,q,H}"/>) and
 the non-local transport terms (<img class="math" src="../_images/math/9e052a41e960c437f8cd39d1265c0559c7b90539.png" alt="\gamma_{q,H}"/>) have been
-determined, the solution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:vduvq">(17)</a> [eq:vdfqs]), proceeds in several
+determined, the solution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-vduvq">(17)</a> [eq:vdfqs]), proceeds in several
 steps.</p>
 <ol class="arabic simple">
 <li>update the bottom level values of <img class="math" src="../_images/math/92e3f44c99a016c5238a790c96f12fd46aa93c4a.png" alt="u"/>, <img class="math" src="../_images/math/8d230554a01423c4c6560104b2918b65607c9406.png" alt="v"/>, <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> and
 <img class="math" src="../_images/math/63751cb2e98ba393b0f22e45ca127c3cebb61487.png" alt="s"/> using the surface fluxes;</li>
-<li>invert <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:vduvq">(17)</a>  and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:vdfuv">(19)</a>  for <img class="math" src="../_images/math/685a0fc17fcac6c744af6745f9518553a69134b0.png" alt="u,v_{n+1}"/>;</li>
+<li>invert <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-vduvq">(17)</a>  and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-vdfuv">(19)</a>  for <img class="math" src="../_images/math/685a0fc17fcac6c744af6745f9518553a69134b0.png" alt="u,v_{n+1}"/>;</li>
 <li>compute <img class="math" src="../_images/math/3cf5aa5abe312e6fd4996975341a43aa566e8d8d.png" alt="D"/> and use to update the <img class="math" src="../_images/math/63751cb2e98ba393b0f22e45ca127c3cebb61487.png" alt="s"/> profile;</li>
-<li>invert <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:vduvq">(17)</a> [eq:vds]) and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:vdfqs">(20)</a>  for <img class="math" src="../_images/math/a9235e4f942dea2c4df0db2ef19db37b942f1250.png" alt="s_{n+1}"/> and
+<li>invert <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-vduvq">(17)</a> [eq:vds]) and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-vdfqs">(20)</a>  for <img class="math" src="../_images/math/a9235e4f942dea2c4df0db2ef19db37b942f1250.png" alt="s_{n+1}"/> and
 <img class="math" src="../_images/math/ff37fba1bbd214f4ae41eb4c5a31b185acc8dc17.png" alt="q_{n+1}"/></li>
 </ol>
 <p>Note that since all parameterizations in CAM4 return tendencies rather
 modified profiles, the actual quantities returned by the vertical
 diffusion are <img class="math" src="../_images/math/fb1c7ca1011343a1405c200740ad3f07bbceae9d.png" alt="\delta_n (u,v,s,q) / \delta t"/>.</p>
-<p>Equations <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:vduvq">(17)</a> [eq:vdfqs]) constitute a set of four tridiagonal
+<p>Equations <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-vduvq">(17)</a> [eq:vdfqs]) constitute a set of four tridiagonal
 systems of the form</p>
 <div class="math">
 <p><img src="../_images/math/2cc007143529d4191d1d49947f61f5b52f4968dd.png" alt="-A^k \psi^{k+1}_{n+1} + B^k\psi^k_{n+1} -C^k\psi^{k-1}_{n+1}
@@ -915,7 +908,7 @@ systems of the form</p>
 </div><p>where <img class="math" src="../_images/math/49a93cea3103037ef3f9477074c0c42147afd926.png" alt="\psi_{n\prime}"/> indicates <img class="math" src="../_images/math/92e3f44c99a016c5238a790c96f12fd46aa93c4a.png" alt="u"/>, <img class="math" src="../_images/math/8d230554a01423c4c6560104b2918b65607c9406.png" alt="v"/>, <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/>,
 or <img class="math" src="../_images/math/63751cb2e98ba393b0f22e45ca127c3cebb61487.png" alt="s"/> after updating from time <img class="math" src="../_images/math/e11f2701c4a39c7fe543a6c4150b421d50f1c159.png" alt="n"/> values with the nonlocal
 and boundary fluxes. The super-diagonal (<img class="math" src="../_images/math/f39de020351b42ffc48ebca084da313b1182de54.png" alt="A^k"/>), diagonal
-(<img class="math" src="../_images/math/3a57fe7bf4f7e6c6ad0a84b8421eb5fc0a062f41.png" alt="B^k"/>) and sub-diagonal (<img class="math" src="../_images/math/b7d7f20a45ea539d42fb3d0c2ed27a4cf7642db3.png" alt="C^k"/>) elements of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag1">(21)</a>
+(<img class="math" src="../_images/math/3a57fe7bf4f7e6c6ad0a84b8421eb5fc0a062f41.png" alt="B^k"/>) and sub-diagonal (<img class="math" src="../_images/math/b7d7f20a45ea539d42fb3d0c2ed27a4cf7642db3.png" alt="C^k"/>) elements of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag1">(21)</a>
 are:</p>
 <div class="math">
 <p><img src="../_images/math/94ada5349e6718ba723c44cc31f4677d59644ce1.png" alt="\begin{aligned}
@@ -924,17 +917,17 @@ A^k &amp;=&amp; \frac{1}{\delta^{k} p}
 B^k &amp;=&amp; 1 + A^k + C^k, \\
 C^k &amp;=&amp; \frac{1}{\delta^{k} p}
      \frac{\delta t}{\delta^{k-}p}\left(g^2\rho^2 K\right)_n^{k-}.\end{aligned}"/></p>
-</div><p>The solution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag1">(21)</a>  has the form</p>
+</div><p>The solution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag1">(21)</a>  has the form</p>
 <div class="math">
 <p><img src="../_images/math/6f9df91ca49a4ad8cf7c36dcf64b6710d5022787.png" alt="\psi^k_{n+1} = E^k \psi^{k-1}_{n+1} + F^k,"/></p>
 </div><p>or,</p>
 <div class="math">
 <p><img src="../_images/math/6953b34dbd57c65a7d018f5cf29066504e8a75a6.png" alt="\psi^{k+1}_{n+1} = E^{k+1} \psi^{k}_{n+1} + F^{k+1}."/></p>
-</div><p>Substituting <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag3">(23)</a>  into <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag1">(21)</a> ,</p>
+</div><p>Substituting <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag3">(23)</a>  into <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag1">(21)</a> ,</p>
 <div class="math">
 <p><img src="../_images/math/80af008fd97d4e52507e3093ac6c7749af59a0a2.png" alt="\psi^{k}_{n+1} = \frac{C^k}{B^k - A^k E^{k+1}} \psi^{k-1}_{n+1}
      + \frac{\psi^k_{n\prime} + A^k F^{k+1}}{B^k - A^k E^{k+1}}."/></p>
-</div><p>Comparing <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag2">(22)</a>  and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag4">(24)</a> , we find</p>
+</div><p>Comparing <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag2">(22)</a>  and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag4">(24)</a> , we find</p>
 <div class="math">
 <p><img src="../_images/math/2b6eed94627a52657011f5ab441170fea30545bd.png" alt="E^k = \frac{C^k} {B^k - A^k E^{k+1}}, \quad L&gt;k&gt;1,"/></p>
 </div><div class="math">
@@ -943,16 +936,16 @@ C^k &amp;=&amp; \frac{1}{\delta^{k} p}
 <img class="math" src="../_images/math/ae9c198bcc2412e3a949e1158dae9dea21a9be53.png" alt="k=L"/>, using the boundary conditions</p>
 <div class="math">
 <p><img src="../_images/math/a96b38ae26640498370ae44aeedf04f70d1a7b06.png" alt="E^{L+1} = F^{L+1} = A^L = 0."/></p>
-</div><p>Finally, <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag4">(24)</a>  can be solved downward for
+</div><p>Finally, <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag4">(24)</a>  can be solved downward for
 <img class="math" src="../_images/math/2bf05b833c33fec9d9483ff2d8f4652ecfcea69a.png" alt="\psi^{k}_{n+1}"/>, using the boundary condition</p>
 <div class="math">
 <p><img src="../_images/math/55ff573a96e4da7b73a4f30c87e766af45836913.png" alt="C^1 = 0 \Rightarrow E^1 = 0."/></p>
 </div><p>CCM1-3 used the same solution method, but with the order of the solution
-reversed, which merely requires writing <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag3">(23)</a>  for
+reversed, which merely requires writing <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag3">(23)</a>  for
 <img class="math" src="../_images/math/3fd81da183edbe205a497d780ef3fd383383e8a4.png" alt="\psi^{k-1}_{n+1}"/> instead of <img class="math" src="../_images/math/bb6083a50bec539befda9a98361de69408584027.png" alt="\psi^{k+1}_{n+1}"/>. The order
 used here is particularly convenient because the turbulent diffusivities
 for heat and all constituents are the same but their molecular
-diffusivities are not. Since the terms in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag5">(25)</a> and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tridiag6">(26)</a>
+diffusivities are not. Since the terms in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag5">(25)</a> and <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tridiag6">(26)</a>
 are determined from the bottom upward, it is only necessary to
 recalculate <img class="math" src="../_images/math/f39de020351b42ffc48ebca084da313b1182de54.png" alt="A^k"/>, <img class="math" src="../_images/math/b7d7f20a45ea539d42fb3d0c2ed27a4cf7642db3.png" alt="C^k"/>, <img class="math" src="../_images/math/29242a8e13ed87a6456b3b62df2203326a97e6de.png" alt="E^k"/> and <img class="math" src="../_images/math/58b3cc5e8a3f35243dbb3ce45855759a6a2fc4e0.png" alt="1/({B^k - A^k E^{k+1}})"/>
 for each constituent within the region where molecular
@@ -994,7 +987,7 @@ momentum, continuity and thermodynamic equations in a vertical plane:</p>
 \ \frac{\partial\Phi}{\partial Z} + N^2 w = 0\, ."/></p>
 </div><p>Where <img class="math" src="../_images/math/f4170ed8938b79490d8923857962695514a8e4cb.png" alt="N"/> is the local Brunt-Väisällä frequency, and <img class="math" src="../_images/math/953bde2ab2fca30897f66185e5b37b73747b8b46.png" alt="W"/> is
 the vertical velocity in log pressure height (<img class="math" src="../_images/math/bcb2457ac9d8995a4f34d57cadac7ecbbe58f3bd.png" alt="Z"/>) coordinates.
-Eqs. <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_mom">(27)</a> –<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_therm">(29)</a>  are linearized
+Eqs. <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-mom">(27)</a> –<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-therm">(29)</a>  are linearized
 about a large scale background wind <img class="math" src="../_images/math/e26e04e5fa7b7a02348a45f4e4ba2915b4a2e146.png" alt="\overline u"/>, with
 perturbations <img class="math" src="../_images/math/249c88d8edc2e3a42206bad7495c0b7bdc34545b.png" alt="u^\prime,w^\prime"/>, and combined to obtain:</p>
 <div class="math">
@@ -1002,12 +995,12 @@ perturbations <img class="math" src="../_images/math/249c88d8edc2e3a42206bad7495
   {\overline u}\frac{\partial}{\partial x}\right)^2
      \frac{\partial^2 w^\prime}{\partial Z^2}
    + N^2 \frac{\partial^2 w^\prime}{\partial x^2} = 0\, ."/></p>
-</div><p>Solutions to <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_lin">(30)</a>  are assumed to be of the form:</p>
+</div><p>Solutions to <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-lin">(30)</a>  are assumed to be of the form:</p>
 <div class="math">
 <p><img src="../_images/math/b642ef7cb31b92ea1279ac59820141caf51b9445.png" alt="w^\prime = {\hat w} \, e^{ik(x-ct)} \, e^{Z/2H} \, ,"/></p>
 </div><p>where <img class="math" src="../_images/math/44d4c3f22452acebfb3ac644e23508b67500be90.png" alt="H"/> is the scale height, <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> is the horizontal
 wavenumber and <img class="math" src="../_images/math/ae12a24f88803b5895632e4848d87d46483c492c.png" alt="c"/> is the phase speed of the wave. Substituting
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_sol">(31)</a> into <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_lin">(30)</a> , one obtains:</p>
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-sol">(31)</a> into <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-lin">(30)</a> , one obtains:</p>
 <div class="math">
 <p><img src="../_images/math/87aba607b635e5cfb2a818532906d8f8fd8e1f63.png" alt="-k^2 (\overline u -c)^2
  \left( \frac{\partial}{\partial Z} + \frac{1}{2H} \right)^2{\hat w}
@@ -1020,11 +1013,11 @@ obtains the final form of the two dimensional wave equation:</p>
 </div><p>with the coefficient defined as:</p>
 <div class="math">
 <p><img src="../_images/math/ffea216323f5eeb9722e1f471542041262336524.png" alt="\lambda= \frac{N}{(\overline u -c)}\, ."/></p>
-</div><p>The WKB solution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_2d">(33)</a>  is:</p>
+</div><p>The WKB solution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-2d">(33)</a>  is:</p>
 <div class="math">
 <p><img src="../_images/math/a8a5246deedec22978aa79a4c7081892e1d67db8.png" alt="{\hat w} = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
 dz^\prime\right)\, ,"/></p>
-</div><p>and the full solution, from <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_sol">(31)</a> , is:</p>
+</div><p>and the full solution, from <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-sol">(31)</a> , is:</p>
 <div class="math">
 <p><img src="../_images/math/d07614b625e93082d2cb9dd9ba5d57ff2a7ed9ba.png" alt="w^\prime(Z,t) = A \lambda^{-1/2}\exp\left(i\int_0^Z\lambda
 dz^\prime\right) \ e^{ik(x-ct)}\  e^{Z/2H} \, ."/></p>
@@ -1037,7 +1030,7 @@ eq:<cite>eq:gw_final</cite> is:</p>
 </div><p>and is conserved, while the momentum flux
 <img class="math" src="../_images/math/4c06a17fe10d1be8699744f96cb4448e890f1908.png" alt="\overline{ u^\prime  w^\prime} = -(m/k)\ \overline{w^\prime w^\prime}"/>
 grows exponentially with altitude as <img class="math" src="../_images/math/c50478bed79e0042d9c546310e11e8ab944d65ed.png" alt="\exp(Z/H)"/>, per
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_final">(36)</a>. We note that the vertical flux of wave energy
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-final">(36)</a>. We note that the vertical flux of wave energy
 is <img class="math" src="../_images/math/1d9010cdefdad04a3019d718602d20a81e3ff07e.png" alt="c_{gz}\ E' = (U-c)\ \tau"/> ((<strong>???</strong>)), where <img class="math" src="../_images/math/dec7eea860f9426fdd7b97e566213bb0179dca00.png" alt="c_{gz}"/> is
 the vertical group velocity, so that deposition of wave momentum into
 the mean flow will be accompanied by a transfer of energy to the
@@ -1045,7 +1038,7 @@ background state.</p>
 </div>
 <div class="section" id="saturation-condition">
 <h4>7.6.3.2. Saturation condition<a class="headerlink" href="#saturation-condition" title="Permalink to this headline">¶</a></h4>
-<p>The wave amplitude in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_final">(36)</a>  grows as <img class="math" src="../_images/math/5eb976a66e416bc49627931588b8534ce2a92c51.png" alt="e^{Z/2H}"/>
+<p>The wave amplitude in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-final">(36)</a>  grows as <img class="math" src="../_images/math/5eb976a66e416bc49627931588b8534ce2a92c51.png" alt="e^{Z/2H}"/>
 until the wave becomes unstable to convective overturning,
 Kelvin-Helmholtz instability, or other nonlinear processes. At that
 point, the wave amplitude is assumed to be limited to the amplitude that
@@ -1069,7 +1062,7 @@ from the divergence of <img class="math" src="../_images/math/f0855d9044452cca88
 &amp; \simeq -e \frac{k}{2} \frac{(\overline u-c)^3}{N H}, \end{aligned}"/></p>
 </div><p>where <img class="math" src="../_images/math/78a06cf7a34f39fde71fbba0d5539baae7c72d4e.png" alt="e"/> is an “efficiency” factor. For a background wave
 spectrum, <img class="math" src="../_images/math/78a06cf7a34f39fde71fbba0d5539baae7c72d4e.png" alt="e"/> represents the temporal and spatial intermittency in
-the wave sources. The analytic solution <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_utend">(39)</a>  is not
+the wave sources. The analytic solution <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-utend">(39)</a>  is not
 used in WACCM4.0; it is shown here to illustrate how the acceleration due to
 breaking gravity waves depends on the intrinsic phase speed. In the
 model, the stress profile is computed at interfaces and differenced to
@@ -1092,7 +1085,7 @@ affected by thermal dissipation or molecular diffusion. The imaginary
 part of the local vertical wavenumber, <img class="math" src="../_images/math/159e1bfcbbeedf7e28983ee80db2b2d37c3b3ebc.png" alt="\lambda_i"/> is then:</p>
 <div class="math">
 <p><img src="../_images/math/658b1b1fa5ad36d3262dde3e72c60fdbe6eae2a0.png" alt="\lambda_i = \frac{N^3 \ K_m^m}{2 k (\overline u -c)^4 } \, ."/></p>
-</div><p>In WACCM4.0, (<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_taudamp">(40)</a> – <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_lambdai">(41)</a>) are only used
+</div><p>In WACCM4.0, (<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-taudamp">(40)</a> – <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-lambdai">(41)</a>) are only used
 within the domain where molecular diffusion is important (above
 <img class="math" src="../_images/math/261ade2451615c3837418a8b2450a60d1e9b4b35.png" alt="\sim 75"/> km). At lower altitudes, molecular diffusion is
 negligible, <img class="math" src="../_images/math/c844830b0dca35bac64b2fb66315626cff566617.png" alt="\lambda_i \rightarrow 0"/>, and <img class="math" src="../_images/math/557d5fad862c9046d26e1a930f45a550c146d592.png" alt="\tau"/> is
@@ -1119,8 +1112,8 @@ which depends on the wave’s group velocity, <img class="math" src="../_images/
 <div class="math">
 <p><img src="../_images/math/2244ada9b7221395f2438ad5fbddfdd3282114ef.png" alt="\delta = {c_{gz} \over 2H} = k \ {(\overline u - c)^2 \over 2H N}
 \, ."/></p>
-</div><p>Substitution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_dissip">(43)</a>  into
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_thetaprime">(42)</a>  then yields the eddy heat flux:</p>
+</div><p>Substitution of <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-dissip">(43)</a>  into
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-thetaprime">(42)</a>  then yields the eddy heat flux:</p>
 <div class="math">
 <p><img src="../_images/math/babad9ab387e3f548c060ba07f8048075eb1a02d.png" alt="\overline{w^\prime \theta^\prime}
 = -\left[ {\delta \ \overline{w^\prime w^\prime}
@@ -1131,11 +1124,11 @@ constituents, with mixing ratio substituted in place of potential
 temperature in ([eq:gw:sub:<cite>k</cite>zz]). We note that these wave fluxes are
 always downgradient and that, for convenience of solution, they may be
 represented as vertical diffusion, with coefficient <img class="math" src="../_images/math/296f8d1a64a47c4d50017fd1ae3e1abece6d1106.png" alt="K_{zz}"/> equal
-to the term in brackets in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_kzz">(44)</a> , but they do not
+to the term in brackets in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-kzz">(44)</a> , but they do not
 represent turbulent diffusive fluxes but rather eddy fluxes. Any
 additional turbulent fluxes due to wave breaking are ignored. To take
 into account the effect of localization of turbulence (e.g., <a class="reference internal" href="chapter8.html#fritts-dunkerton-85" id="id38">[FD85]</a><a class="reference internal" href="chapter8.html#mcintyre-89" id="id39">[McI89]</a>)
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_kzz">(44)</a>  is multiplied times an inverse Prandtl
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-kzz">(44)</a>  is multiplied times an inverse Prandtl
 number, <img class="math" src="../_images/math/6304f91a99b602f7e115bbb2272b4470ed404f8d.png" alt="{Pr}^{-1}"/>; in WACCM4.0 we use <img class="math" src="../_images/math/e2378553b18d643bdf14e4d1bb1a9f3b0f902492.png" alt="{Pr}^{-1}=0.25"/>.</p>
 </div>
 <div class="section" id="heating-due-to-wave-dissipation">
@@ -1154,7 +1147,7 @@ density is:</p>
 \simeq (\overline u-c) {1 \over c_{gz}}{\partial \tau \over \partial t}
 = (\overline u-c) {\partial \tau \over \partial Z} \ ."/></p>
 </div><p>For a saturated wave, the stress divergence is given by
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_utend">(39)</a> , so that:</p>
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-utend">(39)</a> , so that:</p>
 <div class="math">
 <p><img src="../_images/math/5529006c3474aefc26d13f1be28f20b331b999dc.png" alt="{\partial E' \over \partial t} =
 (\overline u - c) \ {\partial \, \tau^* \over \partial Z}
@@ -1167,7 +1160,7 @@ density implied by wave drag on the background flow:</p>
 {\rho \over 2} {\partial \overline u^2 \over \partial t} =
 \overline u \ {\partial \, \tau^* \over \partial Z} =
 -e \cdot \rho \ {k \, \overline u \, (\overline u-c)^3 \over 2 NH} \ ,"/></p>
-</div><p>which follows directly from <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_utend">(39)</a> . The background
+</div><p>which follows directly from <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-utend">(39)</a> . The background
 heating rate, in K sec<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>, is then:</p>
 <div class="math">
 <p><img src="../_images/math/ca04b13d4d267abce5d9935a3b9a10c62f7b1e5e.png" alt="Q_{gw} = -{1 \over \rho\, c_p}
@@ -1181,7 +1174,7 @@ rate may be expressed as:</p>
   {1 \over c_p} \left[ \ e  \cdot  {k \, c\,(c-\overline u)^3 \over 2 N H} \right] ,"/></p>
 </div><p>where <img class="math" src="../_images/math/bdf930cd3af636fb27411ce02123dd469624494d.png" alt="c_p"/> is the specific heat at constant pressure. In WACCM4.0,
 <img class="math" src="../_images/math/6e0e2b51233c22b3b98a1dbfe0fde4ea32bab6df.png" alt="Q_{gw}"/> is calculated for each component of the gravity wave
-spectrum using the first equality in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_qgw">(47)</a> , i.e., the
+spectrum using the first equality in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-qgw">(47)</a> , i.e., the
 product of the phase velocity times the stress divergence.</p>
 </div>
 <div class="section" id="orographic-source-function">
@@ -1209,7 +1202,7 @@ mountain penetrates into the domain:</p>
 u, v\} \, ."/></p>
 </div><p>The source level wind vector <img class="math" src="../_images/math/49d065e3855fbe8ef020c61678650dc6ce62dd9f.png" alt="(u_0,v_0)"/> determines the
 orientation of the coordinate system in
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_mom">(27)</a> –<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_therm">(29)</a>  and the magnitude of the
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-mom">(27)</a> –<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-therm">(29)</a>  and the magnitude of the
 source wind <img class="math" src="../_images/math/1da0db0005bda262a85d3c87761273f9b3a0b980.png" alt="\overline u_0"/>.</p>
 </div>
 <div class="section" id="non-orographic-source-functions">
@@ -1297,27 +1290,27 @@ v_0^2)"/>, the unit vector for the source wind is</p>
 <p><img src="../_images/math/1bc2c202d5a8211eed1daa26b26b2e26fd506ce6.png" alt="\overline u^k = u^k x_0 + v^k y_0 \, ."/></p>
 </div><p>Assuming that <img class="math" src="../_images/math/20d63153295146d2ae16de929579169b985d8997.png" alt="\overline u_0 &gt; 2"/> m s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/> and
 <img class="math" src="../_images/math/ce73c80ef9d5869bbf71d178208dbec4504da61a.png" alt="2\sigma^h &gt; 10"/> m, then the orographic source term,
-<img class="math" src="../_images/math/a55d12e4357de03135ffe29451668221e87fd6ad.png" alt="\tau_g"/> is given by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:oro_tau">(48)</a>  and
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:oro_h0">(49)</a> , with <img class="math" src="../_images/math/c339b7d677607ab458aec6290fb9f7574ce23a0f.png" alt="F_c^2"/> =1 and <img class="math" src="../_images/math/819a9d3bbcfabad886af9d500816f0a62987f954.png" alt="k = 2\pi/10^5"/>
+<img class="math" src="../_images/math/a55d12e4357de03135ffe29451668221e87fd6ad.png" alt="\tau_g"/> is given by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-oro-tau">(48)</a>  and
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-oro-h0">(49)</a> , with <img class="math" src="../_images/math/c339b7d677607ab458aec6290fb9f7574ce23a0f.png" alt="F_c^2"/> =1 and <img class="math" src="../_images/math/819a9d3bbcfabad886af9d500816f0a62987f954.png" alt="k = 2\pi/10^5"/>
 m<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>. Although the code contains a provision for a linear
 stress profile within a “low level deposition region”, this part of the
 code is not used in the standard model.</p>
 <p>The stress profiles are determined by scanning up from the bottom of the
 model to the top. The stress at the source level is determined by
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:oro_tau">(48)</a> . The saturation stress, <img class="math" src="../_images/math/4fe387d5a2729c6dadeb2e3756fa1900a00766e2.png" alt="\tau^*_\ell"/> at
-each interface is determined by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tau_i">(53)</a> , and
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-oro-tau">(48)</a> . The saturation stress, <img class="math" src="../_images/math/4fe387d5a2729c6dadeb2e3756fa1900a00766e2.png" alt="\tau^*_\ell"/> at
+each interface is determined by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tau-i">(53)</a> , and
 <img class="math" src="../_images/math/80df7635fc3c5ecf2e072a84bb05f84e7ae545fa.png" alt="\tau^*_\ell=0"/> if a critical level is passed. A critical level is
 contained within a layer if
 <img class="math" src="../_images/math/e9de2753321a3faa3d2b6ee1c8557eb828ac0d2c.png" alt="(\overline u^{k+} -c_\ell) / (\overline u^{k-} -c_\ell) &lt; 0"/>.</p>
 <p>Within the molecular diffusion domain, the imaginary part of the
-vertical wavenumber is given by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:gw_lambdai">(41)</a> . The interface
+vertical wavenumber is given by <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-gw-lambdai">(41)</a> . The interface
 stress is then determined from the stress on the interface below by:</p>
 <div class="math">
 <p><img src="../_images/math/f245fe344412d8c59b7c638f88aca477aec2c52e.png" alt="\tau^{k-} = \min \left[ \left(\tau^*\right)^{k-},
    \tau^{k+}\exp\left( -2 \lambda_i \frac{R}{g} T^k \delta^k\ln p
         \right) \right] \, ."/></p>
 </div><p>Below the molecular diffusion domain, the exponential term in
-<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq:tau_km">(58)</a>  is omitted.</p>
+<a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-eq-tau-km">(58)</a>  is omitted.</p>
 <p>Once the complete stress profile has been obtained, the forcing of the
 background wind is determined by differentiating the profile during a
 downward scan:</p>
@@ -1342,7 +1335,7 @@ to change the time step, or to write an implicit solver, so an <em>a
 priori</em> bound is used instead. The second bound is used to constrain the
 forcing to lie within a physically plausible range (although the value
 used is extremely large) and is rarely invoked.</p>
-<p>When any of the bounds in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-4.e.35">(59)</a>  are invoked, conservation of stress
+<p>When any of the bounds in <a class="reference internal" href="../cam5_scientific_guide/extensions.html#equation-4-e-35">(59)</a>  are invoked, conservation of stress
 is violated. In this case, stress conservation is ensured by decreasing
 the stress on the lower interface to match the actual stress divergence
 in the layer:</p>
@@ -4207,7 +4200,7 @@ unrealistically large mixing ratios at the model top in polar night.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
     </div>
   </body>
 </html>

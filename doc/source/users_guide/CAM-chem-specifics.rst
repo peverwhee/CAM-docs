@@ -14,31 +14,31 @@ Chemical mechanisms
 
 CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/. 
 
-+-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| Mechanism | Description                     | #Species | #Reactions       | Mechanism Name               | Pre-processor code   | 
-+===========+=================================+==========+==================+==============================+======================+
-| TSMLT1    | Troposphere,                    |  231     | 583 (433 kinetic,| MZ197_TSMLT1_20180423        | pp_waccm_tsmlt_mam4  |
-|           | stratosphere, mesosphere, and   |          | 150 photolysis)  |                              |                      |
-|           | lower thermosphere              |          |                  |                              |                      |
-+-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| TS1       | Troposphere                     |  221     | 528 (405 kinetic,| MZ198_TS1-simpleVBS_20180423 |pp_trop_strat_mam4_vbs| 
-|           | and stratosphere                |          | 123 photolysis)  |                              |                      |
-+-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| MA        | Middle atmosphere:              |   98     | 298 (207 kinetic,|                              | pp_waccm_ma_mam4     | 
-|           | stratosphere,                   |          | 91 photolysis)   |                              |                      |
-|           | mesosphere, and lower           |          |                  |                              |                      |
-|           | thermosphere                    |          |                  |                              |                      |
-+-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| MAD       | Middle atmosphere plus D-region |  135     | 593 (489 kinetic,|                              | pp_waccm_mad_mam4    | 
-|           | ion chemistry                   |          | 104 photolysis)  |                              |                      |
-+-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| SC        | Specified chemistry for WACCM   |   29     | 12 (11 kinetic,  |                              | pp_waccm_sc_mam4     | 
-|           |                                 |          | 1 photolysis)    |                              |                      |
-+-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
-| CAM       | Simplified chemistry for CAM to |   32     | 7 (6 kinetic), 1 |                              | modal_aero           |
-|           | to allow tropospheric aerosol   |          | photolysis)      |                              |                      |
-|           | formation                       |          |                  |                              |                      |
-+-----------+---------------------------------+----------+------------------+------------------------------+----------------------+
++-----------+-----------------------+---------------+------------------+----------------------+
+| Mechanism | Description           | #Species      | #Reactions       | Pre-processor code   | 
++===========+=======================+===============+==================+======================+
+| TSMLT1    | Troposphere,          | 231 solution, | 583 (433 kinetic,| pp_waccm_tsmlt_mam4  |
+|           | stratosphere,         | 2 invariant   | 150 photolysis)  |                      |
+|           | mesosphere, and       |               |                  |                      |
+|           | lower thermosphere    |               |                  |                      |
++-----------+-----------------------+---------------+------------------+----------------------+
+| TS1       | Troposphere           | 221 solution, | 528 (405 kinetic,|pp_trop_strat_mam4_vbs| 
+|           | and stratosphere      | 3 invariant   | 123 photolysis)  |                      |
++-----------+-----------------------+---------------+------------------+----------------------+
+| MA        | Middle atmosphere:    | 98 solution,  | 298 (207 kinetic,| pp_waccm_ma_mam4     | 
+|           | stratosphere,         | 2 invariant   | 91 photolysis)   |                      |
+|           | mesosphere, and lower |               |                  |                      |
+|           | thermosphere          |               |                  |                      |
++-----------+-----------------------+---------------+------------------+----------------------+
+| MAD       | Middle atmosphere plus| 135 solution, | 593 (489 kinetic,| pp_waccm_mad_mam4    | 
+|           | D-region ion chemistry| 2 invariant   | 104 photolysis)  |                      |
++-----------+-----------------------+---------------+------------------+----------------------+
+| SC        | Specified chemistry   | 29 solution,  | 12 (11 kinetic,  | pp_waccm_sc_mam4     | 
+|           | for WACCM             | 8 invariant   | 1 photolysis)    |                      |
++-----------+-----------------------+---------------+------------------+----------------------+
+| CAM       | Simplified chemistry  | 25 solution,  | 7 (6 kinetic), 1 |                      |
+|           | for CAM aerosols      | 7 invariant   | photolysis)      |                      |
++-----------+-----------------------+---------------+------------------+----------------------+
 
 ----------------------------------------------------------------
 Modifications of the Chemical Mechanisms
@@ -103,7 +103,7 @@ Running with fixed land data
 ----------------------------------------------------------------
 
 ----------------------------------------------------------------
-Running with interactiv / prescribed biogenic emissions
+Running with interactive or prescribed biogenic emissions
 ----------------------------------------------------------------
 
 Running with interactive biogenic emissions:
@@ -118,7 +118,9 @@ megan_factors_file = '/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/
 
 Running with prescribed biogenic emissions:
 
-To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not indluced in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset::
+To run with prescribed biogenic emissions requires specifying emissions files for them in 
+the namelist (user_nl_cam), and one needs to turn off interactive biogenic emissions, 
+if using a CAMchem or WACCM compset::
 
  &megan_emis_nl
   megan_factors_file = ' '

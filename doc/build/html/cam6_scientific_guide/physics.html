@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>6. Model Physics &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -28,8 +20,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -150,12 +141,14 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -460,7 +453,7 @@ ratio, moist static energy, and cloud liquid water, <img class="math" src="../_i
 <p><img src="../_images/math/9a1eb8ac0e6f1dff3e1158445d6e74954b7307b7.png" alt="\frac{\partial}{\partial z} \left ( M_u h_u \right )  =  E_u h - D_u  h^*"/></p>
 </div><div class="math">
 <p><img src="../_images/math/544b9d82ac53b54ab4463dae76d4f1cce1c408d3.png" alt="\frac{\partial}{\partial z} \left ( M_u \ell \right ) =  - D_u \ell_d + \rho C_u - \rho R_u ~,"/></p>
-</div><p>where <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.8b">(13)</a>  is formed from <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.7">(11)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.8">(12)</a>  and detraining
+</div><p>where <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-8b">(13)</a>  is formed from <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-7">(11)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-8">(12)</a>  and detraining
 air has been assumed to be saturated (<img class="math" src="../_images/math/a2c96794832b230b9fd02d825637c139c2876a69.png" alt="q=q^*"/> and <img class="math" src="../_images/math/2db5077705a6460273794d6b9b7f208e4d74c40a.png" alt="h=h^*"/>).
 It is also assumed that the liquid content of the detrained air is the
 same as the ensemble mean cloud water (<img class="math" src="../_images/math/65a29b9c9b002cedc8e2a630ceb29b26e4b006f3.png" alt="\ell_d = \ell"/>). The
@@ -471,13 +464,13 @@ conversion from cloud water to rain water is given by</p>
 </div><p>following Lord, Chao, and Arakawa (1982), with
 <img class="math" src="../_images/math/2cd481e7bd6efd69d9212567a3676401a5027a50.png" alt="c_0 = 2 \times 10^{-3}\ {\rm m}^{-1}"/>.</p>
 <p>Since <img class="math" src="../_images/math/9819fd07b33594a7e626e6a75d9e3baf06620a34.png" alt="M_u"/>, <img class="math" src="../_images/math/bb77c53849a28831e7b70cb26ad0f6c786f367e5.png" alt="E_u"/> and <img class="math" src="../_images/math/e5ba9921d299a8e029b32b29f8fd02ec0877a16f.png" alt="D_u"/> are given by
-<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.5">(8)</a> - <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.6c">(10)</a>, and <img class="math" src="../_images/math/293fb39e1b93282c804a86186e721b32f829f1b2.png" alt="h"/> and <img class="math" src="../_images/math/53fa32ef4deab26f7ac4d6c979073319ecd5b4d4.png" alt="h^*"/> are environmental
-profiles, <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.8b">(13)</a>  can be solved for <img class="math" src="../_images/math/0973525aaa8aaba12ebbd7b2aa8ba3112629c3f8.png" alt="h_u"/>, given a lower
+<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-5">(8)</a> - <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-6c">(10)</a>, and <img class="math" src="../_images/math/293fb39e1b93282c804a86186e721b32f829f1b2.png" alt="h"/> and <img class="math" src="../_images/math/53fa32ef4deab26f7ac4d6c979073319ecd5b4d4.png" alt="h^*"/> are environmental
+profiles, <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-8b">(13)</a>  can be solved for <img class="math" src="../_images/math/0973525aaa8aaba12ebbd7b2aa8ba3112629c3f8.png" alt="h_u"/>, given a lower
 boundary condition. The lower boundary condition is obtained by adding a
 <img class="math" src="../_images/math/e42f9359918eae0301e59f831a7908e650bf126b.png" alt="0.5"/> K temperature perturbation to the dry (and moist) static
 energy at cloud base, or <img class="math" src="../_images/math/1e63f8a584e981733dea33d9390c57451b9309da.png" alt="h_u = h +
 c_p\times 0.5"/> at <img class="math" src="../_images/math/dff40c939f0e704031241c99ecc91fd6e855d129.png" alt="z=z_b"/>. Below the lifting condensation level
-(LCL), <img class="math" src="../_images/math/b3e0d438d1ef68c29690bf742d3e4ab9c9e71312.png" alt="S_u"/> and <img class="math" src="../_images/math/21d545b9342abb18c1931f71b4b018e8f7746333.png" alt="q_u"/> are given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.7">(11)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.8">(12)</a> .
+(LCL), <img class="math" src="../_images/math/b3e0d438d1ef68c29690bf742d3e4ab9c9e71312.png" alt="S_u"/> and <img class="math" src="../_images/math/21d545b9342abb18c1931f71b4b018e8f7746333.png" alt="q_u"/> are given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-7">(11)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-8">(12)</a> .
 Above the LCL, <img class="math" src="../_images/math/21d545b9342abb18c1931f71b4b018e8f7746333.png" alt="q_u"/> is reduced by condensation and <img class="math" src="../_images/math/b3e0d438d1ef68c29690bf742d3e4ab9c9e71312.png" alt="S_u"/> is
 increased by the latent heat of vaporization. In order to obtain to
 obtain a saturated updraft at the temperature implied by <img class="math" src="../_images/math/b3e0d438d1ef68c29690bf742d3e4ab9c9e71312.png" alt="S_u"/>, we
@@ -489,7 +482,7 @@ then:</p>
 <p><img src="../_images/math/23bdce342cc9a05ad7e25e236a916312a238d248.png" alt="S_u = S + c_p \Delta T"/></p>
 </div><div class="math">
 <p><img src="../_images/math/f087afeb0101c741fbd91977573cece1396d1cbb.png" alt="q_u = q^* + \frac{d q^*}{dT}\Delta  T ~."/></p>
-</div><p>Substituting <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10.2">(17)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10.3">(18)</a>  into <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10.1">(16)</a> ,</p>
+</div><p>Substituting <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10-2">(17)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10-3">(18)</a>  into <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10-1">(16)</a> ,</p>
 <div class="math">
 <p><img src="../_images/math/0476aa1d499794a2acbb55ebfde4065bcd896eef.png" alt="\begin{aligned}
   h_u &amp;=&amp; S + L q^* + c_p \left(1 + \frac{L}{c_p}\frac{d q^*}{dT}
@@ -504,8 +497,8 @@ then:</p>
   S_u &amp;=&amp; S + \frac{h_u - h^*}{1+\gamma}  \\ q_u &amp;=&amp; q^*
   + \frac{\gamma}{L} \frac{h_u - h^*}{1+\gamma}
 ~.\end{aligned}"/></p>
-</div><p>With <img class="math" src="../_images/math/b3e0d438d1ef68c29690bf742d3e4ab9c9e71312.png" alt="S_u"/> given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10.7">(20)</a> , <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.7">(11)</a>  can be solved for
-<img class="math" src="../_images/math/a092b467f6826fae203fc858e878a8854e4cb250.png" alt="C_u"/>, then <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.9">(14)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.10">(15)</a>  can be solved for
+</div><p>With <img class="math" src="../_images/math/b3e0d438d1ef68c29690bf742d3e4ab9c9e71312.png" alt="S_u"/> given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10-7">(20)</a> , <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-7">(11)</a>  can be solved for
+<img class="math" src="../_images/math/a092b467f6826fae203fc858e878a8854e4cb250.png" alt="C_u"/>, then <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-9">(14)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-10">(15)</a>  can be solved for
 <img class="math" src="../_images/math/69936a1144be0482fbfd69c0e1edb51c5e19f0b5.png" alt="\ell"/> and <img class="math" src="../_images/math/bfe49451dc34e097de4b8a39fc677b5945d0e7b5.png" alt="R_u"/>.</p>
 <p>The expressions above require both the saturation specific humidity to
 be</p>
@@ -553,8 +546,8 @@ model. Instead,</p>
       = q^*\left(1+ \frac{q^*}{\epsilon}\right) \frac{\epsilon
                     L}{RT^2}
 ~."/></p>
-</div><p>The expressions for <img class="math" src="../_images/math/1cbc0d44efff9cf758712cb8f6cf0f259cbfd96a.png" alt="{d q^*}/{d T}"/> in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10.11">(24)</a>  and
-<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10.12">(25)</a>  are not identical. Also, <img class="math" src="../_images/math/c17d798052f8eec25946c87941ae208f0f3ab9d1.png" alt="T-T_f+c_3 \neq T"/> and
+</div><p>The expressions for <img class="math" src="../_images/math/1cbc0d44efff9cf758712cb8f6cf0f259cbfd96a.png" alt="{d q^*}/{d T}"/> in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10-11">(24)</a>  and
+<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm10-12">(25)</a>  are not identical. Also, <img class="math" src="../_images/math/c17d798052f8eec25946c87941ae208f0f3ab9d1.png" alt="T-T_f+c_3 \neq T"/> and
 <img class="math" src="../_images/math/014c5852384bbd2bdd69f09b608aeb69bcedf4ed.png" alt="c_2
 c_3 \neq \epsilon L/R"/>.</p>
 </div>
@@ -565,7 +558,7 @@ production in the updraft ensemble where the downdrafts start at or
 below the bottom of the updraft detrainment layer. Detrainment from the
 downdrafts is confined to the sub-cloud layer, where all downdrafts have
 the same mass flux at the top of the downdraft region. Accordingly, the
-ensemble downdraft mass flux takes a similar form to <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.5">(8)</a>  but
+ensemble downdraft mass flux takes a similar form to <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-5">(8)</a>  but
 includes a “proportionality factor” to ensure that the downdraft
 strength is physically consistent with precipitation availability. This
 coefficient takes the form</p>
@@ -586,7 +579,7 @@ determined, as a function of the rate at which the cumulus consume
 convective available potential energy (CAPE). Since the large-scale
 temperature and moisture changes in both the cloud and sub-cloud layer
 are linearly proportional to the cloud base updraft mass flux (see eq.
-<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.1">(2)</a> – <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.4">(5)</a>), the CAPE change due to convective activity can be
+<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-1">(2)</a> – <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-4">(5)</a>), the CAPE change due to convective activity can be
 written as</p>
 <div class="math">
 <p><img src="../_images/math/9d4f23d4d813fe52aee69782dac76f7a0bc785dc.png" alt="\left( \frac{\partial A}{\partial t} \right)_{cu} = -M_b F
@@ -645,7 +638,7 @@ s^{-1}"/>. The expected units are recovered at the end by multiplying by
                     \frac{\epsilon L^2}{c_pR{T^k}^2}
 ~.\end{aligned}"/></p>
 </div><p>The environmental profiles at interfaces of <img class="math" src="../_images/math/1dbc400fcc213305415872f9f625cd2828f97a00.png" alt="S"/>, <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/>,
-<img class="math" src="../_images/math/6c28355d327e42324ac6779de9939a85d4561127.png" alt="q^*"/>, and <img class="math" src="../_images/math/3666981dc77862de77b6ecfcb64aad59b425cbaf.png" alt="\gamma"/> are determined using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm_int1">(29)</a>
+<img class="math" src="../_images/math/6c28355d327e42324ac6779de9939a85d4561127.png" alt="q^*"/>, and <img class="math" src="../_images/math/3666981dc77862de77b6ecfcb64aad59b425cbaf.png" alt="\gamma"/> are determined using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm-int1">(29)</a>
 if <img class="math" src="../_images/math/ffd5dc9813e1b76eb7f10c938ea06f7766f736cb.png" alt="|\psi^{k-1}-\psi^{k}|"/> is large enough.
 <strong>However, there are inconsistencies in what happens if</strong> <img class="math" src="../_images/math/ffd5dc9813e1b76eb7f10c938ea06f7766f736cb.png" alt="|\psi^{k-1}-\psi^{k}|"/>
 <strong>is not large enough</strong>. For <img class="math" src="../_images/math/1dbc400fcc213305415872f9f625cd2828f97a00.png" alt="S"/> and <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/> the condition is</p>
@@ -665,7 +658,7 @@ if <img class="math" src="../_images/math/ffd5dc9813e1b76eb7f10c938ea06f7766f736
   h^{*k-} &amp;=&amp; S^{k-} + L q^{*k-}
 ~.\end{aligned}"/></p>
 </div><p>The unitless updraft mass flux (scaled by the inverse of the cloud base
-mass flux) is given by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.5">(8)</a>  as</p>
+mass flux) is given by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-5">(8)</a>  as</p>
 <div class="math">
 <p><img src="../_images/math/1b2fc51f6b35f5174a40b1b1085da53055117aa6.png" alt="M_u^{k-} = \frac{1}{\lambda_0(z^{k-}-z_b)} \left( e^{\lambda_D^k
                (z^{k-}-z_b)} -1 \right)
@@ -681,7 +674,7 @@ and detrainment are calculated using</p>
 ~.\end{aligned}"/></p>
 </div><p>Note that <img class="math" src="../_images/math/456d552536f6717dfe32df97023aa5a8c0ef618c.png" alt="M_u^{k-}"/> and <img class="math" src="../_images/math/7799c4c48908a39cc3d3e9246fe9dac4aabe3297.png" alt="m_u^{k-}"/> differ only by the
 value of <img class="math" src="../_images/math/671f985e0bf4acd661d32b279c25f73ac1dd4f77.png" alt="\lambda_D"/>.</p>
-<p>The updraft moist static energy is determined by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.8b">(13)</a></p>
+<p>The updraft moist static energy is determined by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-8b">(13)</a></p>
 <div class="math">
 <p><img src="../_images/math/5beaa3e8db92877bb6ae7613b1a205f5231cce95.png" alt="\frac{M_u^{k-}h_u^{k-} - M_u^{k+}h_u^{k+}}{d^kz} = E_u^k h^k - D_u^k  h^{*k}"/></p>
 </div><div class="math">
@@ -689,7 +682,7 @@ value of <img class="math" src="../_images/math/671f985e0bf4acd661d32b279c25f73a
 </div><p>with <img class="math" src="../_images/math/c044b0a389ca299fa99c6257923c632a314ca725.png" alt="h_u^{M-} = h^M + c_p/2"/>, where <img class="math" src="../_images/math/450a8e2c2320d77181e0d4fc68c947e9a5de8ecb.png" alt="M"/> is the layer of
 maximum <img class="math" src="../_images/math/293fb39e1b93282c804a86186e721b32f829f1b2.png" alt="h"/>.</p>
 <p>Once <img class="math" src="../_images/math/0973525aaa8aaba12ebbd7b2aa8ba3112629c3f8.png" alt="h_u"/> is determined, the lifting condensation level is found
-by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.7">(11)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.8">(12)</a>  similarly to <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.8b">(13)</a> :</p>
+by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-7">(11)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-8">(12)</a>  similarly to <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-8b">(13)</a> :</p>
 <div class="math">
 <p><img src="../_images/math/37aebc49122a0cb1ab196d14bcee181259f6c5a8.png" alt="S_u^{k-} = \frac{1}{M_u^{k-}}\left[M_u^{k+} S_u^{k+} + d^kz\left( E_u^k S^k - D_u^k S^{k} \right)\right]"/></p>
 </div><div class="math">
@@ -703,7 +696,7 @@ begins, but this is not guaranteed.</p>
 <p>The lower boundary conditions, <img class="math" src="../_images/math/b475eb8762bdb99dacc8d9d9417ef36752b5c267.png" alt="S_u^{M-} = S^M + c_p/2"/> and
 <img class="math" src="../_images/math/4498704bd06393ff4633d6465a22caa18077e05f.png" alt="q_u^{M-}= q^M"/>, are determined from the first midpoint values in the plume,
 rather than from the interface values of <img class="math" src="../_images/math/1dbc400fcc213305415872f9f625cd2828f97a00.png" alt="S"/> and <img class="math" src="../_images/math/620a3ce6403ec82f1347af9985bc03f7a9382f4a.png" alt="q"/>. The
-solution of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm_su_d2">(32)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm_qu_d2">(33)</a>  continues upward until the updraft is
+solution of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm-su-d2">(32)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-zm-qu-d2">(33)</a>  continues upward until the updraft is
 saturated according to the condition</p>
 <div class="math">
 <p><img src="../_images/math/3933b476db8a76c04c9db7d05cf5e55f98bf744d.png" alt="\begin{aligned}
@@ -711,7 +704,7 @@ saturated according to the condition</p>
   S_u^{k-} - gz^{k-}\right)
 ~.\end{aligned}"/></p>
 </div><p>The condensation (in units of m<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>) is determined by a
-centered differencing of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.7">(11)</a> :</p>
+centered differencing of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-7">(11)</a> :</p>
 <div class="math">
 <p><img src="../_images/math/a2931889210c0d2d8eade0c68ec9c6881f8c91c8.png" alt="\frac{M_u^{k-}S_u^{k-} - M_u^{k+}S_u^{k+}}{d^kz} = (E_u^k - D_u^k)
     S^k + L C_u^k"/></p>
@@ -722,12 +715,12 @@ centered differencing of <a class="reference internal" href="../cam5_scientific_
           - (E_u^k - D_u^k) S^k \right]
 ~.\end{aligned}"/></p>
 </div><p>The rain production (in units of m<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/>) and condensed liquid
-are then determined by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.9">(14)</a>  as</p>
+are then determined by differencing <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-9">(14)</a>  as</p>
 <div class="math">
 <p><img src="../_images/math/a48b05af98755e68324f01b6d1bf70c6ed87ca64.png" alt="\frac{M_u^{k-}\ell^{k-} - M_u^{k+}\ell^{k+}}{d^kz} = -D_u^k
     \ell^{k+} + C_u^k - R_u^k
 ~,"/></p>
-</div><p>and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.10">(15)</a>  as</p>
+</div><p>and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-10">(15)</a>  as</p>
 <div class="math">
 <p><img src="../_images/math/2b9e6d54be9134ff6527cfd94db29e0d8880f3b8.png" alt="R_u^k = c_0 M_u^{k-} \ell^{k-}
 ~."/></p>
@@ -749,7 +742,7 @@ are then determined by differencing <a class="reference internal" href="../cam5_
 the existing deep convection parameterization following Richter and
 Rasch (2008) and the methodology of Gregory, Kershaw, and Inness (1997).
 The sub-grid scale transport of momentum can be cast in the same manner
-as <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.2">(3)</a> . Expressing the grid mean horizontal velocity vector,
+as <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-2">(3)</a> . Expressing the grid mean horizontal velocity vector,
 <img class="math" src="../_images/math/ea531147816292b1d22aad8344f03f9b248c3e82.png" alt="\boldsymbol{V}"/>, tendency due to deep convection transport
 following Kershaw and Gregory (1997) gives</p>
 <div class="math">
@@ -799,7 +792,7 @@ entrainment and detrainment rates (units of s<img class="math" src="../_images/m
 up- and down-drafts. Updrafts are allowed to entrain or detrain in any
 layer. Downdrafts are assumed to entrain only, and all of the mass is
 assumed to be deposited into the surface layer.</p>
-<p>Equation <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:updraft">(38)</a> is first solved for up and downdraft mixing ratios
+<p>Equation <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-updraft">(38)</a> is first solved for up and downdraft mixing ratios
 <img class="math" src="../_images/math/21d545b9342abb18c1931f71b4b018e8f7746333.png" alt="q_u"/> and <img class="math" src="../_images/math/3a5db2b38f6977857ac38bbab1f427fef9007189.png" alt="q_d"/>, assuming the environmental mixing ratio
 <img class="math" src="../_images/math/bab01113e07e8103c1357b3721f0bb0b92d5119b.png" alt="q_e"/> is the same as the gridbox averaged mixing ratio
 <img class="math" src="../_images/math/d91858013ddcf9b5e7d5f31315e3c78ce399eafd.png" alt="\bar q"/>.</p>
@@ -816,7 +809,7 @@ well.</p>
 <li>mixing quantities needed at interfaces are calculated using the
 geometric mean of the layer mean values.</li>
 <li>simple first order upstream biased finite differences are used to
-solve <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:updraft">(38)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:masscon">(39)</a>.</li>
+solve <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-updraft">(38)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-masscon">(39)</a>.</li>
 <li>fluxes calculated at the interfaces are constrained so that the
 resulting mixing ratios are positive definite. <em>This means that this
 parameterization is not suitable for moving mixing ratios of
@@ -856,7 +849,7 @@ s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c
 <img class="math" src="../_images/math/f7f69624b5cd65f76561dfe0eec7395b8c29ab8f.png" alt="\hat{R}_{r_k}"/>. Conceptually, the evaporation process is invoked
 after a vertical profile of <img class="math" src="../_images/math/3e5c4b8668c204019376a50d0abd6e886a122a23.png" alt="R_{r_k}"/> has been evaluated. An
 evaporation rate is then computed for the uppermost level of the model
-for which <img class="math" src="../_images/math/e044ea9bb64b535d8c6dfe022f2043fef053259e.png" alt="R_{r_k} \not= 0"/> using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.15">(40)</a> , where in this case
+for which <img class="math" src="../_images/math/e044ea9bb64b535d8c6dfe022f2043fef053259e.png" alt="R_{r_k} \not= 0"/> using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-15">(40)</a> , where in this case
 <img class="math" src="../_images/math/31d2fc93f16c85de15c2f3179df4bd67f5ca3177.png" alt="R_{r_k} \equiv \; \hat{R}_{r_k}"/>. This rate is used to evaluate
 an evaporative reduction in <img class="math" src="../_images/math/3e5c4b8668c204019376a50d0abd6e886a122a23.png" alt="R_{r_k}"/> which is then accumulated
 with the previously diagnosed rainwater flux in the layer below,</p>
@@ -876,7 +869,7 @@ evaporation</p>
 <p><img src="../_images/math/66b023800d4bb9e320499ef864a367b0fc07bae5.png" alt="T_k = T_k - \left( {L \over c_p} \right) E_{r_k} \; 2 \Delta t \;
 
 ~."/></p>
-</div><p>The procedure, <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.15">(40)</a> -<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.g.18">(43)</a> , is then successively repeated for
+</div><p>The procedure, <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-15">(40)</a> -<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-g-18">(43)</a> , is then successively repeated for
 each model level in a downward direction where the final convective
 precipitation rate is that portion of the condensed rainwater in the
 column to survive the evaporation process</p>
@@ -893,7 +886,7 @@ evaporated condensate acts to moisten the middle and lower troposphere.</p>
 <div class="section" id="introductory-comments">
 <h3>6.4.1. Introductory comments<a class="headerlink" href="#introductory-comments" title="Permalink to this headline">¶</a></h3>
 <p>The parameterization of non-convective cloud processes in CAM6.0 is described
-in <a class="reference internal" href="chapter8.html#rasch98" id="id8">[RK98]</a> and <a class="reference internal" href="chapter8.html#zhang03" id="id9">[ZLB+03]</a>. The original
+in <a class="reference internal" href="chapter8.html#rasch98" id="id8">[RKristjansson98]</a> and <a class="reference internal" href="chapter8.html#zhang03" id="id9">[ZLB+03]</a>. The original
 formulation is introduced in Rasch and Kristjánsson (1998). Revisions to
 the parameterization to deal more realistically with the treatment of
 the condensation and evaporation under forcing by large scale processes
@@ -1006,14 +999,14 @@ specified <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdb
 <p><img src="../_images/math/f543a5f5bb2b0bb5bc2065f00bc9232ff2bebbc0.png" alt="\lambda = \left[\frac{\pi \rho N^{\prime\prime}\Gamma(\mu + 4)}{6q^{\prime\prime}\Gamma(\mu +1)}\right]^{(1/3)}"/></p>
 </div><div class="math">
 <p><img src="../_images/math/94eacc88aaa731f88ca3b08719f1c9225ea7e805.png" alt="N_0 = \frac{N^{\prime\prime}\lambda^{\mu + 1}}{\Gamma(\mu +1)}"/></p>
-</div><p>where <img class="math" src="../_images/math/d872993ed0c7c420e73e77a1d285ac100c516806.png" alt="\Gamma"/> is the Euler gamma function. Note that <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG3">(47)</a> and
-<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG4">(48)</a> assume spherical cloud particles with bulk density <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/>
+</div><p>where <img class="math" src="../_images/math/d872993ed0c7c420e73e77a1d285ac100c516806.png" alt="\Gamma"/> is the Euler gamma function. Note that <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg3">(47)</a> and
+<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg4">(48)</a> assume spherical cloud particles with bulk density <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/>
 = 1000 kg m<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> for droplets and <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/>= 500 kg
 m<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> for cloud ice following Reisner, Rasmussen, and
 Bruintjes (1998).</p>
 <p>The effective size for cloud ice needed by the radiative transfer scheme
 is obtained directly by dividing the third and second moments of the
-size distribution given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG1">(45)</a> and accounting for differenceds in
+size distribution given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg1">(45)</a> and accounting for differenceds in
 cloud ice density and that of pure ice. After rearranging terms, this
 yields</p>
 <div class="math">
@@ -1033,11 +1026,11 @@ processes:</p>
 <p><img src="../_images/math/877d9361990275601df17bca86ed75b9eb945d7b.png" alt="\frac{\partial q}{\partial t} + \frac{1}{\rho} \nabla \cdot [\rho \mathbf{u} q] =  \left(\frac{\partial q}{\partial t}\right)_{cond} + \left(\frac{\partial q}{\partial t}\right)_{evap} + \left(\frac{\partial q}{\partial t}\right)_{auto} + \left(\frac{\partial q}{\partial t}\right)_{acer} + \left(\frac{\partial q}{\partial t}\right)_{accs} + \left(\frac{\partial q}{\partial t}\right)_{het} +\left(\frac{\partial q}{\partial t}\right)_{hom} + \left(\frac{\partial q}{\partial t}\right)_{mlt} + \left(\frac{\partial q}{\partial t}\right)_{mult} + \left(\frac{\partial q}{\partial t}\right)_{sed} + \left(\frac{\partial q}{\partial t}\right)_{det} +D(N)"/></p>
 </div><p>where t is time, <img class="math" src="../_images/math/2978d86319a8d5f6b72d697bce6ebfd0bcab6ca9.png" alt="\mathbf{u}"/> is the 3D wind vector, <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/>
 is the air density, and D is the turbulent diffusion operator. The
-symbolic terms on the right hand side of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG7">(52)</a> represent
+symbolic terms on the right hand side of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg7">(52)</a> represent
 the grid-average microphysical source/sink terms for N and q. Note that
 the source/sink terms for q and N are considered separately for cloud
 water and ice (giving a total of four rate equations), but are
-generalized here using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG7">(52)</a> for conciseness. These
+generalized here using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg7">(52)</a> for conciseness. These
 terms include activation of cloud condensation nuclei or
 deposition/condensation-freezing nucleation on ice nuclei to form
 droplets or cloud ice (subscript nuc; N only); ice multiplication via
@@ -1051,7 +1044,7 @@ homogeneous freezing of cloud droplets (subscript hom), melting
 (subscript mlt), ice multiplication (subsrcipt mult), sedimentation
 (subscript sed), and convective detrainment (subscript det). The
 formulations for these processes are detailed in section 3. Numerical
-aspects in solving <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG7">(52)</a> are detailed in section 4.</p>
+aspects in solving <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg7">(52)</a> are detailed in section 4.</p>
 <div class="section" id="sub-grid-cloud-variability">
 <h4>6.5.1.1. Sub-grid cloud variability<a class="headerlink" href="#sub-grid-cloud-variability" title="Permalink to this headline">¶</a></h4>
 <p>Sub-grid variability is considered for cloud water but neglected for
@@ -1081,11 +1074,11 @@ variability of cloud water is that the grid-average microphysical
 process rates can be derived in a straightforward manner as follows. For
 any generic local microphysical process rate <img class="math" src="../_images/math/d6e74ec228c60de7da918f440ba763129b1f31db.png" alt="M_p =
 xq_c^{\prime\prime y}"/>, replacing <img class="math" src="../_images/math/6d5ed95b569eea5bec94c1d507211d321d62e5e7.png" alt="q_c^{\prime\prime}"/> with
-<img class="math" src="../_images/math/734fda5dae35fe1c87ea514a0d7ec881e6d231df.png" alt="P(q_c^{\prime\prime})"/> from <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG8">(53)</a> and integrating over the PDF
+<img class="math" src="../_images/math/734fda5dae35fe1c87ea514a0d7ec881e6d231df.png" alt="P(q_c^{\prime\prime})"/> from <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg8">(53)</a> and integrating over the PDF
 yields a mean in-cloud process rate</p>
 <div class="math">
 <p><img src="../_images/math/65b725fc690e173dffa2e9400a9ece71471aab13.png" alt="M_p^{\prime} = x \frac{\Gamma(\nu + y)}{\Gamma(\nu)\nu^y}q_c^{\prime y}"/></p>
-</div><p>Thus, each cloud water microphysical process rate in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG7">(52)</a> is multiplied by a factor</p>
+</div><p>Thus, each cloud water microphysical process rate in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg6">(51)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg7">(52)</a> is multiplied by a factor</p>
 <div class="math">
 <p><img src="../_images/math/7f83ed275327bcfb6e1f28f0873479dd65302313.png" alt="E = \frac{\Gamma(\nu + y)}{\Gamma(\nu)\nu^y}"/></p>
 </div></div>
@@ -1113,7 +1106,7 @@ number-weighted terminal fallspeeds, respectively, and <img class="math" src="..
 <p><img src="../_images/math/064c96ff9602052a89e79a25378c4a53d60e0e18.png" alt="S_q=  \left(\frac{\partial q_p}{\partial t}\right)_{auto} + \left(\frac{\partial q_p}{\partial t}\right)_{accw} + \left(\frac{\partial q_p}{\partial t}\right)_{acci} + \left(\frac{\partial q_p}{\partial t}\right)_{het} + \left(\frac{\partial q_p}{\partial t}\right)_{hom} + \left(\frac{\partial q_p}{\partial t}\right)_{mlt} + \left(\frac{\partial q_p}{\partial t}\right)_{mult} +\left(\frac{\partial q_p}{\partial t}\right)_{evap} + \left(\frac{\partial q_p}{\partial t}\right)_{coll}"/></p>
 </div><div class="math">
 <p><img src="../_images/math/890e27e0de9fbb304c651a49946724349deea7e1.png" alt="S_N=  \left(\frac{\partial N_p}{\partial t}\right)_{auto} + \left(\frac{\partial N_p}{\partial t}\right)_{het} + \left(\frac{\partial N_p}{\partial t}\right)_{hom} + \left(\frac{\partial N_p}{\partial t}\right)_{mlt} + \left(\frac{\partial N_p}{\partial t}\right)_{evap} + \left(\frac{\partial N_p}{\partial t}\right)_{self} +\left(\frac{\partial N_p}{\partial t}\right)_{coll}"/></p>
-</div><p>The symbolic terms on the right-hand sides of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG13">(58)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG14">(59)</a>
+</div><p>The symbolic terms on the right-hand sides of <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg13">(58)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg14">(59)</a>
 are autoconversion (subscript auto), accretion of cloud water (subscript
 accw), accretion of cloud ice (subscript acci), heterogeneous freezing
 (subscript het), homogeneous freezing (subscript hom), melting
@@ -1124,10 +1117,10 @@ crystals by other snow crystals; Np only), and collection of rain by
 snow (subscript coll). Formulations for these processes are described in
 section 3.</p>
 <p>In the diagnostic treatment , <img class="math" src="../_images/math/6ea626f3a0acccea3ee909cdc6cfa86373345c6f.png" alt="(\partial q_p / \partial t )"/> =0
-and <img class="math" src="../_images/math/49135d44a05e623c03072d1cfbd63f09593c48ed.png" alt="(\partial N_p / \partial t )"/> =0 . This allows <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG11">(56)</a> and
-<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG12">(57)</a> to be expressed as a function of z only. The <img class="math" src="../_images/math/40d6de46fb7fe8520f6f6d4cc1f6520e11a6703d.png" alt="q_p"/> and
+and <img class="math" src="../_images/math/49135d44a05e623c03072d1cfbd63f09593c48ed.png" alt="(\partial N_p / \partial t )"/> =0 . This allows <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg11">(56)</a> and
+<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg12">(57)</a> to be expressed as a function of z only. The <img class="math" src="../_images/math/40d6de46fb7fe8520f6f6d4cc1f6520e11a6703d.png" alt="q_p"/> and
 <img class="math" src="../_images/math/3d42a5d5f823880d474c11788815401c226299b7.png" alt="N_p"/> are therefore determined by discretizing and numerically
-integrating <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG11">(56)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG12">(57)</a> downward from the top of the model
+integrating <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg11">(56)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg12">(57)</a> downward from the top of the model
 atmosphere following Ghan and Easter (1992):</p>
 <div class="math">
 <p><img src="../_images/math/594371ca4a731008baaa04d6079182041b45a4aa.png" alt="\rho_{a,k} V_{q,k} q_{p,k} = \rho_{a,k+1} V_{q,k+1} q_{p,k+1} + \frac{1}{2} [ \rho_{a,k} S_{q,k} \delta Z_{k} +  \rho_{a,k+1} S_{q,k+1} \delta Z_{k+1}]"/></p>
@@ -1136,16 +1129,16 @@ atmosphere following Ghan and Easter (1992):</p>
 </div><p>where <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/> is the vertical level (increasing with height, i.e.,
 <img class="math" src="../_images/math/f8dcb9a4a77e36cd21ed14f3d85f52fabc7b124f.png" alt="k+1"/> is the next vertical level above <img class="math" src="../_images/math/0b7c1e16a3a8a849bb8ffdcdbf86f65fd1f30438.png" alt="k"/>). Since
 <img class="math" src="../_images/math/0633a19e5e04ff4c377654552cf271ead3af93c2.png" alt="V_{q,k}"/>, <img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/>, <img class="math" src="../_images/math/af3981099dda3f28fe9f4f5106babca1359cc2df.png" alt="V_{N,k}"/>, and <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/>
-depend on <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>, <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG15">(60)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG16">(61)</a>
+depend on <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>, <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg15">(60)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg16">(61)</a>
 must be solved by iteration or some other method. The approach of Ghan
 and Easter (1992) uses values of <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>
 from the previous time step as provisional estimates in order to
 calculate <img class="math" src="../_images/math/0633a19e5e04ff4c377654552cf271ead3af93c2.png" alt="V_{q,k}"/>, <img class="math" src="../_images/math/af3981099dda3f28fe9f4f5106babca1359cc2df.png" alt="V_{N,k}"/>, <img class="math" src="../_images/math/34fdc3aa564f864df47f58c69e21118d154b04fd.png" alt="S_{p,k}"/>, and
 <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/>. “Final” values of <img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/>
 are calculated from these values of <img class="math" src="../_images/math/0633a19e5e04ff4c377654552cf271ead3af93c2.png" alt="V_{q,k}"/>, <img class="math" src="../_images/math/af3981099dda3f28fe9f4f5106babca1359cc2df.png" alt="V_{N,k}"/>,
-<img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/> and <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/> using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG15">(60)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG16">(61)</a>. Here
+<img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/> and <img class="math" src="../_images/math/00efa107a4d8f367633758e06cb63d0c6e4cb196.png" alt="S_{N,k}"/> using <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg15">(60)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg16">(61)</a>. Here
 we employ another method that obtains provisional values of
-<img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/> from <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG15">(60)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG16">(61)</a>
+<img class="math" src="../_images/math/2a74cdb3cdb4d04d907a4e8c27e236d332b301f2.png" alt="q_{p,k}"/> and <img class="math" src="../_images/math/746ff572a5743ab4a70a717e9672472009dd5a3e.png" alt="N_{p,k}"/> from <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg15">(60)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg16">(61)</a>
 assuming <img class="math" src="../_images/math/743ae81405fa4f857db75d5c9358584285a5f1be.png" alt="V_{q,k} \sim V_{q,k+1}"/> and
 <img class="math" src="../_images/math/bdf071546e663a267c26155e9c72c90519e80261.png" alt="V_{N,k} \sim V_{N,k+1}"/>. It is also assumed that all source/sink
 terms in <img class="math" src="../_images/math/78b2a8b45840e0a387a45b235ca4cff8788ca920.png" alt="S_{q,k}"/> and <img class="math" src="../_images/math/55024542277100946ade8c0a4a278e8728e8c6d8.png" alt="S_{N,q}"/> can be approximated by the
@@ -1160,12 +1153,12 @@ fallspeeds of 0.45 m/s for rain and 0.36 m/s for snow.</p>
 <p>Rain and snow are considered separately, and both may occur
 simultaneously in supercooled conditions (hereafter subscript p for
 precipitation is replaced by subscripts r for rain and s for snow). The
-rain/snow particle size distributions are given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG1">(45)</a>, with the
+rain/snow particle size distributions are given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg1">(45)</a>, with the
 shape parameter <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> = 0, resulting in Marshall-Palmer
 (exponential) size distributions. The size distribution parameters
-<img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> and <img class="math" src="../_images/math/5d2483db4defbda77d5edb54e62c7eb768c7c25a.png" alt="N_0"/> are similarly given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG3">(47)</a> and
-<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG4">(48)</a> with <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> = 0. The bulk particle density (parameter
-<img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG3">(47)</a>) is <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> = 1000 kg m<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> for
+<img class="math" src="../_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> and <img class="math" src="../_images/math/5d2483db4defbda77d5edb54e62c7eb768c7c25a.png" alt="N_0"/> are similarly given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg3">(47)</a> and
+<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg4">(48)</a> with <img class="math" src="../_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> = 0. The bulk particle density (parameter
+<img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg3">(47)</a>) is <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> = 1000 kg m<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> for
 rain and <img class="math" src="../_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="\rho"/> = 100 kg m<img class="math" src="../_images/math/704ece9527a4f3d54bd4af0aa6e92781ad9fe92e.png" alt="^{-3}"/> for snow following
 Reisner, Rasmussen, and Bruintjes (1998).</p>
 </div>
@@ -1189,7 +1182,7 @@ m/s for rain and 1.2 m/s for snow. The a and b coefficients for each
 hydrometeor species are given in Table 2. Note that for cloud water
 fallspeeds, sub-grid variability of q is considered by appropriately
 multiplying the <img class="math" src="../_images/math/5a9cf1ad3e1bde5c0671abaf707fad7863e2abf4.png" alt="V_N"/> and <img class="math" src="../_images/math/a0ff07912c6af751139e79e68dc78a111f15d059.png" alt="V_q"/> by the factor <img class="math" src="../_images/math/4b6222b865b812d2a59368cd1629eed6b54454d5.png" alt="E"/>
-given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG10">(55)</a>.</p>
+given by <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg10">(55)</a>.</p>
 </div>
 <div class="section" id="ice-cloud-fraction">
 <h4>6.5.1.4. Ice Cloud Fraction<a class="headerlink" href="#ice-cloud-fraction" title="Permalink to this headline">¶</a></h4>
@@ -1278,8 +1271,8 @@ calculating droplet activation, a sub-grid vertical velocity
 Energy (TKE) following Morrison and Pinto (2005):</p>
 <div class="math">
 <p><img src="../_images/math/eb766c391fe726028b4f0075174fcdc8bbda43dd.png" alt="w_{sub} = \sqrt{\frac{2}{3} TKE}"/></p>
-</div><p>where TKE is defined using a steady state energy balance eqn <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG17">(62)</a> and
-<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG28">(70)</a> in Bretherton and Park (2009))</p>
+</div><p>where TKE is defined using a steady state energy balance eqn <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg17">(62)</a> and
+<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg28">(70)</a> in Bretherton and Park (2009))</p>
 <p>In regions with weak turbulent diffusion, a minimum sub-grid vertical
 velocity of 10 cm/s is assumed. Some models use the value of wÕ at cloud
 base to determine droplet activation in the cloud layer (e.g., Lohmann
@@ -1342,7 +1335,7 @@ model experiments. A threshold <img class="math" src="../_images/math/5d0e84437d
 was fitted as a function of temperature and updraft velocity (see Liu et
 al. (2007), equation 6). For driving the parameterization, the sub-grid
 velocity for ice (<img class="math" src="../_images/math/6a7fd94eaad05e95db8d27557eeefa188e365ff4.png" alt="w_{sub}"/>) is derived following
-ewuation&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:wsub">(64)</a>. A minimum of 0.2 m s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/> is set for ice
+ewuation&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-wsub">(64)</a>. A minimum of 0.2 m s<img class="math" src="../_images/math/32c47f7597d53ce7f2d3f4de3ce54a8bd5ac5d3c.png" alt="^{-1}"/> is set for ice
 nucleation.</p>
 <p>It is also implicitly assumed that there is some variation in humidity
 over the grid box. For purposes of ice nucleation, nucleation rates for
@@ -1390,14 +1383,14 @@ psychrometric correction to account for the release of latent heat,
 specific heat at constant pressure, <img class="math" src="../_images/math/c7b8d6b2487364cb3dbac02a2220537f9da3ea6f.png" alt="\frac{dq_{vi}}{dT}"/> is the
 change of ice saturation vapor pressure with temperature, and
 <img class="math" src="../_images/math/557d5fad862c9046d26e1a930f45a550c146d592.png" alt="\tau"/> is the supersaturation relaxation timescale associated with
-ice deposition given by eq. <code class="xref eq docutils literal"><span class="pre">22</span></code> in MG08 (a function of ice crystal
+ice deposition given by eq. <code class="xref eq docutils literal notranslate"><span class="pre">22</span></code> in MG08 (a function of ice crystal
 surface area and the diffusivity of water vapor in air). The assumption
 for pure ice clouds is that the in-cloud vapor mixing ratio for
 deposition is equal to the grid-mean value. The same assumption is used
 in Liu et al. (2007), and while it is uncertain, it is the most
 straightforward. Thus we do not consider sub-grid variability of water
 vapor for calculating vapor deposition in pure ice-clouds.</p>
-<p>The form of the deposition rate in equation&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:dep">(65)</a> differs from that
+<p>The form of the deposition rate in equation&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-dep">(65)</a> differs from that
 used by Rotstayn, Ryan, and Katzfey (2000) and Liu et al. (2007) because
 they considered the increase in ice mixing ratio <img class="math" src="../_images/math/6ac5b221350111f1f7caa0689b250d2542580bd4.png" alt="q_i"/> due to
 vapor deposition during the time step, and formulated an implicit
@@ -1434,7 +1427,7 @@ vapor mixing ratio is less than value at ice saturation. In this case
 the sublimation rate of ice is given by:</p>
 <div class="math">
 <p><img src="../_images/math/2c60a7f44a11339f97dc6f2c816bb225dbe5f67e.png" alt="\left(\frac{\partial q_i}{\partial t}\right)_{sub}=\frac{( q_v-q_{vi}*)}{\Gamma_p \tau}, q_v &lt; q_{vi}*"/></p>
-</div><p>Again, the use of grid-mean vapor mixing ratio in equation&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:sub">(68)</a>
+</div><p>Again, the use of grid-mean vapor mixing ratio in equation&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-sub">(68)</a>
 follows the assumption of&nbsp;Liu et al. (2007) that the in-cloud
 <img class="math" src="../_images/math/49d5bb060e0e3f32859d4cbf49bfe912038aaf29.png" alt="q_v"/> is equal to the grid box mean in pure ice clouds. Grid-mean
 deposition and sublimation rates are given by the in-cloud values for
@@ -1458,7 +1451,7 @@ developed for boundary layer stratocumulus, but is applied here to all
 stratiform cloud types.</p>
 <p>The grid-mean autoconversion and accretion rates are found by replacing
 the qc in Eqs. (29) and (33) of Khairoutdinov and Kogan (2000) with
-<img class="math" src="../_images/math/734fda5dae35fe1c87ea514a0d7ec881e6d231df.png" alt="P(q_c^{\prime\prime})"/> given by equation <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:MG8">(53)</a> here,
+<img class="math" src="../_images/math/734fda5dae35fe1c87ea514a0d7ec881e6d231df.png" alt="P(q_c^{\prime\prime})"/> given by equation <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-mg8">(53)</a> here,
 integrating the resulting expressions over the cloud water PDF, and
 multiplying by the cloud fraction. This yields</p>
 <div class="math">
@@ -3763,7 +3756,7 @@ for <img class="math" src="../_images/math/30ed0100f6765196e8733923a4fac03b843a7
 </div><p>Note that the CLM code contains extra terms involving <img class="math" src="../_images/math/07e2efaa95f0182e003db31b1ac06087cb189f3d.png" alt="z_{0m}
 /\varsigma"/>, <img class="math" src="../_images/math/8963877cfe20e78abbb067720ecf4044d0ea8710.png" alt="z_{0h} /\varsigma"/>, and <img class="math" src="../_images/math/593b2a63de5a62e1336fde30982dca8d9c1ddeda.png" alt="z_{0q} /\varsigma"/>
 for completeness. These terms are very small most of the time and hence
-are omitted in Eqs.&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:windprof">(81)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq:ptprof">(82)</a>.</p>
+are omitted in Eqs.&nbsp;<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-windprof">(81)</a> and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eq-ptprof">(82)</a>.</p>
 <p>In addition to the momentum, sensible heat, and latent heat fluxes, land
 surface albedos and upward longwave radiation are needed for the
 atmospheric radiation calculations. Surface albedos depend on the solar
@@ -3792,7 +3785,7 @@ is <img class="math" src="../_images/math/6897181da3210ae2f36c07fa16a348aa504edb
 specific humidity difference is <img class="math" src="../_images/math/b97f756c3e5cdd51ee105fbaff21366b848c61ee.png" alt="\Delta\,q = q_A - q_s(T_s)"/>,
 where <img class="math" src="../_images/math/e494c310510de0c9fdc893524d89912b6c699938.png" alt="q_s(T_s)"/> is the saturation specific humidity at the
 sea-surface temperature.</p>
-<p>In <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb1">(83)</a> , the transfer coefficients between the ocean surface
+<p>In <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb1">(83)</a> , the transfer coefficients between the ocean surface
 and the atmosphere are computed at a height <img class="math" src="../_images/math/717b88f190452eca9888ed08372ee9bdd04829a7.png" alt="Z_A"/> and are
 functions of the stability, <img class="math" src="../_images/math/1bed834b3e718b4086e9b3c32284be47445d0c27.png" alt="\zeta"/>:</p>
 <div class="math">
@@ -3819,7 +3812,7 @@ momentum and <img class="math" src="../_images/math/d124623aa6299fa6b904224d5cc7
 <p><img src="../_images/math/30ba54c2e8a310ec2730c8013ea56f942e5ae017.png" alt="\psi_s(\zeta) = 2 \ln[0.5(1 + X^2 )],"/></p>
 </div><div class="math">
 <p><img src="../_images/math/35196d6ea9c687128d1e88bce3cc3c2630851955.png" alt="X = (1 - 16 \zeta)^{1/4} ."/></p>
-</div><p>The stability parameter used in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb3">(85)</a> –<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb6">(88)</a>  is</p>
+</div><p>The stability parameter used in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb3">(85)</a> –<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb6">(88)</a>  is</p>
 <div class="math">
 <p><img src="../_images/math/4911f5aeffa32b71cc194c464c6356ab97233776.png" alt="\zeta = \frac{\kappa\,g\,Z_A}{u^{*2}}\left(\frac{\theta^*}{\theta_v} +
                                      \frac{Q^*}{(\epsilon^{-1} +
@@ -3829,7 +3822,7 @@ momentum and <img class="math" src="../_images/math/d124623aa6299fa6b904224d5cc7
 \epsilon q_A)"/>; <img class="math" src="../_images/math/b15fc5e9c612258597404c0edd29af4ff99f3c06.png" alt="q_A"/> and <img class="math" src="../_images/math/8e80e61ca50febe86a73f60b87a0eae87b2f8d1e.png" alt="\theta_A"/> are the lowest level
 atmospheric humidity and potential temperature, respectively; and
 <img class="math" src="../_images/math/46082563ac9f1525c94483f1865c22e69a9392f5.png" alt="\epsilon =
-0.606"/>. The turbulent velocity scales in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb7">(89)</a>  are</p>
+0.606"/>. The turbulent velocity scales in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb7">(89)</a>  are</p>
 <div class="math">
 <p><img src="../_images/math/4f881115e7722fd1dc0bf940320de2d5cda8a064.png" alt="\begin{aligned}
 u^* = &amp;C_D^{1/2} |\Delta\,{{\boldsymbol{v}}}|, \nonumber\\ (Q^*,\theta^*) =
@@ -3855,11 +3848,11 @@ U_{10} &amp;= U_A {\left[1 +
 height and neutral stability is
 <img class="math" src="../_images/math/d1061b1ede0b4c2aeadac023b79fd7cb951e57ea.png" alt="C^{N}_{10} = c_4 U^{-1}_{10} + c_5 +
 c_6 U_{10}"/> as given by Large, McWilliams, and Doney (1994).</p>
-<p>The transfer coefficients in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb1">(83)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb2">(84)</a>  depend on
-the stability following <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb3">(85)</a> –<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb6">(88)</a> , which itself
-depends on the surface fluxes <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb7">(89)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb8">(90)</a> . The
+<p>The transfer coefficients in <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb1">(83)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb2">(84)</a>  depend on
+the stability following <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb3">(85)</a> –<a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb6">(88)</a> , which itself
+depends on the surface fluxes <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb7">(89)</a>  and <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb8">(90)</a> . The
 transfer coefficients also depend on the momentum roughness, which
-itself varies with the surface fluxes over oceans <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn:turb9">(91)</a> . The
+itself varies with the surface fluxes over oceans <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-eqn-turb9">(91)</a> . The
 above system of equations is solved by iteration.</p>
 </div>
 <div class="section" id="sea-ice">
@@ -3882,7 +3875,7 @@ T_{k+1} - T_k &amp;&lt; C1_{k+1} (T_{k+1} + T_k) + \delta ,
 = \frac{\kappa (p_{k+1} - p_k)}{2 p_{k+1/2}}
 ~.\end{aligned}"/></p>
 </div><p>If there are any unstable layers in the top three model layers, the
-temperature is adjusted so that <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.j.2">(93)</a>  is satisfied everywhere in the
+temperature is adjusted so that <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-j-2">(93)</a>  is satisfied everywhere in the
 column. The variable <img class="math" src="../_images/math/a702e781dfc76762a3a132c2031fba8898430925.png" alt="\delta"/> represents a convergence criterion.
 The adjustment is done so that sensible heat is conserved,</p>
 <div class="math">
@@ -3910,7 +3903,7 @@ average value of the original values,</p>
 <p><img src="../_images/math/f2d95189b2aec5bdc82c4d36567f6e2bf2e64d21.png" alt="\hat{q}_{k+1} = \hat{q}_k = (q_{k+1} \Delta p_{k+1} + q_k \Delta
 p_k)/(\Delta p_{k+1} + \Delta p_k) ."/></p>
 </div><p>The layers are adjusted iteratively. Initially, <img class="math" src="../_images/math/401ab2f65de53d6e67936c972351a6069f7fd969.png" alt="\delta = 0.01"/> in
-the stability check <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4.j.2">(93)</a> . The column is passed through from
+the stability check <a class="reference internal" href="../cam5_scientific_guide/physics.html#equation-4-j-2">(93)</a> . The column is passed through from
 <img class="math" src="../_images/math/e0c697f0cf4a4c09fb151f725bdc6e65c3be447c.png" alt="k=1"/> to a user-specifiable lower level (set to&nbsp;3 in the standard
 model configuration) up to 15 times; each time unstable layers are
 adjusted until the entire column is stable. If convergence is not
@@ -3997,7 +3990,7 @@ the main features of the CH<img class="math" src="../_images/math/284796e299f67d
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
     </div>
   </body>
 </html>

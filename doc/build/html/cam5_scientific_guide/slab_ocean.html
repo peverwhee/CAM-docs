@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7. Slab Ocean Model &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -30,8 +22,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -75,12 +66,14 @@
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -120,8 +113,8 @@ globally conserving manner.</p>
 Hansen et al. (1984), although we have modified it to allow for a
 fractional sea ice coverage. The governing equation for ocean mixed
 layer temperature <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/> is:</p>
-<div class="math" id="equation-6.a.1">
-<p><span class="eqno">(1)<a class="headerlink" href="#equation-6.a.1" title="Permalink to this equation">¶</a></span><img src="../_images/math/f13dda303d23442de929514cdbe78477ea7b7bf2.png" alt="\rho_o C_o h_o \frac{\partial T_{o}}{\partial t} = (1-A) F + Q
+<div class="math" id="equation-6-a-1">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-6-a-1" title="Permalink to this equation">¶</a></span><img src="../_images/math/f13dda303d23442de929514cdbe78477ea7b7bf2.png" alt="\rho_o C_o h_o \frac{\partial T_{o}}{\partial t} = (1-A) F + Q
 + A F_{oi} + (1-A) F_{frz}"/></p>
 </div><p>where <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/> is the ocean mixed layer temperature, <img class="math" src="../_images/math/50fedd8767d3b8684d837c2b69e367e1a2355a6a.png" alt="\rho_o"/>
 is the density of ocean water, <img class="math" src="../_images/math/b2a4cd67fac2c5ab024d491ee5d42046358f43c8.png" alt="C_o"/> is the heat capacity of ocean
@@ -187,8 +180,8 @@ formation and ice melt (<img class="math" src="../_images/math/90e8254d1e5ee6948
 respectively) are explicitly predicted.</p>
 <p>The net atmosphere-to-ocean heat flux in the absence of sea ice,
 <img class="math" src="../_images/math/a3965ac90c9513644606210339d525386626dcb2.png" alt="F"/>, is defined as:</p>
-<div class="math" id="equation-6.a.2">
-<p><span class="eqno">(2)<a class="headerlink" href="#equation-6.a.2" title="Permalink to this equation">¶</a></span><img src="../_images/math/4caf9278ab8ca55f04d3ae378027111642795039.png" alt="F = FS - FL - SH - LH"/></p>
+<div class="math" id="equation-6-a-2">
+<p><span class="eqno">(2)<a class="headerlink" href="#equation-6-a-2" title="Permalink to this equation">¶</a></span><img src="../_images/math/4caf9278ab8ca55f04d3ae378027111642795039.png" alt="F = FS - FL - SH - LH"/></p>
 </div><p>where <img class="math" src="../_images/math/c0250456c2e64100dc37db49b56a4aa8a1f36f36.png" alt="FS"/> is the net solar flux absorbed by the ocean mixed
 layer, <img class="math" src="../_images/math/122897f3ad30b46fd3c7d6afc3d0d6dbc0d1f5ea.png" alt="FL"/> is the net longwave energy flux of the ocean surface
 to the atmosphere, <img class="math" src="../_images/math/2c307cbae83854bffd16725e0072db386a2c1cd6.png" alt="SH"/> is the sensible heat flux from the ocean
@@ -203,15 +196,15 @@ h_o, F^n, Q^n"/>, and <img class="math" src="../_images/math/db77dcef8ab699ce41c
 mid-monthly values. It is assumed that the exchange between the ocean
 mixed layer and the atmosphere occurs faster than deep adjustments.
 Hence, the first adjustment to <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/> is evaluated as:</p>
-<div class="math" id="equation-6.a.3">
-<p><span class="eqno">(3)<a class="headerlink" href="#equation-6.a.3" title="Permalink to this equation">¶</a></span><img src="../_images/math/c315b6880e55e20204bd3554350902661f0c5c17.png" alt="T_o^{(n+1)'} = T_o^n + \frac{(1-A^{n}) F^{n}}
+<div class="math" id="equation-6-a-3">
+<p><span class="eqno">(3)<a class="headerlink" href="#equation-6-a-3" title="Permalink to this equation">¶</a></span><img src="../_images/math/c315b6880e55e20204bd3554350902661f0c5c17.png" alt="T_o^{(n+1)'} = T_o^n + \frac{(1-A^{n}) F^{n}}
 {\rho_{o} C_o h_{o}} \Delta t"/></p>
 </div><p>where <img class="math" src="../_images/math/ec002955bdf95ee9869878fbad4f80fc98539359.png" alt="\Delta t"/> is the model time step. We note that <img class="math" src="../_images/math/db77dcef8ab699ce41c0e6471a7a8e2359e4a9f1.png" alt="A^n"/>
 is computed from the fraction of the total CAM5.0 grid box that is not covered
 by land, since only ocean and sea ice covered portion of the grid cell
 are considered for the SOM configuration:</p>
-<div class="math" id="equation-6.a.4">
-<p><span class="eqno">(4)<a class="headerlink" href="#equation-6.a.4" title="Permalink to this equation">¶</a></span><img src="../_images/math/85836228f16bab2d8f6f588c9e16e0d8fbf1b786.png" alt="A^n = \frac{{icefrac}^n} {(1 - landfrac)}"/></p>
+<div class="math" id="equation-6-a-4">
+<p><span class="eqno">(4)<a class="headerlink" href="#equation-6-a-4" title="Permalink to this equation">¶</a></span><img src="../_images/math/85836228f16bab2d8f6f588c9e16e0d8fbf1b786.png" alt="A^n = \frac{{icefrac}^n} {(1 - landfrac)}"/></p>
 </div><p>where <img class="math" src="../_images/math/bc25ab05d0032dde2e54d7f10884ba8e08b9c3a5.png" alt="icefrac"/> is the fraction of ice in the CAM5.0 grid cell and
 <img class="math" src="../_images/math/ec1378f98103144bbf8a513e9b59a7626cdabcbd.png" alt="landfrac"/> is the fraction of land in the CAM5.0 grid box.</p>
 <p>The <img class="math" src="../_images/math/10d3de678911964ce12d5130014bd18e13e23f17.png" alt="Q^n"/> flux is then adjusted since it is possible (using
@@ -219,8 +212,8 @@ monthly specified values of <img class="math" src="../_images/math/331157c6afbd1
 cooling of the mixed layer when its temperature is at the freezing
 point. Therefore, if <img class="math" src="../_images/math/83e63838efbc01327188a06b89d897f19efb4de0.png" alt="Q^n &gt; 0"/> and
 <img class="math" src="../_images/math/a3ec787e5e7a9ad2e07deb61e9a366a0b7e805c3.png" alt="T_o^{(n+1)'} &lt; 0^\circ C"/>, then</p>
-<div class="math" id="equation-6.a.5">
-<p><span class="eqno">(5)<a class="headerlink" href="#equation-6.a.5" title="Permalink to this equation">¶</a></span><img src="../_images/math/b136346824c9d4f854b336c0cb656b15c66156ba.png" alt="Q^{n'} = Q^{n} f_T"/></p>
+<div class="math" id="equation-6-a-5">
+<p><span class="eqno">(5)<a class="headerlink" href="#equation-6-a-5" title="Permalink to this equation">¶</a></span><img src="../_images/math/b136346824c9d4f854b336c0cb656b15c66156ba.png" alt="Q^{n'} = Q^{n} f_T"/></p>
 </div><p>where <img class="math" src="../_images/math/862b8afcc2a16dae00f1b5ae974ee8f167ad19c9.png" alt="f_T = {(T_f - T_o^{(n+1)'})}/{T_f}"/>, and <img class="math" src="../_images/math/ff70731f72e23ae7bc4d5301a56bdd033a5d13a4.png" alt="T_f"/> is the
 ocean freezing temperature of -1.8:math:<cite>^circ</cite>C (where <img class="math" src="../_images/math/b047915888e553c889e60881218b4951a35dbe53.png" alt="T_o"/>
 is expressed in units of <img class="math" src="../_images/math/416949279b3505b72d9f643b9c648a648ba2e17c.png" alt="^\circ"/>C). This adjustment smoothly
@@ -368,7 +361,7 @@ control run.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
     </div>
   </body>
 </html>
