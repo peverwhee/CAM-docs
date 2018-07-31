@@ -518,6 +518,8 @@ To run the user iop with SCAM, follow the following steps (here it is a test cas
 	- **user_nl_cam**:  usually just iopfile. May also want to change mfilt (to keep all times on one file) 
 - Run create_scam6_iop script with appropriate IOP (e.g. IOP=scam_usrLabSea in this case)
 
+ **Important note**: For reproducing a SCAM case, it is necessary to validate that the atm_in settings for your SCAM run are the same as for the underlying CAM run (in the run directories for both simulations). This can be done by differencing the atm_in files. Many CAM compsets will have different emissions files or tuning parameters than a default SCAM case. So, user_nl_cam for the SCAM case should be modified to read in the same emissions and set parameters as the original run.
+
 	
 -------------------------------------------------------------------------------
 Other CAM compsets

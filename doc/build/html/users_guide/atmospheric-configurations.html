@@ -9,7 +9,7 @@
     <title>4. Atmospheric configurations (compsets) &#8212; camdoc  documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -696,6 +696,8 @@ This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
 </li>
 <li>Run create_scam6_iop script with appropriate IOP (e.g. IOP=scam_usrLabSea in this case)</li>
 </ul>
+<blockquote>
+<div><strong>Important note</strong>: For reproducing a SCAM case, it is necessary to validate that the atm_in settings for your SCAM run are the same as for the underlying CAM run (in the run directories for both simulations). This can be done by differencing the atm_in files. Many CAM compsets will have different emissions files or tuning parameters than a default SCAM case. So, user_nl_cam for the SCAM case should be modified to read in the same emissions and set parameters as the original run.</div></blockquote>
 </div>
 </div>
 </div>
@@ -1025,7 +1027,7 @@ above.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>
