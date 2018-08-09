@@ -584,13 +584,13 @@ to run with 32 levels that are not availble at this point. Half-degree SD compse
 | FCSD         | f05_f05_mg17          | Historical CAM6-chem half deg compset   | 1980 to 2015|
 |              |                       | using MERRA2 analysis                   |             |
 +--------------+-----------------------+-----------------------------------------+-------------+
-| FC2000climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 2000        |
-|              |                       | FV dycore, averaged SSTs, emissions, and|             |
-|              |                       | lower boundary conditions (1995-2005)   |             |
+| FC2000climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 1995-2005   |
+|              |                       | FV dycore, averaged SSTs, emissions, and| average     |
+|              |                       | lower boundary conditions (1995-2005)   | climo       |
 +--------------+-----------------------+-----------------------------------------+-------------+
-| FC2010climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 2010        |
-|              |                       | FV dycore, averaged SSTs, emissions, and|             |
-|              |                       | lower boundary conditions (2006-2014)   |             |
+| FC2010climo  | f09_f09_mg17          | Climatological CAM6-chem using 1 degree | 2006-2014   |
+|              |                       | FV dycore, averaged SSTs, emissions, and| average     |
+|              |                       | lower boundary conditions (2006-2014)   | climo       |
 +--------------+-----------------------+-----------------------------------------+-------------+
 
 
