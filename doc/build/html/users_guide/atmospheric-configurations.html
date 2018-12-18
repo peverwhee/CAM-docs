@@ -655,7 +655,9 @@ nhtfrq = 0,73
 <div class="section" id="example-setting-up-user-defined-iop-for-scam">
 <h4>4.2.3.4. Example:  Setting up User Defined IOP for SCAM<a class="headerlink" href="#example-setting-up-user-defined-iop-for-scam" title="Permalink to this headline">¶</a></h4>
 <p>If a user wishes to run SCAM with an IOP location that is not already predefined, the following directions may be used to generate a user defined IOP.  This example will assume that the user wishes to create an IOP at 305 degrees E and 62 degrees N over the Labrador Sea.  It is important to note that the user needs to have the NetCDF Command Language (NCL) and NetCDF Operators (NCO) installed on their machine as the generation scripts utilize this library.</p>
-<p>1. First, run CAM (in any desired configuration ) with following namelist, specifying fields at a point (305 degrees E, 62 degrees N)</p>
+<ol class="arabic simple">
+<li>First, run CAM (in any desired configuration ) with following namelist, specifying fields at a point (305 degrees E, 62 degrees N)</li>
+</ol>
 <div class="highlight-default"><div class="highlight"><pre><span></span>fincl2=U, V, T, Q, OMEGA, TTEND_TOT, PTTEND, TAQ, TS,PS,PSL
 fincl2lonlat = ‘305e_62n’
 nhtfrq = 0,-3
@@ -664,12 +666,28 @@ avgflag_pertape = &#39;A&#39;,&#39;I&#39;
 </div>
 <p>Averaging can be either ‘I’nstantaneous or ‘A’ average for fincl2
 This produces 3 hourly output at a point for fincl2 fields on an h1 file.</p>
-<p>2. Run the following script on the resulting h1 files:</p>
+<ol class="arabic simple" start="2">
+<li>Run the following script on the resulting h1 files:</li>
+</ol>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">components</span><span class="o">/</span><span class="n">cam</span><span class="o">/</span><span class="n">bld</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">camfv2iop</span><span class="o">.</span><span class="n">ncl</span>
 </pre></div>
 </div>
 <p>This uses NCL and NCO to create a SCAM IOP file. See internal to the script for documentation on what needs to be changed for a particular case.</p>
 <ol class="arabic simple" start="3">
+<li>Generating Initial Conditions</li>
+</ol>
+<p>To generate initial conditions for SCAM, they need to be interpolated from the Finite Volume (FV) grid of standard CAM6 to the Eulerian Grid (EUL) through which SCAM currently runs. There is an NCL script for this: <code class="docutils literal"><span class="pre">remapfv2eul.ncl</span></code> in the <code class="docutils literal"><span class="pre">components/cam/bld/scripts</span></code> directory of the CAM source code.</p>
+<p>These steps rely on the NCAR Command Language (NCL) and the NetCDF Operators (NCO). Here <code class="docutils literal"><span class="pre">&lt;case&gt;</span></code> is the case name of a CAM simulation.</p>
+<blockquote>
+<div><p>3.1  Run the <code class="docutils literal"><span class="pre">remapfv2eul.ncl</span></code> script with the source file set to the initial condition file (<code class="docutils literal"><span class="pre">SRC</span> <span class="pre">=</span> <span class="pre">&lt;case&gt;.cam.i.&lt;month&gt;</span></code> file) that is output from the CAM simulation.</p>
+<p>3.2 Re-run the <code class="docutils literal"><span class="pre">remapfv2eul.ncl</span></code> script with the source file set to one of the monthly (h0) files (<code class="docutils literal"><span class="pre">SRC</span> <span class="pre">=</span> <span class="pre">&lt;case&gt;.cam.h0.&lt;month&gt;</span></code> file). This allows the monthly averaged aerosols to be used for the relaxation.</p>
+<p>3.3 Copy the re-gridded initial condition file to make a new one. E.g.: <code class="docutils literal"><span class="pre">cp</span> <span class="pre">&lt;case&gt;.cam.i.&lt;date&gt;.regrid.Gaus_64x128.nc</span> <span class="pre">&lt;case&gt;.cam.i.regrid.Gaus_64x128.nc</span></code></p>
+<p>3.4 Use the ncks NCO command to move averaged aerosols from the regridded monthly file to the regridded initial condition file:</p>
+<p><code class="docutils literal"><span class="pre">ncks</span> <span class="pre">-A</span> <span class="pre">-v</span> <span class="pre">&quot;bc_a1&quot;,</span> <span class="pre">&quot;dst_a1&quot;,</span> <span class="pre">&quot;dst_a3&quot;,</span> <span class="pre">&quot;ncl_a1&quot;,</span> <span class="pre">&quot;ncl_a2&quot;,</span> <span class="pre">&quot;ncl_a3&quot;,</span> <span class="pre">&quot;num_a1&quot;,</span> <span class="pre">&quot;num_a2&quot;,</span> <span class="pre">&quot;num_a3&quot;,</span> <span class="pre">&quot;pom_a1&quot;,</span> <span class="pre">&quot;so4_a1&quot;,</span> <span class="pre">&quot;so4_a2&quot;,</span> <span class="pre">&quot;so4_a3&quot;,</span> <span class="pre">&quot;soa_a1&quot;,</span> <span class="pre">&quot;soa_a2&quot;,</span> <span class="pre">&quot;bc_a4&quot;</span> <span class="pre">,&quot;num_a4&quot;,</span> <span class="pre">&quot;pom_a4&quot;</span> <span class="pre">&lt;case&gt;.cam.h0.&lt;month&gt;.regrid.Gaus_64x128.nc</span> <span class="pre">&lt;case&gt;.cam.i.regrid.Gaus_64x128.nc</span></code></p>
+<p>3.5 Finally, one last step is to ‘fix’ the attributes for aerosol number. The initial condition file needs a mixing ratio, whereas number units in the h0 files used to make the initial condition file are actually 1/kg. Again using NCO:</p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">ncatted</span> <span class="pre">-O</span> <span class="pre">-a</span> <span class="pre">units,num_a1,o,c,&quot;kg/kg&quot;</span> <span class="pre">-a</span> <span class="pre">units,num_a2,o,c,&quot;kg/kg&quot;</span> <span class="pre">-a</span> <span class="pre">units,num_a3,o,c,&quot;kg/kg&quot;</span> <span class="pre">-a</span> <span class="pre">units,num_a4,o,c,&quot;kg/kg&quot;</span> <span class="pre">&lt;case&gt;.cam.i.regrid.Gaus_64x128.nc</span></code></p>
+<ol class="arabic simple" start="4">
 <li>Run the User IOP case.</li>
 </ol>
 <p>To run the user iop with SCAM, follow the following steps (here it is a test case over the Labrador Sea from a CAM Run)</p>

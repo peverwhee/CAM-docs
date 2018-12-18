@@ -486,6 +486,7 @@ If a user wishes to run SCAM with an IOP location that is not already predefined
 
 
 1. First, run CAM (in any desired configuration ) with following namelist, specifying fields at a point (305 degrees E, 62 degrees N)
+
 ::
    
         fincl2=U, V, T, Q, OMEGA, TTEND_TOT, PTTEND, TAQ, TS,PS,PSL
@@ -497,13 +498,36 @@ Averaging can be either 'I'nstantaneous or 'A' average for fincl2
 This produces 3 hourly output at a point for fincl2 fields on an h1 file.
 
 2. Run the following script on the resulting h1 files: 
+
 ::
 
         ./components/cam/bld/scripts/camfv2iop.ncl
 
 This uses NCL and NCO to create a SCAM IOP file. See internal to the script for documentation on what needs to be changed for a particular case.
 
-3. Run the User IOP case.
+3. Generating Initial Conditions
+
+To generate initial conditions for SCAM, they need to be interpolated from the Finite Volume (FV) grid of standard CAM6 to the Eulerian Grid (EUL) through which SCAM currently runs. There is an NCL script for this: ``remapfv2eul.ncl`` in the ``components/cam/bld/scripts`` directory of the CAM source code. 
+
+These steps rely on the NCAR Command Language (NCL) and the NetCDF Operators (NCO). Here ``<case>`` is the case name of a CAM simulation.
+
+
+	3.1  Run the ``remapfv2eul.ncl`` script with the source file set to the initial condition file (``SRC = <case>.cam.i.<month>`` file) that is output from the CAM simulation.
+
+
+	3.2 Re-run the ``remapfv2eul.ncl`` script with the source file set to one of the monthly (h0) files (``SRC = <case>.cam.h0.<month>`` file). This allows the monthly averaged aerosols to be used for the relaxation.
+
+	3.3 Copy the re-gridded initial condition file to make a new one. E.g.: ``cp <case>.cam.i.<date>.regrid.Gaus_64x128.nc <case>.cam.i.regrid.Gaus_64x128.nc``
+
+	3.4 Use the ncks NCO command to move averaged aerosols from the regridded monthly file to the regridded initial condition file: 
+	
+	``ncks -A -v "bc_a1", "dst_a1", "dst_a3", "ncl_a1", "ncl_a2", "ncl_a3", "num_a1", "num_a2", "num_a3", "pom_a1", "so4_a1", "so4_a2", "so4_a3", "soa_a1", "soa_a2", "bc_a4" ,"num_a4", "pom_a4" <case>.cam.h0.<month>.regrid.Gaus_64x128.nc <case>.cam.i.regrid.Gaus_64x128.nc``
+	
+	3.5 Finally, one last step is to 'fix' the attributes for aerosol number. The initial condition file needs a mixing ratio, whereas number units in the h0 files used to make the initial condition file are actually 1/kg. Again using NCO: 
+
+``ncatted -O -a units,num_a1,o,c,"kg/kg" -a units,num_a2,o,c,"kg/kg" -a units,num_a3,o,c,"kg/kg" -a units,num_a4,o,c,"kg/kg" <case>.cam.i.regrid.Gaus_64x128.nc``
+ 
+4. Run the User IOP case.
 
 To run the user iop with SCAM, follow the following steps (here it is a test case over the Labrador Sea from a CAM Run)
 
