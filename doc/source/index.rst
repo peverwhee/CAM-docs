@@ -22,6 +22,7 @@ Table of contents
 .. toctree::
    :maxdepth: 1
 
+   CAM6.0_users_guide/index.rst
    cam5_scientific_guide/index.rst
 ..   cam6_scientific_guide/index.rst
 
