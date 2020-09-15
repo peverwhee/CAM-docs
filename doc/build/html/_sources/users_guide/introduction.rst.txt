@@ -4,7 +4,7 @@
 Introduction 
 **************************
 
-The Community Atmosphere Model version 6 (CAM6) is released as the active atmosphere component of the Community Earth System Model version CESM-2.0. 
+The Community Atmosphere Model version 6.3 (CAM6.3) is released as the active atmosphere component of the Community Earth System Model version CESM-2.2. 
 It is the latest in a series of global atmosphere models whose development is guided by the `Atmosphere Model Working Group (AMWG) <http://www.cesm.ucar.edu/working_groups/Atmosphere/>`_ of the `Community Earth System Model (CESM) <http://www.cesm.ucar.edu//>`_ project. 
 CAM can be run in many configurations within the CESM; it is the atmosphere
 component in the B, E, F, Q, and P compsets.
@@ -29,3 +29,25 @@ Throughout this document, we will use the name CAM in a generic sense and direct
 
 It should be noted that in CAM6, we are unable to support reproducibility of CAM4 and CAM5 numerical results with what a user would get running those configurations in CESM1.2 or prior.
 This is due to many factors including code changes and namelist settings.  While a user is still able to set the "-phys" namelist setting to either cam4 or cam5, the results will differ with what a user would get using those settings in CESM1.2. Due to these changes, a number of compsets specific to CAM4 or CAM5 have been removed.  We recommend that if a user wants a pure CAM4 or CAM5 run, that they use CESM1.2 for those runs.  WACCM-X which utilizes CAM4 does not have this issue and it should be run using the CESM2 release of CAM.
+
+-----------------------
+What's new in the CAM6.3 release?
+-----------------------
+
+The CAM6.3 release consists of new functionally supported configurations mostly centered around new dynamical core configurations and capabilities. New capabilities include:
+
+a. The Spectral-Element (SE) dynamical core has been further developed since the CESM2.0 release. Algorithmic improvements include:
+  - New Exner function pressure gradient formulation and new reference profiles for damping to improve flow over orography.
+  - New vertical remapping algorithms.
+b. Extensive support for variable resolution SE applications. Three resolution/configurations are supported (CONUS, ARCTIC and ARCTICGRIS) and tools for making new grids are provided.
+c. Functional support for coupled simulations using CAM-SE and CAM-SE-CSLAM (Conservative Semi-Lagrangian multi-tracer transport scheme) is provided .
+d. NOAA's FV3 dynamical core used operationally by EMC (Environmental Modeling Center) has been coupled with CAM6 physics and functionally supported for coupled runs.
+e. A new simpler models configuration has been added: Moist Held-Suarez.
+
+As opposed to the CESM2.0 release, these new configurations are not fully scientifically supported in the sense of extensive tuning and vetting.
+
+
+
+
+
+

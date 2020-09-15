@@ -43,6 +43,14 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Introduction</a><ul>
+<li><a class="reference internal" href="#what-s-new-in-the-cam6-3-release">1.1. What’s new in the CAM6.3 release?</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">CAM6.3 User’s Guide</a></p>
@@ -78,7 +86,7 @@
             
   <div class="section" id="introduction">
 <span id="id1"></span><h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The Community Atmosphere Model version 6 (CAM6) is released as the active atmosphere component of the Community Earth System Model version CESM-2.0.
+<p>The Community Atmosphere Model version 6.3 (CAM6.3) is released as the active atmosphere component of the Community Earth System Model version CESM-2.2.
 It is the latest in a series of global atmosphere models whose development is guided by the <a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Atmosphere/">Atmosphere Model Working Group (AMWG)</a> of the <a class="reference external" href="http://www.cesm.ucar.edu//">Community Earth System Model (CESM)</a> project.
 CAM can be run in many configurations within the CESM; it is the atmosphere
 component in the B, E, F, Q, and P compsets.
@@ -101,6 +109,26 @@ Running CAM using the CESM scripts provides a high level of support for doing pr
 <p>Throughout this document, we will use the name CAM in a generic sense and directions provided will be useful for CAM-chem, WACCM and WACCM-X also.</p>
 <p>It should be noted that in CAM6, we are unable to support reproducibility of CAM4 and CAM5 numerical results with what a user would get running those configurations in CESM1.2 or prior.
 This is due to many factors including code changes and namelist settings.  While a user is still able to set the “-phys” namelist setting to either cam4 or cam5, the results will differ with what a user would get using those settings in CESM1.2. Due to these changes, a number of compsets specific to CAM4 or CAM5 have been removed.  We recommend that if a user wants a pure CAM4 or CAM5 run, that they use CESM1.2 for those runs.  WACCM-X which utilizes CAM4 does not have this issue and it should be run using the CESM2 release of CAM.</p>
+<div class="section" id="what-s-new-in-the-cam6-3-release">
+<h2>1.1. What’s new in the CAM6.3 release?<a class="headerlink" href="#what-s-new-in-the-cam6-3-release" title="Permalink to this headline">¶</a></h2>
+<p>The CAM6.3 release consists of new functionally supported configurations mostly centered around new dynamical core configurations and capabilities. New capabilities include:</p>
+<ol class="loweralpha simple">
+<li>The Spectral-Element (SE) dynamical core has been further developed since the CESM2.0 release. Algorithmic improvements include:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>New Exner function pressure gradient formulation and new reference profiles for damping to improve flow over orography.</li>
+<li>New vertical remapping algorithms.</li>
+</ul>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Extensive support for variable resolution SE applications. Three resolution/configurations are supported (CONUS, ARCTIC and ARCTICGRIS) and tools for making new grids are provided.</li>
+<li>Functional support for coupled simulations using CAM-SE and CAM-SE-CSLAM (Conservative Semi-Lagrangian multi-tracer transport scheme) is provided .</li>
+<li>NOAA’s FV3 dynamical core used operationally by EMC (Environmental Modeling Center) has been coupled with CAM6 physics and functionally supported for coupled runs.</li>
+<li>A new simpler models configuration has been added: Moist Held-Suarez.</li>
+</ol>
+<p>As opposed to the CESM2.0 release, these new configurations are not fully scientifically supported in the sense of extensive tuning and vetting.</p>
+</div>
 </div>
 
 

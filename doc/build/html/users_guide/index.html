@@ -79,7 +79,10 @@
 <span id="users-guide"></span><h1>CAM6.3 User’s Guide<a class="headerlink" href="#cam6-3-user-s-guide" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-s-new-in-the-cam6-3-release">1.1. What’s new in the CAM6.3 release?</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="getting-help.html">2. Getting Help</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html#the-cam-web-page">2.1. The CAM Web Page</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html#the-cesm-bulletin-board">2.2. The CESM Bulletin Board</a></li>
@@ -93,39 +96,40 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-scientifically-supported-compsets">4.1. CAM scientifically supported compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-simple-models">4.2. CAM Simple Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-aquaplanet-qp-and-qs-compsets">4.2.1. CAM aquaplanet (QP and QS compsets)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-1-default-aquaplanet-with-prescribed-sst">4.2.1.1. Example 1: Default Aquaplanet with prescribed SST</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-2-default-aquaplanet-with-slab-ocean-model">4.2.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-3-aquaplanet-with-alternate-prescribed-sst">4.2.1.3. Example 3: Aquaplanet with alternate prescribed SST</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-4-aquaplanet-with-user-specified-sst-dataset">4.2.1.4. Example 4: Aquaplanet with user-specified SST dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-functionally-supported-compsets">4.2. CAM functionally supported compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-simple-models">4.3. CAM Simple Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-aquaplanet-qp-and-qs-compsets">4.3.1. CAM aquaplanet (QP and QS compsets)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-1-default-aquaplanet-with-prescribed-sst">4.3.1.1. Example 1: Default Aquaplanet with prescribed SST</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-2-default-aquaplanet-with-slab-ocean-model">4.3.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-3-aquaplanet-with-alternate-prescribed-sst">4.3.1.3. Example 3: Aquaplanet with alternate prescribed SST</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-4-aquaplanet-with-user-specified-sst-dataset">4.3.1.4. Example 4: Aquaplanet with user-specified SST dataset</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-parallel-offline-radiation-tool-port-p-compsets">4.2.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#port-compsets">4.2.2.1. PORT Compsets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-2-x-co2">4.2.2.2. Example: Using PORT to study flux differences due to 2 x CO2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-parallel-offline-radiation-tool-port-p-compsets">4.3.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#port-compsets">4.3.2.1. PORT Compsets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-2-x-co2">4.3.2.2. Example: Using PORT to study flux differences due to 2 x CO2</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-fscam-compset">4.2.3. CAM single column (FSCAM compset)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#scam-configuration-options">4.2.3.1. SCAM Configuration Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-a-scam-run">4.2.3.2. Example:  Setting up a SCAM run</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.2.3.3. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-user-defined-iop-for-scam">4.2.3.4. Example:  Setting up User Defined IOP for SCAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-fscam-compset">4.3.3. CAM single column (FSCAM compset)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#scam-configuration-options">4.3.3.1. SCAM Configuration Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-a-scam-run">4.3.3.2. Example:  Setting up a SCAM run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.3.3.3. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-user-defined-iop-for-scam">4.3.3.4. Example:  Setting up User Defined IOP for SCAM</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.3. Other CAM compsets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#super-parameterized-cam-spcam">4.3.1. Super-parameterized CAM (SPCAM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.4. Other CAM compsets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#super-parameterized-cam-spcam">4.4.1. Super-parameterized CAM (SPCAM)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-tested-compsets">4.4. CAM-chem tested compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">4.5. WACCM compsets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#scientifically-supported-waccm-atmosphere-compsets">4.5.1. Scientifically supported WACCM atmosphere compsets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#tested-waccm-atmosphere-compsets">4.5.2. Tested WACCM atmosphere compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-tested-compsets">4.5. CAM-chem tested compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">4.6. WACCM compsets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#scientifically-supported-waccm-atmosphere-compsets">4.6.1. Scientifically supported WACCM atmosphere compsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#tested-waccm-atmosphere-compsets">4.6.2. Tested WACCM atmosphere compsets</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.6. WACCM-X compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.7. WACCM-X compsets</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="customizing-compsets.html">5. Customizing CAM runs</a><ul>

@@ -185,6 +185,10 @@ soil_erod_file         = '/glade/p/cesmdata/cseg/inputdata/atm/cam/dst/dst_sourc
 Topography files
 ------------------------------
 
+Topography files are generated with the NCAR Global Model Topography Generation Software for Unstructured Grids:
+
+https://github.com/NCAR/Topo/tree/TopoCESM2
+
 ------------------------------
 Meteorological data sets
 ------------------------------
