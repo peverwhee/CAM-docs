@@ -46,7 +46,7 @@ The CAM6.3 is a developmental release mostly centered around new dynamical core 
  - NOAA's FV3 dynamical core used operationally by EMC (Environmental Modeling Center) has been coupled with CAM6 physics.
  - A new simpler models configuration has been added: Moist Held-Suarez.
 
-As opposed to the CESM2.0 release, these new configurations are not fully scientifically supported in the sense of extensive tuning, testing and vetting. Hence they are referred to as
+These new configurations are not fully scientifically supported in the sense of extensive tuning, testing and vetting. Hence they are referred to as
 **developmental configurations**.
 
 
