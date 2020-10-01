@@ -136,6 +136,7 @@
 <p>The predefined compsets exist with one of three levels of support.</p>
 <ul class="simple">
 <li><strong>Scientifically supported</strong>:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.</li>
+<li><strong>Developmental support</strong>: Developmental configurations that are being evaluated. These are not fully scientifically supported in the sense of extensive tuning, testing and vetting.</li>
 <li><strong>Tested</strong>: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of “Tested” simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.</li>
 <li><strong>Unsupported</strong>:  These compsets are setup as a “convenience” for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the –run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.</li>
 </ul>
@@ -271,7 +272,7 @@ and <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/
 <p><em>CONUS Grid</em></p>
 <p>The <strong>CONUS</strong> variable resolution grid is a 1 degree horizontal resolution grid with
 a regional refinement of 1/8 degree resolution over the continential United States.</p>
-<a class="reference internal image-reference" href="../_images/Grid_CONUS.png"><img alt="../_images/Grid_CONUS.png" class="align-center" src="../_images/Grid_CONUS.png" style="width: 350px; height: 350px;" /></a>
+<a class="reference internal image-reference" href="../_images/Grid_CONUS.jpg"><img alt="../_images/Grid_CONUS.jpg" class="align-center" src="../_images/Grid_CONUS.jpg" style="width: 350px; height: 350px;" /></a>
 <p><em>ARCTIC Grids</em></p>
 <p>Two variable resolution grids are available for the Artic region. The <strong>ARCTIC</strong> grid,
 which is a 1 degree horizontal resolution grid with regional refinement of 1/4 degree
@@ -283,8 +284,8 @@ additionally refines a patch covering the Greenland with 1/8 degree resolution.<
 <col width="50%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../_images/Grid_ARCTIC.png"><img alt="img1" src="../_images/Grid_ARCTIC.png" style="width: 350px; height: 350px;" /></a></td>
-<td><a class="reference internal" href="../_images/Grid_ARCTICGRIS.png"><img alt="img2" src="../_images/Grid_ARCTICGRIS.png" style="width: 350px; height: 350px;" /></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="../_images/Grid_ARCTIC.jpg"><img alt="img1" src="../_images/Grid_ARCTIC.jpg" style="width: 350px; height: 350px;" /></a></td>
+<td><a class="reference internal" href="../_images/Grid_ARCTICGRIS.jpg"><img alt="img2" src="../_images/Grid_ARCTICGRIS.jpg" style="width: 350px; height: 350px;" /></a></td>
 </tr>
 </tbody>
 </table>
@@ -332,7 +333,9 @@ FHIST, FHIST_BGC</td>
 <dl class="docutils">
 <dt>There are several simpler configurations in which CAM can be run.  These include:</dt>
 <dd><ul class="first last simple">
-<li>Generic adiabatic simple model (FDABIP04)</li>
+<li>Generic adiabatic configuration (FADIAB)</li>
+<li>Specific adiabatic configuration (FDABIP04)</li>
+<li>Baroclinic wave with Kessler microphysics and terminator chemistry (FKESSLER)</li>
 <li>Held-Suarez simple model (FHS94)</li>
 <li>Moist Held-Suarez simple model (FTJ16)</li>
 <li>Aquaplanet (QP and QS compsets)</li>
@@ -358,46 +361,53 @@ FHIST, FHIST_BGC</td>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>FDABIP04</td>
+<tr class="row-even"><td>FADIAB</td>
+<td>f09_f09_mg17</td>
+<td>Generic adiabatic configuration</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>FDABIP04</td>
 <td>T42z30_T42_mg17,
 T85z30_T85_mg17,
 T85z60_T85_mg17</td>
-<td>Generic adiabatic simple model</td>
+<td>Specific adiabatic configuration,
+Polvani et al. baroclinic wave</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>FSCAM</td>
+<tr class="row-even"><td>FSCAM</td>
 <td>T42_T42</td>
 <td>Single column CAM</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>FHS94</td>
+<tr class="row-odd"><td>FHS94</td>
 <td>T42z30_T42_mg17,
 T85z30_T85_mg17,
-T85z60_T85_mg17</td>
+T85z60_T85_mg17,
+f09_f09_mg17</td>
 <td>Held-Suarez simpler model</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>FTJ16</td>
+<tr class="row-even"><td>FTJ16</td>
 <td>f09_f09_mg17</td>
 <td>Moist Held-Suarez simpler model</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>FKESSLER</td>
+<tr class="row-odd"><td>FKESSLER</td>
 <td>f09_f09_mg17,
 ne30_ne30_mg17,
 ne30pg3_ne30_pg3_mg17</td>
 <td>Ulrich et al. baroclinic wave with
 Kessler microphysics and terminator
-chemistry Kessler</td>
+chemistry</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>QPC6</td>
+<tr class="row-even"><td>QPC6</td>
 <td>f09_f09_mg17,
 f19_f19_mg17</td>
 <td>Prescribed SST Aquaplanet using CAM6</td>
 <td>2000 to 2015</td>
 </tr>
-<tr class="row-even"><td>QSC6</td>
+<tr class="row-odd"><td>QSC6</td>
 <td>f09_f09_mg17,
 f19_f19_mg17</td>
 <td>Slab-Ocean Aquaplanet using CAM6</td>
@@ -405,7 +415,7 @@ f19_f19_mg17</td>
 </tr>
 </tbody>
 </table>
-<p>Note that FHS94, FTJ16, FKESSLER, and QPC6 compset’s can be run  with  the FV, FV3,
+<p>Note that FADIAB, FHS94, FTJ16, FKESSLER, and QPC6 compset’s can be run  with  the FV, FV3,
 SE and SE-CSLAM dynamical cores using the “run-unsupported” flag</p>
 <blockquote>
 <div>% ./create_newcase –case … –compset … –run-unsupported</div></blockquote>

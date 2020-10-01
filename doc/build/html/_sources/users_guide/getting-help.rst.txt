@@ -21,7 +21,7 @@ The CESM Bulletin Board is a moderated forum for rapid exchange of information, 
 This includes sharing software tools, datasets, programming tips and examples, as well as discussions of questions, problems and workarounds. 
 The primary motivation for the establishment of this forum is to facilitate and encourage communication between the users of the CESM around the world. This bulletin board will also be used to distribute announcements related to CESM.
 
-The CESM Bulletin Board is here: `http://bb.cgd.ucar.edu/ <http://bb.cgd.ucar.edu/>`_.
+The CESM Bulletin Board is here: `http://bb.cgd.ucar.edu/cesm <http://bb.cgd.ucar.edu/cesm>`_.
 
 You will find specific sections about CAM, WACCM and CAM-chem.
 
@@ -29,7 +29,7 @@ You will find specific sections about CAM, WACCM and CAM-chem.
 Reporting bugs
 ---------------------
 
-If a user should encounter bugs in the code (i.e., it doesn't behave in a way in which the documentation says it should), the problem should be reported electronically to the `CESM Bulletin Board <http://bb.cgd.ucar.edu/>`_. 
+If a user should encounter bugs in the code (i.e., it doesn't behave in a way in which the documentation says it should), the problem should be reported electronically to the `CESM Bulletin Board <http://bb.cgd.ucar.edu/cesm>`_. 
 When writing a bug report the guiding principle should be to provide enough information so that the bug can be reproduced. 
 The following list suggests the minimal information that should be contained in the report:
 

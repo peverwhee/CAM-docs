@@ -33,7 +33,7 @@ List of available emissions datasets
 ================================================
 
 The default emissions for CESM2 are based on the CMIP6 inventories for anthropogenic and biomass burning emissions, provided by the Community Emissions Data System (CEDS, http://www.globalchange.umd.edu/ceds/ceds-cmip6-data/), original files are available at: https://esgf-node.llnl.gov/search/input4mips/. Additional emissions (soil, ocean) are from the POET inventory (http://eccad.aeris-data.fr/).
-Continuous volcanic out‐gassing emissions of SO2, with 2.5% emitted as sulfate aerosols, are from the GEIA inventory (Andres & Kasgnoc, https://doi.org/10.1029/98JD02091,1998). SO2 from eruptive volcanoes is specified as well, based on the database of Volcanic Emissions for Earth System Models, version 3.11 (VolcanEESM; Neely & Schmidt, https://doi.org/10.5285/76ebdc0b-0eed-4f70-b89e-55e606bcd568, 2016).
+Continuous volcanic out‐gassing emissions of SO2, with 2.5% emitted as sulfate aerosols, are from the GEIA inventory (Andres & Kasgnoc, https://doi.org/10.1029/98JD02091, 1998). SO2 from eruptive volcanoes is specified as well, based on the database of Volcanic Emissions for Earth System Models, version 3.11 (VolcanEESM; Neely & Schmidt, https://doi.org/10.5285/76ebdc0b-0eed-4f70-b89e-55e606bcd568, 2016).
 It is straightforward to use different emissions inventories in CAM, CAM-chem or WACCM simulations by specifying different files (in the proper format) in the namelist.   A list of emissions inventories that have been used in CESM2 are at: https://wiki.ucar.edu/display/camchem/Emission+Inventories.
 
 ================================================

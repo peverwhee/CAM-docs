@@ -22,7 +22,7 @@ All configure options change the way that CAM is built and need to be applied be
    %./xmlchange --append CAM_CONFIG_OPTS='-cosp'
 
 
-CAM has numerous options which can modify it's configuration.  A few of the more widely used settings will be discussed here.  The complete listing of configure options is at :ref:`arguments to configure<arguments-to-configure>`.  More information on xmlchange can be found at the `xmlchange web page <http://esmci.github.io/cime/Tools_user/xmlchange.html>`_.
+CAM has numerous options which can modify it's configuration.  A few of the more widely used settings will be discussed here.  The complete listing of configure options is at :ref:`arguments to configure<arguments-to-configure>`.  More information on xmlchange can be found at the `xmlchange web page <http://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/xmlchange.html>`_.
 
 #########################################
 Changing the physics
@@ -37,7 +37,7 @@ There are a number of settings which can change the physics which is run.  Some 
 -------------------------------------------------------------------------------
 Changing CAM namelist options
 -------------------------------------------------------------------------------
-There are a number of ways that CAM can be modified via namelist settings.  These values control the way the code is run and do not require a recompile of the code after they are changed.  CAM namelist variables include settings to tune the model for various quantities, control over output and many other options.  An example using CMIP5 emissions will be described here and a full explanation of controlling CAM output can be found at :ref:`Model Output<model-output>`. .  A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2/settings/current/cam_nml.html>`_ 
+There are a number of ways that CAM can be modified via namelist settings.  These values control the way the code is run and do not require a recompile of the code after they are changed.  CAM namelist variables include settings to tune the model for various quantities, control over output and many other options.  An example using CMIP5 emissions will be described here and a full explanation of controlling CAM output can be found at :ref:`Model Output<model-output>`. .  A complete listing of all of CAM's namelists is available at `CAM's namelist variables <http://www.cesm.ucar.edu/models/cesm2/settings/2.2.0/cam_nml.html>`_ 
 
 #######################################################################
 Modifying Namelist settings:  Detailed Example -- Using CMIP5 emissions
@@ -94,7 +94,7 @@ User-Defined Compsets
 
 Sometimes a user does not find a specific compset that brings in all of the specific versions of components that they want.  In this case, a user will need to create a user defined compset.  This is something that only an expert user should do as not all versions and variations of components are able to work together.  It is also important to note that creating runs outside of supported compsets may yield incorrect results due to the simple fact that they have not been tuned or tested.  A user needs to be extremely cautious when making their own user-defined compsets.
 
-A simple example will be discussed here, but a more comprehensive writeup can be found in `creating new compsets <http://esmci.github.io/cime/users_guide/compsets.html#creating-new-compsets.html>`_.
+A simple example will be discussed here, but a more comprehensive writeup can be found in `creating new compsets <http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/compsets.html#creating-new-compsets.html>`_.
 
 Typically users use shortnames in their ``./create_newcase`` commands for example:
 ::

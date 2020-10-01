@@ -15,7 +15,7 @@ When CAM is coupled to prognostic land, ocean, and sea ice models then we refer
 to it as a "fully coupled CESM simulation" which are implemented in the B compsets.
 
 To get started running CAM refer to the `CESM2 Quick Start Guide
-<http://escomp.github.io/cesm/release-cesm2>`_ and the 
+<https://escomp.github.io/CESM/versions/cesm2.2/html/quickstart.html>`_ and the 
 :ref:`Building and Running CAM within CESM <building-and-running-cam>` section of this User's Guide.
 Running CAM using the CESM scripts provides a high level of support for doing production runs of predefined experiments on supported platforms. This is the place to start for most users.
 
@@ -37,14 +37,16 @@ What's new in the CAM6.3 release?
 The CAM6.3 is a developmental release mostly centered around new dynamical core configurations and capabilities. New configurations/capabilities include:
 
  - The Spectral-Element (SE) dynamical core has been further developed since the `CESM2.0 release <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017MS001257>`_. Algorithmic improvements include:
-   - New Exner function pressure gradient formulation and new reference profiles for damping to improve flow over orography.
-   - New vertical remapping algorithms.
+
+   * New Exner function pressure gradient formulation and new reference profiles for damping to improve flow over orography.
+   * New vertical remapping algorithms.
+     
  - Extensive new capabilities for variable resolution SE applications which include three new resolutions/configurations (CONUS, ARCTIC and ARCTICGRIS) and tools for making new grids are.
  - Developmental setups for coupled simulations using CAM-SE and CAM-SE-CSLAM (Conservative Semi-Lagrangian multi-tracer transport scheme).
  - NOAA's FV3 dynamical core used operationally by EMC (Environmental Modeling Center) has been coupled with CAM6 physics.
  - A new simpler models configuration has been added: Moist Held-Suarez.
 
-As opposed to the CESM2.0 release, these new configurations are not fully scientifically supported in the sense of extensive tuning, testing and vetting. Hence they are referred to as
+These new configurations are not fully scientifically supported in the sense of extensive tuning, testing and vetting. Hence they are referred to as
 **developmental configurations**.
 
 

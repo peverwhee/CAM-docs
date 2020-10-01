@@ -17,6 +17,7 @@ Each of these models have a number of atmospheric configurations provided to run
 The predefined compsets exist with one of three levels of support.
 
 - **Scientifically supported**:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.
+- **Developmental support**: Developmental configurations that are being evaluated. These are not fully scientifically supported in the sense of extensive tuning, testing and vetting. 
 - **Tested**: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of "Tested" simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.
 - **Unsupported**:  These compsets are setup as a "convenience" for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the --run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.
 
@@ -123,7 +124,7 @@ The **CONUS** variable resolution grid is a 1 degree horizontal resolution grid 
 a regional refinement of 1/8 degree resolution over the continential United States.
 
 
-.. image:: Grid_CONUS.png   
+.. image:: Grid_CONUS.jpg   
     :width: 350px
     :height: 350px
     :align: center
@@ -136,11 +137,11 @@ resolution over the broader Arctic region and the **ARCTICGRIS** grid which
 additionally refines a patch covering the Greenland with 1/8 degree resolution.
 
 
-.. |img1| image:: Grid_ARCTIC.png   
+.. |img1| image:: Grid_ARCTIC.jpg   
     :width: 350px
     :height: 350px
 
-.. |img2| image:: Grid_ARCTICGRIS.png   
+.. |img2| image:: Grid_ARCTICGRIS.jpg   
     :width: 350px                 
     :height: 350px                
 
@@ -171,7 +172,9 @@ CAM Simple Models
 -------------------------------------------------------------------------------
 
 There are several simpler configurations in which CAM can be run.  These include:
- - Generic adiabatic simple model (FDABIP04)
+ - Generic adiabatic configuration (FADIAB)
+ - Specific adiabatic configuration (FDABIP04)
+ - Baroclinic wave with Kessler microphysics and terminator chemistry (FKESSLER)
  - Held-Suarez simple model (FHS94)
  - Moist Held-Suarez simple model (FTJ16)
  - Aquaplanet (QP and QS compsets)
@@ -185,21 +188,24 @@ For more information on the CESM Simpler Models project see http://www.cesm.ucar
 +--------------+----------------------+-----------------------------------------+-------------+
 | Compset Name | supported resolution |Description                              | Period      |
 +==============+======================+=========================================+=============+
-| FDABIP04     | T42z30_T42_mg17,     | Generic adiabatic simple model          |             |
-|              | T85z30_T85_mg17,     |                                         |             |
+| FADIAB       | f09_f09_mg17         | Generic adiabatic configuration         |             |
++--------------+----------------------+-----------------------------------------+-------------+
+| FDABIP04     | T42z30_T42_mg17,     | Specific adiabatic configuration,       |             |
+|              | T85z30_T85_mg17,     | Polvani et al. baroclinic wave          |             |
 |              | T85z60_T85_mg17      |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FSCAM        | T42_T42              | Single column CAM                       |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FHS94        | T42z30_T42_mg17,     | Held-Suarez simpler model               |             |
 |              | T85z30_T85_mg17,     |                                         |             |
-|              | T85z60_T85_mg17      |                                         |             |
+|              | T85z60_T85_mg17,     |                                         |             |
+|              | f09_f09_mg17         |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FTJ16        | f09_f09_mg17         | Moist Held-Suarez simpler model         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | FKESSLER     | f09_f09_mg17,        | Ulrich et al. baroclinic wave with      |             |
 |              | ne30_ne30_mg17,      | Kessler microphysics and terminator     |             |
-|              | ne30pg3_ne30_pg3_mg17| chemistry Kessler                       |             |
+|              | ne30pg3_ne30_pg3_mg17| chemistry                               |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 | QPC6         | f09_f09_mg17,        | Prescribed SST Aquaplanet using CAM6    | 2000 to 2015|
 |              | f19_f19_mg17         |                                         |             |
@@ -208,7 +214,7 @@ For more information on the CESM Simpler Models project see http://www.cesm.ucar
 |              | f19_f19_mg17         |                                         |             |
 +--------------+----------------------+-----------------------------------------+-------------+
 
-Note that FHS94, FTJ16, FKESSLER, and QPC6 compset's can be run  with  the FV, FV3,
+Note that FADIAB, FHS94, FTJ16, FKESSLER, and QPC6 compset's can be run  with  the FV, FV3,
 SE and SE-CSLAM dynamical cores using the "run-unsupported" flag
 
   % ./create_newcase --case ... --compset ... --run-unsupported
