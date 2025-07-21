@@ -60,7 +60,7 @@ To run the FHIST compset, and create a case called fhist, simply run the followi
 To run the F2000climo compset, and create a case called f_present_day, simply run the following commands::
 
   % cd cime/scripts
-  % ./create_newcase --case f_present_day --compset FHIST --res f09_f09_mg17 
+  % ./create_newcase --case f_present_day --compset F2000climo --res f09_f09_mg17 
   % cd f_present_day
   % ./case.setup
   % ./case.build

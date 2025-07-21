@@ -1,31 +1,29 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="../">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>3. Building and Running the atmospheric model within CESM &#8212; camdoc  documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Atmospheric configurations (compsets)" href="atmospheric-configurations.html" />
     <link rel="prev" title="2. Getting Help" href="getting-help.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -38,60 +36,23 @@
           <a href="getting-help.html" title="2. Getting Help"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Building and Running the atmospheric model within CESM</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">3. Building and Running the atmospheric model within CESM</a><ul>
-<li><a class="reference internal" href="#modifying-cam-s-compiled-codebase-configuration">3.1. Modifying CAM’s compiled codebase (configuration)</a></li>
-<li><a class="reference internal" href="#modifying-namelist-settings-in-cam-run">3.2. Modifying namelist settings in CAM run</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="getting-help.html"
-                        title="previous chapter">2. Getting Help</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="atmospheric-configurations.html"
-                        title="next chapter">4. Atmospheric configurations (compsets)</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/users_guide/building-and-running-cam.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="building-and-running-the-atmospheric-model-within-cesm">
-<span id="building-and-running-cam"></span><h1>3. Building and Running the atmospheric model within CESM<a class="headerlink" href="#building-and-running-the-atmospheric-model-within-cesm" title="Permalink to this headline">¶</a></h1>
+  <section id="building-and-running-the-atmospheric-model-within-cesm">
+<span id="building-and-running-cam"></span><h1><span class="section-number">3. </span>Building and Running the atmospheric model within CESM<a class="headerlink" href="#building-and-running-the-atmospheric-model-within-cesm" title="Link to this heading">¶</a></h1>
 <p>If you need to install CESM, you will need to download it from a git
 repository.  Please refer to <a class="reference external" href="http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html">downloading CESM</a>.</p>
 <p>CAM runs are setup, built, and submitted via the CIME scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using the CIME create_newcase script, passing it a case name, compset, and model resolution.</p>
 <p>The case name is used as the name of the new directory which will contain all the information needed to configure, build, and run the case as well as serving as the case title of the CAM model run.</p>
-<p>The compset is chosen from a set of named configurations that provide defaults for making one of several common types of runs. Examples of compset choices include configuring CAM to run in parallel with other components or specifying a particular set of physics parameterizations to reproduce a well known intermodel comparison or perhaps configuring CAM with the appropriate input data to run for different time periods (historical, present-day, future). &nbsp;The compset determines the general type of run to be made and the other elements of the CIME case control system allow the user to fine-tune the particulars of CAM’s physics and dynamics to meet each user’s requirements. Compsets will be described in much more detail in <a class="reference internal" href="atmospheric-configurations.html#atmospheric-configurations"><span class="std std-ref">Atmospheric configurations</span></a>.  For this chapter, we will be using the compset FHIST.</p>
+<p>The compset is chosen from a set of named configurations that provide defaults for making one of several common types of runs. Examples of compset choices include configuring CAM to run in parallel with other components or specifying a particular set of physics parameterizations to reproduce a well known intermodel comparison or perhaps configuring CAM with the appropriate input data to run for different time periods (historical, present-day, future).  The compset determines the general type of run to be made and the other elements of the CIME case control system allow the user to fine-tune the particulars of CAM’s physics and dynamics to meet each user’s requirements. Compsets will be described in much more detail in <a class="reference internal" href="atmospheric-configurations.html#atmospheric-configurations"><span class="std std-ref">Atmospheric configurations</span></a>.  For this chapter, we will be using the compset FHIST.</p>
 <p>The resolution parameter of create_newcase, like the compset name, is chosen from a set of grid configurations. These grid configurations determine which dynamical core will be used in CAM as well as the spatial resolution of the grids for each component model participating in the compset. CAM currently supports the Finite Volume (FV), Spectral Element (SE), and Eulerian (EUL) dynamical cores. This release adds developmental support for NOAA’s Finite Volume Cubed Sphere (FV3) dynamical core. The grid name is usually given in a shortened form called an alias which lists the grids used by the atmosphere, land, and ocean/ice components. CAM grid names begin with a letter or two denoting the dynamical core followed by a string of digits representing the grid resolution. The Finite Volume Grids begin with the letter ‘f’, SE grid names begin with ‘ne’, Eulerian grids begin with ‘T’, and FV3 grid names begin with the letter ‘C’. Grid resolutions will be covered in detail in the next section  <a class="reference internal" href="atmospheric-configurations.html#atmospheric-configurations"><span class="std std-ref">Atmospheric configurations</span></a>.</p>
 <p>A simple session to configure, build, and run CAM for a historical simulation is illustrated as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
@@ -117,25 +78,25 @@ repository.  Please refer to <a class="reference external" href="http://escomp.g
 <p>A summary description of the setup/build/submit process can be found at the <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.1/html/quickstart.html">CESM quick start</a>.</p>
 <p>Further, detailed information for each of the above steps can be found at:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/create-a-case.html">create_newcase</a></li>
-<li><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/setting-up-a-case.html">case.setup</a></li>
-<li><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/building-a-case.html">case.build</a></li>
-<li><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/running-a-case.html">case.submit</a></li>
+<li><p><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/create-a-case.html">create_newcase</a></p></li>
+<li><p><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/setting-up-a-case.html">case.setup</a></p></li>
+<li><p><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/building-a-case.html">case.build</a></p></li>
+<li><p><a class="reference external" href="http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/running-a-case.html">case.submit</a></p></li>
 </ul>
 <p>Users are encouraged to review these sections of the CIME user’s guide as they fully describe the CIME case control system used to configure and run CAM.</p>
-<div class="section" id="modifying-cam-s-compiled-codebase-configuration">
-<h2>3.1. Modifying CAM’s compiled codebase (configuration)<a class="headerlink" href="#modifying-cam-s-compiled-codebase-configuration" title="Permalink to this headline">¶</a></h2>
+<section id="modifying-cam-s-compiled-codebase-configuration">
+<h2><span class="section-number">3.1. </span>Modifying CAM’s compiled codebase (configuration)<a class="headerlink" href="#modifying-cam-s-compiled-codebase-configuration" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><strong>CAM_CONFIG_OPTS</strong>:  The settings in this variable are passed directly to CAM’s configure command and are normally set as part of a compset definition. Expert users can modify this variable to add or change the default parameters passed to configure.  Some examples of modifiable options include changing the physics version (cam4, cam5, cam6) or enabling the COSP simulator package, etc…
-The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to append flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.  More details on changing CAM’s configuration can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing compsets</span></a>.</li>
+<li><p><strong>CAM_CONFIG_OPTS</strong>:  The settings in this variable are passed directly to CAM’s configure command and are normally set as part of a compset definition. Expert users can modify this variable to add or change the default parameters passed to configure.  Some examples of modifiable options include changing the physics version (cam4, cam5, cam6) or enabling the COSP simulator package, etc…
+The list of possible options are detailed at <a class="reference internal" href="appendices.html#arguments-to-configure"><span class="std std-ref">arguments to configure</span></a>.  It is important to note that CAM compsets already have this variable set and that a user will most likely want to append flags as opposed to replacing them.  If the append flag is not used, this variable is reset to only include the values specified and all preset values are removed.  More details on changing CAM’s configuration can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing compsets</span></a>.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">test_FHIST</span>
 <span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-cosp&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="modifying-namelist-settings-in-cam-run">
-<h2>3.2. Modifying namelist settings in CAM run<a class="headerlink" href="#modifying-namelist-settings-in-cam-run" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="modifying-namelist-settings-in-cam-run">
+<h2><span class="section-number">3.2. </span>Modifying namelist settings in CAM run<a class="headerlink" href="#modifying-namelist-settings-in-cam-run" title="Link to this heading">¶</a></h2>
 <p>To modify CAM namelist settings, add the appropriate keyword/value pair at the end of the $CASEROOT/user_nl_cam file.  If the run needs to change namelist settings in other components, then modify the appropriate $CASEROOT/user_nl_XXX file.</p>
 <p>For example, to change the CO2 volume mixing ratio to 400.e-6, modify <strong>user_nl_cam</strong> and add the following line at the end:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">co2vmr</span><span class="o">=</span><span class="mf">400.e-6</span>
@@ -146,16 +107,59 @@ The list of possible options are detailed at <a class="reference internal" href=
 namelist variables</a>
 More details on changing CAM’s namelist can be found at <a class="reference internal" href="customizing-compsets.html#customizing-compsets"><span class="std std-ref">customizing
 compsets</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">3. Building and Running the atmospheric model within CESM</a><ul>
+<li><a class="reference internal" href="#modifying-cam-s-compiled-codebase-configuration">3.1. Modifying CAM’s compiled codebase (configuration)</a></li>
+<li><a class="reference internal" href="#modifying-namelist-settings-in-cam-run">3.2. Modifying namelist settings in CAM run</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="getting-help.html"
+                          title="previous chapter"><span class="section-number">2. </span>Getting Help</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="atmospheric-configurations.html"
+                          title="next chapter"><span class="section-number">4. </span>Atmospheric configurations (compsets)</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/users_guide/building-and-running-cam.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -168,12 +172,13 @@ compsets</span></a>.</p>
           <a href="getting-help.html" title="2. Getting Help"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Building and Running the atmospheric model within CESM</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
+    &#169; Copyright 2017 UCAR.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

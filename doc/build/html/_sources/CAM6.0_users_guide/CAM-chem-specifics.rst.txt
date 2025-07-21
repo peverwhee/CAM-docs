@@ -1,7 +1,7 @@
 .. _cam-chem-specifics:
 
 **********************************************************
-Chemistry specific modifications 
+Chemistry specific modifications
 **********************************************************
 
 CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see details in the cam6_scientific_guide). Here, we describe details on how the chemical mechanism is compiled and how to perform modifications of chemistry in the model, including adding or removing chemical and aerosol species, which requires changing the chemical mechanism and if applicable changes to wet and dry deposition.  Additional changes may be required in the namelist, e.g., adding our removing output, changing deposition species etc., as described in Section 5.2.  Furthermore, code changes may be required, depending of the specifics of the changes.
@@ -12,10 +12,10 @@ CESM2.0 supports one standard mechanisms for CAM, CAM-chem, and WACCM (see detai
 Chemical mechanisms
 ----------------------------------------------------------------
 
-CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/. 
+CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemical mechanism is a set used to calculate chemical reactions using the chemical preprocessor (http://www.cesm.ucar.edu/working_groups/Chemistry/chemistry.preprocessor.pdf). For existing compsets the preprocessor has been used to compile fortran routines required to run the model: under $CCSMROOT/components/cam/src/chemistry/.
 
 +--------------------------+-----------------------------+---------------+-----------------+
-|| Mechanism               | | Model:                    || #Species     || #Reactions     | 
+|| Mechanism               | | Model:                    || #Species     || #Reactions     |
 || (pre-processor code)    | | Chemistry Description     |               |                 |
 +==========================+=============================+===============+=================+
 || TSMLT1                  | WACCM: Troposphere,         || 231 solution,|| 583            |
@@ -30,11 +30,11 @@ CESM2.0 supports 6 chemical mechanism (as listed in the Table). The CESM chemica
 || (pp_waccm_ma_mam4)      | (stratosphere, mesosphere,  || 2 invariant  | (207 kinetic,   |
 |                          | and lower thermosphere)     |               || 91 photolysis) |
 +--------------------------+-----------------------------+---------------+-----------------+
-|| MAD                     | WACCM: Middle atmosphere    || 135 solution,|| 593            | 
+|| MAD                     | WACCM: Middle atmosphere    || 135 solution,|| 593            |
 || (pp_waccm_mad_mam4)     | plus D-region ion chemistry || 2 invariant  | (489 kinetic,   |
 |                          |                             |               || 104 photolysis)|
 +--------------------------+-----------------------------+---------------+-----------------+
-|| SC                      | WACCM: Specified chemistry  || 29 solution, || 12             | 
+|| SC                      | WACCM: Specified chemistry  || 29 solution, || 12             |
 || (pp_waccm_sc_mam4)      |                             || 8 invariant  | (11 kinetic,    |
 |                          |                             |               || 1 photolysis)  |
 +--------------------------+-----------------------------+---------------+-----------------+
@@ -62,16 +62,14 @@ To modify the chemical mechanism, including changing reaction rates requires the
 Adding emissions and lower boundary conditions
 ----------------------------------------------------------------
 
-Adding new chemical or aerosol species requires to include their sources (emissions) and sinks (deposition, see below). 
-Sources can be either emissions (surface or vertical, see Section 6.1) or concentrations in form of lower boundary conditions. 
+Adding new chemical or aerosol species requires to include their sources (emissions) and sinks (deposition, see below).
+Sources can be either emissions (surface or vertical, see Section 6.1) or concentrations in form of lower boundary conditions.
 To add new emissions you have to copy the existing list of emisisons to your user_nl_cam file and add the additional species (See Section 5.2.1).
 
 To add new lower boundary conditions via namelist, you have to add an addition species to the flbc_list and modify the lbc_file:
 
 flbc_file              = '/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc'
-flbc_list              = 'CCL4', 'CF2CLBR', 'CF3BR', 'CFC11', 'CFC113', 'CFC12', 'CH3BR', 'CH3CCL3', 'CH3CL', 'CH4',
-         'CO2', 'H2', 'HCFC22', 'N2O', 'CFC114', 'CFC115', 'HCFC141B', 'HCFC142B', 'CH2BR2', 'CHBR3',
-         'H2402', 'OCS', 'SF6', 'CFC11eq'
+flbc_list              = 'CCL4', 'CF2CLBR', 'CF3BR', 'CFC11', 'CFC113', 'CFC12', 'CH3BR', 'CH3CCL3', 'CH3CL', 'CH4', 'CO2', 'H2', 'HCFC22', 'N2O', 'CFC114', 'CFC115', 'HCFC141B', 'HCFC142B', 'CH2BR2', 'CHBR3', 'H2402', 'OCS', 'SF6', 'CFC11eq'
 
 ----------------------------------------------------------------
 Adding species and changing the mechanism
@@ -82,13 +80,13 @@ The addition of species with dry and wet deposition requires code changes. This 
 - Copy $CCSMROOT/cime/src/drivers/mct/shr/seq_drydep_mod.F90 in to your  $CASEROOTSourceMods/src.share directory and modify the following. You can also map the new new species to deposit with the same rates as a species already undergoing wet deposition and therefore skip this step.
 
          - In this code, there are several arrays containing: 1) species names, 2) reactivity factors (f0), 3) henry's law constants, and 4) molecular weights. Add your new species characteristics at the end of each of these arrays.
-         - Update the variable "maxspc" to be the total number of species you are dry depositing. 
+         - Update the variable "maxspc" to be the total number of species you are dry depositing.
          - Update the variable "n_species_table" to the total number of species listed in these arrays.
 
 
-- Additional routines may have to be modified: 
-         - $CCSMROOT/components/cam/src/chemistry/mozart/mo_neu_wetdep.F90 
-         - $CCSMROOT/components/cam/src/chemistry/mo_drydep.F90 (subroutine drydep_xactive) 
+- Additional routines may have to be modified:
+         - $CCSMROOT/components/cam/src/chemistry/mozart/mo_neu_wetdep.F90
+         - $CCSMROOT/components/cam/src/chemistry/mo_drydep.F90 (subroutine drydep_xactive)
          - $CCSMROOT/components/clm/src/biogeochem/DryDepVelocity.F90
 
 - Add new species to the masterlist (to be automatically included in your namelists). If you don’t include your species to the mastlist you have to include those in your user_nl_cam namelist.
@@ -114,7 +112,7 @@ Running with interactive biogenic emissions:
 
 megan_factors_file = '/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc'
 
-- This file contains the emission factors at standard temperature and pressure for each compound for each plant functional type, as well as the other model parameters. The compound names are given in the variable “Comp_Name”. The default file works with 78 plant function types (PFTs). 
+- This file contains the emission factors at standard temperature and pressure for each compound for each plant functional type, as well as the other model parameters. The compound names are given in the variable “Comp_Name”. The default file works with 78 plant function types (PFTs).
 
 - CLM/MEGAN-v2.1 includes an option for using a map of emission factors for isoprene. The map in the current release is out of date and SHOULD NOT BE USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam: megan_mapped_emisfctrs = .false.
 
@@ -126,7 +124,7 @@ To turn run with prescribed biogenic emissions requires including those emission
   megan_factors_file = ' '
   megan_specifier = ' '
  &
- 
+
 History output:
 
 - To save the MEGAN emissions in the CAM history files, include the desired MEG_{species} variables in the fincl* fields of user_nml_cam. The SF{species} variables are the total emissions fluxes for each species, so will include all sources if an emissions file was also read for other sources (such as bb).

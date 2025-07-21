@@ -1,31 +1,29 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="../">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>5. User Defined Variable Resolution Configurations &#8212; camdoc  documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="6. Customizing CAM runs" href="customizing-compsets.html" />
     <link rel="prev" title="4. Atmospheric configurations (compsets)" href="atmospheric-configurations.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -38,56 +36,20 @@
           <a href="atmospheric-configurations.html" title="4. Atmospheric configurations (compsets)"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>User Defined Variable Resolution Configurations</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">5. User Defined Variable Resolution Configurations</a><ul>
-<li><a class="reference internal" href="#spectral-element-dycore">5.1. Spectral Element Dycore</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="atmospheric-configurations.html"
-                        title="previous chapter">4. Atmospheric configurations (compsets)</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="customizing-compsets.html"
-                        title="next chapter">6. Customizing CAM runs</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/users_guide/variable-resolution-configurations.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="user-defined-variable-resolution-configurations">
-<span id="variable-resolution-configurations"></span><h1>5. User Defined Variable Resolution Configurations<a class="headerlink" href="#user-defined-variable-resolution-configurations" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="spectral-element-dycore">
-<h2>5.1. Spectral Element Dycore<a class="headerlink" href="#spectral-element-dycore" title="Permalink to this headline">¶</a></h2>
+  <section id="user-defined-variable-resolution-configurations">
+<span id="variable-resolution-configurations"></span><h1><span class="section-number">5. </span>User Defined Variable Resolution Configurations<a class="headerlink" href="#user-defined-variable-resolution-configurations" title="Link to this heading">¶</a></h1>
+<section id="spectral-element-dycore">
+<h2><span class="section-number">5.1. </span>Spectral Element Dycore<a class="headerlink" href="#spectral-element-dycore" title="Link to this heading">¶</a></h2>
 <p>With the release of CESM 2.2 users have the ability to create and use variable
 resolution spectral element grids that are suited to their research needs. A fundamental
 limitation for adding custom grids has been that the grid information and all related
@@ -96,9 +58,9 @@ modify. To address this limitation a research group can now create, maintain, an
 a local repository containing the grids and related data tailored to their needs.
 Files that are not specific to the model grid are still obtained from the CESM
 repository unless the user specifies otherwise.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <img alt="../_images/Example_LocalRepo.png" src="../_images/Example_LocalRepo.png" />
-</div>
+</figure>
 <p>The process of implementing a new custom grid has been simplified as much as possible
 with a set of tools and instructions guiding users through the process, from creation
 of the new grid, to processing the input data CESM needs, to building and running a
@@ -110,95 +72,122 @@ a PDF file fully documenting this process. After going through these steps, the
 user will have constructed all of the necessary files in their own local repository
 with the following directory structure. Each grid configuation can then be readily
 shared with collaborators who have read access to this repository.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <img alt="../_images/Example_LocalRepoDir.png" src="../_images/Example_LocalRepoDir.png" />
-</div>
+</figure>
 <p>The steps include:</p>
 <ol class="arabic">
-<li><p class="first">Create a new grid using SQuadGen or VRM_Editor.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>For spectral element grids, the surface of the Earth is divided into 6 cube faces
+<li><p>Create a new grid using SQuadGen or VRM_Editor.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>For spectral element grids, the surface of the Earth is divided into 6 cube faces
 and each face is further subdivided into (NE x NE) elements. A standard ne30np4
 uniform 1 degree grid, for example, has faces that are divided into a grid of
 30x30 elements.
 The process of creating a new variable resolution grid begins with the <em>SQuadGen</em>
 or <em>VRM_Editor</em> programs. Starting from a base reolution, these programs
 iterativly subdivide the elements to higher resolutions within user specified
-regions, with each iteration increasing the resolution by a factor of 2.</td>
+regions, with each iteration increasing the resolution by a factor of 2.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p class="first">Generate standard CESM input datasets for the new grid.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>From the refined NE grid, the final variable resolution mesh is created by adding
+<li><p>Generate standard CESM input datasets for the new grid.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>From the refined NE grid, the final variable resolution mesh is created by adding
 the specified number of GLL points. (Typically NP=4). These further subdivide
 each element with an (NP x NP) grid which supports the Legendre basis functions.
 To prepare the grid for use in the model, the user then runs a series of
 processing scripts to create all of the associated input and mapping files that
 CESM needs. At the end of this process, the user will have a local repository
-with the directory structure indicated above.</td>
+with the directory structure indicated above.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p class="first">Create newcase and tune the model parameters until the model runs the 5-day test stably.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>To obtain a stable running model configuration, the model time stepping and
+<li><p>Create newcase and tune the model parameters until the model runs the 5-day test stably.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>To obtain a stable running model configuration, the model time stepping and
 damping parameters are iteratively tuned until the model can sucessfully complete
-a 5 day test run.</td>
+a 5 day test run.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p class="first">Update the tuning parameters in the repository files.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Once the initial tuned parameters have been established, the reulting values are
+<li><p>Update the tuning parameters in the repository files.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Once the initial tuned parameters have been established, the reulting values are
 used to update the configuation files in the local repository and become the
-defaults for the new grid.</td>
+defaults for the new grid.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
-<li><p class="first">Run further validation tests for the new grid.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>At this point, a longer process of testing and validation begins for the newly
-created grid.</td>
+<li><p>Run further validation tests for the new grid.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>At this point, a longer process of testing and validation begins for the newly
+created grid.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">5. User Defined Variable Resolution Configurations</a><ul>
+<li><a class="reference internal" href="#spectral-element-dycore">5.1. Spectral Element Dycore</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="atmospheric-configurations.html"
+                          title="previous chapter"><span class="section-number">4. </span>Atmospheric configurations (compsets)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="customizing-compsets.html"
+                          title="next chapter"><span class="section-number">6. </span>Customizing CAM runs</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/users_guide/variable-resolution-configurations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -211,12 +200,13 @@ created grid.</td>
           <a href="atmospheric-configurations.html" title="4. Atmospheric configurations (compsets)"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>User Defined Variable Resolution Configurations</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
+    &#169; Copyright 2017 UCAR.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

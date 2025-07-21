@@ -1,31 +1,29 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="../">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>8. Model Output: &#8212; camdoc  documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Physics modifications via the namelist" href="physics-modifications-via-the-namelist.html" />
     <link rel="prev" title="7. Input Datasets" href="input-datasets.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -38,94 +36,47 @@
           <a href="input-datasets.html" title="7. Input Datasets"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">8. </span>Model Output:</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">8. Model Output:</a><ul>
-<li><a class="reference internal" href="#model-history-files">8.1. Model History Files</a></li>
-<li><a class="reference internal" href="#customizing-output-history-fields">8.2. Customizing output History Fields</a></li>
-<li><a class="reference internal" href="#general-features-of-history-files">8.3. General Features of History Files</a></li>
-<li><a class="reference internal" href="#timestamps-and-time-intervals">8.4. Timestamps and time intervals</a><ul>
-<li><a class="reference internal" href="#example-timestamps-for-a-year-of-monthly-averages">8.4.1. Example: Timestamps for a year of monthly averages</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#multiple-time-samples-in-a-single-file">8.5. Multiple time samples in a single file</a><ul>
-<li><a class="reference internal" href="#example-timestamps-for-five-daily-averages">8.5.1. Example: Timestamps for five daily averages</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#example-default-history-fields-and-master-field-lists">8.6. Example: Default History Fields and Master Field Lists</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="input-datasets.html"
-                        title="previous chapter">7. Input Datasets</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="physics-modifications-via-the-namelist.html"
-                        title="next chapter">9. Physics modifications via the namelist</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/users_guide/model-output.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="model-output">
-<span id="id1"></span><h1>8. Model Output:<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h1>
+  <section id="model-output">
+<span id="id1"></span><h1><span class="section-number">8. </span>Model Output:<a class="headerlink" href="#model-output" title="Link to this heading">¶</a></h1>
 <p>CAM produces a series of NetCDF format history files containing atmospheric gridpoint data generated during the course of a run. It also produces a series of NetCDF format restart files necessary to continue a run once it has terminated successfully and a series of initial conditions files that may be used to initialize new simulations. The contents of these datasets are described below.</p>
-<div class="section" id="model-history-files">
-<h2>8.1. Model History Files<a class="headerlink" href="#model-history-files" title="Permalink to this headline">¶</a></h2>
+<section id="model-history-files">
+<h2><span class="section-number">8.1. </span>Model History Files<a class="headerlink" href="#model-history-files" title="Link to this heading">¶</a></h2>
 <p>History files contain model data values written at specified frequencies during a run. Options are also available to record averaged, instantaneous, maximum, or minimum values on a field-by-field basis. If the user wishes to see a field written at more than one time frequency (e.g. daily, hourly), additional history files must be declared. This functionality is available via setting namelist variables.</p>
 <p>History files may be visualized using various commercial or freely available tools. Examples include the the NCAR Graphics package (via NCL), CDAT, FERRET, ncview, MATLAB, and IDL. For a list of software tools for interacting with NetCDF files, view the UNIDATA maintained link <a class="reference external" href="http://www.unidata.ucar.edu/software/netcdf/software.html">Software for Manipulating or Displaying NetCDF Data</a>.</p>
-</div>
-<div class="section" id="customizing-output-history-fields">
-<h2>8.2. Customizing output History Fields<a class="headerlink" href="#customizing-output-history-fields" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="customizing-output-history-fields">
+<h2><span class="section-number">8.2. </span>Customizing output History Fields<a class="headerlink" href="#customizing-output-history-fields" title="Link to this heading">¶</a></h2>
 <p>CAM writes a sequence of time samples to each of its specified history files.  By default, CAM will output a set of fields to a single monthly average history file.  There are namelist parameters which allow the user to customize output from their run. Up to ten history file streams may be output, each with its own set of characteristics.  This section will highlight some of the most commonly used history namelist settings.</p>
 <p>The following namelist settings are specified to customize each output stream desired.  Within the file, individual fields may be specified to be instantaneous or averaged along with other settings.  See the <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/settings/2.2.0/cam_nml.html">namelist page</a> and review the fincl defintion for more options for the fields.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">finclX</span></code> - List the fields to include in the output file #X (X=1-10)</li>
-<li><code class="docutils literal notranslate"><span class="pre">fexclX</span></code> - List the fields to exclude from the output file #X (X=1-10)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finclX</span></code> - List the fields to include in the output file #X (X=1-10)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fexclX</span></code> - List the fields to exclude from the output file #X (X=1-10)</p></li>
 </ul>
 <p>The following three namelist variables are arrays up to length 10 which specify characteristics for the output files.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">nhtfrq</span></code> - Array of write frequencies for each history file series.  If nhtfrq(1) = 0, the file will be a monthly average.  Only the first file series may be a monthly average.  If nhtfrq(i) &gt; 0, frequency is specified as number of timesteps.  If nhtfrq(i) &lt; 0, frequency is specified as number of hours.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ndens</span></code> - set to 1 to output double precision reals, and 2 to output single precision</li>
-<li><code class="docutils literal notranslate"><span class="pre">mfilt</span></code> - the maximum number of times to output into a file for each output stream</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nhtfrq</span></code> - Array of write frequencies for each history file series.  If nhtfrq(1) = 0, the file will be a monthly average.  Only the first file series may be a monthly average.  If nhtfrq(i) &gt; 0, frequency is specified as number of timesteps.  If nhtfrq(i) &lt; 0, frequency is specified as number of hours.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndens</span></code> - set to 1 to output double precision reals, and 2 to output single precision</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mfilt</span></code> - the maximum number of times to output into a file for each output stream</p></li>
 </ul>
 <p>There are also namelist settings which control output in a general way.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">empty_htapes</span></code> - turn off all default output and only write out the fields explicitly set via fincl settings</li>
-<li><code class="docutils literal notranslate"><span class="pre">history_YYY</span></code> - add fields for specific diagnostic purposes to the
-default output.  For the complete listing go to the <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/settings/2.2.0/cam_nml.html">namelist page</a> and search for namelist variables with the <code class="docutils literal notranslate"><span class="pre">history_</span></code> prefix (i.e. <code class="docutils literal notranslate"><span class="pre">history_amwg</span></code>, <code class="docutils literal notranslate"><span class="pre">history_clubb</span></code>, etc.)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">empty_htapes</span></code> - turn off all default output and only write out the fields explicitly set via fincl settings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">history_YYY</span></code> - add fields for specific diagnostic purposes to the
+default output.  For the complete listing go to the <a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/settings/2.2.0/cam_nml.html">namelist page</a> and search for namelist variables with the <code class="docutils literal notranslate"><span class="pre">history_</span></code> prefix (i.e. <code class="docutils literal notranslate"><span class="pre">history_amwg</span></code>, <code class="docutils literal notranslate"><span class="pre">history_clubb</span></code>, etc.)</p></li>
 </ul>
-</div>
-<div class="section" id="general-features-of-history-files">
-<h2>8.3. General Features of History Files<a class="headerlink" href="#general-features-of-history-files" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="general-features-of-history-files">
+<h2><span class="section-number">8.3. </span>General Features of History Files<a class="headerlink" href="#general-features-of-history-files" title="Link to this heading">¶</a></h2>
 <p>Each time sample in a history file has an associated timestamp which conforms to the <a class="reference external" href="http://cfconventions.org/">CF metadata conventions</a>. The time unit used in CAM’s output files is “days since reference date” where the reference date is the run start date by default, but can be customized via the <code class="docutils literal notranslate"><span class="pre">ref_ymd</span> <span class="pre">and</span> <span class="pre">ref_tod</span></code> namelist variables. The variables relevant to the timestamps are the following (from the output of the NetCDF <code class="docutils literal notranslate"><span class="pre">ncdump</span></code> utility):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">double</span> <span class="n">time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="p">;</span>
         <span class="n">time</span><span class="p">:</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span> <span class="p">;</span>
@@ -153,13 +104,13 @@ default output.  For the complete listing go to the <a class="reference external
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">cell_methods</span></code> attribute for the temperature variable indicates that it is being output as a time averaged field. If temperature was instantaneous then the <code class="docutils literal notranslate"><span class="pre">cell_methods</span></code> attribute would not be present since instantaneous is the default.</p>
 <p>The variables <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">datesec</span></code> are for convenience only; they don’t play any role in terms of CF compliance. The <code class="docutils literal notranslate"><span class="pre">date</span></code> variable is an integer which is encoded to contain the digits YYYYMMDD where YYYY, MM, and DD are the year, month, and day of month respectively. <code class="docutils literal notranslate"><span class="pre">datesec</span></code> is the integer number of seconds past 0Z in the current day. The variables <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">datesec</span></code> are redundant in the sense that they can be recovered from the time variable via a date calculation using the specified calendar.</p>
-</div>
-<div class="section" id="timestamps-and-time-intervals">
-<h2>8.4. Timestamps and time intervals<a class="headerlink" href="#timestamps-and-time-intervals" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="timestamps-and-time-intervals">
+<h2><span class="section-number">8.4. </span>Timestamps and time intervals<a class="headerlink" href="#timestamps-and-time-intervals" title="Link to this heading">¶</a></h2>
 <p><strong>The timestamp associated with each time sample in a history file is the model time at the end of the timestep during which the model writes data to the disk.</strong> In the case of instantaneous data the meaning is clear. However when the data is representative of a time interval, the timestamp corresponds to <strong>the end of the interval</strong>.</p>
 <p>This is often a point of confusion when looking at history files. Since the endpoint of one interval is the same as the beginning of the next interval, when looking at a monthly average for January, which has a timestamp of 0Z on Feb 01, at first glance the timestamp would seem to correspond to a February average. Hence it’s important for post processing tools to make use of the data in the <code class="docutils literal notranslate"><span class="pre">time_bnds</span></code> variable so that the time interval endpoints can be used to compute an interval midpoint which is the more appropriate timestamp to associate with the interval.</p>
-<div class="section" id="example-timestamps-for-a-year-of-monthly-averages">
-<h3>8.4.1. Example: Timestamps for a year of monthly averages<a class="headerlink" href="#example-timestamps-for-a-year-of-monthly-averages" title="Permalink to this headline">¶</a></h3>
+<section id="example-timestamps-for-a-year-of-monthly-averages">
+<h3><span class="section-number">8.4.1. </span>Example: Timestamps for a year of monthly averages<a class="headerlink" href="#example-timestamps-for-a-year-of-monthly-averages" title="Link to this heading">¶</a></h3>
 <p>Here are the timestamps and corresponding time interval bounds for a one year sequence of monthly averages starting at 0000-01-01 00:00:00.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Month</span>    <span class="n">time</span>    <span class="n">date</span>   <span class="n">datesec</span>   <span class="n">time_bnds</span>
 <span class="n">Jan</span>       <span class="mi">31</span>      <span class="mi">201</span>      <span class="mi">0</span>        <span class="mi">0</span><span class="p">,</span>  <span class="mi">31</span>
@@ -176,13 +127,13 @@ default output.  For the complete listing go to the <a class="reference external
 <span class="n">Dec</span>      <span class="mi">365</span>    <span class="mi">10101</span>      <span class="mi">0</span>      <span class="mi">334</span><span class="p">,</span> <span class="mi">365</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="multiple-time-samples-in-a-single-file">
-<h2>8.5. Multiple time samples in a single file<a class="headerlink" href="#multiple-time-samples-in-a-single-file" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="multiple-time-samples-in-a-single-file">
+<h2><span class="section-number">8.5. </span>Multiple time samples in a single file<a class="headerlink" href="#multiple-time-samples-in-a-single-file" title="Link to this heading">¶</a></h2>
 <p>CAM’s default history output is a sequence of monthly averaged fields, written with one time sample per file. This restriction is related to the default file naming scheme which uses the string “YYYY-MM” to indicate the year and month of the average contained in the file. However in general it is possible to write multiple time samples in any of the history file streams that don’t contain monthly time intervals. However there is one somewhat unexpected “feature” of multiple time sample files that we wish to point out here.</p>
-<div class="section" id="example-timestamps-for-five-daily-averages">
-<h3>8.5.1. Example: Timestamps for five daily averages<a class="headerlink" href="#example-timestamps-for-five-daily-averages" title="Permalink to this headline">¶</a></h3>
+<section id="example-timestamps-for-five-daily-averages">
+<h3><span class="section-number">8.5.1. </span>Example: Timestamps for five daily averages<a class="headerlink" href="#example-timestamps-for-five-daily-averages" title="Link to this heading">¶</a></h3>
 <p>Here are the timestamps and corresponding time interval bounds for all time samples written to a single file from a 5 day run starting at 0000-01-01 00:00:00.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sample</span>    <span class="n">time</span>    <span class="n">date</span>   <span class="n">datesec</span>   <span class="n">time_bnds</span>
 <span class="mi">1</span>           <span class="mi">0</span>      <span class="mi">101</span>     <span class="mi">0</span>         <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
@@ -194,26 +145,79 @@ default output.  For the complete listing go to the <a class="reference external
 </pre></div>
 </div>
 <p>Instead of ending up with a file containing five time samples, i.e., a daily average for each of the first five days of January, we get six time samples. The first one looks a bit strange since the time bounds are indicating an interval of zero duration. But in fact that’s correct for the first time sample which is instantaneous data representing the initial conditions which have only been modify by a partial first step up to the point of the radiation calculation. This “extra” time sample from the initialization phase is included in every history file except for the monthly average file. An unfortunate consequence of this extra time sample is that it’s not possible to create a sequence of files with the same number of time intervals since the first file in the sequence will always have one fewer time interval than the rest due to the inclusion of the time zero sample.</p>
-</div>
-</div>
-<div class="section" id="example-default-history-fields-and-master-field-lists">
-<h2>8.6. Example: Default History Fields and Master Field Lists<a class="headerlink" href="#example-default-history-fields-and-master-field-lists" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="example-default-history-fields-and-master-field-lists">
+<h2><span class="section-number">8.6. </span>Example: Default History Fields and Master Field Lists<a class="headerlink" href="#example-default-history-fields-and-master-field-lists" title="Link to this heading">¶</a></h2>
 <p>CAM is set up by default to output a set of fields to a single monthly average history file. There is a much larger set of available fields, known as the “master field list,” from which the user can choose fields of interest to add to the history file via namelist settings. Both the set of default fields and the master field list depend on how CAM is configured. Due to the large number of fields we have chosen to make lists of fields for some standard configuration available via linked documents rather than to inline the lists here. Each of the field list documents is comprised of tables containing the lists of fields that are output by default as well as the master field list.</p>
 <p><strong>NOTE:</strong>  The master field list tables may contain some fields that are not actually available for output. The presence of a field in the master field list is a necessary, but not sufficient condition that the corresponding field in the history file will contain valid data. This is because in some instances fields are added to the master field list (this is done in the source code) even though that field may not be computed in the configuration that is built (specified via the arguments to <code class="docutils literal notranslate"><span class="pre">configure</span></code>). When adding non-default fields to the history file it’s important to check that the fields contain reasonable data before doing a long run.</p>
 <p>The following links provide tables of default and master field lists for some standard model compsets. The source of the information in these tables is CAM’s default log file, so you can always look there for any configuration not included in the list below.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/atmosphere/docs/ug6/hist_flds_f2000.html">F2000climo</a></li>
+<li><p><a class="reference external" href="http://www.cesm.ucar.edu/models/cesm2/atmosphere/docs/ug6/hist_flds_f2000.html">F2000climo</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">8. Model Output:</a><ul>
+<li><a class="reference internal" href="#model-history-files">8.1. Model History Files</a></li>
+<li><a class="reference internal" href="#customizing-output-history-fields">8.2. Customizing output History Fields</a></li>
+<li><a class="reference internal" href="#general-features-of-history-files">8.3. General Features of History Files</a></li>
+<li><a class="reference internal" href="#timestamps-and-time-intervals">8.4. Timestamps and time intervals</a><ul>
+<li><a class="reference internal" href="#example-timestamps-for-a-year-of-monthly-averages">8.4.1. Example: Timestamps for a year of monthly averages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multiple-time-samples-in-a-single-file">8.5. Multiple time samples in a single file</a><ul>
+<li><a class="reference internal" href="#example-timestamps-for-five-daily-averages">8.5.1. Example: Timestamps for five daily averages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-default-history-fields-and-master-field-lists">8.6. Example: Default History Fields and Master Field Lists</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="input-datasets.html"
+                          title="previous chapter"><span class="section-number">7. </span>Input Datasets</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="physics-modifications-via-the-namelist.html"
+                          title="next chapter"><span class="section-number">9. </span>Physics modifications via the namelist</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/users_guide/model-output.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -226,12 +230,13 @@ default output.  For the complete listing go to the <a class="reference external
           <a href="input-datasets.html" title="7. Input Datasets"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">8. </span>Model Output:</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
+    &#169; Copyright 2017 UCAR.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

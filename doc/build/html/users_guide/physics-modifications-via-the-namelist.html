@@ -1,31 +1,29 @@
 
+<!DOCTYPE html>
 
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="../">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>9. Physics modifications via the namelist &#8212; camdoc  documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Chemistry specific modifications" href="CAM-chem-specifics.html" />
     <link rel="prev" title="8. Model Output:" href="model-output.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -38,78 +36,26 @@
           <a href="model-output.html" title="8. Model Output:"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Physics modifications via the namelist</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">9. Physics modifications via the namelist</a><ul>
-<li><a class="reference internal" href="#radiative-constituents">9.1. Radiative Constituents</a><ul>
-<li><a class="reference internal" href="#default-rad-climate-for-cam6-physics">9.1.1. Default rad_climate for cam6 physics</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#example-modify-a-radiatively-active-gas">9.2. Example - Modify a radiatively active gas</a></li>
-<li><a class="reference internal" href="#diagnostic-radiative-forcing">9.3. Diagnostic radiative forcing</a></li>
-<li><a class="reference internal" href="#example-aerosol-radiative-forcing">9.4. Example - Aerosol radiative forcing</a></li>
-<li><a class="reference internal" href="#example-black-carbon-radiative-forcing">9.5. Example - Black carbon radiative forcing</a></li>
-<li><a class="reference internal" href="#nudging">9.6. Nudging</a><ul>
-<li><a class="reference internal" href="#target-data">9.6.1. Target Data</a></li>
-<li><a class="reference internal" href="#implementation">9.6.2. Implementation</a></li>
-<li><a class="reference internal" href="#output-values">9.6.3. Output Values</a></li>
-<li><a class="reference internal" href="#namelist-values">9.6.4. Namelist Values</a></li>
-<li><a class="reference internal" href="#windowing-examples">9.6.5. Windowing Examples</a></li>
-<li><a class="reference internal" href="#example-setting-up-and-running-a-nudging-experiment">9.6.6. EXAMPLE: Setting Up and Running A Nudging Experiment</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="model-output.html"
-                        title="previous chapter">8. Model Output:</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="CAM-chem-specifics.html"
-                        title="next chapter">10. Chemistry specific modifications</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/users_guide/physics-modifications-via-the-namelist.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="physics-modifications-via-the-namelist">
-<span id="id1"></span><h1>9. Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Permalink to this headline">¶</a></h1>
+  <section id="physics-modifications-via-the-namelist">
+<span id="id1"></span><h1><span class="section-number">9. </span>Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Link to this heading">¶</a></h1>
 <p>This chapter contains a few examples of customizing
 CAM’s run time configuration. General instructions
 for modifying namelists using the user_nl_cam file were given
 in <a class="reference internal" href="building-and-running-cam.html#building-and-running-cam"><span class="std std-ref">Building and Running CAM within CESM</span></a>.
 The examples below focus on some specific modifications that would
 be included in user_nl_cam.</p>
-<div class="section" id="radiative-constituents">
-<h2>9.1. Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Permalink to this headline">¶</a></h2>
+<section id="radiative-constituents">
+<h2><span class="section-number">9.1. </span>Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Link to this heading">¶</a></h2>
 <p>The atmospheric constituents which impact the calculation of radiative
 fluxes and heating rates are referred to as radiative constituents. A
 single CAM run may potentially contain multiple sources of any given
@@ -117,9 +63,9 @@ constituent, for example, a prognostic version of ozone from a
 chemistry scheme and a prescribed version of ozone from a dataset. The
 radiative constituent module was designed to</p>
 <ul class="simple">
-<li>provide an explicit specification of the gas and aerosol
-constituents that impact the radiation calculations, and</li>
-<li>allow this specification to be modified via the namelist.</li>
+<li><p>provide an explicit specification of the gas and aerosol
+constituents that impact the radiation calculations, and</p></li>
+<li><p>allow this specification to be modified via the namelist.</p></li>
 </ul>
 <p>Putting the entire specification of the radiative constituents into
 the namelist results in a certain amount of complexity which is
@@ -127,8 +73,8 @@ unavoidable. This sections begins with a description of what’s in the
 default specification for the cam6 physics
 package. Following that are some examples of how to modify the
 default namelist settings.</p>
-<div class="section" id="default-rad-climate-for-cam6-physics">
-<span id="def-rad-clim"></span><h3>9.1.1. Default rad_climate for cam6 physics<a class="headerlink" href="#default-rad-climate-for-cam6-physics" title="Permalink to this headline">¶</a></h3>
+<section id="default-rad-climate-for-cam6-physics">
+<span id="def-rad-clim"></span><h3><span class="section-number">9.1.1. </span>Default rad_climate for cam6 physics<a class="headerlink" href="#default-rad-climate-for-cam6-physics" title="Link to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics package uses prescribed gases (except for water
 vapor), prognostic modal aerosols, and prescribed bulk
 aerosols. <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> is the namelist variable which holds the
@@ -212,16 +158,16 @@ used in a single run. The modes don’t all need to appear in the
 calculations which will be discussed in more detail later.</p>
 <p>There are three different types of strings in <code class="docutils literal notranslate"><span class="pre">mode_defs</span></code>:</p>
 <ul class="simple">
-<li>The initial string in each mode specification contains three
+<li><p>The initial string in each mode specification contains three
 fields. The first is a name that identifies the mode, the second is a
 name that identifies the type of the mode, and the final is the token
-“=”.</li>
-<li>One string in each mode specification must contain the names for the
+“=”.</p></li>
+<li><p>One string in each mode specification must contain the names for the
 mode number concentrations in both the interstitial and cloud borne
-phases.</li>
-<li>One or more strings in each mode specification must contain the names
+phases.</p></li>
+<li><p>One or more strings in each mode specification must contain the names
 for the mass mixing ratios in both the interstitial and cloud borne
-phases of the individual constituents that comprise the mode.</li>
+phases of the individual constituents that comprise the mode.</p></li>
 </ul>
 <p>The example of <code class="docutils literal notranslate"><span class="pre">mode_defs</span></code> above has been formatted in a way that
 makes the individual parts of each mode definition stand out. The
@@ -266,21 +212,21 @@ constituents are hardcoded in the <code class="docutils literal notranslate"><sp
 file containing physical and optical properties of the specie. The last
 field in the string contains the token “+” which again indicates that the
 definition of the mode continues in the next string.</p>
-</div>
-</div>
-<div class="section" id="example-modify-a-radiatively-active-gas">
-<h2>9.2. Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="example-modify-a-radiatively-active-gas">
+<h2><span class="section-number">9.2. </span>Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Link to this heading">¶</a></h2>
 <p>Suppose that we wish to modify the distribution of water vapor that is
 seen by the radiation calculations. More specifically, consider
 modifying just the stratospheric part of the water vapor distribution
 while leaving the troposheric distribution unchanged. To modify a
 radiatively active gas two things must be done:</p>
 <ul class="simple">
-<li>Change the name (and possibly the type) of the constituent which is
+<li><p>Change the name (and possibly the type) of the constituent which is
 providing the mass mixing ratios to the radiation code. This is a
-simple modification to the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> value.</li>
-<li>Make the necessary modifications to CAM to provide the new constituent
-mixing ratios.</li>
+simple modification to the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> value.</p></li>
+<li><p>Make the necessary modifications to CAM to provide the new constituent
+mixing ratios.</p></li>
 </ul>
 <p>A likely scenario for this example would be to create a
 new module which is responsible for adding the modified water vapor
@@ -310,9 +256,9 @@ above, the only difference would be that the string for water vapor:</p>
 (<code class="docutils literal notranslate"><span class="pre">Q_fixstrat</span></code>), it was necessary to replace the <code class="docutils literal notranslate"><span class="pre">A</span></code> by an <code class="docutils literal notranslate"><span class="pre">N</span></code>
 since the new constituent is not advected, even though it is derived
 in part from the constituent <code class="docutils literal notranslate"><span class="pre">Q</span></code> which is advected.</p>
-</div>
-<div class="section" id="diagnostic-radiative-forcing">
-<h2>9.3. Diagnostic radiative forcing<a class="headerlink" href="#diagnostic-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="diagnostic-radiative-forcing">
+<h2><span class="section-number">9.3. </span>Diagnostic radiative forcing<a class="headerlink" href="#diagnostic-radiative-forcing" title="Link to this heading">¶</a></h2>
 <p>There are several namelist variables available for online radiative forcing
 calculations with the physics packages that use the RRTMG radiation
 package.  Namelist variables are available for ten radiative forcing
@@ -330,9 +276,9 @@ radiation package used by the <code class="docutils literal notranslate"><span c
 PORT configuration of CAM which is documented <a class="reference external" href="https://wiki.ucar.edu/display/port/PORT">here</a>, and described in the paper
 <a class="reference internal" href="references.html#con13"><span class="std std-ref">Conley et al. [2013]</span></a>.  PORT can also be used for diagnostic
 calculations with the <code class="docutils literal notranslate"><span class="pre">cam5</span></code> and <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics.</p>
-</div>
-<div class="section" id="example-aerosol-radiative-forcing">
-<h2>9.4. Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-aerosol-radiative-forcing">
+<h2><span class="section-number">9.4. </span>Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Link to this heading">¶</a></h2>
 <p>To compute the total aerosol radiative forcing we need a diagnostic
 calculation in which all the aerosols have been removed. To do this we
 start from the default setting for the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable, use
@@ -344,9 +290,9 @@ would be done by adding the following to <code class="docutils literal notransla
  <span class="s1">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-black-carbon-radiative-forcing">
-<h2>9.5. Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-black-carbon-radiative-forcing">
+<h2><span class="section-number">9.5. </span>Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Link to this heading">¶</a></h2>
 <p>To compute the radiative forcing of a single aerosol specie we need a
 diagnostic calculation in which that specie has been removed from all modes
 that contain it. This is a bit more complicated that the previous example
@@ -417,28 +363,28 @@ used that mode in place of <code class="docutils literal notranslate"><span clas
 doing diagnostic radiation calculations with aerosol modes when the model
 is run with modal_strat_sulfate set to true.  This option is not used with
 <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics, but it is used with WACCM.</p>
-</div>
-<div class="section" id="nudging">
-<h2>9.6. Nudging<a class="headerlink" href="#nudging" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="nudging">
+<h2><span class="section-number">9.6. </span>Nudging<a class="headerlink" href="#nudging" title="Link to this heading">¶</a></h2>
 <p>Nudging augments the physics tendencies for the prognostic variables [U,V,T,Q]
 in order to drive the model solution toward some prescribed target states which
 are avaiable at a set of discrete target times. In general there are three
 distinct methodologies used to assess deficiencies in the model formulation.
 These include:</p>
 <ul class="simple">
-<li><strong>Mechanistic Studies:</strong> Nudging tendencies are applied to specify boundary
+<li><p><strong>Mechanistic Studies:</strong> Nudging tendencies are applied to specify boundary
 forcing or to impose some mode of variability for the analysis of the model
-response.</li>
-<li><strong>Coercion Studies:</strong> Nudging tendencies are applied to constrain certain
+response.</p></li>
+<li><p><strong>Coercion Studies:</strong> Nudging tendencies are applied to constrain certain
 model variability in order to isolate and study a given parameterization
-or process.</li>
-<li><strong>Diagnostic Studies:</strong> Nudging tendencies are applied to achieve some
+or process.</p></li>
+<li><p><strong>Diagnostic Studies:</strong> Nudging tendencies are applied to achieve some
 observed result. The tendencies are then post-processed to identify systematic
 biases, which are in turn used to diagnose deficiencies in physics
-parameterizations.</li>
+parameterizations.</p></li>
 </ul>
-<div class="section" id="target-data">
-<h3>9.6.1. Target Data<a class="headerlink" href="#target-data" title="Permalink to this headline">¶</a></h3>
+<section id="target-data">
+<h3><span class="section-number">9.6.1. </span>Target Data<a class="headerlink" href="#target-data" title="Link to this heading">¶</a></h3>
 <p>Typically the target states are derived from available reanalyses products, however
 a variety of other derived target states are possible. The only requirement is that
 the [U,V,T,Q] target values must be pre-processed onto the current model grid and
@@ -458,23 +404,19 @@ needed to create a desired dataset.</p>
 repository. The processing scripts are slightly different for the two available dycores,
 so they are contained in separate directories. in each directory, there is a README that
 provides general guidance for setting the script variables for a desired reanalysis product.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="49%" />
-<col width="51%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Finite_volume_dycore/</td>
-<td><p class="first">README</p>
-<p class="last">Gen_Data_f09/</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Finite_volume_dycore/</p></td>
+<td><p>README</p>
+<p>Gen_Data_f09/</p>
 </td>
 </tr>
-<tr class="row-even"><td>Spectral_element_dycore/</td>
-<td><p class="first">README</p>
+<tr class="row-even"><td><p>Spectral_element_dycore/</p></td>
+<td><p>README</p>
 <p>Gen_Data_ne30/</p>
 <p>Gen_Data_ne30np3/</p>
 <p>Gen_Data_ne0CONUSne30x8/</p>
-<p class="last">Gen_Data_NEWGRID/</p>
+<p>Gen_Data_NEWGRID/</p>
 </td>
 </tr>
 </tbody>
@@ -528,25 +470,25 @@ the processing is in a common directory, the WRAPIT command from one instance cl
 the shared library used by all. This would result in total failure. Users who need to
 run in this manner must comment out the WRAPIT command in the script and run it to
 create the library prior to submitting the processing scripts.</p>
-</div>
-<div class="section" id="implementation">
-<h3>9.6.2. Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="implementation">
+<h3><span class="section-number">9.6.2. </span>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">¶</a></h3>
 <p>Nudging is implemented as a relaxation tendency between the current model state and
 a desired target state.</p>
-<div class="math">
-<p><img src="../_images/math/622dad3ef970d7ff9626d9f7dc8962f918396072.png" alt="F_{nudge} = { \alpha \over \Delta t_{nudge} } \left( S_{target} - S_{model} \right),"/></p>
-</div><p>where S is one of the prognostic variables [U,V,T,Q], <img class="math" src="../_images/math/877d234f4cec6974ce218fc2e975a486a7972dfd.png" alt="\alpha"/> is a noramlized
-strength coeffcient between [0,1], and <img class="math" src="../_images/math/8f89cba7358e5df49104206eb03d4e48fa38f8be.png" alt="\Delta t_{nudge}"/> is the time scale for
+<div class="math" id="equation-nudging">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-nudging" title="Link to this equation">¶</a></span><img src="../_images/math/bfca40d1b04b4a034d04243a15aa85dedb01c4df.png" alt="F_{nudge} = { \alpha \over \Delta t_{nudge} } \left( S_{target} - S_{model} \right),"/></p>
+</div><p>where S is one of the prognostic variables [U,V,T,Q], <img class="math" src="../_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/> is a noramlized
+strength coeffcient between [0,1], and <img class="math" src="../_images/math/a723d68f184dbfbf9e20b4f4604b547fd470167a.png" alt="\Delta t_{nudge}"/> is the time scale for
 the relaxation. Currently there are two options for the target state. The first uses
 the target state at the next available target time in the future, such that the model
 is systematically pulled toward the desired state over the time interval. For the second,
 in order to constrain the model to follow a precribed path, the nearby (in time) target
 values are interpolated linearly to the current model time. There are currently two options
-for the time scale of the relaxation <img class="math" src="../_images/math/8f89cba7358e5df49104206eb03d4e48fa38f8be.png" alt="\Delta t_{nudge}"/>. The first uses the constant
-difference between available target times (e.g. <img class="math" src="../_images/math/908cdedacefa9d9237ea4cdebfdf704aba805816.png" alt="\Delta t_{nudge} = 6"/> hours for ERA-I).
+for the time scale of the relaxation <img class="math" src="../_images/math/a723d68f184dbfbf9e20b4f4604b547fd470167a.png" alt="\Delta t_{nudge}"/>. The first uses the constant
+difference between available target times (e.g. <img class="math" src="../_images/math/7f329a356e845c24cdf4faa12bfd13e90189ab13.png" alt="\Delta t_{nudge} = 6"/> hours for ERA-I).
 The second uses a time scale that gets systematically stronger as the current model time
 approaches the next future target time.
-(e.g. <img class="math" src="../_images/math/ebe20734c52ec07cf4ee0934e84d292eae7eb5ff.png" alt="\Delta t_{nudge} = (t_{next} - t_{model})"/>).</p>
+(e.g. <img class="math" src="../_images/math/8cd7212544d6680f8e621116c8a6dac1b3260672.png" alt="\Delta t_{nudge} = (t_{next} - t_{model})"/>).</p>
 <p>The namelist variables in <code class="docutils literal notranslate"><span class="pre">&amp;nudging_nl</span></code> also provide an option to window nudging
 tendencies horizontally and vertically. The Logistics function provides a smooth
 parameterized approximation of the Heaviside step function. Combinations of these,
@@ -563,261 +505,255 @@ to (NLEV+1), and the transition lengths are set to 0.001.</p>
 from <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> and produce plots for the given settings. See the README for details.</p>
 <p><strong>NOTE:</strong></p>
 <ul class="simple">
-<li>While it is not necessary, nudging runs are typically initialized using one of the
-pre-processed target states to minimize start up errors.</li>
-<li>The target datasets, the nudging module, and it’s namelist varaibles are all set up to
+<li><p>While it is not necessary, nudging runs are typically initialized using one of the
+pre-processed target states to minimize start up errors.</p></li>
+<li><p>The target datasets, the nudging module, and it’s namelist varaibles are all set up to
 include surface pressure(PS) values as well as the prognostic variables [U,V,T,Q].
 Nudging of surface pressures is possible but it is not currenlty implemented. It would
 require a separate nudging tendency passed to and included in the time stepping of
-each dycore.</li>
+each dycore.</p></li>
 </ul>
-</div>
-<div class="section" id="output-values">
-<h3>9.6.3. Output Values<a class="headerlink" href="#output-values" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="output-values">
+<h3><span class="section-number">9.6.3. </span>Output Values<a class="headerlink" href="#output-values" title="Link to this heading">¶</a></h3>
 <p>The nudging module provides the following history file outputs:</p>
 <p>The applied nudging tendencies: <strong>Nudge_U, Nudge_V, Nudge_T, Nudge_Q</strong></p>
 <p>The nudging target values: <strong>Target_U, Target_V, Target_T, Target_Q</strong></p>
-</div>
-<div class="section" id="namelist-values">
-<h3>9.6.4. Namelist Values<a class="headerlink" href="#namelist-values" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="namelist-values">
+<h3><span class="section-number">9.6.4. </span>Namelist Values<a class="headerlink" href="#namelist-values" title="Link to this heading">¶</a></h3>
 <p>A template for the <code class="docutils literal notranslate"><span class="pre">&amp;nudging_nl</span></code> namelist variables can be found in the
 <code class="docutils literal notranslate"><span class="pre">components/cam/tools/nudging/</span></code> directory. The following table lists the variables in the namelist
 and describes their usage.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="20%" />
-<col width="8%" />
-<col width="39%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Variable</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-<th class="head">Values</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Values</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Nudge_Model</td>
-<td>LOGICAL</td>
-<td>Toggle to activate nudging</td>
-<td><div class="first last line-block">
+<tbody>
+<tr class="row-even"><td><p>Nudge_Model</p></td>
+<td><p>LOGICAL</p></td>
+<td><p>Toggle to activate nudging</p></td>
+<td><div class="line-block">
 <div class="line">True  = Nudging <strong>ON</strong></div>
 <div class="line">False = Nudging <strong>OFF</strong></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>Nudge_Path</td>
-<td>CHAR</td>
-<td>Path to Target files</td>
-<td>&#160;</td>
+<tr class="row-odd"><td><p>Nudge_Path</p></td>
+<td><p>CHAR</p></td>
+<td><p>Path to Target files</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td>Nudge_File_Template</td>
-<td>CHAR</td>
-<td>Target filename template with year,
+<tr class="row-even"><td><p>Nudge_File_Template</p></td>
+<td><p>CHAR</p></td>
+<td><p>Target filename template with year,
 month, day, and second values replaced
-by %y, %m, %d, and %s respectively.</td>
-<td>&#160;</td>
+by %y, %m, %d, and %s respectively.</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td rowspan="2">Nudge_Force_Opt</td>
-<td rowspan="2">INTEGER</td>
-<td>Select the form of the Target values:</td>
-<td>&#160;</td>
+<tr class="row-odd"><td rowspan="2"><p>Nudge_Force_Opt</p></td>
+<td rowspan="2"><p>INTEGER</p></td>
+<td><p>Select the form of the Target values:</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p class="first"><strong>NEXT</strong> = Target at next future time</p>
-<p class="last"><strong>LINEAR</strong> = Linearly interpolate Target
+<tr class="row-even"><td><p><strong>NEXT</strong> = Target at next future time</p>
+<p><strong>LINEAR</strong> = Linearly interpolate Target
 values to current model time.</p>
 </td>
-<td><div class="first last line-block">
+<td><div class="line-block">
 <div class="line">0 = <strong>NEXT</strong></div>
 <div class="line">1 = <strong>LINEAR</strong></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td rowspan="2">Nudge_TimeScale_Opt</td>
-<td rowspan="2">INTEGER</td>
-<td>Select the timescale for the relaxation:</td>
-<td>&#160;</td>
+<tr class="row-odd"><td rowspan="2"><p>Nudge_TimeScale_Opt</p></td>
+<td rowspan="2"><p>INTEGER</p></td>
+<td><p>Select the timescale for the relaxation:</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p class="first"><strong>WEAK</strong> = Constant time scale based in
+<tr class="row-even"><td><p><strong>WEAK</strong> = Constant time scale based in
 the time interval of Target values.</p>
-<p class="last"><strong>STRONG</strong> = Variable timescale which
+<p><strong>STRONG</strong> = Variable timescale which
 gets stronger near each Target time.</p>
 </td>
-<td><div class="first last line-block">
+<td><div class="line-block">
 <div class="line">0 = <strong>WEAK</strong></div>
 <div class="line">1 = <strong>STRONG</strong></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>Nudge_Times_Per_Day</td>
-<td>INTEGER</td>
-<td>Number of Target files per day.</td>
-<td>(e.g. 4 –&gt; 6 hourly)</td>
+<tr class="row-odd"><td><p>Nudge_Times_Per_Day</p></td>
+<td><p>INTEGER</p></td>
+<td><p>Number of Target files per day.</p></td>
+<td><p>(e.g. 4 –&gt; 6 hourly)</p></td>
 </tr>
-<tr class="row-even"><td>Model_Times_Per_Day</td>
-<td>INTEGER</td>
-<td>Number of times to update the nudging
+<tr class="row-even"><td><p>Model_Times_Per_Day</p></td>
+<td><p>INTEGER</p></td>
+<td><p>Number of times to update the nudging
 tendencies per day. <em>(Internally this
 value is restricted to be longer than
 the current model timestep and shorter
-than the Target timestep)</em></td>
-<td>(e.g. 48 –&gt; 1800 Sec timestep)</td>
+than the Target timestep)</em></p></td>
+<td><p>(e.g. 48 –&gt; 1800 Sec timestep)</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><div class="first last line-block">
+<tr class="row-odd"><td rowspan="2"><div class="line-block">
 <div class="line">Nudge_Uprof</div>
 <div class="line">Nudge_Vprof</div>
 <div class="line">Nudge_Tprof</div>
 <div class="line">Nudge_Qprof</div>
 </div>
 </td>
-<td rowspan="2">INTEGER</td>
-<td>Selectively apply nudging to [U,V,T,Q]:</td>
-<td>&#160;</td>
+<td rowspan="2"><p>INTEGER</p></td>
+<td><p>Selectively apply nudging to [U,V,T,Q]:</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p class="first"><strong>OFF</strong> = Switch off nudging</p>
+<tr class="row-even"><td><p><strong>OFF</strong> = Switch off nudging</p>
 <p><strong>ON</strong>  = Apply nudging everywhere</p>
-<p class="last"><strong>WINDOW</strong> = Apply window function to
+<p><strong>WINDOW</strong> = Apply window function to
 nudging tendencies.</p>
 </td>
-<td><div class="first last line-block">
+<td><div class="line-block">
 <div class="line">0 = <strong>OFF</strong></div>
 <div class="line">1 = <strong>ON</strong></div>
 <div class="line">2 = <strong>WINDOW</strong></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="first last line-block">
+<tr class="row-odd"><td><div class="line-block">
 <div class="line">Nudge_Ucoef</div>
 <div class="line">Nudge_Vcoef</div>
 <div class="line">Nudge_Tcoef</div>
 <div class="line">Nudge_Qcoef</div>
 </div>
 </td>
-<td>REAL</td>
-<td>Selectively adjust the nudging strength
-applied to [U,V,T,Q]. (normalized)</td>
-<td>[0.,1.]</td>
+<td><p>REAL</p></td>
+<td><p>Selectively adjust the nudging strength
+applied to [U,V,T,Q]. (normalized)</p></td>
+<td><p>[0.,1.]</p></td>
 </tr>
-<tr class="row-even"><td><div class="first last line-block">
+<tr class="row-even"><td><div class="line-block">
 <div class="line">Nudge_Beg_Year</div>
 <div class="line">Nudge_Beg_Month</div>
 <div class="line">Nudge_Beg_Day</div>
 </div>
 </td>
-<td>INTEGER</td>
-<td>Year, Month, Day to begin nudging.</td>
-<td><div class="first last line-block">
+<td><p>INTEGER</p></td>
+<td><p>Year, Month, Day to begin nudging.</p></td>
+<td><div class="line-block">
 <div class="line">YYYY</div>
 <div class="line">MM</div>
 <div class="line">DD</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="first last line-block">
+<tr class="row-odd"><td><div class="line-block">
 <div class="line">Nudge_End_Year</div>
 <div class="line">Nudge_End_Month</div>
 <div class="line">Nudge_End_Day</div>
 </div>
 </td>
-<td>INTEGER</td>
-<td>Year, Month, Day to stop nudging.</td>
-<td><div class="first last line-block">
+<td><p>INTEGER</p></td>
+<td><p>Year, Month, Day to stop nudging.</p></td>
+<td><div class="line-block">
 <div class="line">YYYY</div>
 <div class="line">MM</div>
 <div class="line">DD</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><div class="first last line-block">
+<tr class="row-even"><td><div class="line-block">
 <div class="line">Nudge_Hwin_lat0</div>
 <div class="line">Nudge_Hwin_lon0</div>
 </div>
 </td>
-<td>REAL</td>
-<td>Specify the horizontal center of the
-window (lat0,lon0) in degrees.</td>
-<td><div class="first last line-block">
+<td><p>REAL</p></td>
+<td><p>Specify the horizontal center of the
+window (lat0,lon0) in degrees.</p></td>
+<td><div class="line-block">
 <div class="line">[-90., +90.]</div>
 <div class="line">[ 0. , 360.]</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="first last line-block">
+<tr class="row-odd"><td><div class="line-block">
 <div class="line">Nudge_Hwin_latWidth</div>
 <div class="line">Nudge_Hwin_lonWidth</div>
 </div>
 </td>
-<td>REAL</td>
-<td>Specify the lat and lon widths of the
+<td><p>REAL</p></td>
+<td><p>Specify the lat and lon widths of the
 horizontal window in degrees.
 <em>Setting a width to a large value
 (e.g. 999.) renders the window constant
-in that direction.</em></td>
-<td>&gt; 0.</td>
+in that direction.</em></p></td>
+<td><p>&gt; 0.</p></td>
 </tr>
-<tr class="row-even"><td><div class="first last line-block">
+<tr class="row-even"><td><div class="line-block">
 <div class="line">Nudge_Hwin_latDelta</div>
 <div class="line">Nudge_Hwin_lonDelta</div>
 </div>
 </td>
-<td>REAL</td>
-<td>Specify the sharpness of the window
+<td><p>REAL</p></td>
+<td><p>Specify the sharpness of the window
 transition with a length in degrees.
 Small values yield a step function while
-larger give a smoother transition.</td>
-<td>&gt; 0.</td>
+larger give a smoother transition.</p></td>
+<td><p>&gt; 0.</p></td>
 </tr>
-<tr class="row-odd"><td>Nudge_Hwin_Invert</td>
-<td>LOGICAL</td>
-<td>A logical flag used to invert the
+<tr class="row-odd"><td><p>Nudge_Hwin_Invert</p></td>
+<td><p>LOGICAL</p></td>
+<td><p>A logical flag used to invert the
 horizontal window function to get its
 compliment.
-(e.g. to nudge outside a given window)</td>
-<td>True/False</td>
+(e.g. to nudge outside a given window)</p></td>
+<td><p>True/False</p></td>
 </tr>
-<tr class="row-even"><td><div class="first last line-block">
+<tr class="row-even"><td><div class="line-block">
 <div class="line">Nudge_Vwin_Lindex</div>
 <div class="line">Nudge_Vwin_Hindex</div>
 </div>
 </td>
-<td>REAL</td>
-<td>In the vertical, the window is specified
+<td><p>REAL</p></td>
+<td><p>In the vertical, the window is specified
 in terms of model indices.
 These specify the High (model bottom)
 and Low (model top) transition levels.
 <em>(For constant vertical window, set
-Lindex=0 and Hindex=NLEV+1)</em></td>
-<td><div class="first last line-block">
+Lindex=0 and Hindex=NLEV+1)</em></p></td>
+<td><div class="line-block">
 <div class="line">[0., (NLEV-1)]</div>
 <div class="line">[2., (NLEV+1)]</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><div class="first last line-block">
+<tr class="row-odd"><td><div class="line-block">
 <div class="line">Nudge_Vwin_Ldelta</div>
 <div class="line">Nudge_Vwin_Hdelta</div>
 </div>
 </td>
-<td>REAL</td>
-<td>The transition lengths are specified in
+<td><p>REAL</p></td>
+<td><p>The transition lengths are specified in
 terms of model level indices.
 <em>(For a constant vertical window, set
-the transition lengths to 0.001)</em></td>
-<td>&gt; 0.</td>
+the transition lengths to 0.001)</em></p></td>
+<td><p>&gt; 0.</p></td>
 </tr>
-<tr class="row-even"><td>Nudge_Vwin_Invert</td>
-<td>LOGICAL</td>
-<td>A logical flag used to invert the
+<tr class="row-even"><td><p>Nudge_Vwin_Invert</p></td>
+<td><p>LOGICAL</p></td>
+<td><p>A logical flag used to invert the
 horizontal window function to get its
-compliment.</td>
-<td>True/False</td>
+compliment.</p></td>
+<td><p>True/False</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="windowing-examples">
-<h3>9.6.5. Windowing Examples<a class="headerlink" href="#windowing-examples" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="windowing-examples">
+<h3><span class="section-number">9.6.5. </span>Windowing Examples<a class="headerlink" href="#windowing-examples" title="Link to this heading">¶</a></h3>
 <p><strong>Conus Horizontal Window</strong></p>
 <p>This example uses the Horizontal window variables to create a CONUS window for nudging:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Nudge_Hwin_lat0    =45.0&#39;</span>
@@ -832,9 +768,9 @@ compliment.</td>
 <p>Note that for this use case, the window is inverted so that nudging is used to contrain
 the model toward reanalyses values outside the CONUS region, while the model evolves freely
 in the interior.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <img alt="../_images/Example_HorizontalProfile1.png" src="../_images/Example_HorizontalProfile1.png" />
-</div>
+</figure>
 <p><strong>Surface Nudging of Q</strong></p>
 <p>Since the nudging tendencies are applied separately from the convective parameterizations,
 nudging Q values in the interior of the model can lead to misleading results. Particularly
@@ -848,12 +784,12 @@ window illustrate how to nudge only at the surface for a 32 level model.</p>
 <span class="s1">&#39;Nudge_Vwin_Invert  =.false.&#39;</span>
 </pre></div>
 </div>
-<div class="figure align-center">
+<figure class="align-center">
 <img alt="../_images/Example_VerticalProfile1.png" src="../_images/Example_VerticalProfile1.png" />
-</div>
-</div>
-<div class="section" id="example-setting-up-and-running-a-nudging-experiment">
-<h3>9.6.6. EXAMPLE: Setting Up and Running A Nudging Experiment<a class="headerlink" href="#example-setting-up-and-running-a-nudging-experiment" title="Permalink to this headline">¶</a></h3>
+</figure>
+</section>
+<section id="example-setting-up-and-running-a-nudging-experiment">
+<h3><span class="section-number">9.6.6. </span>EXAMPLE: Setting Up and Running A Nudging Experiment<a class="headerlink" href="#example-setting-up-and-running-a-nudging-experiment" title="Link to this heading">¶</a></h3>
 <p>In order to set up and run a physics-side nudging experiment, the user must first
 generate a set of target data to nudge toward. Once the data has been prepared, then
 after the desired case has been created, the nudging is applied by setting the
@@ -869,16 +805,13 @@ reanalysis data, begin by making a copy of the NEWGRID directory for your new gr
 </pre></div>
 </div>
 <p>Now edit your new script, and set the BATCH commands.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first">#!/bin/csh</p>
+<tbody>
+<tr class="row-even"><td><p>#!/bin/csh</p>
 <p>#</p>
 <p>#SBATCH -J <strong>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</strong></p>
 <p>#SBATCH -n 1</p>
@@ -890,7 +823,7 @@ reanalysis data, begin by making a copy of the NEWGRID directory for your new gr
 <p>#SBATCH -o <strong>Log.Gen_MERRA2_SAM01</strong>.out.%J</p>
 <p>#SBATCH –mail-type=ALL</p>
 <p>#SBATCH –mail-user= <strong>me&#64;ucar.edu</strong></p>
-<p class="last">#———————————————————-</p>
+<p>#———————————————————-</p>
 </td>
 </tr>
 </tbody>
@@ -898,16 +831,13 @@ reanalysis data, begin by making a copy of the NEWGRID directory for your new gr
 <p>In the Configuration section, set the reference date corresponding to the first day
 of data you desire, then number of days of data to process from that date, and the
 path where you wish to have the data stored.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first">#=============================================================</p>
+<tbody>
+<tr class="row-even"><td><p>#=============================================================</p>
 <p># CONFIGURATION SECTION:</p>
 <p>#=============================================================</p>
 <p># Set a REFERENCE (Starting) Date and the number of days to process</p>
@@ -927,7 +857,7 @@ path where you wish to have the data stored.</p>
 <p>set ESMF_interp=’conserve’</p>
 <p>set ESMF_pole=’none’</p>
 <p>set ESMF_clean=’False’</p>
-<p class="last">set ESMF_clean=’True’</p>
+<p>set ESMF_clean=’True’</p>
 </td>
 </tr>
 </tbody>
@@ -938,16 +868,13 @@ vorticity and divergence values rather then U,V. It is important that the VORT_D
 flag is set to True for these datasets, this is a common source of processing errors.
 Finally, set the <code class="docutils literal notranslate"><span class="pre">fname_grid_info</span></code> value to point to a file containing the desired ouput
 grid, and set <code class="docutils literal notranslate"><span class="pre">fname_phis_output</span></code> to point to a file containing the model topography.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"># Set Processing options</p>
+<tbody>
+<tr class="row-even"><td><p># Set Processing options</p>
 <p>#————————————-</p>
 <p>set CASE   = ‘<strong>MERRA2_ne0np4.SAM01.ne30x4_L32</strong>’</p>
 <p>set DYCORE     = ‘se’</p>
@@ -965,7 +892,7 @@ grid, and set <code class="docutils literal notranslate"><span class="pre">fname
 <strong>cami-mam4_0000-01-01_ne0np4.SAM01.ne30x4_L32_c200309.nc</strong>’</p>
 <p>set fname_phis_output = ‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/topo/</strong>
 <strong>topo_ne30np4.SAM01.ne30x4_blin_200309.nc</strong>’</p>
-<p class="last">set ftype_phis_output = ‘SE_TOPOGRAPHY’</p>
+<p>set ftype_phis_output = ‘SE_TOPOGRAPHY’</p>
 </td>
 </tr>
 </tbody>
@@ -974,16 +901,13 @@ grid, and set <code class="docutils literal notranslate"><span class="pre">fname
 in each file. For ERAI data, on the other hand, the 4x times daily data are stored in
 6 hourly files with one time slice per file. The user must configure the script to accomodate
 these differences in the data formats, as well as specify a template for the file names.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Gen_MERRA2_ne0np4.SAM01.ne30x4.csh:</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"># <em>set hoursec = ( 00000 21600 43200 64800)</em></p>
+<tbody>
+<tr class="row-even"><td><p># <em>set hoursec = ( 00000 21600 43200 64800)</em></p>
 <p># <em>set hourstr = (   00    06    12    18  )</em></p>
 <p># <em>set fname[1] = “ei.oper.an.ml/YYYYMM/ei.oper.an.ml.regn128sc.YYYYMMDDHH”</em></p>
 <p># <em>set ftype[1] = “Era_Interim_627.0_sc”</em></p>
@@ -1015,12 +939,12 @@ these differences in the data formats, as well as specify a template for the fil
 <p>set LOGFILE = $MYLOGDIR’/LogNCL.’$Yearstr$Monstr$Daystr$hoursec[$hnum]</p>
 </div></blockquote>
 <p>#  <em>if( $hnum == 4 ) then</em></p>
-<blockquote class="last">
-<div><dl class="docutils">
-<dt><strong>if( $hnum == 8 ) then</strong></dt>
-<dd>set TMP_clean   = ‘True’</dd>
-<dt>else</dt>
-<dd>set TMP_clean   = ‘False’</dd>
+<blockquote>
+<div><dl class="simple">
+<dt><strong>if( $hnum == 8 ) then</strong></dt><dd><p>set TMP_clean   = ‘True’</p>
+</dd>
+<dt>else</dt><dd><p>set TMP_clean   = ‘False’</p>
+</dd>
 </dl>
 <p>endif</p>
 </div></blockquote>
@@ -1031,16 +955,13 @@ these differences in the data formats, as well as specify a template for the fil
 <p>The last modification that is needed for this example is to edit the file
 <strong>makeIC_se_002.ncl</strong>. At about line 430, the <code class="docutils literal notranslate"><span class="pre">dstGridName</span></code> variable has to be
 set to use the SCRIP file for your new grid.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">makeIC_se_002.ncl:</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>makeIC_se_002.ncl:</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first">;*****************************************************************</p>
+<tbody>
+<tr class="row-even"><td><p>;*****************************************************************</p>
 <p>; WORK AROUND: the ‘unstructured_to_ESMF’ routine is</p>
 <p>;           not good for non-graphic interpolation.</p>
 <p>;           It’s okay for plotting values, but not</p>
@@ -1053,7 +974,7 @@ set to use the SCRIP file for your new grid.</p>
 <p>; dstGridName=”/glade/p/cesmdata/cseg/mapping/grids/ne120np4_pentagons_100310.nc”</p>
 <p>; dstGridName=”/glade/p/cesmdata/cseg/mapping/grids/ne30np4_091226_pentagons.nc”</p>
 <p>dstGridName=”<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/grids/SAM01_ne30x4_SCRIP.nc</strong>”</p>
-<p class="last">;*******************************************************************</p>
+<p>;*******************************************************************</p>
 </td>
 </tr>
 </tbody>
@@ -1064,7 +985,7 @@ was processed correctly. Serching the Log files for the string
 ‘SUCCESSFULLY COMPLETED PROCESSING’ is a good quick check if the processing scripts
 have run correctly. The number of occurances of this string should match the number
 of log files.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cheyenne</span><span class="o">%</span> <span class="n">cd</span> <span class="n">LOG</span><span class="o">/</span><span class="n">LOG_001</span><span class="o">.</span><span class="mi">01</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cheyenne</span><span class="o">%</span> <span class="n">cd</span> <span class="n">LOG</span><span class="o">/</span><span class="n">LOG_001</span><span class="mf">.01</span>
 <span class="n">cheyenne</span><span class="o">%</span> <span class="n">grep</span> <span class="s1">&#39;SUCCESSFULLY COMPLETED PROCESSING&#39;</span> <span class="n">LogNCL</span><span class="o">.*</span> <span class="o">|</span> <span class="n">cat</span> <span class="o">-</span><span class="n">n</span> <span class="o">|</span> <span class="n">tail</span>
 </pre></div>
 </div>
@@ -1103,21 +1024,18 @@ nudging tendencies are updated every model time step.
 For nudging to be applied to U and V only, the <em>Nudge_Uprof</em> and <em>Nudge_Vprof</em>
 values are set to 1. Finally, the time window of applied nudging is set to begin
 on 12/16/2012 and end on 4/5/2013.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">user_nl_cam:</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>user_nl_cam:</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first">&amp;cam_initfiles_nl</p>
-<dl class="docutils">
-<dt>bnd_topo       = ‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/</strong></dt>
-<dd><strong>topo/topo_ne0np4.SAM01.ne30x4_blin_200708.nc</strong>’</dd>
-<dt>ncdata=’<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/</strong></dt>
-<dd><strong>nudging/MERRA2/MERRA2_ne0np4.SAM01.ne30x4_L32.2012-12-16-00000.nc</strong>’</dd>
+<tbody>
+<tr class="row-even"><td><p>&amp;cam_initfiles_nl</p>
+<dl class="simple">
+<dt>bnd_topo       = ‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/</strong></dt><dd><p><strong>topo/topo_ne0np4.SAM01.ne30x4_blin_200708.nc</strong>’</p>
+</dd>
+<dt>ncdata=’<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/</strong></dt><dd><p><strong>nudging/MERRA2/MERRA2_ne0np4.SAM01.ne30x4_L32.2012-12-16-00000.nc</strong>’</p>
+</dd>
 </dl>
 <p>/</p>
 <p>&amp;nudging_nl</p>
@@ -1161,14 +1079,14 @@ on 12/16/2012 and end on 4/5/2013.</p>
 <blockquote>
 <div><p>fincl1=’U’,’V’,’T’,’Q’,’PS’,’Nudge_U’,’Nudge_V’,’Nudge_T’,’Nudge_Q’</p>
 <p>fincl2=’U’,’V’,’T’,’Q’,’PS’,’Nudge_U’,’Nudge_V’,’Nudge_T’,’Nudge_Q’</p>
-<dl class="docutils">
-<dt>fincl3=’U’,’V’,’T’,’Q’,’PS’,’Nudge_U’,’Nudge_V’,’Nudge_T’,’Nudge_Q’,</dt>
-<dd>‘Target_U’,’Target_V’,’Target_T’,’Target_Q’</dd>
+<dl class="simple">
+<dt>fincl3=’U’,’V’,’T’,’Q’,’PS’,’Nudge_U’,’Nudge_V’,’Nudge_T’,’Nudge_Q’,</dt><dd><p>‘Target_U’,’Target_V’,’Target_T’,’Target_Q’</p>
+</dd>
 </dl>
 <p>nhtfrq=0,-3,1</p>
 <p>mfilt =1,8,96</p>
 </div></blockquote>
-<p class="last">/</p>
+<p>/</p>
 </td>
 </tr>
 </tbody>
@@ -1176,17 +1094,75 @@ on 12/16/2012 and end on 4/5/2013.</p>
 <p>The <em>&amp;cam_inparm</em> settings show an example of saving the applied nudging tendencies and the
 nudging target data values to history files. Note that for this case, the outputs for T and Q
 would contain only zeros.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">9. Physics modifications via the namelist</a><ul>
+<li><a class="reference internal" href="#radiative-constituents">9.1. Radiative Constituents</a><ul>
+<li><a class="reference internal" href="#default-rad-climate-for-cam6-physics">9.1.1. Default rad_climate for cam6 physics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-modify-a-radiatively-active-gas">9.2. Example - Modify a radiatively active gas</a></li>
+<li><a class="reference internal" href="#diagnostic-radiative-forcing">9.3. Diagnostic radiative forcing</a></li>
+<li><a class="reference internal" href="#example-aerosol-radiative-forcing">9.4. Example - Aerosol radiative forcing</a></li>
+<li><a class="reference internal" href="#example-black-carbon-radiative-forcing">9.5. Example - Black carbon radiative forcing</a></li>
+<li><a class="reference internal" href="#nudging">9.6. Nudging</a><ul>
+<li><a class="reference internal" href="#target-data">9.6.1. Target Data</a></li>
+<li><a class="reference internal" href="#implementation">9.6.2. Implementation</a></li>
+<li><a class="reference internal" href="#output-values">9.6.3. Output Values</a></li>
+<li><a class="reference internal" href="#namelist-values">9.6.4. Namelist Values</a></li>
+<li><a class="reference internal" href="#windowing-examples">9.6.5. Windowing Examples</a></li>
+<li><a class="reference internal" href="#example-setting-up-and-running-a-nudging-experiment">9.6.6. EXAMPLE: Setting Up and Running A Nudging Experiment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="model-output.html"
+                          title="previous chapter"><span class="section-number">8. </span>Model Output:</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="CAM-chem-specifics.html"
+                          title="next chapter"><span class="section-number">10. </span>Chemistry specific modifications</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/users_guide/physics-modifications-via-the-namelist.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1199,12 +1175,13 @@ would contain only zeros.</p>
           <a href="model-output.html" title="8. Model Output:"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Physics modifications via the namelist</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017 UCAR.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
+    &#169; Copyright 2017 UCAR.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>
