@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Introduction &#8212; camdoc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Getting Help" href="getting-help.html" />
+    <link rel="prev" title="CAM6.3 User’s Guide" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="getting-help.html" title="2. Getting Help"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CAM6.3 User’s Guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Introduction</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<span id="id1"></span><h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
+<p>The Community Atmosphere Model version 6.3 (CAM6.3) is released as the active atmosphere component of the Community Earth System Model version CESM-2.2.
+It is the latest in a series of global atmosphere models whose development is guided by the <a class="reference external" href="http://www.cesm.ucar.edu/working_groups/Atmosphere/">Atmosphere Model Working Group (AMWG)</a> of the <a class="reference external" href="http://www.cesm.ucar.edu//">Community Earth System Model (CESM)</a> project.
+CAM can be run in many configurations within the CESM; it is the atmosphere
+component in the B, E, F, Q, and P compsets.
+The term “standalone CAM” is often used to refer to a compset which does
+not include prognostic ocean and sea ice models.
+When one speaks of “doing CAM simulations” the implication is that it’s a standalone configuration that is being used.
+When CAM is coupled to prognostic land, ocean, and sea ice models then we refer
+to it as a “fully coupled CESM simulation” which are implemented in the B compsets.</p>
+<p>To get started running CAM refer to the <a class="reference external" href="https://escomp.github.io/CESM/versions/cesm2.2/html/quickstart.html">CESM2 Quick Start Guide</a> and the
+<a class="reference internal" href="../users_guide/building-and-running-cam.html#building-and-running-cam"><span class="std std-ref">Building and Running CAM within CESM</span></a> section of this User’s Guide.
+Running CAM using the CESM scripts provides a high level of support for doing production runs of predefined experiments on supported platforms. This is the place to start for most users.</p>
+<p>CAM provides the basic atmospheric physics for several other models included in this release:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CAM-chem: Community Atmosphere Model with Chemistry</p></li>
+<li><p>WACCM: Whole Atmosphere Community Climate Model</p></li>
+<li><p>WACCM-X: Whole Atmosphere Community Climate Model with thermosphere and ionosphere extension</p></li>
+</ul>
+</div></blockquote>
+<p>Throughout this document, we will use the name CAM in a generic sense and directions provided will be useful for CAM-chem, WACCM and WACCM-X also.</p>
+<p>It should be noted that in CAM6, we are unable to support reproducibility of CAM4 and CAM5 numerical results with what a user would get running those configurations in CESM1.2 or prior.
+This is due to many factors including code changes and namelist settings.  While a user is still able to set the “-phys” namelist setting to either cam4 or cam5, the results will differ with what a user would get using those settings in CESM1.2. Due to these changes, a number of compsets specific to CAM4 or CAM5 have been removed.  We recommend that if a user wants a pure CAM4 or CAM5 run, that they use CESM1.2 for those runs.  WACCM-X which utilizes CAM4 does not have this issue and it should be run using the CESM2 release of CAM.</p>
+<section id="what-s-new-in-the-cam6-3-release">
+<h2><span class="section-number">1.1. </span>What’s new in the CAM6.3 release?<a class="headerlink" href="#what-s-new-in-the-cam6-3-release" title="Link to this heading">¶</a></h2>
+<p>The CAM6.3 is a developmental release mostly centered around new dynamical core configurations and capabilities. New configurations/capabilities include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The Spectral-Element (SE) dynamical core has been further developed since the <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017MS001257">CESM2.0 release</a>. Algorithmic improvements include:</p>
+<ul>
+<li><p>New Exner function pressure gradient formulation and new reference profiles for damping to improve flow over orography.</p></li>
+<li><p>New vertical remapping algorithms.</p></li>
+</ul>
+</li>
+<li><p>Extensive new capabilities for variable resolution SE applications which include three new resolutions/configurations (CONUS, ARCTIC and ARCTICGRIS) and tools for making new grids are.</p></li>
+<li><p>Developmental setups for coupled simulations using CAM-SE and CAM-SE-CSLAM (Conservative Semi-Lagrangian multi-tracer transport scheme).</p></li>
+<li><p>NOAA’s FV3 dynamical core used operationally by EMC (Environmental Modeling Center) has been coupled with CAM6 physics.</p></li>
+<li><p>A new simpler models configuration has been added: Moist Held-Suarez.</p></li>
+</ul>
+</div></blockquote>
+<p>These new configurations are not fully scientifically supported in the sense of extensive tuning, testing and vetting. Hence they are referred to as
+<strong>developmental configurations</strong>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">1. Introduction</a><ul>
+<li><a class="reference internal" href="#what-s-new-in-the-cam6-3-release">1.1. What’s new in the CAM6.3 release?</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">CAM6.3 User’s Guide</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="getting-help.html"
+                          title="next chapter"><span class="section-number">2. </span>Getting Help</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/CAM6.3_users_guide/introduction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="getting-help.html" title="2. Getting Help"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="CAM6.3 User’s Guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">camdoc  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >CAM6.3 User’s Guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Introduction</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2017 UCAR.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>
