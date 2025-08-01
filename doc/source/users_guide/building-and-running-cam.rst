@@ -8,9 +8,15 @@ If you need to install CESM, you will need to download it from a git
 repository.  Please refer to `downloading CESM
 <http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html>`_.  
 
-CAM runs are setup, built, and submitted via the CIME scripts.  These directions apply also to the CAM extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first step to making a run is to create a case using the CIME create_newcase script, passing it a case name, compset, and model resolution.
+CAM runs are setup, built, and submitted via the CIME scripts.  These
+directions apply also to the CAM extension models of CAM-chem, WACCM and
+WACCM-X.  In all cases, the first step to making a run is to create a case
+using the CIME ``create_newcase`` script, passing it a case name, compset, and
+model resolution.
 
-The case name is used as the name of the new directory which will contain all the information needed to configure, build, and run the case as well as serving as the case title of the CAM model run. 
+The case name is used as the name of the new directory which will contain
+all the information needed to configure, build, and run the case as well as
+serving as the case title of the CAM model run.
 
 The compset is chosen from a set of named configurations that provide
 defaults for making one of several common types of runs. Examples of
