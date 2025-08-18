@@ -9,7 +9,9 @@ development is guided by the `Atmosphere Model Working Group (AMWG)
 <http://www.cesm.ucar.edu/working_groups/Atmosphere/>`__ of the `Community
 Earth System Model (CESM) <http://www.cesm.ucar.edu/>`__ project.  CAM can
 be run in many configurations within the CESM; it is the atmosphere
-component in the B, E, F, Q, and P compsets.  The term "standalone CAM" is
+component in the `B, E, F, Q, and P compsets
+<https://escomp.github.io/CESM/versions/cesm2.2/html/cesm_configurations.html#cesm2-component-sets>`__.
+The term "standalone CAM" is
 often used to refer to a compset which does not include prognostic ocean
 and sea ice models.  When one speaks of "doing CAM simulations" the
 implication is that it's a standalone configuration that is being used.
@@ -78,7 +80,7 @@ New dycore/physics features:
    increase to 58 levels (from 32).
 
  - The PUMAS microphysics code base replaces MG.  This adds missing
-   processes and hydrometeor types.    
+   processes and hydrometeor types.  PUMAS is GPU-enabled.
      
  - Updated L-scale CLUBB code with prognostic momentum transport.
 
@@ -86,8 +88,12 @@ New dycore/physics features:
    returning from the coupler.  This alleviates spurious surface wind
    oscillations.
 
- - The RRTMG-P radiation code replaces RRTMG.  The new code has improved
-   algorithms and includes support for GPUs.
+ - The `RTE+RRTMGP <https://earth-system-radiation.github.io/rte-rrtmgp>`__ 
+   radiation code replaces RRTMG.  The new code has improved
+   algorithms and gas optics.
+
+ - GPU support may be enabled via OpenACC directives in the PUMAS, CLUBB, and
+   RTE-RRTMGP parameterizations.
 
  - New gravity wave drag parameterization adds missing sources to improve
    high-top stratospheric wind biases.
@@ -136,7 +142,7 @@ New chemistry features:
    allow simulations at 5km horizontal resolution.
 
  - TUV-x improves the representation of photochemical decomposition of
-   reactive species generating different radicals (O1D, OH,
+   reactive species generating different radicals (O\ :sup:`1`\ D, OH,
    Cl/Br/I atoms) as well as the penetration of downwelling radiation to
    the lower troposphere.  Also improves treatment of aerosols.
    
@@ -147,3 +153,10 @@ New WACCM features:
  - Use SE dynamical core for both WACCM and WACCM-X to maintain consistency
    with CAM and enable high resolution simulations.
 
+------------------------------------------------
+Features removed from CAM7.0 code base:
+------------------------------------------------
+
+ - The Eulerian spectral dycore.
+
+ - The Super-parameterized CAM (SPCAM).

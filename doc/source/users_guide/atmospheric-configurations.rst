@@ -5,34 +5,75 @@
 Atmospheric configurations (compsets)
 **************************************
 
-There are a number of atmospheric models which can run within CESM.  While CAM is the basic atmospheric model within CESM, there are several models with significant extensions to CAM which may also be run within CESM.  The available atmospheric models in CESM2 are:
+There are a number of atmospheric models which can run within CESM.  While
+CAM is the basic atmospheric model within CESM, there are several models
+with significant extensions to CAM which may also be run within CESM.  The
+available atmospheric models in CESM2 are:
 
 - **CAM**:  Community Atmosphere Model
 - **CAM-chem**: Community Atmosphere Model with Chemistry  
 - **WACCM**: Whole Atmosphere Community Climate Model
-- **WACCM-X**: Whole Atmosphere Community Climate Model with thermosphere and ionosphere extension
+- **WACCM-X**: Whole Atmosphere Community Climate Model with thermosphere
+  and ionosphere extension
 
-Each of these models have a number of atmospheric configurations provided to run them.  These component sets known as **compsets** are used to supply both configure and namelist settings for predefined experiments.
+Each of these models have a number of atmospheric configurations provided
+to run them.  These component sets known as **compsets** are used to supply
+both configure and namelist settings for predefined experiments.
 
 The predefined compsets exist with one of three levels of support.
 
-- **Scientifically supported**:  Specific compset/resolution pairs which have had significant, multi-year runs made and have been studied scientifically.  It is important to note that resolutions which are not listed, are not scientifically supported, have not had tunings performed and should not be used for scientific studies without careful examination of the results.
-- **Developmental support**: Developmental configurations that are being evaluated. These are not fully scientifically supported in the sense of extensive tuning, testing and vetting. 
-- **Tested**: One or more tests for this compset have been made using at least one resolution.  Extensive scientific study has not been performed.  The designation of "Tested" simply acknowledges that one or more compset/resolution pair(s) have been confirmed to run without crashing.  No attempts have been made to validate the scientific quality of these runs and tunings have NOT been performed on them.
-- **Unsupported**:  These compsets are setup as a "convenience" for various reasons and they are not supported for science runs.  If a user decides to use one of these compsets, they must also supply the --run-unsupported flag to create_newcase.  These compsets may not even compile and run successfully as they have not been tested.
+- **Scientifically supported**:  Specific compset/resolution pairs which
+  have had significant, multi-year runs made and have been studied
+  scientifically.  It is important to note that resolutions which are not
+  listed, are not scientifically supported, have not had tunings performed
+  and should not be used for scientific studies without careful examination
+  of the results.
+
+- **Developmental support**: Developmental configurations that are being
+  evaluated. These are not fully scientifically supported in the sense of
+  extensive tuning, testing and vetting.
+
+- **Tested**: One or more tests for this compset have been made using at
+  least one resolution.  Extensive scientific study has not been performed.
+  The designation of "Tested" simply acknowledges that one or more
+  compset/resolution pair(s) have been confirmed to run without crashing.
+  No attempts have been made to validate the scientific quality of these
+  runs and tunings have NOT been performed on them.
+
+- **Unsupported**:  These compsets are setup as a "convenience" for various
+  reasons and they are not supported for science runs.  If a user decides
+  to use one of these compsets, they must also supply the --run-unsupported
+  flag to create_newcase.  These compsets may not even compile and run
+  successfully as they have not been tested.
 
 CAM compsets include the F, P and Q compsets.
 
-- **F**: CAM standalone runs, using an active Atmosphere and Land with prescribed Sea-Surface Temperatures (SSTs) and sea-ice extent. 
+- **F**: CAM standalone runs, using an active Atmosphere and Land with
+  prescribed Sea-Surface Temperatures (SSTs) and sea-ice extent.  
+
 - **P**: Parallel offline radiation tool (PORT)
+
 - **Q**: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)
 
-This chapter will discuss some of the atmospheric compsets in more detail, but a complete listing of all compsets is found at `CESM2 Component Configurations (compsets) <http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html>`_.  The complete listing of grid resolutions can be found at `CESM2 Grid Resolutions <http://www.cesm.ucar.edu/models/cesm2.0/cesm/grids.html>`_.
+This chapter will discuss some of the atmospheric compsets in more detail,
+but a complete listing of all compsets is found at `CESM2 Component
+Configurations (compsets)
+<https://docs.cesm.ucar.edu/models/cesm2/config/compsets.html>`__.  The
+complete listing of grid resolutions can be found at `CESM2 Grid
+Resolutions <http://www.cesm.ucar.edu/models/cesm2.0/cesm/grids.html>`__.
 
 -------------------------------------------------------------------------------
 CAM scientifically supported compsets
 -------------------------------------------------------------------------------
-CAM has a number of compsets/resolutions which are supported scientifically.  These compsets are detailed in the following table.  A specific compset may be listed below, but unless the resolution is also listed, that compset/resolution combination is not scientifically supported.  Different resolutions exhibit different behavior and as a result require different tunings.  The scientifically supported designation is limited to the specific compset/resolution pairs listed in the following tables.
+
+CAM has a number of compsets/resolutions which are supported
+scientifically.  These compsets are detailed in the following table.  A
+specific compset may be listed below, but unless the resolution is also
+listed, that compset/resolution combination is not scientifically
+supported.  Different resolutions exhibit different behavior and as a
+result require different tunings.  The scientifically supported designation
+is limited to the specific compset/resolution pairs listed in the following
+tables.
 
 **Scientifically supported CAM compsets**
 
@@ -659,41 +700,17 @@ To run the user iop with SCAM, follow the following steps (here it is a test cas
 Other CAM compsets
 -------------------------------------------------------------------------------
 
-There are a number of other CAM compsets which have not been described in this document. The complete listing of all compsets is found `here <http://www.cesm.ucar.edu/models/cesm2.0/cesm/compsets.html>`_.  Users are cautioned about using compsets that are not scientifically supported or tested.  These compsets are not supported and users may encounter problems or get invalid results using them.
-
-===============================================================================
-Super-parameterized CAM (SPCAM)
-===============================================================================
-
-Another set of compsets which require a brief description are ones for Super-parameterized CAM (SPCAM). SPCAM implements a 2D cloud resolving model (the System for Atmospheric Modeling SAM, Version 6.10.4) in CAM6.0 to replace its conventional parameterization for moist convection and large-scale condensation [5]_. Four different compsets are provided. FSPCAMS uses one moment SAM microphysics, and is based on Khairoutdinov and Randall [6]_. FSPCAMM uses two moment microphysics from Morrison et al [7]_, and its implementation is based on Wang et al. [5]_; [8]_; [9]_. FSPCAMCLBS and FSPCAMCLBM are the same as FSPCAMS and FSPCAMM respectivly, but are coupled with a higher-order turbulence closure scheme, CLUBB [5]_.  In FSPCAMM ad FSPCAMCLBM, the Explicit-Cloud-Parameterized-Pollutant (ECPP) approach is used to treat cloud processing of aerosols with statistics of cloud properties resolved by the cloud resolving model (Gustafson et al., 2008) [10]_ . It is important to point out that the CLUBB version used in SPCAM is an older version of CLUBB than what is used by CAM6.0 and this customized version of CLUBB resides in the CRM library.  The performance of these four compsets as they existed in CAM5.2 has been documented in detail [5]_ and [11]_.
-
-.. [5] Wang, M., V. Larson, S. Ghan, M. Ovchinnikov, D. Schanen, H. Xiao, X. Liu, Z.  Guo, and P. Rasch (2015), A multiscale modeling framework model (superparameterized CAM5) with a higher-order turbulence closure: Model description and low-cloud simulations, Journal of Advances in Modeling Earth Systems, 7, https://doi.org/10.1002/2014MS000375.
-
-.. [6] Khairoutdinov, M. F., and D. A. Randall (2001), A cloud resolving model as a cloud parameterization in the NCAR Community Climate System Model: Preliminary results, Geophys Res Lett, 28(18), 3617-3620.
-
-.. [7] Morrison, H., Curry, J. A., Khvorostyanov, V. I. (2005). A new double-moment microphysics parameterization for application in cloud and climate models. Part I: Description. Journal of the atmospheric sciences, 62(6), 1665-1677.
-
-.. [8] Wang, M., et al. (2011a), The multi-scale aerosol-climate model PNNL-MMF: model description and evaluation, Geosci. Model Dev., 4(1), 137–168, doi:10.5194/gmd-4-137-2011.
-
-.. [9] Wang, M., S. Ghan, M. Ovchinnikov, X. Liu, R. Easter, E. Kassianov, Y. Qian, and H. Morrison (2011b), Aerosol indirect effects in a multi-scale aerosol-climate model PNNL-MMF, Atmos. Chem. Phys., 11(11), 5431-5455.
-
-.. [10] Gustafson, W. I., L. K. Berg, R. C. Easter, and S. J. Ghan (2008), The Explicit- Cloud Parameterized-Pollutant hybrid approach for aerosol-cloud interactions in multiscale modeling framework models: tracer transport results, Environ Res Lett, 3(2), 025005.
-
-.. [11] Zhang, K., Fu, R., Shaikh, M. J., Ghan, S., Wang, M., Leung, L. R., … Marengo, J. (2017). Inﬂuence of superparameterization and a higher-order turbulence closure on rainfall bias over Amazonia in Community Atmosphere Model version 5. Journal of Geophysical Research: Atmosphere s, 122, 9879-9902, https://doi.org/10.1002/2017JD026576
-
-
-**SPCAM tested compsets**
-
- - FSPCAMS: SPCAM using the single moment microphysics
- - FSPCAMM: SPCAM using the double moment microphysics
-
-**SPCAM run-unsupported compsets**
- - FSPCAMCLBS: SPCAM using the single moment microphysics and a custom version of CLUBB 
- - FSPCAMCLBM: SPCAM using the double moment microphysics and a custom version of CLUBB 
+There are a number of other CAM compsets which have not been described in
+this document. The complete listing of all compsets is found `here
+<https://docs.cesm.ucar.edu/models/cesm2/config/compsets.html>`__.  Users
+are cautioned about using compsets that are not scientifically supported or
+tested.  These compsets are not supported and users may encounter problems
+or get invalid results using them.
 
 -------------------------------------------------------------------------------
 CAM-chem tested compsets
 -------------------------------------------------------------------------------
+
 CAM-chem tested compsets in CESM2.2:
 
 In CESM2.2 new compsets have been included and existing ones have been slightly changed with

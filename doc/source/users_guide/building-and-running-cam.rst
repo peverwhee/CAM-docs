@@ -6,13 +6,19 @@ Building and Running the atmospheric model within CESM
 
 If you need to install CESM, you will need to download it from a git
 repository.  Please refer to `downloading CESM
-<http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html>`_.  
+<http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html>`__.  
 
-CAM runs are setup, built, and submitted via the CIME scripts.  These
-directions apply also to the CAM extension models of CAM-chem, WACCM and
-WACCM-X.  In all cases, the first step to making a run is to create a case
-using the CIME ``create_newcase`` script, passing it a case name, compset, and
-model resolution.
+CESM runs are setup, built, and executed using the Common Infrastructure
+for Modeling the Earth (`CIME
+<https://esmci.github.io/cime/versions/master/html/index.html>`__).  A
+general description of using CIME for a CESM run is found in the CESM
+`Quick Start
+<https://escomp.github.io/CESM/versions/cesm2.2/html/quickstart.html>`__.
+In this section we provide some examples using the CIME scripts to run CAM
+standalone configurations.  These directions apply also to the CAM
+extension models of CAM-chem, WACCM and WACCM-X.  In all cases, the first
+step to making a run is to create a case using the CIME ``create_newcase``
+script, passing it a case name, compset, and model resolution.
 
 The case name is used as the name of the new directory which will contain
 all the information needed to configure, build, and run the case as well as
@@ -74,7 +80,6 @@ In the example above, the case directory name test_FHIST is stored by CIME in XM
 	% ./xmlquery RUNDIR
 	% ./xmlquery --listall
 
-A summary description of the setup/build/submit process can be found at the `CESM quick start <https://escomp.github.io/CESM/versions/cesm2.1/html/quickstart.html>`_.  
 
 Further, detailed information for each of the above steps can be found at: 
 
