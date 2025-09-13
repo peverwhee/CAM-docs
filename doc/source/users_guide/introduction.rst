@@ -1,6 +1,6 @@
-**************************
-Introduction 
-**************************
+************
+Introduction
+************
 
 The Community Atmosphere Model version 7.0 (CAM7.0) is released as the
 active atmosphere component of the Community Earth System Model version
@@ -16,29 +16,30 @@ often used to refer to a compset which does not include prognostic ocean
 and sea ice models.  When one speaks of "doing CAM simulations" the
 implication is that it's a standalone configuration that is being used.
 When CAM is coupled to prognostic land, ocean, and sea ice models then we
-refer to it as a "fully coupled CESM simulation" which are implemented in
+refer to doing "fully coupled CESM simulations" which are implemented in
 the B compsets.
 
-Scientific studies with CAM should always be done via a released CESM version.
-To get started running CAM refer to the `CESM2 Quick Start Guide
+Scientific studies with CAM should always be done via a released CESM
+version.  To get started running CAM refer to the `CESM2 Quick Start Guide
 <https://escomp.github.io/CESM/versions/cesm2.2/html/quickstart.html>`__
-and the :ref:`Building and Running CAM within CESM
-<ug70-building-and-running-cam>` section of this User's Guide.  Running CAM
-using the CIME scripts provides a high level of support for doing
-production runs of predefined experiments on supported platforms.
-Scientific studies with CAM should always be done via a released version of
-the CESM.  
+and the :ref:`Building and Running CAM <ug70-building-and-running-cam>`
+section of this User's Guide.  Running CAM using the CIME scripts provides
+a high level of support for doing production runs of predefined experiments
+on supported platforms.
 
 CAM development takes place in the `ESCOMP/CAM
-<https://github.com/ESCOMP/CAM>`__ github repository.  Standalone CAM
-development versions are available from github, see :doc:`Downloading CAM standalone
+<https://github.com/ESCOMP/CAM>`__ github repository.  The development
+versions utilize standalone CAM configurations and are available from
+github, see :doc:`Downloading CAM standalone
 <checking-out-cam-standalone>`.
 
-CAM provides the basic atmospheric physics for several other models included in this release:
+CAM provides the basic atmospheric physics for several other models
+included in this release:
 
  - CAM-chem: Community Atmosphere Model with Chemistry
  - WACCM: Whole Atmosphere Community Climate Model
- - WACCM-X: Whole Atmosphere Community Climate Model with thermosphere and ionosphere extension
+ - WACCM-X: Whole Atmosphere Community Climate Model with thermosphere and
+   ionosphere extension
 
 Throughout this document, we will use the name CAM in a generic sense and
 directions provided will be useful for CAM-chem, WACCM and WACCM-X also.

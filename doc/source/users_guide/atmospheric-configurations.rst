@@ -8,7 +8,7 @@ Atmospheric configurations (compsets)
 There are a number of atmospheric models which can run within CESM.  While
 CAM is the basic atmospheric model within CESM, there are several models
 with significant extensions to CAM which may also be run within CESM.  The
-available atmospheric models in CESM2 are:
+available atmospheric models in CESM3 are:
 
 - **CAM**:  Community Atmosphere Model
 - **CAM-chem**: Community Atmosphere Model with Chemistry  
@@ -16,44 +16,44 @@ available atmospheric models in CESM2 are:
 - **WACCM-X**: Whole Atmosphere Community Climate Model with thermosphere
   and ionosphere extension
 
-Each of these models have a number of atmospheric configurations provided
-to run them.  These component sets known as **compsets** are used to supply
-both configure and namelist settings for predefined experiments.
+Each of these models has a number of standalone CAM configurations provided
+to run them.  These configurations are implemented in the CIME framework
+via **compsets** as discussed in `CESM2 Component Sets
+<https://escomp.github.io/CESM/versions/cesm2.2/html/cesm_configurations.html#cesm2-component-sets>`__.
+The predefined compsets have the support levels:
 
-The predefined compsets exist with one of three levels of support.
-
-- **Scientifically supported**:  Specific compset/resolution pairs which
+* **Scientific support**:  Specific compset/resolution pairs which
   have had significant, multi-year runs made and have been studied
   scientifically.  It is important to note that resolutions which are not
   listed, are not scientifically supported, have not had tunings performed
   and should not be used for scientific studies without careful examination
   of the results.
 
-- **Developmental support**: Developmental configurations that are being
-  evaluated. These are not fully scientifically supported in the sense of
-  extensive tuning, testing and vetting.
+* **Functional support**: One or more tests for this compset have been made
+  using at least one resolution.  Extensive scientific study has not been
+  performed.  No attempts have been made to validate the scientific quality
+  of these runs and tunings have NOT been performed on them.
 
-- **Tested**: One or more tests for this compset have been made using at
-  least one resolution.  Extensive scientific study has not been performed.
-  The designation of "Tested" simply acknowledges that one or more
-  compset/resolution pair(s) have been confirmed to run without crashing.
-  No attempts have been made to validate the scientific quality of these
-  runs and tunings have NOT been performed on them.
-
-- **Unsupported**:  These compsets are setup as a "convenience" for various
+* **Unsupported**: These compsets are setup as a convenience for various
   reasons and they are not supported for science runs.  If a user decides
-  to use one of these compsets, they must also supply the --run-unsupported
-  flag to create_newcase.  These compsets may not even compile and run
-  successfully as they have not been tested.
+  to use one of these compsets, they must also supply the
+  ``--run-unsupported`` flag to ``create_newcase``.  These compsets may not
+  even compile and run successfully as they have not been tested.
 
-CAM compsets include the F, P and Q compsets.
+The compsets for standalone CAM are the F, P, and Q compsets (F, P, and Q
+are the first letters of the compset aliases).  They are broadly defined as
+follows:
 
-- **F**: CAM standalone runs, using an active Atmosphere and Land with
-  prescribed Sea-Surface Temperatures (SSTs) and sea-ice extent.  
+* **F compsets** use CAM and active Land (CTSM) with prescribed Sea-Surface
+  Temperatures (SSTs) and sea-ice extent (other components are stubs).
 
-- **P**: Parallel offline radiation tool (PORT)
+* **P compsets** use only the CAM component configured to run only the
+  radiation code driven by data collected from a previous run.  This
+  configuration is called PORT -- Parallel Offline Radiation Tool.
 
-- **Q**: Aquaplanet with either prescribed ocean (QP) or slab ocean(QS)
+* **Q compsets** use CAM with a data ocean.  CAM is configured to run
+  aquaplanet simulations with either prescribed ocean (QP) or slab
+  ocean(QS). 
 
 This chapter will discuss some of the atmospheric compsets in more detail,
 but a complete listing of all compsets is found at `CESM2 Component

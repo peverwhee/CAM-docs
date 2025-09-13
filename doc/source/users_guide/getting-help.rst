@@ -1,32 +1,33 @@
 **************************
-Getting Help
+Resources and Getting Help
 **************************
 
 This chapter describes several ways in which a user may obtain help when using CAM.
 
 -----------------------
-The CAM Web Page
+The CESM Tutorial
 -----------------------
 
-The central source for information on CAM is the `CAM web page
-<http://www.cesm.ucar.edu/models/cesm2.0/atmosphere>`__.  This webpage is a
-veritable goldmine of information about CAM.
+CAM is run in various configurations of the CESM.  The `CESM tutorial
+<https://www.cesm.ucar.edu/events/tutorials>`__ is held annually and
+provides extensive resources for running the model.  Links to the agenda
+and presentations from the most recent tutorial will be found `here
+<https://www.cesm.ucar.edu/events/tutorials/cesm>`__.  The top level entry
+to the tutorial resources is `here
+<https://ncar.github.io/CESM-Tutorial/README.html>`__.
 
 ------------------------------
 The CESM Bulletin Board
 ------------------------------
 
-The CESM Bulletin Board is a moderated forum for rapid exchange of
-information, ideas, and topics of interest relating to all components of
-the CESM.  This includes sharing software tools, datasets, programming tips
-and examples, as well as discussions of questions, problems and
-workarounds.  The primary motivation for the establishment of this forum is
-to facilitate and encourage communication between the users of the CESM
-around the world. This bulletin board will also be used to distribute
-announcements related to CESM.
-
-The CESM Bulletin Board is here: `http://bb.cgd.ucar.edu/cesm
-<http://bb.cgd.ucar.edu/cesm>`__.
+The `CESM Bulletin Board <http://bb.cgd.ucar.edu/cesm>`__ is a moderated
+forum for rapid exchange of information, ideas, and topics of interest
+relating to all components of the CESM.  This includes sharing software
+tools, datasets, programming tips and examples, as well as discussions of
+questions, problems and workarounds.  The primary motivation for the
+establishment of this forum is to facilitate and encourage communication
+between the users of the CESM around the world. This bulletin board will
+also be used to distribute announcements related to CESM.
 
 You will find specific sections about CAM, WACCM and CAM-chem.
 
