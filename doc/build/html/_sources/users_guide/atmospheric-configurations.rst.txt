@@ -66,7 +66,7 @@ Resolutions <http://www.cesm.ucar.edu/models/cesm2.0/cesm/grids.html>`__.
 CAM scientifically supported compsets
 -------------------------------------------------------------------------------
 
-CAM has a number of compsets/resolutions which are supported
+CAM7 has a number of compsets/resolutions which are supported
 scientifically.  These compsets are detailed in the following table.  A
 specific compset may be listed below, but unless the resolution is also
 listed, that compset/resolution combination is not scientifically
@@ -75,46 +75,27 @@ result require different tunings.  The scientifically supported designation
 is limited to the specific compset/resolution pairs listed in the following
 tables.
 
-**Scientifically supported CAM compsets**
+CAM7 is released with two supported model tops.  The "low top" version
+(CAM7-LT) has the top at about 40-km which is the same as the previous
+CAM4, CAM5, CAM6 models, but has 58 vertical layers and thus a higher
+vertical resolution than the previous models which used 26, 30, and 32
+layers respectively.  The "medium top" version (CAM7-MT) has the top at
+about 80-km and uses 93 vertical layers.
 
-+--------------+----------------------+-----------------------------------------+-------------+
-| Compset Name | supported resolution |Description                              | Period      |
-+==============+======================+=========================================+=============+
-| FHIST        | f09_f09_mg17         | Historical CAM6 using 1 degree finite   | 1979 to 2015|
-|              |                      | volume dycore *[Note - this is similar  |             |
-|              |                      | to the obsolete CAM5 FAMIP compset]*    |             |
-+--------------+----------------------+-----------------------------------------+-------------+
-| F2000climo   | f09_f09_mg17         | Climatological present day climate      | Climos over |
-|              |                      | (year 2000) with CAM6 physics           |  1995-2005  |
-|              |                      | using 1 degree fv dycore                |  1995-2005  |
-+--------------+----------------------+-----------------------------------------+-------------+
+**Scientifically supported CAM7 compsets**
 
-To run the FHIST compset, and create a case called fhist, simply run the following commands::
++--------------+-----------------------+------------------------------------+-------------+
+| Compset Name | supported resolution  |Description                         | Period      |
++==============+=======================+====================================+=============+
+| FHISTC_LTso  | ne30pg3_ne30pg3_mt232 | Historical CAM7-LT using 1 degree  | 1979 to 2015|
+|              |                       | Spectral Element dycore            |             |
++--------------+-----------------------+------------------------------------+-------------+
+| FHISTC_MTso  | ne30pg3_ne30pg3_mt232 | Historical CAM7-MT using 1 degree  | 1979 to 2015| 
+|              |                       | Spectral Element dycore            |             |
++--------------+-----------------------+------------------------------------+-------------+
 
-  % cd cime/scripts
-  % ./create_newcase --case fhist --compset FHIST --res f09_f09_mg17 
-  % cd fhist
-  % ./case.setup
-  % ./case.build
-  % ./case.submit
-
-To run the F2000climo compset, and create a case called f_present_day, simply run the following commands::
-
-  % cd cime/scripts
-  % ./create_newcase --case f_present_day --compset F2000climo --res f09_f09_mg17 
-  % cd f_present_day
-  % ./case.setup
-  % ./case.build
-  % ./case.submit
-
-  
-An important reminder: On cheyenne, if you are building on a login node, you must say::
-
-  % qcmd -- ./case.build
-  
-It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.
-The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2.
-It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.
+Scientifically supported compsets may be run following the instructions in 
+:ref:`Building and Running CAM <ug70-building-and-running-cam>`.
 
 -------------------------------------------------------------------------------
 CAM developmental compsets

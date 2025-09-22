@@ -54,20 +54,22 @@
 <li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">9. Physics modifications via the namelist</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#radiative-constituents">9.1. Radiative Constituents</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#default-rad-climate-for-cam6-physics">9.1.1. Default rad_climate for cam6 physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default-rad-climate-for-cam7-physics">9.1.1. Default rad_climate for cam7 physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-modify-a-radiatively-active-gas">9.1.2. Example - Modify a radiatively active gas</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#example-modify-a-radiatively-active-gas">9.2. Example - Modify a radiatively active gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#diagnostic-radiative-forcing">9.3. Diagnostic radiative forcing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example-aerosol-radiative-forcing">9.4. Example - Aerosol radiative forcing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example-black-carbon-radiative-forcing">9.5. Example - Black carbon radiative forcing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nudging">9.6. Nudging</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#target-data">9.6.1. Target Data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#implementation">9.6.2. Implementation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#output-values">9.6.3. Output Values</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#namelist-values">9.6.4. Namelist Values</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#windowing-examples">9.6.5. Windowing Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-setting-up-and-running-a-nudging-experiment">9.6.6. EXAMPLE: Setting Up and Running A Nudging Experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnostic-radiative-forcing">9.2. Diagnostic radiative forcing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-aerosol-radiative-forcing">9.2.1. Example - Aerosol radiative forcing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-black-carbon-radiative-forcing">9.2.2. Example - Black carbon radiative forcing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nudging">9.3. Nudging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#target-data">9.3.1. Target Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">9.3.2. Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-values">9.3.3. Output Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#namelist-values">9.3.4. Namelist Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windowing-examples">9.3.5. Windowing Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-setting-up-and-running-a-nudging-experiment">9.3.6. EXAMPLE: Setting Up and Running A Nudging Experiment</a></li>
 </ul>
 </li>
 </ul>
@@ -113,68 +115,71 @@
              
   <section id="physics-modifications-via-the-namelist">
 <h1><span class="section-number">9. </span>Physics modifications via the namelist<a class="headerlink" href="#physics-modifications-via-the-namelist" title="Link to this heading"></a></h1>
-<p>This chapter contains a few examples of customizing
-CAM’s run time configuration. General instructions
-for modifying namelists using the user_nl_cam file were given
-in <a class="reference internal" href="building-and-running-cam.html#ug70-building-and-running-cam"><span class="std std-ref">Building and Running CAM within CESM</span></a>.
-The examples below focus on some specific modifications that would
-be included in user_nl_cam.</p>
+<p>This chapter contains a few examples of customizing CAM’s run time
+configuration. General instructions for modifying namelists using the
+<code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> file were given in <a class="reference internal" href="building-and-running-cam.html#ug70-building-and-running-cam"><span class="std std-ref">Building and Running CAM</span></a>.  The examples below focus on some
+specific modifications that would be included in <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code>.</p>
 <section id="radiative-constituents">
 <h2><span class="section-number">9.1. </span>Radiative Constituents<a class="headerlink" href="#radiative-constituents" title="Link to this heading"></a></h2>
 <p>The atmospheric constituents which impact the calculation of radiative
 fluxes and heating rates are referred to as radiative constituents. A
 single CAM run may potentially contain multiple sources of any given
-constituent, for example, a prognostic version of ozone from a
-chemistry scheme and a prescribed version of ozone from a dataset. The
-radiative constituent module was designed to</p>
+constituent, for example, a prognostic version of ozone from a chemistry
+scheme and a prescribed version of ozone from a dataset. The radiative
+constituent module was designed to</p>
 <ul class="simple">
 <li><p>provide an explicit specification of the gas and aerosol
 constituents that impact the radiation calculations, and</p></li>
 <li><p>allow this specification to be modified via the namelist.</p></li>
 </ul>
-<p>Putting the entire specification of the radiative constituents into
-the namelist results in a certain amount of complexity which is
+<p>Putting the entire specification of the radiative constituents into the
+namelist results in a certain amount of complexity which is
 unavoidable. This sections begins with a description of what’s in the
-default specification for the cam6 physics
-package. Following that are some examples of how to modify the
-default namelist settings.</p>
-<section id="default-rad-climate-for-cam6-physics">
-<span id="ug70-def-rad-clim"></span><h3><span class="section-number">9.1.1. </span>Default rad_climate for cam6 physics<a class="headerlink" href="#default-rad-climate-for-cam6-physics" title="Link to this heading"></a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics package uses prescribed gases (except for water
-vapor), prognostic modal aerosols, and prescribed bulk
-aerosols. <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> is the namelist variable which holds the
-specification of radiatively active constituents. The default value of
-<code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> generated by <code class="docutils literal notranslate"><span class="pre">build-namelist</span></code> is:</p>
+default specification for the cam6 physics package. Following that are some
+examples of how to modify the default namelist settings.</p>
+<section id="default-rad-climate-for-cam7-physics">
+<span id="ug70-def-rad-clim"></span><h3><span class="section-number">9.1.1. </span>Default rad_climate for cam7 physics<a class="headerlink" href="#default-rad-climate-for-cam7-physics" title="Link to this heading"></a></h3>
+<p>The cam7 physics package uses a simple prognostic GHG scheme, prognostic
+modal aerosols, and prescribed bulk aerosols. <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> is the
+namelist variable which holds the specification of radiatively active
+constituents. The default value of <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> generated by
+<code class="docutils literal notranslate"><span class="pre">build-namelist</span></code> is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rad_climate</span> <span class="o">=</span>
- <span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode1:CSMDATA/atm/cam/physprops/mam4_mode1_rrtmg_aeronetdust_sig1.6_dgnh.48_c140304.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode2:CSMDATA/atm/cam/physprops/mam4_mode2_rrtmg_aitkendust_c141106.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode3:CSMDATA/atm/cam/physprops/mam4_mode3_rrtmg_aeronetdust_sig1.2_dgnl.40_c150219.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode4:CSMDATA/atm/cam/physprops/mam4_mode4_rrtmg_c130628.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:VOLC_MMR1:CSMDATA/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode1_c170214.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:VOLC_MMR2:CSMDATA/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode2_c170214.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:VOLC_MMR3:CSMDATA/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.2_mode3_c170214.nc&#39;</span>
+ <span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;A:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11STAR:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CFC12:CFC12&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;M:mam4_mode1:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode1_rrtmg_aeronetdust_sig1.6_dgnh.48_c140304.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;M:mam4_mode2:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode2_rrtmg_aitkendust_c141106.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;M:mam4_mode3:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode3_rrtmg_aeronetdust_c141106.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;M:mam4_mode4:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode4_rrtmg_c130628.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;N:VOLC_MMR1:$DIN_LOC_ROOT/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode1_c210211.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;N:VOLC_MMR2:$DIN_LOC_ROOT/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode2_c210211.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;N:VOLC_MMR3:$DIN_LOC_ROOT/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.2_mode3_c210211.nc&#39;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable takes an array of string values. Each of the
-strings has three fields separated by colons. The first field of each
-string is either <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>, or <code class="docutils literal notranslate"><span class="pre">M</span></code>. An <code class="docutils literal notranslate"><span class="pre">A</span></code> indicates the
-constituent is advected, an <code class="docutils literal notranslate"><span class="pre">N</span></code> indicates the constituent is not
-advected, and an <code class="docutils literal notranslate"><span class="pre">M</span></code> indicates the constituent is an aerosol mode (whose
-components may be advected or non-advected). Generally a non-advected
-constituent is one whose value is prescribed from a dataset but that’s not
-always the case. It’s also possible that a non-advected constituent is one
-that has been prognosed by a chemistry scheme (e.g. the cloud borne species
-in the modal aerosol models) or diagnosed from other prognostic
-species. The second field in each string is a name that is used to identify
-the constituent in the appropriate CAM internal data structure (there are
+strings has three fields separated by colons:</p>
+<ul class="simple">
+<li><p>The first field of each string is either <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>, or <code class="docutils literal notranslate"><span class="pre">M</span></code>. An <code class="docutils literal notranslate"><span class="pre">A</span></code>
+indicates the constituent is advected, an <code class="docutils literal notranslate"><span class="pre">N</span></code> indicates the constituent
+is not advected, and an <code class="docutils literal notranslate"><span class="pre">M</span></code> indicates the constituent is an aerosol
+mode (whose components may be advected or non-advected). Generally a
+non-advected constituent is one whose value is prescribed from a dataset
+but that’s not always the case. It’s also possible that a non-advected
+constituent is one that has been prognosed by a chemistry scheme
+(e.g. the cloud borne species in the modal aerosol models) or diagnosed
+from other prognostic species.  In terms of code implementation, the
+advected constituents are stored in the physics state object while the
+non-advected constituents are stored in the physics buffer.</p></li>
+<li><p>The second field in each string is a name that is used to identify the
+constituent in the appropriate CAM internal data structure (there are
 separate data structures for the advected and the non-advected
-constituents). The third field is either a name from the set of gas specie
-names recognized by the radiation code, or it is an absolute pathname of a
+constituents).</p></li>
+<li><p>The third field is either a name from the set of gas specie names
+recognized by the radiation code, or it is an absolute pathname of a
 dataset that contains physical and optical properties of an aerosol. This
-third field is how CAM distinquishes the gas from the aerosol species.</p>
-<p>The first eight strings in the example above are the gas phase
+third field is how CAM distinquishes the gas from the aerosol species.</p></li>
+</ul>
+<p id="ug70-ghg-mam4-modes">The first eight strings in the example above are the gas phase
 constituents.  The next four strings are aerosol modes, and the final three
 strings are prescribed bulk aerosols.  Roughly, the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code>
 variable lists the aerosol constituents whose contributions are added
@@ -188,32 +193,32 @@ whole. In the example above there are four modes identified by the names
 names are hardwired in the <code class="docutils literal notranslate"><span class="pre">build-namelist</span></code> utility and are only used to
 connect each mode with more detailed specification of the constituents that
 comprise it. That specification is given by the namelist variable
-<code class="docutils literal notranslate"><span class="pre">mode_defs</span></code> and looks as follows for the default <code class="docutils literal notranslate"><span class="pre">trop_mam4</span></code> chemistry
+<code class="docutils literal notranslate"><span class="pre">mode_defs</span></code> and looks as follows for the default <code class="docutils literal notranslate"><span class="pre">ghg_mam4</span></code> chemistry
 scheme.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mode_defs</span> <span class="o">=</span>
-<span class="s1">&#39;mam4_mode1:accum:=&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:num_a1:N:num_c1:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:so4_a1:N:so4_c1:sulfate:/fs/cgd/csm/inputdata/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:pom_a1:N:pom_c1:p-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:soa_a1:N:soa_c1:s-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:bc_a1:N:bc_c1:black-c:/fs/cgd/csm/inputdata/atm/cam/physprops/bcpho_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:dst_a1:N:dst_c1:dust:/fs/cgd/csm/inputdata/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:ncl_a1:N:ncl_c1:seasalt:/fs/cgd/csm/inputdata/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
-<span class="s1">&#39;mam4_mode2:aitken:=&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:num_a2:N:num_c2:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:so4_a2:N:so4_c2:sulfate:/fs/cgd/csm/inputdata/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:soa_a2:N:soa_c2:s-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:ncl_a2:N:ncl_c2:seasalt:/fs/cgd/csm/inputdata/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:dst_a2:N:dst_c2:dust:/fs/cgd/csm/inputdata/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc&#39;</span><span class="p">,</span>
-<span class="s1">&#39;mam4_mode3:coarse:=&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:num_a3:N:num_c3:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:dst_a3:N:dst_c3:dust:/fs/cgd/csm/inputdata/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:ncl_a3:N:ncl_c3:seasalt:/fs/cgd/csm/inputdata/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:so4_a3:N:so4_c3:sulfate:/fs/cgd/csm/inputdata/atm/cam/physprops/sulfate_rrtmg_c080918.nc&#39;</span><span class="p">,</span>
-<span class="s1">&#39;mam4_mode4:primary_carbon:=&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:num_a4:N:num_c4:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:pom_a4:N:pom_c4:p-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:bc_a4:N:bc_c4:black-c:/fs/cgd/csm/inputdata/atm/cam/physprops/bcpho_rrtmg_c100508.nc&#39;</span>
+ <span class="s1">&#39;mam4_mode1:accum:=&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:num_a1:N:num_c1:num_mr:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:so4_a1:N:so4_c1:sulfate:$DIN_LOC_ROOT/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:pom_a1:N:pom_c1:p-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:soa_a1:N:soa_c1:s-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:bc_a1:N:bc_c1:black-c:$DIN_LOC_ROOT/atm/cam/physprops/bcpho_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:dst_a1:N:dst_c1:dust:$DIN_LOC_ROOT/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:ncl_a1:N:ncl_c1:seasalt:$DIN_LOC_ROOT/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;mam4_mode2:aitken:=&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:num_a2:N:num_c2:num_mr:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:so4_a2:N:so4_c2:sulfate:$DIN_LOC_ROOT/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:soa_a2:N:soa_c2:s-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:ncl_a2:N:ncl_c2:seasalt:$DIN_LOC_ROOT/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:dst_a2:N:dst_c2:dust:$DIN_LOC_ROOT/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;mam4_mode3:coarse:=&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:num_a3:N:num_c3:num_mr:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:dst_a3:N:dst_c3:dust:$DIN_LOC_ROOT/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:ncl_a3:N:ncl_c3:seasalt:$DIN_LOC_ROOT/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:so4_a3:N:so4_c3:sulfate:$DIN_LOC_ROOT/atm/cam/physprops/sulfate_rrtmg_c080918.nc&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;mam4_mode4:primary_carbon:=&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:num_a4:N:num_c4:num_mr:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:pom_a4:N:pom_c4:p-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;A:bc_a4:N:bc_c4:black-c:$DIN_LOC_ROOT/atm/cam/physprops/bcpho_rrtmg_c100508.nc&#39;</span>
 </pre></div>
 </div>
 <p>Similarly to the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable, the <code class="docutils literal notranslate"><span class="pre">mode_defs</span></code> variable is an
@@ -226,7 +231,7 @@ calculations which will be discussed in more detail later.</p>
 <li><p>The initial string in each mode specification contains three
 fields. The first is a name that identifies the mode, the second is a
 name that identifies the type of the mode, and the final is the token
-“=”.</p></li>
+<code class="docutils literal notranslate"><span class="pre">=</span></code>.</p></li>
 <li><p>One string in each mode specification must contain the names for the
 mode number concentrations in both the interstitial and cloud borne
 phases.</p></li>
@@ -244,11 +249,12 @@ example above.</p>
 <code class="docutils literal notranslate"><span class="pre">mam4_mode3</span></code>, and <code class="docutils literal notranslate"><span class="pre">mam4_mode4</span></code>. These mode names are arbitrary, the
 only requirement being that the same name is used in the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code>
 (or <code class="docutils literal notranslate"><span class="pre">rad_diag_N</span></code>) and the <code class="docutils literal notranslate"><span class="pre">mode_defs</span></code> variables. These default mode
-names for <code class="docutils literal notranslate"><span class="pre">trop_mam4</span></code> are hardcoded in the <code class="docutils literal notranslate"><span class="pre">build-namelist</span></code>
+names for <code class="docutils literal notranslate"><span class="pre">ghg_mam4</span></code> are hardcoded in the <code class="docutils literal notranslate"><span class="pre">build-namelist</span></code>
 utility. The four modes are of type <code class="docutils literal notranslate"><span class="pre">accum</span></code> (accumulation), <code class="docutils literal notranslate"><span class="pre">aitken</span></code>,
 <code class="docutils literal notranslate"><span class="pre">coarse</span></code>, and <code class="docutils literal notranslate"><span class="pre">primary_carbon</span></code> respectively. The names for the mode
 types must match the ones that are hardcoded in the <code class="docutils literal notranslate"><span class="pre">modal_aero_data</span></code>
-module.</p>
+module.  The first string in each mode definition is terminated with and
+<code class="docutils literal notranslate"><span class="pre">=</span></code> sign.</p>
 <p>The second line in the definition of each mode contains the names of the
 number concentrations for the interstitial and cloud borne phases. Looking
 specifically at the definition for <code class="docutils literal notranslate"><span class="pre">mam4_mode1</span></code>, the first two fields are
@@ -260,7 +266,7 @@ hardcoded in the <code class="docutils literal notranslate"><span class="pre">mo
 <code class="docutils literal notranslate"><span class="pre">num_mr</span></code>, is a fixed token recognized by the parser of the <code class="docutils literal notranslate"><span class="pre">mode_defs</span></code>
 strings (in the <code class="docutils literal notranslate"><span class="pre">rad_constituents</span></code> module) as an indicator that the
 string contains the number concentration names. The final token in the
-string, a “+”, signals to the parser that the definition of the current
+string, a <code class="docutils literal notranslate"><span class="pre">+</span></code>, signals to the parser that the definition of the current
 mode continues in the next string.</p>
 <p>The third through final strings in each mode definition contain
 specifications for each specie in the mode. Looking again at the definition
@@ -272,15 +278,14 @@ interstitial phase (<code class="docutils literal notranslate"><span class="pre"
 constituent (<code class="docutils literal notranslate"><span class="pre">A</span></code>). Fields three and four specify that the name of the
 mass mixing ratio for the cloud borne phase is <code class="docutils literal notranslate"><span class="pre">so4_c1</span></code>, and that this is
 a non-advected constituent (<code class="docutils literal notranslate"><span class="pre">N</span></code>). The names of the mass mixing ratio
-constituents are hardcoded in the <code class="docutils literal notranslate"><span class="pre">modal_aero_initialize_data</span>
-<span class="pre">module</span></code>. The sixth field in the string is the absolute pathname of the
-file containing physical and optical properties of the specie. The last
-field in the string contains the token “+” which again indicates that the
+constituents are hardcoded in the <code class="docutils literal notranslate"><span class="pre">modal_aero_initialize_data</span></code>
+module. The sixth field in the string is the absolute pathname of the file
+containing physical and optical properties of the specie. The last field in
+the string contains the token <code class="docutils literal notranslate"><span class="pre">+</span></code> which again indicates that the
 definition of the mode continues in the next string.</p>
 </section>
-</section>
 <section id="example-modify-a-radiatively-active-gas">
-<h2><span class="section-number">9.2. </span>Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Link to this heading"></a></h2>
+<h3><span class="section-number">9.1.2. </span>Example - Modify a radiatively active gas<a class="headerlink" href="#example-modify-a-radiatively-active-gas" title="Link to this heading"></a></h3>
 <p>Suppose that we wish to modify the distribution of water vapor that is
 seen by the radiation calculations. More specifically, consider
 modifying just the stratospheric part of the water vapor distribution
@@ -293,23 +298,22 @@ simple modification to the <code class="docutils literal notranslate"><span clas
 <li><p>Make the necessary modifications to CAM to provide the new constituent
 mixing ratios.</p></li>
 </ul>
-<p>A likely scenario for this example would be to create a
-new module which is responsible for adding the modified water vapor
-field to the physics buffer. This module could leverage the existing
-tropopause module to determine the vertical levels where changes need
-to be made. It could also leverage existing modules for reading and
-interpolating prescribed constituents, for example the
-<code class="docutils literal notranslate"><span class="pre">prescribed_ozone</span></code> module. Details of how to make this type of
-source code modification won’t be covered here.</p>
-<p>Now suppose the source code modifications have been made and the new
-water vapor constituent is in the physics buffer with the name
-<code class="docutils literal notranslate"><span class="pre">Q_fixstrat</span></code>. The best way to modify the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable is
-to start from a value that was generated by <code class="docutils literal notranslate"><span class="pre">build-namelist</span></code> for the
-configuration of interest.  This would be found in the “atm_in” file in the
-run directory.  Then modify the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable and add the
-modified version to the <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> file in the CASE directory.  If
-we were doing this to the default value of <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> as presented
-above, the only difference would be that the string for water vapor:</p>
+<p>A likely scenario for this example would be to create a new module which is
+responsible for adding the modified water vapor field to the physics
+buffer. This module could leverage the existing <code class="docutils literal notranslate"><span class="pre">tropopause</span></code> module to
+determine the vertical levels where changes need to be made. It could also
+leverage existing modules for reading and interpolating prescribed
+constituents, for example the <code class="docutils literal notranslate"><span class="pre">prescribed_ozone</span></code> module. Details of how
+to make this type of source code modification won’t be covered here.</p>
+<p>Now suppose the source code modifications have been made and the new water
+vapor constituent is in the physics buffer with the name
+<code class="docutils literal notranslate"><span class="pre">Q_fixstrat</span></code>. The best way to modify the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable is to
+start from a value that was generated by <code class="docutils literal notranslate"><span class="pre">build-namelist</span></code> for the
+configuration of interest.  This would be found in the <code class="docutils literal notranslate"><span class="pre">atm_in</span></code> file in
+the run directory.  Then modify the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable and add the
+modified version to the <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> file in the CASE directory.  If we
+were doing this to the default value of <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> as presented above,
+the only difference would be that the string for water vapor</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;A:Q:H2O&#39;</span>
 </pre></div>
 </div>
@@ -318,53 +322,55 @@ above, the only difference would be that the string for water vapor:</p>
 </pre></div>
 </div>
 <p>In addition to specifying the new name for the constituent
-(<code class="docutils literal notranslate"><span class="pre">Q_fixstrat</span></code>), it was necessary to replace the <code class="docutils literal notranslate"><span class="pre">A</span></code> by an <code class="docutils literal notranslate"><span class="pre">N</span></code>
-since the new constituent is not advected, even though it is derived
-in part from the constituent <code class="docutils literal notranslate"><span class="pre">Q</span></code> which is advected.</p>
+(<code class="docutils literal notranslate"><span class="pre">Q_fixstrat</span></code>), it was necessary to replace the <code class="docutils literal notranslate"><span class="pre">A</span></code> by an <code class="docutils literal notranslate"><span class="pre">N</span></code> since
+the new constituent is not advected, even though it is derived in part from
+the constituent <code class="docutils literal notranslate"><span class="pre">Q</span></code> which is advected.</p>
+</section>
 </section>
 <section id="diagnostic-radiative-forcing">
-<h2><span class="section-number">9.3. </span>Diagnostic radiative forcing<a class="headerlink" href="#diagnostic-radiative-forcing" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.2. </span>Diagnostic radiative forcing<a class="headerlink" href="#diagnostic-radiative-forcing" title="Link to this heading"></a></h2>
 <p>There are several namelist variables available for online radiative forcing
-calculations with the physics packages that use the RRTMG radiation
-package.  Namelist variables are available for ten radiative forcing
-calculations; <code class="docutils literal notranslate"><span class="pre">rad_diag_1,</span> <span class="pre">...,</span> <span class="pre">rad_diag_10</span></code>. The values of these
-variables use the exact same format as the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable. When a
-diagnostic calculation is requested, for example by setting the variable
-<code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code>, then the default history output variables for the radiative
-heating rates and fluxes will be output for the diagnostic calculation as
-well. The names of the variables for the diagnostic calculation will be
-distinguished from those that affect the climate simulation by appending
-the strings <code class="docutils literal notranslate"><span class="pre">'_d1',</span> <span class="pre">...,</span> <span class="pre">'_d10'</span></code> for diagnostic calculations specified by
-<code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code> through <code class="docutils literal notranslate"><span class="pre">rad_diag_10</span></code> respectively.</p>
+calculations with the physics packages that use the RRTMG (cam5, cam6) and
+RRTMGP (cam7) radiation packages.  Namelist variables are available for ten
+radiative forcing calculations; <code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code>, …, <code class="docutils literal notranslate"><span class="pre">rad_diag_10</span></code>. The
+values of these variables use the exact same format as the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code>
+variable. When a diagnostic calculation is requested, for example by
+setting the variable <code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code>, then the default history output
+variables for the radiative heating rates and fluxes will be output for the
+diagnostic calculation as well. The names of the variables for the
+diagnostic calculation will be distinguished from those that affect the
+climate simulation by appending the strings <code class="docutils literal notranslate"><span class="pre">'_d1'</span></code>, …, <code class="docutils literal notranslate"><span class="pre">'_d10'</span></code> for
+diagnostic calculations specified by <code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code> through <code class="docutils literal notranslate"><span class="pre">rad_diag_10</span></code>
+respectively.</p>
 <p>The ability to do radiative forcing calculations with the older <code class="docutils literal notranslate"><span class="pre">cam_rt</span></code>
-radiation package used by the <code class="docutils literal notranslate"><span class="pre">cam4</span></code> physics is provided by using the
+radiation package used by the cam4 physics is provided by using the
 PORT configuration of CAM which is documented <a class="reference external" href="https://wiki.ucar.edu/display/port/PORT">here</a>, and described in the paper
 <a class="reference internal" href="references.html#con13"><span class="std std-ref">Conley et al. [2013]</span></a>.  PORT can also be used for diagnostic
-calculations with the <code class="docutils literal notranslate"><span class="pre">cam5</span></code> and <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics.</p>
-</section>
+calculations with the cam5, cam6, and cam7 physics.</p>
 <section id="example-aerosol-radiative-forcing">
-<h2><span class="section-number">9.4. </span>Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Link to this heading"></a></h2>
+<h3><span class="section-number">9.2.1. </span>Example - Aerosol radiative forcing<a class="headerlink" href="#example-aerosol-radiative-forcing" title="Link to this heading"></a></h3>
 <p>To compute the total aerosol radiative forcing we need a diagnostic
 calculation in which all the aerosols have been removed. To do this we
 start from the default setting for the <code class="docutils literal notranslate"><span class="pre">rad_climate</span></code> variable, use
 that as the initial setting for <code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code>, and then edit that
-initial setting to remove the aerosols. In the <code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics this
+initial setting to remove the aerosols. In the cam7 physics this
 would be done by adding the following to <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rad_diag_1</span> <span class="o">=</span>
- <span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;A:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11STAR:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CFC12:CFC12&#39;</span><span class="p">,</span>
 </pre></div>
 </div>
 </section>
 <section id="example-black-carbon-radiative-forcing">
-<h2><span class="section-number">9.5. </span>Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Link to this heading"></a></h2>
+<h3><span class="section-number">9.2.2. </span>Example - Black carbon radiative forcing<a class="headerlink" href="#example-black-carbon-radiative-forcing" title="Link to this heading"></a></h3>
 <p>To compute the radiative forcing of a single aerosol specie we need a
 diagnostic calculation in which that specie has been removed from all modes
 that contain it. This is a bit more complicated that the previous example
 where we were able to remove entire modes from the value of
 <code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code>. Removing species from modes requires us to create new mode
 definitions. Using black carbon as a specific example, we see from the
-default definitions of the <code class="docutils literal notranslate"><span class="pre">trop_mam4</span></code> <a class="reference internal" href="#ug70-def-rad-clim"><span class="std std-ref">modes</span></a> that
+default definitions of the <code class="docutils literal notranslate"><span class="pre">ghg_mam4</span></code> <a class="reference internal" href="#ug70-ghg-mam4-modes"><span class="std std-ref">modes</span></a>
+that
 black carbon is contained in <code class="docutils literal notranslate"><span class="pre">mam4_mode1</span></code> and <code class="docutils literal notranslate"><span class="pre">mam4_mode4</span></code>. The best
 way to create the definition of a new mode which doesn’t contain black
 carbon is to copy the definition of modes 1 and 4, change their names, and
@@ -375,62 +381,65 @@ added to <code class="docutils literal notranslate"><span class="pre">user_nl_ca
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mode_defs</span> <span class="o">=</span>
 <span class="s1">&#39;mam4_mode1:accum:=&#39;</span><span class="p">,</span>
   <span class="s1">&#39;A:num_a1:N:num_c1:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:so4_a1:N:so4_c1:sulfate:/fs/cgd/csm/inputdata/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:pom_a1:N:pom_c1:p-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:soa_a1:N:soa_c1:s-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:bc_a1:N:bc_c1:black-c:/fs/cgd/csm/inputdata/atm/cam/physprops/bcpho_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:dst_a1:N:dst_c1:dust:/fs/cgd/csm/inputdata/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:ncl_a1:N:ncl_c1:seasalt:/fs/cgd/csm/inputdata/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:so4_a1:N:so4_c1:sulfate:$DIN_LOC_ROOT/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:pom_a1:N:pom_c1:p-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:soa_a1:N:soa_c1:s-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:bc_a1:N:bc_c1:black-c:$DIN_LOC_ROOT/atm/cam/physprops/bcpho_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:dst_a1:N:dst_c1:dust:$DIN_LOC_ROOT/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:ncl_a1:N:ncl_c1:seasalt:$DIN_LOC_ROOT/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
 <span class="s1">&#39;mam4_mode2:aitken:=&#39;</span><span class="p">,</span>
   <span class="s1">&#39;A:num_a2:N:num_c2:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:so4_a2:N:so4_c2:sulfate:/fs/cgd/csm/inputdata/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:soa_a2:N:soa_c2:s-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:ncl_a2:N:ncl_c2:seasalt:/fs/cgd/csm/inputdata/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:dst_a2:N:dst_c2:dust:/fs/cgd/csm/inputdata/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:so4_a2:N:so4_c2:sulfate:$DIN_LOC_ROOT/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:soa_a2:N:soa_c2:s-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:ncl_a2:N:ncl_c2:seasalt:$DIN_LOC_ROOT/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:dst_a2:N:dst_c2:dust:$DIN_LOC_ROOT/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc&#39;</span><span class="p">,</span>
 <span class="s1">&#39;mam4_mode3:coarse:=&#39;</span><span class="p">,</span>
   <span class="s1">&#39;A:num_a3:N:num_c3:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:dst_a3:N:dst_c3:dust:/fs/cgd/csm/inputdata/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:ncl_a3:N:ncl_c3:seasalt:/fs/cgd/csm/inputdata/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:so4_a3:N:so4_c3:sulfate:/fs/cgd/csm/inputdata/atm/cam/physprops/sulfate_rrtmg_c080918.nc&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:dst_a3:N:dst_c3:dust:$DIN_LOC_ROOT/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:ncl_a3:N:ncl_c3:seasalt:$DIN_LOC_ROOT/atm/cam/physprops/ssam_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:so4_a3:N:so4_c3:sulfate:$DIN_LOC_ROOT/atm/cam/physprops/sulfate_rrtmg_c080918.nc&#39;</span><span class="p">,</span>
 <span class="s1">&#39;mam4_mode4:primary_carbon:=&#39;</span><span class="p">,</span>
   <span class="s1">&#39;A:num_a4:N:num_c4:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:pom_a4:N:pom_c4:p-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:bc_a4:N:bc_c4:black-c:/fs/cgd/csm/inputdata/atm/cam/physprops/bcpho_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:pom_a4:N:pom_c4:p-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:bc_a4:N:bc_c4:black-c:$DIN_LOC_ROOT/atm/cam/physprops/bcpho_rrtmg_c100508.nc&#39;</span>
 <span class="s1">&#39;mam4_mode1_nobc:accum:=&#39;</span><span class="p">,</span>
   <span class="s1">&#39;A:num_a1:N:num_c1:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:so4_a1:N:so4_c1:sulfate:/fs/cgd/csm/inputdata/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:pom_a1:N:pom_c1:p-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:soa_a1:N:soa_c1:s-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:dst_a1:N:dst_c1:dust:/fs/cgd/csm/inputdata/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:ncl_a1:N:ncl_c1:seasalt:/fs/cgd/csm/inputdata/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
-<span class="s1">&#39;mam4_mode4_nobc:primary_carbon:=&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:so4_a1:N:so4_c1:sulfate:$DIN_LOC_ROOT/atm/cam/physprops/sulfate_rrtmg_c080918.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:pom_a1:N:pom_c1:p-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:soa_a1:N:soa_c1:s-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocphi_rrtmg_c100508.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:dst_a1:N:dst_c1:dust:$DIN_LOC_ROOT/atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc:+&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;A:ncl_a1:N:ncl_c1:seasalt:$DIN_LOC_ROOT/atm/cam/physprops/ssam_rrtmg_c100508.nc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;mam4_mode4:primary_carbon:=&#39;</span><span class="p">,</span>
   <span class="s1">&#39;A:num_a4:N:num_c4:num_mr:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:pom_a4:N:pom_c4:p-organic:/fs/cgd/csm/inputdata/atm/cam/physprops/ocpho_rrtmg_c130709.nc:+&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;A:bc_a4:N:bc_c4:black-c:/fs/cgd/csm/inputdata/atm/cam/physprops/bcpho_rrtmg_c100508.nc&#39;</span>
+  <span class="s1">&#39;A:pom_a4:N:pom_c4:p-organic:$DIN_LOC_ROOT/atm/cam/physprops/ocpho_rrtmg_c130709.nc&#39;</span>
 
 <span class="n">rad_diag_1</span> <span class="o">=</span>
- <span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC12:CFC12&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode1_nobc:CSMDATA/atm/cam/physprops/mam4_mode1_rrtmg_aeronetdust_sig1.6_dgnh.48_c140304.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode2:CSMDATA/atm/cam/physprops/mam4_mode2_rrtmg_aitkendust_c141106.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode3:CSMDATA/atm/cam/physprops/mam4_mode3_rrtmg_aeronetdust_sig1.2_dgnl.40_c150219.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;M:mam4_mode4_nobc:CSMDATA/atm/cam/physprops/mam4_mode4_rrtmg_c130628.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:VOLC_MMR1:CSMDATA/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode1_c170214.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:VOLC_MMR2:CSMDATA/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode2_c170214.nc&#39;</span><span class="p">,</span>
- <span class="s1">&#39;N:VOLC_MMR3:CSMDATA/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.2_mode3_c170214.nc&#39;</span>
+<span class="s1">&#39;A:Q:H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N:O2:O2&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CO2:CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;N:ozone:O3&#39;</span><span class="p">,</span>
+<span class="s1">&#39;A:N2O:N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CH4:CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;N:CFC11STAR:CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;A:CFC12:CFC12&#39;</span><span class="p">,</span>
+<span class="s1">&#39;M:mam4_mode1_nobc:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode1_rrtmg_aeronetdust_sig1.6_dgnh.48_c140304.nc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;M:mam4_mode2:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode2_rrtmg_aitkendust_c141106.nc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;M:mam4_mode3:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode3_rrtmg_aeronetdust_c141106.nc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;M:mam4_mode4_nobc:$DIN_LOC_ROOT/atm/cam/physprops/mam4_mode4_rrtmg_c130628.nc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;N:VOLC_MMR1:$DIN_LOC_ROOT/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode1_c210211.nc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;N:VOLC_MMR2:$DIN_LOC_ROOT/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.6_mode2_c210211.nc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;N:VOLC_MMR3:$DIN_LOC_ROOT/atm/cam/physprops/volc_camRRTMG_byradius_sigma1.2_mode3_c210211.nc&#39;</span>
 </pre></div>
 </div>
-<p>The new modes, <code class="docutils literal notranslate"><span class="pre">mam4_mode1_noBC</span></code> and <code class="docutils literal notranslate"><span class="pre">mam4_mode4_noBC</span></code>, have been
+<p>The new modes, <code class="docutils literal notranslate"><span class="pre">mam4_mode1_nobc</span></code> and <code class="docutils literal notranslate"><span class="pre">mam4_mode4_nobc</span></code>, have been
 appended to the end of the modes used in the climate calculation, and then
-used that mode in place of <code class="docutils literal notranslate"><span class="pre">mam4_mode1</span></code> and <code class="docutils literal notranslate"><span class="pre">mam4_mode4</span></code> in the
+have been used in place of <code class="docutils literal notranslate"><span class="pre">mam4_mode1</span></code> and <code class="docutils literal notranslate"><span class="pre">mam4_mode4</span></code> in the
 <code class="docutils literal notranslate"><span class="pre">rad_diag_1</span></code> value.</p>
-<p><strong>NOTE:</strong> The current version of the modal aerosol code does not support
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current version of the modal aerosol code does not support
 doing diagnostic radiation calculations with aerosol modes when the model
 is run with modal_strat_sulfate set to true.  This option is not used with
-<code class="docutils literal notranslate"><span class="pre">cam6</span></code> physics, but it is used with WACCM.</p>
+cam6 or cam7 physics, but it is used with WACCM.</p>
+</div>
+</section>
 </section>
 <section id="nudging">
-<h2><span class="section-number">9.6. </span>Nudging<a class="headerlink" href="#nudging" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.3. </span>Nudging<a class="headerlink" href="#nudging" title="Link to this heading"></a></h2>
 <p>Nudging augments the physics tendencies for the prognostic variables [U,V,T,Q]
 in order to drive the model solution toward some prescribed target states which
 are avaiable at a set of discrete target times. In general there are three
@@ -449,7 +458,7 @@ biases, which are in turn used to diagnose deficiencies in physics
 parameterizations.</p></li>
 </ul>
 <section id="target-data">
-<h3><span class="section-number">9.6.1. </span>Target Data<a class="headerlink" href="#target-data" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.3.1. </span>Target Data<a class="headerlink" href="#target-data" title="Link to this heading"></a></h3>
 <p>Typically the target states are derived from available reanalyses products, however
 a variety of other derived target states are possible. The only requirement is that
 the [U,V,T,Q] target values must be pre-processed onto the current model grid and
@@ -460,7 +469,7 @@ run were then utilized to evaluate the biases between the two dycores.</p>
 <p><strong>Pre-Processing Reanalyses Data</strong>:</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">components/cam/tools/nudging/Gen_Data/</span></code> directory scripts are avaiable which create the
 target data files for a variety of reanalyses products. There are separate scripts
-for the SE anf FV dycores. In addition to interpolating onto a given grid, the
+for the SE and FV dycores. In addition to interpolating onto a given grid, the
 values are also adjusted to account for topographical differences between CESM and
 the reanalyses models. See the README files for an overview of the script settings
 needed to create a desired dataset.</p>
@@ -537,7 +546,7 @@ run in this manner must comment out the WRAPIT command in the script and run it 
 create the library prior to submitting the processing scripts.</p>
 </section>
 <section id="implementation">
-<h3><span class="section-number">9.6.2. </span>Implementation<a class="headerlink" href="#implementation" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.3.2. </span>Implementation<a class="headerlink" href="#implementation" title="Link to this heading"></a></h3>
 <p>Nudging is implemented as a relaxation tendency between the current model state and
 a desired target state.</p>
 <div class="math">
@@ -554,11 +563,11 @@ difference between available target times (e.g. <img class="math" src="../_image
 The second uses a time scale that gets systematically stronger as the current model time
 approaches the next future target time.
 (e.g. <img class="math" src="../_images/math/8cd7212544d6680f8e621116c8a6dac1b3260672.png" alt="\Delta t_{nudge} = (t_{next} - t_{model})"/>).</p>
-<p>The namelist variables in <code class="docutils literal notranslate"><span class="pre">&amp;nudging_nl</span></code> also provide an option to window nudging
-tendencies horizontally and vertically. The Logistics function provides a smooth
-parameterized approximation of the Heaviside step function. Combinations of these,
-scaled to vary from 0 to 1, produce flexible window functions in which the user can
-tailor the transition region to suit their needs.</p>
+<p>Namelist variables provide an option to window nudging tendencies
+horizontally and vertically. The Logistics function provides a smooth
+parameterized approximation of the Heaviside step function. Combinations of
+these, scaled to vary from 0 to 1, produce flexible window functions in
+which the user can tailor the transition region to suit their needs.</p>
 <p>The positioning, size, and transition lengths for the horizontal window are expressed
 in terms of (lat,lon) values in degrees. In the vertical, the window is specified in terms
 of model level indices [1,NLEV]. This makes specifying the vertical window function a bit
@@ -566,9 +575,11 @@ awkward, but it ensures that the vertical windowing remains constant in time. Fo
 window which is constant in the vertical, the low index is set to 0, the high index is set
 to (NLEV+1), and the transition lengths are set to 0.001.</p>
 <p>To preview a window function prior to use, the NCL program located in
-<code class="docutils literal notranslate"><span class="pre">components/cam/tools/nudging/Lookat_NudgeWindow/</span></code> will read in the <code class="docutils literal notranslate"><span class="pre">&amp;nudging_nl</span></code> namelist values
-from <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> and produce plots for the given settings. See the README for details.</p>
-<p><strong>NOTE:</strong></p>
+<code class="docutils literal notranslate"><span class="pre">components/cam/tools/nudging/Lookat_NudgeWindow/</span></code> will read in the
+namelist values from <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> and produce plots for the given
+settings. See the README for details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p>While it is not necessary, nudging runs are typically initialized using one of the
 pre-processed target states to minimize start up errors.</p></li>
@@ -578,18 +589,19 @@ Nudging of surface pressures is possible but it is not currenlty implemented. It
 require a separate nudging tendency passed to and included in the time stepping of
 each dycore.</p></li>
 </ul>
+</div>
 </section>
 <section id="output-values">
-<h3><span class="section-number">9.6.3. </span>Output Values<a class="headerlink" href="#output-values" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.3.3. </span>Output Values<a class="headerlink" href="#output-values" title="Link to this heading"></a></h3>
 <p>The nudging module provides the following history file outputs:</p>
-<p>The applied nudging tendencies: <strong>Nudge_U, Nudge_V, Nudge_T, Nudge_Q</strong></p>
-<p>The nudging target values: <strong>Target_U, Target_V, Target_T, Target_Q</strong></p>
+<p>The applied nudging tendencies: <code class="docutils literal notranslate"><span class="pre">Nudge_U,</span> <span class="pre">Nudge_V,</span> <span class="pre">Nudge_T,</span> <span class="pre">Nudge_Q</span></code></p>
+<p>The nudging target values: <code class="docutils literal notranslate"><span class="pre">Target_U,</span> <span class="pre">Target_V,</span> <span class="pre">Target_T,</span> <span class="pre">Target_Q</span></code></p>
 </section>
 <section id="namelist-values">
-<h3><span class="section-number">9.6.4. </span>Namelist Values<a class="headerlink" href="#namelist-values" title="Link to this heading"></a></h3>
-<p>A template for the <code class="docutils literal notranslate"><span class="pre">&amp;nudging_nl</span></code> namelist variables can be found in the
-<code class="docutils literal notranslate"><span class="pre">components/cam/tools/nudging/</span></code> directory. The following table lists the variables in the namelist
-and describes their usage.</p>
+<h3><span class="section-number">9.3.4. </span>Namelist Values<a class="headerlink" href="#namelist-values" title="Link to this heading"></a></h3>
+<p>A template for the namelist variables can be found in the
+<code class="docutils literal notranslate"><span class="pre">components/cam/tools/nudging/</span></code> directory. The following table lists the
+variables in the namelist and describes their usage.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Variable</p></th>
@@ -818,19 +830,19 @@ compliment.</p></td>
 </table>
 </section>
 <section id="windowing-examples">
-<h3><span class="section-number">9.6.5. </span>Windowing Examples<a class="headerlink" href="#windowing-examples" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.3.5. </span>Windowing Examples<a class="headerlink" href="#windowing-examples" title="Link to this heading"></a></h3>
 <p><strong>Conus Horizontal Window</strong></p>
 <p>This example uses the Horizontal window variables to create a CONUS window for nudging:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Nudge_Hwin_lat0    =45.0&#39;</span>
-<span class="s1">&#39;Nudge_Hwin_latWidth=75.&#39;</span>
-<span class="s1">&#39;Nudge_Hwin_latDelta=5.&#39;</span>
-<span class="s1">&#39;Nudge_Hwin_lon0    =260.&#39;</span>
-<span class="s1">&#39;Nudge_Hwin_lonWidth=90.&#39;</span>
-<span class="s1">&#39;Nudge_Hwin_lonDelta=5.&#39;</span>
-<span class="s1">&#39;Nudge_Hwin_Invert  =.true.&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nudge_Hwin_lat0</span>    <span class="o">=</span><span class="mf">45.0</span>
+<span class="n">Nudge_Hwin_latWidth</span><span class="o">=</span><span class="mf">75.</span>
+<span class="n">Nudge_Hwin_latDelta</span><span class="o">=</span><span class="mf">5.</span>
+<span class="n">Nudge_Hwin_lon0</span>    <span class="o">=</span><span class="mf">260.</span>
+<span class="n">Nudge_Hwin_lonWidth</span><span class="o">=</span><span class="mf">90.</span>
+<span class="n">Nudge_Hwin_lonDelta</span><span class="o">=</span><span class="mf">5.</span>
+<span class="n">Nudge_Hwin_Invert</span>  <span class="o">=.</span><span class="n">true</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>Note that for this use case, the window is inverted so that nudging is used to contrain
+<p>Note that for this use case, the window is inverted so that nudging is used to constrain
 the model toward reanalyses values outside the CONUS region, while the model evolves freely
 in the interior.</p>
 <figure class="align-center">
@@ -842,11 +854,11 @@ nudging Q values in the interior of the model can lead to misleading results. Pa
 in precipitation values. On the other hand, nudging Q at the surface layer is an
 effective proxy for surface fluxes of water vapor. The following settings for the vertical
 window illustrate how to nudge only at the surface for a 32 level model.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Nudge_Vwin_Hindex  =33.&#39;</span>
-<span class="s1">&#39;Nudge_Vwin_Hdelta  =0.001&#39;</span>
-<span class="s1">&#39;Nudge_Vwin_Lindex  =32.&#39;</span>
-<span class="s1">&#39;Nudge_Vwin_Ldelta  =0.001&#39;</span>
-<span class="s1">&#39;Nudge_Vwin_Invert  =.false.&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nudge_Vwin_Hindex</span>  <span class="o">=</span><span class="mf">33.</span>
+<span class="n">Nudge_Vwin_Hdelta</span>  <span class="o">=</span><span class="mf">0.001</span>
+<span class="n">Nudge_Vwin_Lindex</span>  <span class="o">=</span><span class="mf">32.</span>
+<span class="n">Nudge_Vwin_Ldelta</span>  <span class="o">=</span><span class="mf">0.001</span>
+<span class="n">Nudge_Vwin_Invert</span>  <span class="o">=.</span><span class="n">false</span><span class="o">.</span>
 </pre></div>
 </div>
 <figure class="align-center">
@@ -854,19 +866,20 @@ window illustrate how to nudge only at the surface for a 32 level model.</p>
 </figure>
 </section>
 <section id="example-setting-up-and-running-a-nudging-experiment">
-<h3><span class="section-number">9.6.6. </span>EXAMPLE: Setting Up and Running A Nudging Experiment<a class="headerlink" href="#example-setting-up-and-running-a-nudging-experiment" title="Link to this heading"></a></h3>
-<p>In order to set up and run a physics-side nudging experiment, the user must first
-generate a set of target data to nudge toward. Once the data has been prepared, then
-after the desired case has been created, the nudging is applied by setting the
-namelist variables outlined above. As an example of this process, consider a
-Spectral Element variable resolution grid with a base resolution of ne30 and a
-refinement to ne120 over the South American continent.</p>
+<h3><span class="section-number">9.3.6. </span>EXAMPLE: Setting Up and Running A Nudging Experiment<a class="headerlink" href="#example-setting-up-and-running-a-nudging-experiment" title="Link to this heading"></a></h3>
+<p>In order to set up and run a physics-side nudging experiment, the user must
+first generate a set of target data to nudge toward. Once the data has been
+prepared, then after the desired case has been created, the nudging is
+applied by setting the namelist variables outlined above. As an example of
+this process, consider a Spectral Element variable resolution grid with a
+base resolution of ne30 and a refinement to ne120 over the South American
+continent.</p>
 <p><strong>Modifying the Scripts For a Newly Created Grid:</strong></p>
 <p>For our <strong>ne0np4.SAM01.ne30x4</strong> grid, we would like to nudge the model toward MERRA2
 reanalysis data, begin by making a copy of the NEWGRID directory for your new grid.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cheyenne</span><span class="o">%</span> <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">Gen_Data_NEWGRID</span> <span class="n">Gen_Data_ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span>
-<span class="n">cheyenne</span><span class="o">%</span> <span class="n">cd</span> <span class="n">Gen_Data_ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span>
-<span class="n">cheyenne</span><span class="o">%</span> <span class="n">mv</span> <span class="n">Gen_MERRA2_NEWGRID</span><span class="o">.</span><span class="n">csh</span> <span class="n">Gen_MERRA2_ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span><span class="o">.</span><span class="n">csh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">Gen_Data_NEWGRID</span> <span class="n">Gen_Data_ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span>
+<span class="o">%</span> <span class="n">cd</span> <span class="n">Gen_Data_ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span>
+<span class="o">%</span> <span class="n">mv</span> <span class="n">Gen_MERRA2_NEWGRID</span><span class="o">.</span><span class="n">csh</span> <span class="n">Gen_MERRA2_ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span><span class="o">.</span><span class="n">csh</span>
 </pre></div>
 </div>
 <p>Now edit your new script, and set the BATCH commands.</p>
@@ -919,12 +932,14 @@ set ESMF_clean=&#39;True&#39;
 </pre></div>
 </div>
 </div>
-<p>For the processing options, set the <code class="docutils literal notranslate"><span class="pre">CASE</span></code> name. This is the root filename for your
-nudging data files. Note that some reanalysis datasets store winds in the form of
-vorticity and divergence values rather then U,V. It is important that the VORT_DIV_TO_UV
-flag is set to True for these datasets, this is a common source of processing errors.
-Finally, set the <code class="docutils literal notranslate"><span class="pre">fname_grid_info</span></code> value to point to a file containing the desired ouput
-grid, and set <code class="docutils literal notranslate"><span class="pre">fname_phis_output</span></code> to point to a file containing the model topography.</p>
+<p>For the processing options, set the <code class="docutils literal notranslate"><span class="pre">CASE</span></code> name. This is the root
+filename for your nudging data files. Note that some reanalysis datasets
+store winds in the form of vorticity and divergence values rather than
+U,V. It is important that the <code class="docutils literal notranslate"><span class="pre">VORT_DIV_TO_UV</span></code> flag is set to True for
+these datasets, this is a common source of processing errors.  Finally, set
+the <code class="docutils literal notranslate"><span class="pre">fname_grid_info</span></code> value to point to a file containing the desired
+ouput grid, and set <code class="docutils literal notranslate"><span class="pre">fname_phis_output</span></code> to point to a file containing the
+model topography.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Gen_MERRA2_ne0np4.SAM01.ne30x4.csh</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set Processing options</span>
@@ -1014,119 +1029,110 @@ set to use the SCRIP file for your new grid.</p>
 </pre></div>
 </div>
 </div>
-<p>With these changes, the script can be submitted to generate the desired 400 days of
-data. The user must alway check the Log and output file to verify that the dataset
-was processed correctly. Serching the Log files for the string
-‘SUCCESSFULLY COMPLETED PROCESSING’ is a good quick check if the processing scripts
-have run correctly. The number of occurances of this string should match the number
-of log files.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cheyenne</span><span class="o">%</span> <span class="n">cd</span> <span class="n">LOG</span><span class="o">/</span><span class="n">LOG_001</span><span class="mf">.01</span>
-<span class="n">cheyenne</span><span class="o">%</span> <span class="n">grep</span> <span class="s1">&#39;SUCCESSFULLY COMPLETED PROCESSING&#39;</span> <span class="n">LogNCL</span><span class="o">.*</span> <span class="o">|</span> <span class="n">cat</span> <span class="o">-</span><span class="n">n</span> <span class="o">|</span> <span class="n">tail</span>
+<p>With these changes, the script can be submitted to generate the desired 400
+days of data. The user must alway check the Log and output file to verify
+that the dataset was processed correctly. Serching the Log files for the
+string ‘SUCCESSFULLY COMPLETED PROCESSING’ is a good quick check if the
+processing scripts have run correctly. The number of occurances of this
+string should match the number of log files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">LOG</span><span class="o">/</span><span class="n">LOG_001</span><span class="mf">.01</span>
+<span class="o">%</span> <span class="n">grep</span> <span class="s1">&#39;SUCCESSFULLY COMPLETED PROCESSING&#39;</span> <span class="n">LogNCL</span><span class="o">.*</span> <span class="o">|</span> <span class="n">cat</span> <span class="o">-</span><span class="n">n</span> <span class="o">|</span> <span class="n">tail</span>
 </pre></div>
 </div>
-<p>Also, selecting some files and browsing variables for valid values using ncdump can save
-a lot of time and effort if there were problems during the processing. In particular, the
-<code class="docutils literal notranslate"><span class="pre">U</span></code> and <code class="docutils literal notranslate"><span class="pre">V</span></code> fields should be check to verify that they contain non-zero data.</p>
+<p>Also, selecting some files and browsing variables for valid values using
+ncdump can save a lot of time and effort if there were problems during the
+processing. In particular, the <code class="docutils literal notranslate"><span class="pre">U</span></code> and <code class="docutils literal notranslate"><span class="pre">V</span></code> fields should be checked to
+verify that they contain non-zero data.</p>
 <p><strong>Creating A Newcase For Your Nudging Experiment:</strong></p>
 <p>For available compsets and supported grids, a new case is created with the CIME
-<em>create_newcase</em> command using the desired compset and resolution options. The example
+<code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> command using the desired compset and resolution options. The example
 here is for a user created grid whose resolution dependent input files are located in a
 user repositiory <code class="docutils literal notranslate"><span class="pre">/path/to/my/repo/ne0np4.SAM01.ne30x4/</span></code>. This requires the addional
-<em>–user-mods-dir</em> argument to the create_newcase command.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cheyenne</span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">cases</span><span class="o">/</span><span class="n">MyCase_SAM01_01</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span>
-       <span class="o">--</span><span class="n">mach</span> <span class="n">cheyenne</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
-       <span class="o">--</span><span class="n">res</span> <span class="n">ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4_mt12</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span>
+<code class="docutils literal notranslate"><span class="pre">--user-mods-dir</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">create_newcase</span></code> command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">cases</span><span class="o">/</span><span class="n">MyCase_SAM01_01</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span>
+    <span class="o">--</span><span class="n">mach</span> <span class="n">cheyenne</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
+    <span class="o">--</span><span class="n">res</span> <span class="n">ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4_mt12</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">mods</span><span class="o">-</span><span class="nb">dir</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="n">ne0np4</span><span class="o">.</span><span class="n">SAM01</span><span class="o">.</span><span class="n">ne30x4</span>
 </pre></div>
 </div>
-<p><strong>Modifying The</strong> &amp;nudging_nl <strong>Namelist:</strong></p>
-<p>Consider an example in which we would like to start the model from the MERRA2 reanalysis
-file on 12/16/2012 for the SAM01 grid. The <strong>bnd_topo</strong> and <strong>ncdata</strong> values in
-<em>&amp;cam_initfiles_nl</em> need to be set to user the corrsponding reanalysis and topography
-file as indicated below.</p>
-<p>Assume the the model is running with a 15 minute time step for this grid and we wish
-to apply nudging to U and V using the MERRA2 dataset we just created. Assume further
-that we wish to apply the strong nudging option to data that is linearly interpolated
-inbetween reanalysis times.</p>
-<p>For this experiment the <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> file in the new case directory needs to have
-the <em>&amp;nudging_nl</em> namelist added with the corresponding settings. Values that differ
-from their default values are indicated in bold font. (The default <em>*_Hwin_*</em> and
-<em>*_Vwin_*</em> values at the bottom are for no spatial windowing of the applied nudging.)
-Nudging is switched on with the <em>Nudge_Model</em> value, with the <em>Nudge_Path</em> and
-<em>Nudge_File_Template</em> values set according to the path and case name used in the
-processing scripts. The <em>Nudge_Times_Per_Day</em> is set for the MERRA2 data which is
-available 8 times per day and <em>Model_Times_Per_Day</em> values is set so that the applied
-nudging tendencies are updated every model time step.
-For nudging to be applied to U and V only, the <em>Nudge_Uprof</em> and <em>Nudge_Vprof</em>
-values are set to 1. Finally, the time window of applied nudging is set to begin
-on 12/16/2012 and end on 4/5/2013.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>user_nl_cam:</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>&amp;cam_initfiles_nl</p>
-<p>bnd_topo=’<strong>/path/to/my/repo/</strong>
-<strong>ne0np4.SAM01.ne30x4/topo/topo_ne0np4.SAM01.ne30x4_blin_200708.nc</strong>’</p>
-<p>ncdata=’<strong>/path/to/my/repo/</strong>
-<strong>ne0np4.SAM01.ne30x4/nudging/MERRA2/MERRA2_ne0np4.SAM01.ne30x4_L32.2012-12-16-00000.nc</strong>’</p>
-<p>/</p>
-<p>&amp;nudging_nl</p>
-<p>Nudge_Model        =  <strong>.true.</strong></p>
-<p>Nudge_Path         = ‘<strong>/path/to/my/repo/ne0np4.SAM01.ne30x4/nudging/MERRA2/</strong>’</p>
-<p>Nudge_File_Template= ‘<strong>MERRA2_ne0np4.SAM01.ne30x4_L32</strong>.%y-%m-%d-%s.nc’</p>
-<p>Nudge_Force_Opt     = <strong>1</strong></p>
-<p>Nudge_TimeScale_Opt = <strong>1</strong></p>
-<p>Nudge_Times_Per_Day= <strong>8</strong></p>
-<p>Model_Times_Per_Day= <strong>96</strong></p>
-<p>Nudge_Uprof  = <strong>1</strong></p>
-<p>Nudge_Ucoef  =1.00</p>
-<p>Nudge_Vprof  = <strong>1</strong></p>
-<p>Nudge_Vcoef  =1.00</p>
-<p>Nudge_Tprof  =0</p>
-<p>Nudge_Tcoef  =1.00</p>
-<p>Nudge_Qprof  =0</p>
-<p>Nudge_Qcoef  =1.00</p>
-<p>Nudge_PSprof =0</p>
-<p>Nudge_PScoef =0.00</p>
-<p>Nudge_Beg_Year = <strong>2012</strong></p>
-<p>Nudge_Beg_Month= <strong>12</strong></p>
-<p>Nudge_Beg_Day  = <strong>16</strong></p>
-<p>Nudge_End_Year = <strong>2013</strong></p>
-<p>Nudge_End_Month= <strong>4</strong></p>
-<p>Nudge_End_Day  = <strong>5</strong></p>
-<p>Nudge_Hwin_lat0    =0.0</p>
-<p>Nudge_Hwin_latWidth=999.0</p>
-<p>Nudge_Hwin_latDelta=2.0</p>
-<p>Nudge_Hwin_lon0    =180.</p>
-<p>Nudge_Hwin_lonWidth=999.</p>
-<p>Nudge_Hwin_lonDelta=5.</p>
-<p>Nudge_Hwin_Invert  =.false.</p>
-<p>Nudge_Vwin_Hindex  =33.</p>
-<p>Nudge_Vwin_Hdelta  =0.001</p>
-<p>Nudge_Vwin_Lindex  =32.</p>
-<p>Nudge_Vwin_Ldelta  =0.001</p>
-<p>Nudge_Vwin_Invert  =.false.</p>
-<p>/</p>
-<p>&amp;cam_inparm</p>
-<blockquote>
-<div><p>fincl1=’U’,’V’,’T’,’Q’,’PS’,’Nudge_U’,’Nudge_V’,’Nudge_T’,’Nudge_Q’</p>
-<p>fincl2=’U’,’V’,’T’,’Q’,’PS’,’Nudge_U’,’Nudge_V’,’Nudge_T’,’Nudge_Q’</p>
-<dl class="simple">
-<dt>fincl3=’U’,’V’,’T’,’Q’,’PS’,’Nudge_U’,’Nudge_V’,’Nudge_T’,’Nudge_Q’,</dt><dd><p>‘Target_U’,’Target_V’,’Target_T’,’Target_Q’</p>
-</dd>
-</dl>
-<p>nhtfrq=0,-3,1</p>
-<p>mfilt =1,8,96</p>
-</div></blockquote>
-<p>/</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>The <em>&amp;cam_inparm</em> settings show an example of saving the applied nudging tendencies and the
-nudging target data values to history files. Note that for this case, the outputs for T and Q
-would contain only zeros.</p>
+<p><strong>Modifying The Namelist:</strong></p>
+<p>Consider an example in which we would like to start the model from the
+MERRA2 reanalysis file on 12/16/2012 for the SAM01 grid. The <code class="docutils literal notranslate"><span class="pre">bnd_topo</span></code>
+and <code class="docutils literal notranslate"><span class="pre">ncdata</span></code> values need to be set to user the corrsponding reanalysis
+and topography file as indicated below.</p>
+<p>Assume the the model is running with a 15 minute time step for this grid
+and we wish to apply nudging to <code class="docutils literal notranslate"><span class="pre">U</span></code> and <code class="docutils literal notranslate"><span class="pre">V</span></code> using the MERRA2 dataset we
+just created. Assume further that we wish to apply the strong nudging
+option to data that is linearly interpolated between reanalysis times.</p>
+<p>For this experiment the <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code> file in the new case directory
+needs to have the nudging namelist variables added with the corresponding
+settings. Values that differ from their default values are
+highlighted. (The default <code class="docutils literal notranslate"><span class="pre">*_Hwin_*</span></code> and <code class="docutils literal notranslate"><span class="pre">*_Vwin_*</span></code> values at the
+bottom are for no spatial windowing of the applied nudging.)  Nudging is
+switched on with the <code class="docutils literal notranslate"><span class="pre">Nudge_Model</span></code> value, with the <code class="docutils literal notranslate"><span class="pre">Nudge_Path</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Nudge_File_Template</span></code> values set according to the path and case name used
+in the processing scripts. The <code class="docutils literal notranslate"><span class="pre">Nudge_Times_Per_Day</span></code> is set for the
+MERRA2 data which is available 8 times per day and <code class="docutils literal notranslate"><span class="pre">Model_Times_Per_Day</span></code>
+value is set so that the applied nudging tendencies are updated every model
+time step.  For nudging to be applied to <code class="docutils literal notranslate"><span class="pre">U</span></code> and <code class="docutils literal notranslate"><span class="pre">V</span></code> only, the
+<code class="docutils literal notranslate"><span class="pre">Nudge_Uprof</span></code> and <code class="docutils literal notranslate"><span class="pre">Nudge_Vprof</span></code> values are set to 1. Finally, the time
+window of applied nudging is set to begin on 12/16/2012 and end on
+4/5/2013.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">user_nl_cam</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">bnd_topo</span><span class="o">=</span>
+</span><span class="hll"><span class="s1">&#39;/path/to/my/repo/ne0np4.SAM01.ne30x4/topo/topo_ne0np4.SAM01.ne30x4_blin_200708.nc&#39;</span>
+</span><span class="hll"><span class="n">ncdata</span><span class="o">=</span>
+</span><span class="hll"><span class="s1">&#39;/path/to/my/repo/ne0np4.SAM01.ne30x4/nudging/MERRA2/MERRA2_ne0np4.SAM01.ne30x4_L32.2012-12-16-00000.nc&#39;</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">Nudge_Model</span>        <span class="o">=</span>  <span class="o">.</span><span class="n">true</span><span class="o">.</span>
+</span><span class="hll"><span class="n">Nudge_Path</span>         <span class="o">=</span> <span class="s1">&#39;/path/to/my/repo/ne0np4.SAM01.ne30x4/nudging/MERRA2/&#39;</span>
+</span><span class="hll"><span class="n">Nudge_File_Template</span><span class="o">=</span> <span class="s1">&#39;MERRA2_ne0np4.SAM01.ne30x4_L32.%y-%m-</span><span class="si">%d</span><span class="s1">-</span><span class="si">%s</span><span class="s1">.nc&#39;</span>
+</span><span class="hll"><span class="n">Nudge_Force_Opt</span>     <span class="o">=</span> <span class="mi">1</span>
+</span><span class="hll"><span class="n">Nudge_TimeScale_Opt</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class="hll"><span class="n">Nudge_Times_Per_Day</span><span class="o">=</span> <span class="mi">8</span>
+</span><span class="hll"><span class="n">Model_Times_Per_Day</span><span class="o">=</span> <span class="mi">96</span>
+</span><span class="hll"><span class="n">Nudge_Uprof</span>  <span class="o">=</span> <span class="mi">1</span>
+</span><span class="n">Nudge_Ucoef</span>  <span class="o">=</span><span class="mf">1.00</span>
+<span class="hll"><span class="n">Nudge_Vprof</span>  <span class="o">=</span> <span class="mi">1</span>
+</span><span class="n">Nudge_Vcoef</span>  <span class="o">=</span><span class="mf">1.00</span>
+<span class="n">Nudge_Tprof</span>  <span class="o">=</span><span class="mi">0</span>
+<span class="n">Nudge_Tcoef</span>  <span class="o">=</span><span class="mf">1.00</span>
+<span class="n">Nudge_Qprof</span>  <span class="o">=</span><span class="mi">0</span>
+<span class="n">Nudge_Qcoef</span>  <span class="o">=</span><span class="mf">1.00</span>
+<span class="n">Nudge_PSprof</span> <span class="o">=</span><span class="mi">0</span>
+<span class="n">Nudge_PScoef</span> <span class="o">=</span><span class="mf">0.00</span>
+<span class="hll"><span class="n">Nudge_Beg_Year</span> <span class="o">=</span> <span class="mi">2012</span>
+</span><span class="hll"><span class="n">Nudge_Beg_Month</span><span class="o">=</span> <span class="mi">12</span>
+</span><span class="hll"><span class="n">Nudge_Beg_Day</span>  <span class="o">=</span> <span class="mi">16</span>
+</span><span class="hll"><span class="n">Nudge_End_Year</span> <span class="o">=</span> <span class="mi">2013</span>
+</span><span class="hll"><span class="n">Nudge_End_Month</span><span class="o">=</span> <span class="mi">4</span>
+</span><span class="hll"><span class="n">Nudge_End_Day</span>  <span class="o">=</span> <span class="mi">5</span>
+</span><span class="n">Nudge_Hwin_lat0</span>    <span class="o">=</span><span class="mf">0.0</span>
+<span class="n">Nudge_Hwin_latWidth</span><span class="o">=</span><span class="mf">999.0</span>
+<span class="n">Nudge_Hwin_latDelta</span><span class="o">=</span><span class="mf">2.0</span>
+<span class="n">Nudge_Hwin_lon0</span>    <span class="o">=</span><span class="mf">180.</span>
+<span class="n">Nudge_Hwin_lonWidth</span><span class="o">=</span><span class="mf">999.</span>
+<span class="n">Nudge_Hwin_lonDelta</span><span class="o">=</span><span class="mf">5.</span>
+<span class="n">Nudge_Hwin_Invert</span>  <span class="o">=.</span><span class="n">false</span><span class="o">.</span>
+<span class="n">Nudge_Vwin_Hindex</span>  <span class="o">=</span><span class="mf">33.</span>
+<span class="n">Nudge_Vwin_Hdelta</span>  <span class="o">=</span><span class="mf">0.001</span>
+<span class="n">Nudge_Vwin_Lindex</span>  <span class="o">=</span><span class="mf">32.</span>
+<span class="n">Nudge_Vwin_Ldelta</span>  <span class="o">=</span><span class="mf">0.001</span>
+<span class="n">Nudge_Vwin_Invert</span>  <span class="o">=.</span><span class="n">false</span><span class="o">.</span>
+
+<span class="n">fincl1</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="s1">&#39;PS&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_U&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_V&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_T&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_Q&#39;</span>
+<span class="n">fincl2</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="s1">&#39;PS&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_U&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_V&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_T&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_Q&#39;</span>
+<span class="n">fincl3</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="s1">&#39;PS&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_U&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_V&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_T&#39;</span><span class="p">,</span><span class="s1">&#39;Nudge_Q&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Target_U&#39;</span><span class="p">,</span><span class="s1">&#39;Target_V&#39;</span><span class="p">,</span><span class="s1">&#39;Target_T&#39;</span><span class="p">,</span><span class="s1">&#39;Target_Q&#39;</span>
+
+<span class="n">nhtfrq</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">mfilt</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">96</span>
+</pre></div>
+</div>
+</div>
+<p>The settings show an example of saving the applied nudging tendencies and
+the nudging target data values to history files. Note that for this case,
+the outputs for <code class="docutils literal notranslate"><span class="pre">Nudge_T</span></code> and <code class="docutils literal notranslate"><span class="pre">Nudge_Q</span></code> would contain only zeros.</p>
 </section>
 </section>
 </section>

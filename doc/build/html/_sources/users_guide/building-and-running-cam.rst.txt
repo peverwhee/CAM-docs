@@ -24,6 +24,11 @@ In this section we provide some examples using the CIME scripts to run CAM
 standalone configurations.  These directions also apply to the CAM
 extension models of CAM-chem, WACCM and WACCM-X.
 
+.. note::
+
+   The instructions for building and running CAM assume you are working on
+   a supported machine.
+
 In order to run CAM on any given machine, CIME must be configured to
 support that machine.  Documentation on adding new machine support may be
 found `here
@@ -36,10 +41,12 @@ root directory of the CESM or CAM standalone source code):
    % cd $SRCDIR/cime/scripts
    % ./query_config --machines
 
-.. note::
+.. tip::
 
-   The instructions for building and running CAM assume you are working on
-   a supported machine.
+   See the `query_config
+   <https://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/query_config.html>`__ 
+   documentation to learn how to obtain detailed information about the
+   compsets, components, and grids supported by the model.
 
 The first step to making a run is to create a case using the CIME
 ``create_newcase`` script, passing it a case directory name, compset, and
@@ -160,21 +167,26 @@ A useful command for examining all CIME variables is
     see also the `create_newcase 
     <http://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/create_newcase.html>`__
     documentation. 
+
   * `Setting up a Case
     <http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/setting-up-a-case.html>`__:
     see also the `case.setup
     <http://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/case.setup.html>`__
     documentation.
+
   * `Building a Case
     <http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/building-a-case.html>`__:
     see also the `case.build
     <http://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/case.build.html>`__
     documentation.
+
   * `Running a Case
     <http://esmci.github.io/cime/versions/cesm2.2/html/users_guide/running-a-case.html>`__:
     see also the `case.submit
     <http://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/case.submit.html>`__
     documentation.
+
+  * `xmlquery <https://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/xmlquery.html>`__.
 
 Users are encouraged to review these sections of the CIME user's guide as
 they fully describe the CIME case control system used to configure and run
@@ -220,4 +232,33 @@ leave all output in the run directory.  This is done by using the
    <http://esmci.github.io/cime/versions/cesm2.2/html/Tools_user/xmlchange.html>`__
    documentation.  ``xmlchange`` commands are usually issued from the case
    directory which contains a soft link to its source code location.
+
+==========================
+Controlling the run length
+==========================
+
+After a successful run completes following the above instructions,
+examining the model output directory, ``$CIME_OUTPUT_ROOT/$CASE/run``, will
+reveal that no model output was produced.  This is because the
+length of the run, which is determined by the variables ``STOP_OPTION`` and
+``STOP_N``, is set to 5 days by default.  Since the default output
+frequency for CAM and CLM is monthly, the default run length is too short to
+produce any history output.  Restart files are written at the end of the
+run so one possibility is to restart the run and extend it out to a month.
+Another option is to redo the run by setting the run length to a month and
+re-issuing the ``case.submit`` command.  Do this from the case directory as
+follows: ::
+
+  ./xmlchange STOP_OPTION=nmonths,STOP_N=1
+  ./case.submit
+
+More details about controlling the run length and restarting a run are
+presented in the CESM tutorial materials `here
+<https://ncar.github.io/CESM-Tutorial/notebooks/modifications/xml/run_length.html>`__.
+
+If instead of a longer run the real interest is in seeing the model output
+at the end of 5 days, then the default output frequency of CAM
+can be changed with simple namelist modifications in ``user_nl_cam``.  This
+is discussed in detail in the section :ref:`Model Output
+<ug70-model-output>`.
 

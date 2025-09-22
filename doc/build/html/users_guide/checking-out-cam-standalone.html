@@ -104,34 +104,41 @@
 <h2><span class="section-number">11.1. </span>Downloading the CAM standalone code<a class="headerlink" href="#downloading-the-cam-standalone-code" title="Link to this heading"></a></h2>
 <p>It is important to note that if a user downloads a CAM standalone tag, they
 will not be able to run a fully coupled model.  Checking out CAM standalone
-should only be done by users to run E, F, Q, or P compsets.  If you wish to use other compsets you will need to download the entire CESM model.  Please use the directions for <a class="reference external" href="http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html">downloading CESM</a> and you should ignore the rest of this chapter.</p>
+should only be done by users to run F, Q, or P compsets.  If you wish to
+use other compsets you will need to download the entire CESM model.  Please
+use the directions for <a class="reference external" href="http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html">downloading CESM</a>
+and you should ignore the rest of this chapter.</p>
 <p>Also for scientific studies, it
 is much better to use a released version of CESM and not do a CAM standalone checkout.  These
 directions are provided for users who are collaborating on CAM development.</p>
 <p>CAM development tags are available through <a class="reference external" href="https://github.com/ESCOMP/CAM">CAM’s github
 repository</a>.</p>
-<p>To download a standalone CAM</p>
+<p>The first step in downloading standalone CAM is clone the CAM git repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ESCOMP</span><span class="o">/</span><span class="n">CAM</span>
 <span class="o">%</span> <span class="n">cd</span> <span class="n">CAM</span>
 </pre></div>
 </div>
-<p>At this point you will see you have two files: README.md and CODE_OF_CONDUCT.md</p>
-<p>The README.md file lists the current branches that the CAM repository contains along with some basic information.</p>
+<p>At this point you will see just one file: README.md.</p>
+<p>The README.md file lists the current branches that the CAM repository
+contains along with some basic information.</p>
 <p>The following example shows how to checkout CAM standalone tag cam6_3_000:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">git</span> <span class="n">checkout</span> <span class="n">cam6_3_000</span>
 </pre></div>
 </div>
-<p>If a user wishes to get the most recent CAM development code, they can checkout the head of the cam_development branch.  Please note that this code is the most recently committed code and while basic testing has occurred, its use for scientific studies is not recommended.</p>
+<p>If a user wishes to get the most recent CAM development code, they can
+checkout the head of the cam_development branch.  Please note that this
+code is the most recently committed code and while basic testing has
+occurred, its use for scientific studies is not recommended.</p>
 </section>
 <section id="checkout-out-the-externals">
 <h2><span class="section-number">11.2. </span>Checkout out the externals<a class="headerlink" href="#checkout-out-the-externals" title="Link to this heading"></a></h2>
-<p>Once the CAM code has been checked out, but before it can be used, the external libraries that CAM uses must be checked out.</p>
+<p>Once the CAM code has been checked out, but before it can be used, the
+external libraries that CAM uses must be checked out.</p>
 <p>To get the externals, users need to cd to the main CAM directory and run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">manage_externals</span><span class="o">/</span><span class="n">checkout_externals</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="nb">bin</span><span class="o">/</span><span class="n">git</span><span class="o">-</span><span class="n">fleximod</span> <span class="n">update</span>
 </pre></div>
 </div>
 <p>This will create and populate all of the external directories.</p>
-<p>Note – You will get an error message if you try to cd into manage_externals and run checkout_externals from that directory.</p>
 </section>
 <section id="useful-git-commands">
 <h2><span class="section-number">11.3. </span>Useful git commands<a class="headerlink" href="#useful-git-commands" title="Link to this heading"></a></h2>
@@ -146,7 +153,8 @@ repository</a>.</p>
 </section>
 <section id="useful-documentation-about-cam-development-and-git-resources">
 <h2><span class="section-number">11.4. </span>Useful documentation about CAM development and git resources<a class="headerlink" href="#useful-documentation-about-cam-development-and-git-resources" title="Link to this heading"></a></h2>
-<p>The <a class="reference external" href="http://github.com/ESCOMP/CAM/wiki">wiki page for CAM development</a> contains more detailed information.</p>
+<p>The <a class="reference external" href="http://github.com/ESCOMP/CAM/wiki">wiki page for CAM development</a>
+contains more detailed information.</p>
 </section>
 </section>
 

@@ -164,7 +164,7 @@ complete listing of grid resolutions can be found at <a class="reference externa
 Resolutions</a>.</p>
 <section id="cam-scientifically-supported-compsets">
 <h2><span class="section-number">4.1. </span>CAM scientifically supported compsets<a class="headerlink" href="#cam-scientifically-supported-compsets" title="Link to this heading"></a></h2>
-<p>CAM has a number of compsets/resolutions which are supported
+<p>CAM7 has a number of compsets/resolutions which are supported
 scientifically.  These compsets are detailed in the following table.  A
 specific compset may be listed below, but unless the resolution is also
 listed, that compset/resolution combination is not scientifically
@@ -172,7 +172,13 @@ supported.  Different resolutions exhibit different behavior and as a
 result require different tunings.  The scientifically supported designation
 is limited to the specific compset/resolution pairs listed in the following
 tables.</p>
-<p><strong>Scientifically supported CAM compsets</strong></p>
+<p>CAM7 is released with two supported model tops.  The “low top” version
+(CAM7-LT) has the top at about 40-km which is the same as the previous
+CAM4, CAM5, CAM6 models, but has 58 vertical layers and thus a higher
+vertical resolution than the previous models which used 26, 30, and 32
+layers respectively.  The “medium top” version (CAM7-MT) has the top at
+about 80-km and uses 93 vertical layers.</p>
+<p><strong>Scientifically supported CAM7 compsets</strong></p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Compset Name</p></th>
@@ -182,52 +188,22 @@ tables.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>FHIST</p></td>
-<td><p>f09_f09_mg17</p></td>
-<td><p>Historical CAM6 using 1 degree finite
-volume dycore <em>[Note - this is similar
-to the obsolete CAM5 FAMIP compset]</em></p></td>
+<tr class="row-even"><td><p>FHISTC_LTso</p></td>
+<td><p>ne30pg3_ne30pg3_mt232</p></td>
+<td><p>Historical CAM7-LT using 1 degree
+Spectral Element dycore</p></td>
 <td><p>1979 to 2015</p></td>
 </tr>
-<tr class="row-odd"><td><p>F2000climo</p></td>
-<td><p>f09_f09_mg17</p></td>
-<td><p>Climatological present day climate
-(year 2000) with CAM6 physics
-using 1 degree fv dycore</p></td>
-<td><dl class="simple">
-<dt>Climos over</dt><dd><p>1995-2005
-1995-2005</p>
-</dd>
-</dl>
-</td>
+<tr class="row-odd"><td><p>FHISTC_MTso</p></td>
+<td><p>ne30pg3_ne30pg3_mt232</p></td>
+<td><p>Historical CAM7-MT using 1 degree
+Spectral Element dycore</p></td>
+<td><p>1979 to 2015</p></td>
 </tr>
 </tbody>
 </table>
-<p>To run the FHIST compset, and create a case called fhist, simply run the following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">fhist</span> <span class="o">--</span><span class="n">compset</span> <span class="n">FHIST</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
-<span class="o">%</span> <span class="n">cd</span> <span class="n">fhist</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
-</pre></div>
-</div>
-<p>To run the F2000climo compset, and create a case called f_present_day, simply run the following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">f_present_day</span> <span class="o">--</span><span class="n">compset</span> <span class="n">F2000climo</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
-<span class="o">%</span> <span class="n">cd</span> <span class="n">f_present_day</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-<span class="o">%</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
-</pre></div>
-</div>
-<p>An important reminder: On cheyenne, if you are building on a login node, you must say:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">qcmd</span> <span class="o">--</span> <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
-</pre></div>
-</div>
-<p>It should be noted that a number of CAM4 and CAM5-specific compsets have been eliminated from the CAM6 release.
-The rationale behind this is that due to changes in code and namelist settings, a user is unable to numerically reproduce CAM4 or CAM5 runs similar to what they would get running CESM1.2.
-It is recommended that if a user wants to make a true CAM4 or CAM5 run, that they do so using CESM1.2 instead of CESM2.0.</p>
+<p>Scientifically supported compsets may be run following the instructions in
+<a class="reference internal" href="building-and-running-cam.html#ug70-building-and-running-cam"><span class="std std-ref">Building and Running CAM</span></a>.</p>
 </section>
 <section id="cam-developmental-compsets">
 <h2><span class="section-number">4.2. </span>CAM developmental compsets<a class="headerlink" href="#cam-developmental-compsets" title="Link to this heading"></a></h2>
