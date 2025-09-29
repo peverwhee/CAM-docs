@@ -47,9 +47,9 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Resources and Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running CAM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">6. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">4. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">5. Atmosphere configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">6. User Defined Variable Resolution Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html">9. Physics modifications via the namelist</a></li>
@@ -261,11 +261,6 @@ vertical bar separated list.</p>
 
 -offline_dyn       Enable offline driver for FV dycore.
                    Default: off.
-
--ocn &lt;name&gt;        Allows build system to inform CAM which ocean component is being used.
-                   This information is stored in the cache file and used by build-namelist
-                   for selecting the default values of some tuning parameters.
-                   [docn | som | socn | aquaplanet | pop].
 
 -pbl &lt;name&gt;        Set the PBL scheme.
                    [ clubb_sgs | uw | hb | none ].

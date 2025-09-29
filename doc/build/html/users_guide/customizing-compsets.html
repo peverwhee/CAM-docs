@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6. Customizing CAM runs &mdash; camdoc  documentation</title>
+  <title>4. Customizing CAM runs &mdash; camdoc  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Input Datasets" href="input-datasets.html" />
-    <link rel="prev" title="5. User Defined Variable Resolution Configurations" href="variable-resolution-configurations.html" /> 
+    <link rel="next" title="5. Atmosphere configurations" href="atmospheric-configurations.html" />
+    <link rel="prev" title="3. Building and Running CAM" href="building-and-running-cam.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,21 +47,24 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Resources and Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running CAM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Customizing CAM runs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#modifying-the-build-configuration">6.1. Modifying the build configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#changing-cam-namelist-options">6.2. Changing CAM namelist options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">6.3. Examples</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#enable-cosp-diagnostics">6.3.1. Enable COSP Diagnostics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-passive-tracers">6.3.2. Add passive tracers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#use-analytic-initial-conditions">6.3.3. Use analytic initial conditions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#using-cmip5-emissions">6.3.4. Using CMIP5 emissions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#specified-dynamics">6.3.5. Specified Dynamics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Customizing CAM runs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-the-build-configuration">4.1. Modifying the build configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-in-debug-mode">4.1.1. Running in DEBUG mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-cam-namelist-options">4.2. Changing CAM namelist options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">4.3. Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enable-cosp-diagnostics">4.3.1. Enable COSP Diagnostics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-passive-tracers">4.3.2. Add passive tracers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-analytic-initial-conditions">4.3.3. Use analytic initial conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-cmip5-emissions">4.3.4. Using CMIP5 emissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specified-dynamics">4.3.5. Specified Dynamics</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">5. Atmosphere configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">6. User Defined Variable Resolution Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html">9. Physics modifications via the namelist</a></li>
@@ -94,7 +97,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">CAM7.0 User’s Guide</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">6. </span>Customizing CAM runs</li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Customizing CAM runs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/users_guide/customizing-compsets.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,7 +108,7 @@
            <div itemprop="articleBody">
              
   <section id="customizing-cam-runs">
-<span id="ug70-customizing-compsets"></span><h1><span class="section-number">6. </span>Customizing CAM runs<a class="headerlink" href="#customizing-cam-runs" title="Link to this heading"></a></h1>
+<span id="ug70-customizing-compsets"></span><h1><span class="section-number">4. </span>Customizing CAM runs<a class="headerlink" href="#customizing-cam-runs" title="Link to this heading"></a></h1>
 <p>Compsets are used to set up standard runs of CAM.  Sometimes though it is
 necessary to customize a run.  The most common way to do this is to start
 with a compset that provides a configuration which is close to what is
@@ -123,7 +126,7 @@ in the namelist may dependent on this setting and may not exist for the
 requested dynamics/nlev combination.</p>
 </div>
 <section id="modifying-the-build-configuration">
-<h2><span class="section-number">6.1. </span>Modifying the build configuration<a class="headerlink" href="#modifying-the-build-configuration" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1. </span>Modifying the build configuration<a class="headerlink" href="#modifying-the-build-configuration" title="Link to this heading"></a></h2>
 <p>CAM build configurations are set up by its <code class="docutils literal notranslate"><span class="pre">configure</span></code> utility (see
 <a class="reference internal" href="appendices.html#ug70-configure-utility"><span class="std std-ref">The configure utility</span></a> for a complete
 listing of the command-line arguments).  The CIME interface to CAM’s
@@ -149,9 +152,22 @@ command:</p>
 <p>Changes to <code class="docutils literal notranslate"><span class="pre">CAM_CONFIG_OPTS</span></code> must be made before <code class="docutils literal notranslate"><span class="pre">case.build</span></code> is
 run.</p>
 </div>
+<section id="running-in-debug-mode">
+<span id="ug70-debug-mode"></span><h3><span class="section-number">4.1.1. </span>Running in DEBUG mode<a class="headerlink" href="#running-in-debug-mode" title="Link to this heading"></a></h3>
+<p>If a model run is failing without giving any feedback as to what caused the
+failure, it may be helpful to rebuild the model with the compiler debugging
+options turned on.  This is done by issuing the following command from the
+case directory before running <code class="docutils literal notranslate"><span class="pre">case.build</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xmlchange</span> <span class="n">DEBUG</span><span class="o">=</span><span class="n">TRUE</span>
+</pre></div>
+</div>
+<p>This will often result in a stack trace being written in the <code class="docutils literal notranslate"><span class="pre">cesm.log</span></code>
+file in the <code class="docutils literal notranslate"><span class="pre">run</span></code> directory.  This information is especially valuable
+when <a class="reference internal" href="getting-help.html#ug70-reporting-bugs"><span class="std std-ref">reporting a bug</span></a>.</p>
+</section>
 </section>
 <section id="changing-cam-namelist-options">
-<h2><span class="section-number">6.2. </span>Changing CAM namelist options<a class="headerlink" href="#changing-cam-namelist-options" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.2. </span>Changing CAM namelist options<a class="headerlink" href="#changing-cam-namelist-options" title="Link to this heading"></a></h2>
 <p>CAM’s runtime behavior is controlled via reading its namelist.  The
 namelist is written by CAM’s <code class="docutils literal notranslate"><span class="pre">build-namelist</span></code> utility (see <a class="reference internal" href="appendices.html#ug70-build-namelist-utility"><span class="std std-ref">The
 build-namelist utility</span></a> for details). The
@@ -207,9 +223,9 @@ again.</p>
 </div>
 </section>
 <section id="examples">
-<h2><span class="section-number">6.3. </span>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <section id="enable-cosp-diagnostics">
-<h3><span class="section-number">6.3.1. </span>Enable COSP Diagnostics<a class="headerlink" href="#enable-cosp-diagnostics" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.1. </span>Enable COSP Diagnostics<a class="headerlink" href="#enable-cosp-diagnostics" title="Link to this heading"></a></h3>
 <p>One of the most common reasons to modify a configuration is to turn on the
 <a class="reference external" href="https://www.cfmip.org/tools-and-data/cosp">COSP</a> satellite simulator
 diagnostics.  This software package is implemented as a build time option,
@@ -222,7 +238,7 @@ with the following command:</p>
 the COSP output is extensively customizable via the namelist.</p>
 </section>
 <section id="add-passive-tracers">
-<h3><span class="section-number">6.3.2. </span>Add passive tracers<a class="headerlink" href="#add-passive-tracers" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.2. </span>Add passive tracers<a class="headerlink" href="#add-passive-tracers" title="Link to this heading"></a></h3>
 <p>Adding passive tracers to the model is a build time option.  The following
 command adds N test tracers:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">append</span> <span class="n">CAM_CONFIG_OPTS</span><span class="o">=</span><span class="s1">&#39;-nadv_tt N&#39;</span>
@@ -252,7 +268,7 @@ directory:</p>
 </div>
 </section>
 <section id="use-analytic-initial-conditions">
-<h3><span class="section-number">6.3.3. </span>Use analytic initial conditions<a class="headerlink" href="#use-analytic-initial-conditions" title="Link to this heading"></a></h3>
+<span id="ug70-use-analytic-ics"></span><h3><span class="section-number">4.3.3. </span>Use analytic initial conditions<a class="headerlink" href="#use-analytic-initial-conditions" title="Link to this heading"></a></h3>
 <p>The ability to generate analytic initial conditions was implemented to
 support the ideal physics configurations.  However that capability can also
 be used to start a full physics run in instances where a spun-up initial
@@ -268,7 +284,7 @@ For example the following commands may be issued from the case directory:</p>
 </div>
 </section>
 <section id="using-cmip5-emissions">
-<h3><span class="section-number">6.3.4. </span>Using CMIP5 emissions<a class="headerlink" href="#using-cmip5-emissions" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.4. </span>Using CMIP5 emissions<a class="headerlink" href="#using-cmip5-emissions" title="Link to this heading"></a></h3>
 <p>The following steps illustrate how to change the CMIP emissions back to the
 CMIP5 version.  If a user desires to do this, they may cut/paste the
 ext_frc_specifier and srf_emis_specifier settings below and put them into
@@ -314,7 +330,7 @@ input datasets for all components.</p>
 <code class="docutils literal notranslate"><span class="pre">atm_in</span></code> file to make sure that the requested changes are correctly included.</p>
 </section>
 <section id="specified-dynamics">
-<h3><span class="section-number">6.3.5. </span>Specified Dynamics<a class="headerlink" href="#specified-dynamics" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.5. </span>Specified Dynamics<a class="headerlink" href="#specified-dynamics" title="Link to this heading"></a></h3>
 <p>Specified dynamics compsets are setup to use specified meteorological
 analysis (MERRA2 or GEOS5) to nudge the internally derived meteorology from
 the model to the analysis fields. Available compsets are only produced for
@@ -384,8 +400,8 @@ to be defined in the specified dynamics simulation.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="variable-resolution-configurations.html" class="btn btn-neutral float-left" title="5. User Defined Variable Resolution Configurations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="input-datasets.html" class="btn btn-neutral float-right" title="7. Input Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="building-and-running-cam.html" class="btn btn-neutral float-left" title="3. Building and Running CAM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="atmospheric-configurations.html" class="btn btn-neutral float-right" title="5. Atmosphere configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

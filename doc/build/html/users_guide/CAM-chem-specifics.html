@@ -47,9 +47,9 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Resources and Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running CAM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">6. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">4. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">5. Atmosphere configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">6. User Defined Variable Resolution Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html">9. Physics modifications via the namelist</a></li>
@@ -309,7 +309,7 @@ emisisons (set by <code class="docutils literal notranslate"><span class="pre">e
 <p>To add new lower boundary conditions via namelist, you have to add the
 addition species to the <code class="docutils literal notranslate"><span class="pre">flbc_list</span></code> and modify the <code class="docutils literal notranslate"><span class="pre">flbc_file</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flbc_file</span> <span class="o">=</span>
-<span class="s1">&#39;/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc&#39;</span>
+<span class="s1">&#39;$DIN_LOC_ROOT/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc&#39;</span>
 <span class="n">flbc_list</span> <span class="o">=</span>
 <span class="s1">&#39;CCL4&#39;</span><span class="p">,</span> <span class="s1">&#39;CF2CLBR&#39;</span><span class="p">,</span> <span class="s1">&#39;CF3BR&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC11&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC113&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC12&#39;</span><span class="p">,</span> <span class="s1">&#39;CH3BR&#39;</span><span class="p">,</span>
 <span class="s1">&#39;CH3CCL3&#39;</span><span class="p">,</span> <span class="s1">&#39;CH3CL&#39;</span><span class="p">,</span> <span class="s1">&#39;CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="s1">&#39;HCFC22&#39;</span><span class="p">,</span> <span class="s1">&#39;N2O&#39;</span><span class="p">,</span> <span class="s1">&#39;CFC114&#39;</span><span class="p">,</span>
@@ -322,10 +322,6 @@ addition species to the <code class="docutils literal notranslate"><span class="
 <h2><span class="section-number">10.4. </span>Adding species and changing the mechanism<a class="headerlink" href="#adding-species-and-changing-the-mechanism" title="Link to this heading"></a></h2>
 <p>The addition of species with dry and wet deposition requires code
 changes. This requires to add information of the Henry’s law coefficient:</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>The following instructions need updating.</p>
-</div>
 <ul>
 <li><p>Copy $CCSMROOT/cime/src/drivers/mct/shr/seq_drydep_mod.F90 in to your
 $CASEROOTSourceMods/src.share directory and modify the following. You can
@@ -368,27 +364,43 @@ master_aer_drydep_list.xml, master_aer_wetdep_list.xml</p></li>
 </section>
 <section id="running-with-interactive-prescribed-biogenic-emissions">
 <span id="ug70-interactive-prescribed-biogenic-emissions"></span><h2><span class="section-number">10.5. </span>Running with interactive / prescribed biogenic emissions<a class="headerlink" href="#running-with-interactive-prescribed-biogenic-emissions" title="Link to this heading"></a></h2>
-<p>Running with interactive biogenic emissions:</p>
+<p><strong>Running with interactive biogenic emissions:</strong></p>
 <ul>
-<li><p>The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39;/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc&#39;</span>
+<li><p>The default setting in CAM-chem and WACCM configuration is to run with
+interactive biogenic emissions, while CAM7 and WACCM SC do not use
+biogenic emissions. To run with interactive biogenic emissions, the
+following file needs to be specified:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">megan_factors_file</span> <span class="o">=</span>
+<span class="s1">&#39;$DIN_LOC_ROOT/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc&#39;</span>
 </pre></div>
 </div>
+<p>This file contains the emission factors at standard temperature and
+pressure for each compound for each plant functional type, as well as the
+other model parameters. The compound names are given in the variable
+“Comp_Name”. The default file works with 78 plant functional types (PFTs).</p>
 </li>
-<li><p>This file contains the emission factors at standard temperature and pressure for each compound for each plant functional type, as well as the other model parameters. The compound names are given in the variable “Comp_Name”. The default file works with 78 plant function types (PFTs).</p></li>
-<li><p>CLM/MEGAN-v2.1 includes an option for using a map of emission factors for isoprene. The map in the current release is out of date and SHOULD NOT BE USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam: megan_mapped_emisfctrs = .false.</p></li>
+<li><p>CLM/MEGAN-v2.1 includes an option for using a map of emission factors for
+isoprene. The map in the current release is out of date and SHOULD NOT BE
+USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam:
+megan_mapped_emisfctrs = .false.</p></li>
 </ul>
-<p>Running with prescribed biogenic emissions:</p>
-<p>To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not indluced in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">megan_emis_nl</span>
- <span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
- <span class="n">megan_specifier</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
-<span class="o">&amp;</span>
+<p><strong>Running with prescribed biogenic emissions:</strong></p>
+<p>To turn run with prescribed biogenic emissions requires including those
+emissions in the namelist for surface emission files that are not indluced
+in the namelist by default. Additionally, one needs to turn off interactive
+biogenic emissions, if using a CAMchem or WACCM TSML compset add the
+following in <code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">megan_factors_file</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+<span class="n">megan_specifier</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
 </pre></div>
 </div>
-<p>History output:</p>
+<p><strong>History output:</strong></p>
 <ul class="simple">
-<li><p>To save the MEGAN emissions in the CAM history files, include the desired MEG_{species} variables in the fincl* fields of user_nml_cam. The SF{species} variables are the total emissions fluxes for each species, so will include all sources if an emissions file was also read for other sources (such as bb).</p></li>
+<li><p>To save the MEGAN emissions in the CAM history files, include the desired
+<code class="docutils literal notranslate"><span class="pre">MEG_{species}</span></code> variables in the <code class="docutils literal notranslate"><span class="pre">fincl*</span></code> fields of
+<code class="docutils literal notranslate"><span class="pre">user_nl_cam</span></code>. The <code class="docutils literal notranslate"><span class="pre">SF{species}</span></code> variables are the total emissions
+fluxes for each species, so will include all sources if an emissions file
+was also read for other sources (such as bb).</p></li>
 </ul>
 </section>
 </section>

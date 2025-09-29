@@ -31,6 +31,8 @@ also be used to distribute announcements related to CESM.
 
 You will find specific sections about CAM, WACCM and CAM-chem.
 
+.. _ug70-reporting-bugs:
+
 ---------------------
 Reporting bugs
 ---------------------
@@ -43,21 +45,24 @@ principle should be to provide enough information so that the bug can be
 reproduced.  The following list suggests the minimal information that
 should be contained in the report:
 
-1. The version number of the CESM release that CAM is part of (or the CAM
+#. The version number of the CESM release that CAM is part of (or the CAM
    tag if it was a standalone checkout).
 
-2. The architecture on which the code was built. Include relevant
+#. The architecture on which the code was built. Include relevant
    information such as the Fortran compiler, MPI library, etc.
 
-3. The ``create_newcase`` command-line. If it is this command that is
+#. The ``create_newcase`` command-line. If it is this command that is
    failing, then report the output from this command.
 
-4. Any  ``xmlchange`` commands.
+#. Any ``xmlchange`` commands.
 
-5. Model printout. Ideally this would contain a stack trace. But it should
-   at least contain any error messages printed to the output log.
+#. Any namelist modifications in ``user_nl_cam``.
 
-.. note::
+#. Model printout. Ideally this would contain a stack trace (See
+   :ref:`Running in DEBUG mode <ug70-debug-mode>`). But it should at least
+   contain any error messages printed to the output log.
+
+.. important::
 
   CAM is a research tool; not all features contained in the code base
   are supported.

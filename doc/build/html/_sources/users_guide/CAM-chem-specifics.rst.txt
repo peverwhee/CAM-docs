@@ -96,7 +96,7 @@ To add new lower boundary conditions via namelist, you have to add the
 addition species to the ``flbc_list`` and modify the ``flbc_file``::
 
   flbc_file =
-  '/glade/p/cesmdata/cseg/inputdata/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc'
+  '$DIN_LOC_ROOT/atm/waccm/lb/LBC_17500116-20150116_CMIP6_0p5degLat_c180227.nc'
   flbc_list =
   'CCL4', 'CF2CLBR', 'CF3BR', 'CFC11', 'CFC113', 'CFC12', 'CH3BR',
   'CH3CCL3', 'CH3CL', 'CH4', 'CO2', 'H2', 'HCFC22', 'N2O', 'CFC114',
@@ -109,10 +109,6 @@ Adding species and changing the mechanism
 
 The addition of species with dry and wet deposition requires code
 changes. This requires to add information of the Henry's law coefficient:
-
-.. attention::
-
-   The following instructions need updating.
 
 - Copy $CCSMROOT/cime/src/drivers/mct/shr/seq_drydep_mod.F90 in to your
   $CASEROOTSourceMods/src.share directory and modify the following. You can
@@ -150,27 +146,43 @@ changes. This requires to add information of the Henry's law coefficient:
 Running with interactive / prescribed biogenic emissions
 ----------------------------------------------------------------
 
-Running with interactive biogenic emissions:
+**Running with interactive biogenic emissions:**
 
-- The default setting in CESM2 CAM-chem and WACCM configuration is to run with interactive biogenic emissions, while CAM6 and WACCM SC do not use biogenic emissions. To run with interactive biogenic emissions, this file needs to be specified::
+* The default setting in CAM-chem and WACCM configuration is to run with
+  interactive biogenic emissions, while CAM7 and WACCM SC do not use
+  biogenic emissions. To run with interactive biogenic emissions, the
+  following file needs to be specified::
 
-    megan_factors_file = '/glade/p/cesmdata/cseg/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc'
+    megan_factors_file =
+    '$DIN_LOC_ROOT/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_78pft_c20161108.nc'
 
-- This file contains the emission factors at standard temperature and pressure for each compound for each plant functional type, as well as the other model parameters. The compound names are given in the variable “Comp_Name”. The default file works with 78 plant function types (PFTs). 
+  This file contains the emission factors at standard temperature and
+  pressure for each compound for each plant functional type, as well as the
+  other model parameters. The compound names are given in the variable
+  “Comp_Name”. The default file works with 78 plant functional types (PFTs).
 
-- CLM/MEGAN-v2.1 includes an option for using a map of emission factors for isoprene. The map in the current release is out of date and SHOULD NOT BE USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam: megan_mapped_emisfctrs = .false.
+* CLM/MEGAN-v2.1 includes an option for using a map of emission factors for
+  isoprene. The map in the current release is out of date and SHOULD NOT BE
+  USED.  Under megan_emis_nl, in drv_flds_on or user_nl_cam:
+  megan_mapped_emisfctrs = .false.
 
-Running with prescribed biogenic emissions:
+**Running with prescribed biogenic emissions:**
 
-To turn run with prescribed biogenic emissions requires including those emissions in the namelist for surface emission files that are not indluced in the namelist by default. Additionally, one needs to turn off interactive biogenic emissions, if using a CAMchem or WACCM TSML compset::
+To turn run with prescribed biogenic emissions requires including those
+emissions in the namelist for surface emission files that are not indluced
+in the namelist by default. Additionally, one needs to turn off interactive
+biogenic emissions, if using a CAMchem or WACCM TSML compset add the
+following in ``user_nl_cam``::
 
- &megan_emis_nl
   megan_factors_file = ' '
   megan_specifier = ' '
- &
  
-History output:
+**History output:**
 
-- To save the MEGAN emissions in the CAM history files, include the desired MEG_{species} variables in the fincl* fields of user_nml_cam. The SF{species} variables are the total emissions fluxes for each species, so will include all sources if an emissions file was also read for other sources (such as bb).
+* To save the MEGAN emissions in the CAM history files, include the desired
+  ``MEG_{species}`` variables in the ``fincl*`` fields of
+  ``user_nl_cam``. The ``SF{species}`` variables are the total emissions
+  fluxes for each species, so will include all sources if an emissions file
+  was also read for other sources (such as bb).
 
 

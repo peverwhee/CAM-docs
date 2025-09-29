@@ -54,6 +54,23 @@ command:
    Changes to ``CAM_CONFIG_OPTS`` must be made before ``case.build`` is
    run.
 
+.. _ug70-debug-mode:
+
+---------------------
+Running in DEBUG mode
+---------------------
+
+If a model run is failing without giving any feedback as to what caused the
+failure, it may be helpful to rebuild the model with the compiler debugging
+options turned on.  This is done by issuing the following command from the
+case directory before running ``case.build``::
+
+  ./xmlchange DEBUG=TRUE
+
+This will often result in a stack trace being written in the ``cesm.log``
+file in the ``run`` directory.  This information is especially valuable
+when :ref:`reporting a bug <ug70-reporting-bugs>`.
+
 
 =============================
 Changing CAM namelist options
@@ -172,6 +189,8 @@ directory: ::
   >    'TT_CCOSB','TT_lCCOSB'
   > EOF
   
+.. _ug70-use-analytic-ics:
+
 -------------------------------
 Use analytic initial conditions
 -------------------------------

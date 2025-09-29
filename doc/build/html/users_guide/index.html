@@ -47,9 +47,9 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Resources and Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running CAM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">6. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">4. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">5. Atmosphere configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">6. User Defined Variable Resolution Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html">9. Physics modifications via the namelist</a></li>
@@ -111,55 +111,49 @@
 <li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html#controlling-the-run-length">3.2. Controlling the run length</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-scientifically-supported-compsets">4.1. CAM scientifically supported compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-developmental-compsets">4.2. CAM developmental compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-simple-models">4.3. CAM Simple Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-aquaplanet-qp-and-qs-compsets">4.3.1. CAM aquaplanet (QP and QS compsets)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-1-default-aquaplanet-with-prescribed-sst">4.3.1.1. Example 1: Default Aquaplanet with prescribed SST</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-2-default-aquaplanet-with-slab-ocean-model">4.3.1.2. Example 2: Default Aquaplanet with Slab-Ocean Model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-3-aquaplanet-with-alternate-prescribed-sst">4.3.1.3. Example 3: Aquaplanet with alternate prescribed SST</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-4-aquaplanet-with-user-specified-sst-dataset">4.3.1.4. Example 4: Aquaplanet with user-specified SST dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customizing-compsets.html">4. Customizing CAM runs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#modifying-the-build-configuration">4.1. Modifying the build configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#running-in-debug-mode">4.1.1. Running in DEBUG mode</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-parallel-offline-radiation-tool-port-p-compsets">4.3.2. CAM Parallel Offline Radiation Tool (PORT - P compsets)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#port-compsets">4.3.2.1. PORT Compsets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-2-x-co2">4.3.2.2. Example: Using PORT to study flux differences due to 2 x CO2</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-fscam-compset">4.3.3. CAM single column (FSCAM compset)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#scam-configuration-options">4.3.3.1. SCAM Configuration Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-a-scam-run">4.3.3.2. Example:  Setting up a SCAM run</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-efficient-way-to-cycle-over-several-scam-iop-locations">4.3.3.3. Example:  Efficient way to cycle over several SCAM IOP locations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="atmospheric-configurations.html#example-setting-up-user-defined-iop-for-scam">4.3.3.4. Example:  Setting up User Defined IOP for SCAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#changing-cam-namelist-options">4.2. Changing CAM namelist options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#examples">4.3. Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#enable-cosp-diagnostics">4.3.1. Enable COSP Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#add-passive-tracers">4.3.2. Add passive tracers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#use-analytic-initial-conditions">4.3.3. Use analytic initial conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#using-cmip5-emissions">4.3.4. Using CMIP5 emissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#specified-dynamics">4.3.5. Specified Dynamics</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#other-cam-compsets">4.4. Other CAM compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-tested-compsets">4.5. CAM-chem tested compsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">4.6. WACCM compsets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#scientifically-supported-waccm-atmosphere-compsets">4.6.1. Scientifically supported WACCM atmosphere compsets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#tested-waccm-atmosphere-compsets">4.6.2. Tested WACCM atmosphere compsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atmospheric-configurations.html">5. Atmosphere configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#grids">5.1. Grids</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#uniform-grids">5.1.1. Uniform grids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#variable-resolution-grids">5.1.2. Variable resolution grids</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">4.7. WACCM-X compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-compsets">5.2. CAM compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-chem-compsets">5.3. CAM-chem compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-compsets">5.4. WACCM compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#waccm-x-compsets">5.5. WACCM-X compsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-simple-models">5.6. CAM Simple Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#ideal-physics-compsets">5.6.1. Ideal physics compsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#cam-aquaplanet">5.6.2. CAM aquaplanet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#radiative-convective-equilibrium-world">5.6.3. Radiative Convective Equilibrium World</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customizing-compsets.html">6. Customizing CAM runs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#modifying-the-build-configuration">6.1. Modifying the build configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#changing-cam-namelist-options">6.2. Changing CAM namelist options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html#examples">6.3. Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#enable-cosp-diagnostics">6.3.1. Enable COSP Diagnostics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#add-passive-tracers">6.3.2. Add passive tracers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#use-analytic-initial-conditions">6.3.3. Use analytic initial conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#using-cmip5-emissions">6.3.4. Using CMIP5 emissions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="customizing-compsets.html#specified-dynamics">6.3.5. Specified Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-single-column-model">5.7. CAM Single Column Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#scam-configuration-options">5.7.1. SCAM Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html#cam-parallel-offline-radiation-tool-port">5.8. CAM Parallel Offline Radiation Tool (PORT)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atmospheric-configurations.html#example-using-port-to-study-flux-differences-due-to-2-x-co2">5.8.1. Example: Using PORT to study flux differences due to 2 x CO2</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="variable-resolution-configurations.html">6. User Defined Variable Resolution Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="input-datasets.html#emissions">7.1. Emissions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="input-datasets.html#emissions-datasets">7.1.1. Emissions datasets</a></li>

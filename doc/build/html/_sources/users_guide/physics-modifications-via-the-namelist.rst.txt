@@ -358,6 +358,9 @@ have been used in place of ``mam4_mode1`` and ``mam4_mode4`` in the
  is run with modal_strat_sulfate set to true.  This option is not used with
  cam6 or cam7 physics, but it is used with WACCM.
 
+
+.. _ug70-nudging:
+
 =========
 Nudging
 =========
@@ -402,11 +405,13 @@ values are also adjusted to account for topographical differences between CESM a
 the reanalyses models. See the README files for an overview of the script settings
 needed to create a desired dataset. 
 
-Some recently revised versions of the processing scripts are also available in the 
-https://github.com/NCAR/IPT/tree/master/Meterological_Reanalysis_Data
-repository. The processing scripts are slightly different for the two available dycores, 
-so they are contained in separate directories. in each directory, there is a README that 
-provides general guidance for setting the script variables for a desired reanalysis product.
+Some recently revised versions of the processing scripts are also available
+in the `Meterological Reanalysis Data
+<https://github.com/NCAR/IPT/tree/master/Meterological_Reanalysis_Data>`__
+repository. The processing scripts are slightly different for the two
+available dycores, so they are contained in separate directories. in each
+directory, there is a README that provides general guidance for setting the
+script variables for a desired reanalysis product.
 
 +--------------------------+---------------------------+
 |    Finite_volume_dycore/ | README                    | 
@@ -552,119 +557,95 @@ A template for the namelist variables can be found in the
 ``components/cam/tools/nudging/`` directory. The following table lists the
 variables in the namelist and describes their usage.
 
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|    Variable          |  Type   |      Description                          | Values                              |
-+======================+=========+===========================================+=====================================+
-| Nudge_Model          | LOGICAL | Toggle to activate nudging                | | True  = Nudging **ON**            |
-|                      |         |                                           | | False = Nudging **OFF**           |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-| Nudge_Path           |  CHAR   | Path to Target files                      |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | Target filename template with year,       |                                     |
-| Nudge_File_Template  |  CHAR   | month, day, and second values replaced    |                                     |
-|                      |         | by %y, %m, %d, and %s respectively.       |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | Select the form of the Target values:     |                                     |
-|                      |         +-------------------------------------------+-------------------------------------+
-| Nudge_Force_Opt      | INTEGER |                                           | | 0 = **NEXT**                      |
-|                      |         |                                           | | 1 = **LINEAR**                    |
-|                      |         | **NEXT** = Target at next future time     |                                     |
-|                      |         |                                           |                                     |
-|                      |         | **LINEAR** = Linearly interpolate Target  |                                     |
-|                      |         | values to current model time.             |                                     |
-|                      |         |                                           |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | Select the timescale for the relaxation:  |                                     |
-|                      |         +-------------------------------------------+-------------------------------------+
-|                      |         |                                           | | 0 = **WEAK**                      |
-|                      |         |                                           | | 1 = **STRONG**                    |
-|                      |         |                                           |                                     |
-| Nudge_TimeScale_Opt  | INTEGER | **WEAK** = Constant time scale based in   |                                     |
-|                      |         | the time interval of Target values.       |                                     |           
-|                      |         |                                           |                                     |
-|                      |         | **STRONG** = Variable timescale which     |                                     |
-|                      |         | gets stronger near each Target time.      |                                     |
-|                      |         |                                           |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-| Nudge_Times_Per_Day  | INTEGER | Number of Target files per day.           | (e.g. 4 --> 6 hourly)               |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | Number of times to update the nudging     |                                     |
-| Model_Times_Per_Day  | INTEGER | tendencies per day. *(Internally this     |                                     |
-|                      |         | value is restricted to be longer than     | (e.g. 48 --> 1800 Sec timestep)     |
-|                      |         | the current model timestep and shorter    |                                     | 
-|                      |         | than the Target timestep)*                |                                     | 
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | Selectively apply nudging to [U,V,T,Q]:   |                                     |
-|                      |         +-------------------------------------------+-------------------------------------+
-| | Nudge_Uprof        |         |                                           |                                     |
-| | Nudge_Vprof        | INTEGER |                                           |                                     |
-| | Nudge_Tprof        |         |                                           |                                     |
-| | Nudge_Qprof        |         |                                           |                                     |
-|                      |         |                                           |                                     |
-|                      |         |                                           | | 0 = **OFF**                       |
-|                      |         |                                           | | 1 = **ON**                        |
-|                      |         |                                           | | 2 = **WINDOW**                    |
-|                      |         |                                           |                                     |
-|                      |         | **OFF** = Switch off nudging              |                                     |
-|                      |         |                                           |                                     |
-|                      |         | **ON**  = Apply nudging everywhere        |                                     |
-|                      |         |                                           |                                     |
-|                      |         | **WINDOW** = Apply window function to     |                                     |
-|                      |         | nudging tendencies.                       |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-| | Nudge_Ucoef        |         |                                           |                                     | 
-| | Nudge_Vcoef        |  REAL   | Selectively adjust the nudging strength   | [0.,1.]                             | 
-| | Nudge_Tcoef        |         | applied to [U,V,T,Q]. (normalized)        |                                     | 
-| | Nudge_Qcoef        |         |                                           |                                     | 
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-| | Nudge_Beg_Year     |         |                                           | | YYYY                              |
-| | Nudge_Beg_Month    | INTEGER | Year, Month, Day to begin nudging.        | | MM                                |
-| | Nudge_Beg_Day      |         |                                           | | DD                                |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-| | Nudge_End_Year     |         |                                           | | YYYY                              |
-| | Nudge_End_Month    | INTEGER | Year, Month, Day to stop nudging.         | | MM                                |
-| | Nudge_End_Day      |         |                                           | | DD                                |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-| | Nudge_Hwin_lat0    |  REAL   | Specify the horizontal center of the      | | [-90., +90.]                      |
-| | Nudge_Hwin_lon0    |         | window (lat0,lon0) in degrees.            | | [ 0. , 360.]                      |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | Specify the lat and lon widths of the     |                                     |
-| | Nudge_Hwin_latWidth|  REAL   | horizontal window in degrees.             |                                     |
-| | Nudge_Hwin_lonWidth|         | *Setting a width to a large value         | > 0.                                |
-|                      |         | (e.g. 999.) renders the window constant   |                                     |
-|                      |         | in that direction.*                       |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         |                                           |                                     |
-| | Nudge_Hwin_latDelta|  REAL   | Specify the sharpness of the window       |                                     |
-| | Nudge_Hwin_lonDelta|         | transition with a length in degrees.      | > 0.                                |
-|                      |         | Small values yield a step function while  |                                     |
-|                      |         | larger give a smoother transition.        |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | A logical flag used to invert the         |                                     |
-| Nudge_Hwin_Invert    | LOGICAL | horizontal window function to get its     | True/False                          |
-|                      |         | compliment.                               |                                     |
-|                      |         | (e.g. to nudge outside a given window)    |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | In the vertical, the window is specified  |                                     |
-| | Nudge_Vwin_Lindex  |         | in terms of model indices.                | | [0., (NLEV-1)]                    |
-| | Nudge_Vwin_Hindex  |  REAL   | These specify the High (model bottom)     | | [2., (NLEV+1)]                    |
-|                      |         | and Low (model top) transition levels.    |                                     |
-|                      |         | *(For constant vertical window, set       |                                     |
-|                      |         | Lindex=0 and Hindex=NLEV+1)*              |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         |                                           |                                     |
-| | Nudge_Vwin_Ldelta  |         |                                           |                                     |
-| | Nudge_Vwin_Hdelta  |  REAL   |                                           |  > 0.                               |
-|                      |         |                                           |                                     |
-|                      |         | The transition lengths are specified in   |                                     |
-|                      |         | terms of model level indices.             |                                     |
-|                      |         | *(For a constant vertical window, set     |                                     |
-|                      |         | the transition lengths to 0.001)*         |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
-|                      |         | A logical flag used to invert the         |                                     |
-| Nudge_Vwin_Invert    | LOGICAL | horizontal window function to get its     | True/False                          |
-|                      |         | compliment.                               |                                     |
-+----------------------+---------+-------------------------------------------+-------------------------------------+
++----------------------+---------+-------------------------------------------+---------------------------+
+|    Variable          |  Type   |      Description                          | Values                    |
++======================+=========+===========================================+===========================+
+| Nudge_Model          | LOGICAL | Toggle to activate nudging                || True  = Nudging **ON**   |
+|                      |         |                                           || False = Nudging **OFF**  |
++----------------------+---------+-------------------------------------------+---------------------------+
+| Nudge_Path           |  CHAR   | Path to Target files                      |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         || Target filename template with year,      |                           |
+| Nudge_File_Template  |  CHAR   || month, day, and second values replaced   |                           |
+|                      |         || by %y, %m, %d, and %s respectively.      |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         | Select the form of the Target values:     |                           |
+|                      |         +-------------------------------------------+---------------------------+
+| Nudge_Force_Opt      | INTEGER || **NEXT** = Target at next future time    || 0 = **NEXT**             |
+|                      |         || **LINEAR** = Linearly interpolate Target || 1 = **LINEAR**           |
+|                      |         ||             values to current model time.||                          |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         | Select the timescale for the relaxation:  |                           |
+|                      |         +-------------------------------------------+---------------------------+
+| Nudge_TimeScale_Opt  | INTEGER || **WEAK** = Constant time scale based in  || 0 = **WEAK**             |
+|                      |         || the time interval of Target values.      || 1 = **STRONG**           |           
+|                      |         ||                                          |                           |
+|                      |         || **STRONG** = Variable timescale which    |                           |
+|                      |         || gets stronger near each Target time.     |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+| Nudge_Times_Per_Day  | INTEGER | Number of Target files per day.           | (e.g. 4 => 6 hourly)      |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         || Number of times to update the nudging    |                           |
+| Model_Times_Per_Day  | INTEGER || tendencies per day.  *Internally this*   |                           |
+|                      |         || *value is restricted to be longer than*  | (e.g. 48 => 1800 sec step)|
+|                      |         || *the current model timestep and shorter* |                           | 
+|                      |         || *than the Target timestep*               |                           | 
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         | Selectively apply nudging to [U,V,T,Q]:   |                           |
+|                      |         +-------------------------------------------+---------------------------+
+|| Nudge_Uprof         |         || **OFF** = Switch off nudging             || 0 = **OFF**              |
+|| Nudge_Vprof         | INTEGER || **ON**  = Apply nudging everywhere       || 1 = **ON**               |
+|| Nudge_Tprof         |         || **WINDOW** = Apply window function to    || 2 = **WINDOW**           |
+|| Nudge_Qprof         |         ||              nudging tendencies.         |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|| Nudge_Ucoef         |         |                                           |                           | 
+|| Nudge_Vcoef         |  REAL   || Selectively adjust the nudging strength  | [0.,1.]                   | 
+|| Nudge_Tcoef         |         || applied to [U,V,T,Q]. (normalized)       |                           | 
+|| Nudge_Qcoef         |         |                                           |                           | 
++----------------------+---------+-------------------------------------------+---------------------------+
+|| Nudge_Beg_Year      |         |                                           || YYYY                     |
+|| Nudge_Beg_Month     | INTEGER | Year, Month, Day to begin nudging.        || MM                       |
+|| Nudge_Beg_Day       |         |                                           || DD                       |
++----------------------+---------+-------------------------------------------+---------------------------+
+|| Nudge_End_Year      |         |                                           || YYYY                     |
+|| Nudge_End_Month     | INTEGER | Year, Month, Day to stop nudging.         || MM                       |
+|| Nudge_End_Day       |         |                                           || DD                       |
++----------------------+---------+-------------------------------------------+---------------------------+
+|| Nudge_Hwin_lat0     |  REAL   || Specify the horizontal center of the     || [-90., +90.]             |
+|| Nudge_Hwin_lon0     |         || window (lat0,lon0) in degrees.           || [ 0. , 360.]             |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         || Specify the lat and lon widths of the    |                           |
+|| Nudge_Hwin_latWidth |  REAL   || horizontal window in degrees.            |                           |
+|| Nudge_Hwin_lonWidth |         || *Setting a width to a large value*       | > 0.                      |
+|                      |         || *(e.g. 999.) renders the window*         |                           |
+|                      |         || *constant in that direction.*            |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|| Nudge_Hwin_latDelta |  REAL   || Specify the sharpness of the window      |                           |
+|| Nudge_Hwin_lonDelta |         || transition with a length in degrees.     | > 0.                      |
+|                      |         || Small values yield a step function while |                           |
+|                      |         || larger give a smoother transition.       |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         || A logical flag used to invert the        |                           |
+| Nudge_Hwin_Invert    | LOGICAL || horizontal window function to get its    | True/False                |
+|                      |         || compliment.                              |                           |
+|                      |         || (e.g. to nudge outside a given window)   |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         || In the vertical, the window is specified |                           |
+|| Nudge_Vwin_Lindex   |         || in terms of model indices.               || [0., (NLEV-1)]           |
+|| Nudge_Vwin_Hindex   |  REAL   || These specify the High (model bottom)    || [2., (NLEV+1)]           |
+|                      |         || and Low (model top) transition levels.   |                           |
+|                      |         || *(For constant vertical window, set*     |                           |
+|                      |         || *Lindex=0 and Hindex=NLEV+1)*            |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         || The transition lengths are specified in  |                           |
+|| Nudge_Vwin_Ldelta   |         || terms of model level indices.            |                           |
+|| Nudge_Vwin_Hdelta   |  REAL   || *(For a constant vertical window, set*   |  > 0.                     |
+|                      |         || *the transition lengths to 0.001)*       |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
+|                      |         || A logical flag used to invert the        |                           |
+| Nudge_Vwin_Invert    | LOGICAL || horizontal window function to get its    | True/False                |
+|                      |         || compliment.                              |                           |
++----------------------+---------+-------------------------------------------+---------------------------+
 
 
 --------------------

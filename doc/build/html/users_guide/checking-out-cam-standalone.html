@@ -47,9 +47,9 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Resources and Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running CAM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">6. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">4. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">5. Atmosphere configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">6. User Defined Variable Resolution Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="physics-modifications-via-the-namelist.html">9. Physics modifications via the namelist</a></li>
@@ -102,15 +102,16 @@
 <h1><span class="section-number">11. </span>Downloading CAM standalone<a class="headerlink" href="#downloading-cam-standalone" title="Link to this heading"></a></h1>
 <section id="downloading-the-cam-standalone-code">
 <h2><span class="section-number">11.1. </span>Downloading the CAM standalone code<a class="headerlink" href="#downloading-the-cam-standalone-code" title="Link to this heading"></a></h2>
-<p>It is important to note that if a user downloads a CAM standalone tag, they
-will not be able to run a fully coupled model.  Checking out CAM standalone
-should only be done by users to run F, Q, or P compsets.  If you wish to
-use other compsets you will need to download the entire CESM model.  Please
-use the directions for <a class="reference external" href="http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html">downloading CESM</a>
-and you should ignore the rest of this chapter.</p>
-<p>Also for scientific studies, it
-is much better to use a released version of CESM and not do a CAM standalone checkout.  These
-directions are provided for users who are collaborating on CAM development.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The fully coupled model can not be run from a CAM standalone tag.  These
+tags can only be used to run F, Q, or P compsets.  The entire CESM model
+should be used (<a class="reference external" href="http://escomp.github.io/CESM/versions/cesm2.2/html/downloading_cesm.html">see downloading CESM</a>)
+for other compsets.  Also for scientific studies it is strongly advised
+to use a released version of CESM and not use a CAM standalone checkout.
+The directions in this section are provided for users who are
+collaborating on CAM development.</p>
+</div>
 <p>CAM development tags are available through <a class="reference external" href="https://github.com/ESCOMP/CAM">CAM’s github
 repository</a>.</p>
 <p>The first step in downloading standalone CAM is clone the CAM git repository:</p>

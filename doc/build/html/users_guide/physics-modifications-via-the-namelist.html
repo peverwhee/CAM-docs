@@ -47,9 +47,9 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting-help.html">2. Resources and Getting Help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="building-and-running-cam.html">3. Building and Running CAM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">4. Atmospheric configurations (compsets)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">5. User Defined Variable Resolution Configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">6. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing-compsets.html">4. Customizing CAM runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atmospheric-configurations.html">5. Atmosphere configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable-resolution-configurations.html">6. User Defined Variable Resolution Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-datasets.html">7. Input Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-output.html">8. Model Output:</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">9. Physics modifications via the namelist</a><ul>
@@ -439,7 +439,7 @@ cam6 or cam7 physics, but it is used with WACCM.</p>
 </section>
 </section>
 <section id="nudging">
-<h2><span class="section-number">9.3. </span>Nudging<a class="headerlink" href="#nudging" title="Link to this heading"></a></h2>
+<span id="ug70-nudging"></span><h2><span class="section-number">9.3. </span>Nudging<a class="headerlink" href="#nudging" title="Link to this heading"></a></h2>
 <p>Nudging augments the physics tendencies for the prognostic variables [U,V,T,Q]
 in order to drive the model solution toward some prescribed target states which
 are avaiable at a set of discrete target times. In general there are three
@@ -473,11 +473,12 @@ for the SE and FV dycores. In addition to interpolating onto a given grid, the
 values are also adjusted to account for topographical differences between CESM and
 the reanalyses models. See the README files for an overview of the script settings
 needed to create a desired dataset.</p>
-<p>Some recently revised versions of the processing scripts are also available in the
-<a class="reference external" href="https://github.com/NCAR/IPT/tree/master/Meterological_Reanalysis_Data">https://github.com/NCAR/IPT/tree/master/Meterological_Reanalysis_Data</a>
-repository. The processing scripts are slightly different for the two available dycores,
-so they are contained in separate directories. in each directory, there is a README that
-provides general guidance for setting the script variables for a desired reanalysis product.</p>
+<p>Some recently revised versions of the processing scripts are also available
+in the <a class="reference external" href="https://github.com/NCAR/IPT/tree/master/Meterological_Reanalysis_Data">Meterological Reanalysis Data</a>
+repository. The processing scripts are slightly different for the two
+available dycores, so they are contained in separate directories. in each
+directory, there is a README that provides general guidance for setting the
+script variables for a desired reanalysis product.</p>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p>Finite_volume_dycore/</p></td>
@@ -627,9 +628,12 @@ variables in the namelist and describes their usage.</p>
 </tr>
 <tr class="row-even"><td><p>Nudge_File_Template</p></td>
 <td><p>CHAR</p></td>
-<td><p>Target filename template with year,
-month, day, and second values replaced
-by %y, %m, %d, and %s respectively.</p></td>
+<td><div class="line-block">
+<div class="line">Target filename template with year,</div>
+<div class="line">month, day, and second values replaced</div>
+<div class="line">by %y, %m, %d, and %s respectively.</div>
+</div>
+</td>
 <td></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>Nudge_Force_Opt</p></td>
@@ -637,13 +641,18 @@ by %y, %m, %d, and %s respectively.</p></td>
 <td><p>Select the form of the Target values:</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>NEXT</strong> = Target at next future time</p>
-<p><strong>LINEAR</strong> = Linearly interpolate Target
-values to current model time.</p>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><strong>NEXT</strong> = Target at next future time</div>
+<div class="line"><strong>LINEAR</strong> = Linearly interpolate Target</div>
+<div class="line-block">
+<div class="line">values to current model time.</div>
+</div>
+</div>
 </td>
 <td><div class="line-block">
 <div class="line">0 = <strong>NEXT</strong></div>
 <div class="line">1 = <strong>LINEAR</strong></div>
+<div class="line"><br /></div>
 </div>
 </td>
 </tr>
@@ -652,10 +661,13 @@ values to current model time.</p>
 <td><p>Select the timescale for the relaxation:</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>WEAK</strong> = Constant time scale based in
-the time interval of Target values.</p>
-<p><strong>STRONG</strong> = Variable timescale which
-gets stronger near each Target time.</p>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><strong>WEAK</strong> = Constant time scale based in</div>
+<div class="line">the time interval of Target values.</div>
+<div class="line"><br /></div>
+<div class="line"><strong>STRONG</strong> = Variable timescale which</div>
+<div class="line">gets stronger near each Target time.</div>
+</div>
 </td>
 <td><div class="line-block">
 <div class="line">0 = <strong>WEAK</strong></div>
@@ -666,16 +678,19 @@ gets stronger near each Target time.</p>
 <tr class="row-odd"><td><p>Nudge_Times_Per_Day</p></td>
 <td><p>INTEGER</p></td>
 <td><p>Number of Target files per day.</p></td>
-<td><p>(e.g. 4 –&gt; 6 hourly)</p></td>
+<td><p>(e.g. 4 =&gt; 6 hourly)</p></td>
 </tr>
 <tr class="row-even"><td><p>Model_Times_Per_Day</p></td>
 <td><p>INTEGER</p></td>
-<td><p>Number of times to update the nudging
-tendencies per day. <em>(Internally this
-value is restricted to be longer than
-the current model timestep and shorter
-than the Target timestep)</em></p></td>
-<td><p>(e.g. 48 –&gt; 1800 Sec timestep)</p></td>
+<td><div class="line-block">
+<div class="line">Number of times to update the nudging</div>
+<div class="line">tendencies per day.  <em>Internally this</em></div>
+<div class="line"><em>value is restricted to be longer than</em></div>
+<div class="line"><em>the current model timestep and shorter</em></div>
+<div class="line"><em>than the Target timestep</em></div>
+</div>
+</td>
+<td><p>(e.g. 48 =&gt; 1800 sec step)</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><div class="line-block">
 <div class="line">Nudge_Uprof</div>
@@ -688,10 +703,14 @@ than the Target timestep)</em></p></td>
 <td><p>Selectively apply nudging to [U,V,T,Q]:</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>OFF</strong> = Switch off nudging</p>
-<p><strong>ON</strong>  = Apply nudging everywhere</p>
-<p><strong>WINDOW</strong> = Apply window function to
-nudging tendencies.</p>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><strong>OFF</strong> = Switch off nudging</div>
+<div class="line"><strong>ON</strong>  = Apply nudging everywhere</div>
+<div class="line"><strong>WINDOW</strong> = Apply window function to</div>
+<div class="line-block">
+<div class="line">nudging tendencies.</div>
+</div>
+</div>
 </td>
 <td><div class="line-block">
 <div class="line">0 = <strong>OFF</strong></div>
@@ -708,8 +727,11 @@ nudging tendencies.</p>
 </div>
 </td>
 <td><p>REAL</p></td>
-<td><p>Selectively adjust the nudging strength
-applied to [U,V,T,Q]. (normalized)</p></td>
+<td><div class="line-block">
+<div class="line">Selectively adjust the nudging strength</div>
+<div class="line">applied to [U,V,T,Q]. (normalized)</div>
+</div>
+</td>
 <td><p>[0.,1.]</p></td>
 </tr>
 <tr class="row-even"><td><div class="line-block">
@@ -748,8 +770,11 @@ applied to [U,V,T,Q]. (normalized)</p></td>
 </div>
 </td>
 <td><p>REAL</p></td>
-<td><p>Specify the horizontal center of the
-window (lat0,lon0) in degrees.</p></td>
+<td><div class="line-block">
+<div class="line">Specify the horizontal center of the</div>
+<div class="line">window (lat0,lon0) in degrees.</div>
+</div>
+</td>
 <td><div class="line-block">
 <div class="line">[-90., +90.]</div>
 <div class="line">[ 0. , 360.]</div>
@@ -762,11 +787,14 @@ window (lat0,lon0) in degrees.</p></td>
 </div>
 </td>
 <td><p>REAL</p></td>
-<td><p>Specify the lat and lon widths of the
-horizontal window in degrees.
-<em>Setting a width to a large value
-(e.g. 999.) renders the window constant
-in that direction.</em></p></td>
+<td><div class="line-block">
+<div class="line">Specify the lat and lon widths of the</div>
+<div class="line">horizontal window in degrees.</div>
+<div class="line"><em>Setting a width to a large value</em></div>
+<div class="line"><em>(e.g. 999.) renders the window</em></div>
+<div class="line"><em>constant in that direction.</em></div>
+</div>
+</td>
 <td><p>&gt; 0.</p></td>
 </tr>
 <tr class="row-even"><td><div class="line-block">
@@ -775,18 +803,24 @@ in that direction.</em></p></td>
 </div>
 </td>
 <td><p>REAL</p></td>
-<td><p>Specify the sharpness of the window
-transition with a length in degrees.
-Small values yield a step function while
-larger give a smoother transition.</p></td>
+<td><div class="line-block">
+<div class="line">Specify the sharpness of the window</div>
+<div class="line">transition with a length in degrees.</div>
+<div class="line">Small values yield a step function while</div>
+<div class="line">larger give a smoother transition.</div>
+</div>
+</td>
 <td><p>&gt; 0.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Nudge_Hwin_Invert</p></td>
 <td><p>LOGICAL</p></td>
-<td><p>A logical flag used to invert the
-horizontal window function to get its
-compliment.
-(e.g. to nudge outside a given window)</p></td>
+<td><div class="line-block">
+<div class="line">A logical flag used to invert the</div>
+<div class="line">horizontal window function to get its</div>
+<div class="line">compliment.</div>
+<div class="line">(e.g. to nudge outside a given window)</div>
+</div>
+</td>
 <td><p>True/False</p></td>
 </tr>
 <tr class="row-even"><td><div class="line-block">
@@ -795,12 +829,15 @@ compliment.
 </div>
 </td>
 <td><p>REAL</p></td>
-<td><p>In the vertical, the window is specified
-in terms of model indices.
-These specify the High (model bottom)
-and Low (model top) transition levels.
-<em>(For constant vertical window, set
-Lindex=0 and Hindex=NLEV+1)</em></p></td>
+<td><div class="line-block">
+<div class="line">In the vertical, the window is specified</div>
+<div class="line">in terms of model indices.</div>
+<div class="line">These specify the High (model bottom)</div>
+<div class="line">and Low (model top) transition levels.</div>
+<div class="line"><em>(For constant vertical window, set</em></div>
+<div class="line"><em>Lindex=0 and Hindex=NLEV+1)</em></div>
+</div>
+</td>
 <td><div class="line-block">
 <div class="line">[0., (NLEV-1)]</div>
 <div class="line">[2., (NLEV+1)]</div>
@@ -813,17 +850,23 @@ Lindex=0 and Hindex=NLEV+1)</em></p></td>
 </div>
 </td>
 <td><p>REAL</p></td>
-<td><p>The transition lengths are specified in
-terms of model level indices.
-<em>(For a constant vertical window, set
-the transition lengths to 0.001)</em></p></td>
+<td><div class="line-block">
+<div class="line">The transition lengths are specified in</div>
+<div class="line">terms of model level indices.</div>
+<div class="line"><em>(For a constant vertical window, set</em></div>
+<div class="line"><em>the transition lengths to 0.001)</em></div>
+</div>
+</td>
 <td><p>&gt; 0.</p></td>
 </tr>
 <tr class="row-even"><td><p>Nudge_Vwin_Invert</p></td>
 <td><p>LOGICAL</p></td>
-<td><p>A logical flag used to invert the
-horizontal window function to get its
-compliment.</p></td>
+<td><div class="line-block">
+<div class="line">A logical flag used to invert the</div>
+<div class="line">horizontal window function to get its</div>
+<div class="line">compliment.</div>
+</div>
+</td>
 <td><p>True/False</p></td>
 </tr>
 </tbody>

@@ -169,11 +169,6 @@ vertical bar separated list. ::
   -offline_dyn       Enable offline driver for FV dycore.
                      Default: off.
 
-  -ocn <name>        Allows build system to inform CAM which ocean component is being used.
-                     This information is stored in the cache file and used by build-namelist
-                     for selecting the default values of some tuning parameters.
-                     [docn | som | socn | aquaplanet | pop].
-
   -pbl <name>        Set the PBL scheme.
                      [ clubb_sgs | uw | hb | none ].
                      Default PBL schemes: clubb_sgs for cam6 and cam7;

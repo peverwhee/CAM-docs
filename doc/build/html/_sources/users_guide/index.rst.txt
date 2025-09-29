@@ -14,9 +14,9 @@ CAM7.0 User's Guide
    introduction.rst
    getting-help.rst
    building-and-running-cam.rst
+   customizing-compsets.rst
    atmospheric-configurations.rst
    variable-resolution-configurations.rst
-   customizing-compsets.rst
    input-datasets.rst
    model-output.rst
    physics-modifications-via-the-namelist.rst
