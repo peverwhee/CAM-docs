@@ -24,7 +24,7 @@ permissions:
 
 jobs:
 
-  build-and-deploy:
+  build-to-publish-dont-deploy:
     name: Call reusable workflow with deploy false
 
     uses: ./.github/workflows/docs-build_to_publish-optionally-deploy.yml
