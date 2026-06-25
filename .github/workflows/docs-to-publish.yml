@@ -9,6 +9,7 @@ on:
       - 'doc/doc-builder'
       - 'doc/build_docs_to_publish'
       - '.github/workflows/docs-to-publish.yml'
+      - '.github/workflows/docs-build_to_publish-optionally-deploy.yml'
 
   pull_request:
     # Run on pull requests that change the listed files
@@ -16,6 +17,7 @@ on:
       - 'doc/doc-builder'
       - 'doc/build_docs_to_publish'
       - '.github/workflows/docs-to-publish.yml'
+      - '.github/workflows/docs-build_to_publish-optionally-deploy.yml'
 
 permissions:
   contents: read

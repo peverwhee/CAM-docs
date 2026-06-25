@@ -8,6 +8,7 @@ on:
     paths:
       - 'doc/**'
       - '.github/workflows/docs-build-and-deploy.yml'
+      - '.github/workflows/docs-build_to_publish-optionally-deploy.yml'
     # And also make sure to add any files that you "include" in your docs that live outside doc/
 
   # Allows you to run this workflow manually from the Actions tab
