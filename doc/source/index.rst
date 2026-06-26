@@ -29,10 +29,3 @@ User's Guides
 
    To find older versions of this documentation, use the drop-down menu in the bottom left corner. 
    The latest released documentation is `CAM6.3 <https://ncar.github.io/CAM/cam6.3-users-guide/users_guide/index.html>`__.
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
