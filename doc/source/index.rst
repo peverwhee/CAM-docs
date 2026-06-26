@@ -25,6 +25,10 @@ User's Guides
 
    users_guide/index.rst
 
+.. note::
+
+   To find older versions of this documentation, use the drop-down menu in the bottom left corner. The latest released documentation is CAM6.3.
+
 Indices and tables
 ==================
 
